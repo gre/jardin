@@ -1,0 +1,144 @@
+[
+  {
+    "year": 2015,
+    "type": "homemade",
+    "species": "coeur_de_boeuf_akers"
+  },
+  {
+    "year": 2016,
+    "species": "laitue_reine_de_mai",
+    "type": "commercial",
+    "brand": "Vilmorin"
+  },
+  {
+    "year": 2016,
+    "species": "laitue_appia",
+    "type": "commercial",
+    "brand": "Vilmorin"
+  },
+  {
+    "year": 2014,
+    "expiration": 2018,
+    "species": "blonde_de_paris",
+    "type": "bio",
+    "brand": "kokopelli"
+  },
+  {
+    "year": 2016,
+    "species": "barbaniaka",
+    "type": "bio",
+    "brand": "kokopelli"
+  },
+  {
+    "year": 2015,
+    "species": "red_centiflor_cherry",
+    "type": "bio",
+    "brand": "kokopelli"
+  },
+  {
+    "year": 2016,
+    "species": "speckled_roman",
+    "type": "bio",
+    "brand": "kokopelli"
+  },
+  {
+    "year": 2015,
+    "species": "black_from_tula",
+    "type": "bio",
+    "brand": "kokopelli"
+  },
+  {
+    "year": 2015,
+    "species": "striato_italia",
+    "type": "bio",
+    "brand": "kokopelli"
+  },
+  {
+    "year": 2015,
+    "species": "oignon_stuttgart",
+    "type": "bio",
+    "brand": "kokopelli"
+  },
+  {
+    "year": 2015,
+    "species": "marketmore_76",
+    "type": "bio",
+    "brand": "kokopelli"
+  },
+  {
+    "year": 2014,
+    "species": "corno_di_toro_rouge",
+    "type": "bio",
+    "brand": "kokopelli"
+  },
+  {
+    "year": 2016,
+    "species": "romanesco",
+    "type": "bio",
+    "brand": "kokopelli"
+  },
+  {
+    "year": 2015,
+    "species": "butternut_honey_nut",
+    "type": "bio",
+    "brand": "kokopelli"
+  },
+  {
+    "year": 2016,
+    "species": "chantenay_coeur_rouge",
+    "type": "bio",
+    "brand": "kokopelli"
+  },
+  {
+    "year": 2015,
+    "species": "red_ball_jets",
+    "type": "bio",
+    "brand": "kokopelli"
+  },
+  {
+    "year": 2014,
+    "species": "baipiyuanpu",
+    "type": "commercial",
+    "brand": "oujiang",
+    "country": "Chine"
+  },
+  {
+    "year": 2014,
+    "species": "sigua",
+    "type": "commercial",
+    "brand": "cephagri",
+    "country": "Chine"
+  },
+  {
+    "year": 2013,
+    "species": "dark_green_skin_wax_gourd",
+    "type": "commercial",
+    "brand": "huinonliangzhong",
+    "country": "Chine"
+  },
+  {
+    "year": 2015,
+    "species": "tournesol",
+    "type": "commercial",
+    "brand": "gartenshop",
+    "country": "Allemagne"
+  },
+  {
+    "year": 2013,
+    "species": "coriandre",
+    "type": "bio",
+    "brand": "kokopelli"
+  },
+  {
+    "year": 2013,
+    "species": "coriandre",
+    "type": "commercial",
+    "brand": "Vilmorin"
+  },
+  {
+    "year": 2014,
+    "species": "persil",
+    "type": "bio",
+    "brand": "kokopelli"
+  }
+]

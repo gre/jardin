@@ -1,0 +1,152 @@
+{
+  "aubergine": {
+    "name": "Aubergine",
+    "seeding_indoors_months": [2,3,4],
+    "seeding_outdoors_months": [4,5],
+    "planting_months": [4,5,6],
+    "harvest_months": [7,8,9,10]
+  },
+  "basilic": {
+    "name": "Basilic",
+    "seeding_indoors_months": [3,4],
+    "seeding_outdoors_months": [5,6],
+    "planting_months": [5,6,7],
+    "harvest_months": [6,7,8,9,10]
+  },
+  "betterave": {
+    "name": "Betterave",
+    "seeding_outdoors_months": [2,3,4,5,6,7],
+    "harvest_months": [8,9,10,11]
+  },
+  "carotte": {
+    "name": "Carotte",
+    "seeding_indoors_months": [2,3],
+    "seeding_outdoors_months": [3,4,5,6,7],
+    "harvest_months": [5,6,7,8,9,10,11]
+  },
+  "celeri_branche": {
+    "name": "Céleri branche",
+    "seeding_indoors_months": [2,3],
+    "seeding_outdoors_months": [4,5],
+    "planting_months": [4,5],
+    "harvest_months": [8,9,10,11]
+  },
+  "chou_fleur": {
+    "name": "Chou-fleur",
+    "seeding_indoors_months": [1,2],
+    "seeding_outdoors_months": [3,4,5,6],
+    "planting_months": [3,4,5,6,7,8,9,10,11,12],
+    "harvest_months": [5,6,7,8,9,10,11,12]
+  },
+  "concombre": {
+    "name": "Concombre",
+    "seeding_indoors_months": [3,4],
+    "seeding_outdoors_months": [4,5,6],
+    "planting_months": [4,5],
+    "harvest_months": [6,7,8,9,10,11]
+  },
+  "cote_de_bette": {
+    "name": "Côte de Bette",
+    "seeding_outdoors_months": [3,4,5,6],
+    "planting_months": [2,3,6,7,8,9,10,11]
+  },
+  "courge": {
+    "name": "Courge",
+    "seeding_indoors_months": [3,4],
+    "seeding_outdoors_months": [4,5,6],
+    "planting_months": [5,6],
+    "harvest_months": [9,10,11]
+  },
+  "courgette": {
+    "name": "Courgette",
+    "seeding_indoors_months": [3,4],
+    "planting_months": [5,6],
+    "harvest_months": [6,7,8,9,10,11]
+  },
+  "epinard": {
+    "name": "Epinard",
+    "seeding_outdoors_months": [2,3,4,8,9,10,11],
+    "harvest_months": [1,2,3,4,5,6,10,11,12]
+  },
+  "feve": {
+    "name": "Fève",
+    "seeding_outdoors_months": [1,2,3,4,10,11,12],
+    "harvest_months": [5,6,8,9,10]
+  },
+  "haricot": {
+    "name": "Haricot",
+    "seeding_outdoors_months": [4,5,6,7,8],
+    "harvest_months": [6,7,8,9,10]
+  },
+  "laitue": {
+    "name": "Laitue",
+    "seeding_indoors_months": [2,3,4],
+    "seeding_outdoors_months": [4,5,6,7,8,9,10],
+    "planting_months": [4,5,6,7,8,9,10],
+    "harvest_months": [5,6,7,8,9,10]
+  },
+  "mache": {
+    "name": "Mâche",
+    "seeding_outdoors_months": [8,9,10],
+    "harvest_months": [1,2,3,9,10,11,12]
+  },
+  "melon": {
+    "name": "Melon",
+    "seeding_indoors_months": [2,3,4],
+    "seeding_outdoors_months": [5],
+    "planting_months": [4,5],
+    "harvest_months": [7,8,9,10]
+  },
+  "navet": {
+    "name": "Navet",
+    "seeding_outdoors_months": [3,4,5,7,8,9],
+    "harvest_months": [3,4,5,6,7,8,10,11]
+  },
+  "oignon": {
+    "name": "Oignon",
+    "seeding_outdoors_months": [2,3,4,8,9],
+    "planting_months": [1,2,5,10,11],
+    "harvest_months": [4,5,6,7,8,9]
+  },
+  "panais": {
+    "name": "Panais",
+    "seeding_outdoors_months": [2,3,4,5,6,10,11],
+    "harvest_months": [1,2,3,4,5,6,7,8,9,10,11,12]
+  },
+  "persil": {
+    "name": "Persil",
+    "seeding_outdoors_months": [2,3,4,5,6,7,8,9],
+    "harvest_months": [3,4,5,6,7,8,9,10,11]
+  },
+  "piment_poivron": {
+    "name": "Piment-Poivron",
+    "seeding_indoors_months": [2,3],
+    "planting_months": [5],
+    "harvest_months": [8,9,10,11]
+  },
+  "poireau": {
+    "name": "Poireau",
+    "seeding_indoors_months": [1,2,3],
+    "seeding_outdoors_months": [3,4,5,8,9],
+    "planting_months": [2,3,4,5,10,11],
+    "harvest_months": [1,2,3,4,5,6,7,8,9,10,11,12]
+  },
+  "pois": {
+    "name": "Pois",
+    "seeding_outdoors_months": [2,3,4,5,10,11],
+    "harvest_months": [5,6,7,8,9]
+  },
+  "radis": {
+    "name": "Radis",
+    "seeding_indoors_months": [2,3],
+    "seeding_outdoors_months": [3,4,5,6,7,8,9],
+    "harvest_months": [4,5,6,7,8,9,10,11]
+  },
+  "tomates": {
+    "name": "Tomates",
+    "seeding_indoors_months": [2,3,4],
+    "seeding_outdoors_months": [5,6],
+    "planting_months": [5,6],
+    "harvest_months": [7,8,9,10]
+  }
+}
