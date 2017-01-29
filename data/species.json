@@ -25,7 +25,6 @@
     "family": "courge",
     "name": "白皮圆蒲",
     "chinese_name": "白皮圆蒲",
-    "pref_months": [3,4],
     "desc": "espacer les pieds de 2 mètres."
   },
   "sigua": {
@@ -40,8 +39,7 @@
     "family": "laitue",
     "name": "Red Ball Jets",
     "latin": "Lactuca sativa",
-    "desc": "Une nouvelle laitue de couleur rouge intense. Les feuilles rondes, gaufrées et aux bords ondulés entourent un coeur pommé de couleur rouge cristallin. Très grande résistance au bremia, à la montaison et à la nécrose. Une variété sélectionnée par Frank Morton en Oregon.",
-    "pref_months": [4,5,6]
+    "desc": "Une nouvelle laitue de couleur rouge intense. Les feuilles rondes, gaufrées et aux bords ondulés entourent un coeur pommé de couleur rouge cristallin. Très grande résistance au bremia, à la montaison et à la nécrose. Une variété sélectionnée par Frank Morton en Oregon."
   },
   "chantenay_coeur_rouge": {
     "generic": "Carotte Rouge",
@@ -49,8 +47,7 @@
     "name": "Chantenay à Coeur Rouge",
     "latin": "Daucus carota",
     "desc": "Variété produisant des racines demi-longues de 12 à 18 cm de longueur, au fort volume et à la forme arrondie à l'extrémité. Variété de bonne conservation et adaptée aux soles lourds. Grande productivé",
-    "growth_days": 74,
-    "pref_months": [4,5,6]
+    "growth_days": 74
   },
   "butternut_honey_nut": {
     "generic": "Courge Moschata",
@@ -58,8 +55,7 @@
     "name": "Butternut Honey Nut",
     "latin": "Cucurbita moschata",
     "desc": "Les fruits de 10/12 cm de longueur font de 1 kg à 1.5 kg et sont beaucoup plus petis que le butternut Waltham. Epiderme vert virant à ocre à maturité. Chair de couleur jaune-orangé, très fine, excellente, au goût de noisette.",
-    "growth_days": 110,
-    "pref_months": [5]
+    "growth_days": 110
   },
   "romanesco": {
     "generic": "Chou Brocoli",
@@ -68,7 +64,6 @@
     "latin": "Brassica olaracea",
     "desc": "Cette variété unique et magnifique se présente comme un chou-fleur compact et tout en spirales. La couleur est d'un beau vert pomme. La saveur est excellente. La variété est réputée être très digeste, car exempte de substances soufrées.",
     "growth_days": 80,
-    "pref_months": [5,6]
   },
   "corno_di_toro_rouge": {
     "generic": "Piment Doux",
@@ -76,8 +71,7 @@
     "name": "Corno Di Toro Rouge",
     "latin": "Capsicum annuum",
     "desc": "C'est une variété idéale pour les farces. Les fruits très juteux, en forme de corne, peuvent atteindre 22 cm de long et 4 cm de large. Leur saveur est excellente, crus ou farcis. Ils mûrissent de vert à rouge brillant. Les plantes sont très vigoureuses et ramifiées. La variété est très productive. Cette ancienne variété, antérieure à 1920, est originaire d'Italie et est également appelée \"Corno di toro rosso\".",
-    "growth_days": 80,
-    "pref_months": [5]
+    "growth_days": 80
   },
   "marketmore_76": {
     "generic": "Concombre",
@@ -94,7 +88,6 @@
     "desc": "Les bulbes sont ronds et gros, à la pelure épaisse de couleur jaune cuivré, et de très bonne conservation. C'est une variété lente à la montaison et de bonne productivité.",
     "latin": "Allium cepa",
     "growth_days": 90,
-    "pref_months": [5],
     "conservation_months": 8
   },
   "striato_italia": {
@@ -103,8 +96,7 @@
     "name": "Striato d'Italia",
     "latin": "Cucurbita pepo",
     "desc": "Les fruits sont de couleur vert foncé strié de clair et font presque 30 cm de longueur. C'est une ancienne variété originaire d'Italie.",
-    "growth_days": 16,
-    "pref_months": [5]
+    "growth_days": 16
   },
   "black_from_tula": {
     "generic": "Tomate Noire",
@@ -113,8 +105,7 @@
     "term": "mid-season",
     "desc": "La chair est de couleur rouge-brun très foncé, la saveur est très douce et très riche. Fruits de 300 à 400 g légèrement aplatis, avec un gel de couleur vert foncé autour des semences à maturité complète. Feuillage abondant. Croissance indéterminée.",
     "latin": "Solanum lycopersicum",
-    "growth_days": 85,
-    "pref_months": [5]
+    "growth_days": 85
   },
   "speckled_roman": {
     "generic": "Tomate Bigarrée",
@@ -122,8 +113,7 @@
     "name": "Speckled Roman",
     "term": "mid-season",
     "latin": "Solanum lycopersicum",
-    "growth_days": 35,
-    "pref_months": [5]
+    "growth_days": 35
   },
   "barbaniaka": {
     "generic": "Tomate-Cerise Rouge",
@@ -132,8 +122,7 @@
     "term": "early",
     "desc": "Variété de tomate-cerise, aux tout petis fruits. Saveur délicieuse. Bonne productivité. Originaire de Hongrie.",
     "latin": "Solanum lycopersicum",
-    "growth_days": 35,
-    "pref_months": [5]
+    "growth_days": 35
   },
   "red_centiflor_cherry": {
     "generic": "Tomate-Cerise Rouge",
@@ -141,8 +130,7 @@
     "name": "Red Centiflor Cherry",
     "term": "mid-season",
     "latin": "Solanum lycopersicum",
-    "growth_days": 35,
-    "pref_months": [5]
+    "growth_days": 35
   },
   "coeur_de_boeuf_akers": {
     "generic": "Tomate Rose Violette",
@@ -152,7 +140,6 @@
     "latin": "Solanum lycopersicum",
     "desc": "Variété de coeur de boeuf de 500 à 700 grammes. Très bonne productivité. Chair ferme. Feuillage fin et ciselé. Croissance indeterminée.",
     "growth_days": 35,
-    "pref_months": [5],
     "post_transplanting_days": 90
   },
   "laitue_reine_de_mai": {
@@ -160,7 +147,6 @@
     "family": "laitue",
     "growth_days": 8,
     "min_temp_celsius": 10,
-    "pref_months": [2,3],
     "latin": "Lactuca sativa"
   },
   "laitue_appia": {
@@ -169,7 +155,6 @@
     "latin": "Lactuca sativa",
     "growth_days": 8,
     "min_temp_celsius": 10,
-    "pref_months": [2,3,4,5,6,7,8],
     "latin": "Lactuca sativa"
   },
   "blonde_de_paris": {
@@ -177,8 +162,7 @@
     "family": "laitue",
     "latin": "Lactuca sativa",
     "name": "Blonde de Paris",
-    "desc": "Les belles pommes sont fermes avec des feuilles découpées et cloquées très croquantes. Cette variété est relativement résistante à la sécheresse. On peut la cultiver durant le printemps et l'été. Variété originaire de France.",
-    "pref_months": [3,4,5,6]
+    "desc": "Les belles pommes sont fermes avec des feuilles découpées et cloquées très croquantes. Cette variété est relativement résistante à la sécheresse. On peut la cultiver durant le printemps et l'été. Variété originaire de France."
   },
   "pomme_de_terre_nicola": {
     "generic": "Pomme de Terre",
