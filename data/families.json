@@ -4,7 +4,10 @@
     "seeding_indoors_months": [2,3,4],
     "seeding_outdoors_months": [4,5],
     "planting_months": [4,5,6],
-    "harvest_months": [7,8,9,10]
+    "harvest_months": [7,8,9,10],
+    "seeding_depth_cm": 1,
+    "line_distance_cm": 50,
+    "spacing_cm": 50
   },
   "basilic": {
     "name": "Basilic",
@@ -16,34 +19,49 @@
   "betterave": {
     "name": "Betterave",
     "seeding_outdoors_months": [2,3,4,5,6,7],
-    "harvest_months": [8,9,10,11]
+    "harvest_months": [8,9,10,11],
+    "seeding_depth_cm": 2,
+    "line_distance_cm": 30,
+    "spacing_cm": 30
   },
   "carotte": {
     "name": "Carotte",
     "seeding_indoors_months": [2,3],
     "seeding_outdoors_months": [3,4,5,6,7],
-    "harvest_months": [5,6,7,8,9,10,11]
+    "harvest_months": [5,6,7,8,9,10,11],
+    "seeding_depth_cm": 1,
+    "line_distance_cm": 20,
+    "spacing_cm": 5
   },
   "celeri_branche": {
     "name": "Céleri branche",
     "seeding_indoors_months": [2,3],
     "seeding_outdoors_months": [4,5],
     "planting_months": [4,5],
-    "harvest_months": [8,9,10,11]
+    "harvest_months": [8,9,10,11],
+    "seeding_depth_cm": 1,
+    "line_distance_cm": 40,
+    "spacing_cm": 40
   },
   "chou_fleur": {
     "name": "Chou-fleur",
     "seeding_indoors_months": [1,2],
     "seeding_outdoors_months": [3,4,5,6],
     "planting_months": [3,4,5,6,7,8,9,10,11,12],
-    "harvest_months": [5,6,7,8,9,10,11,12]
+    "harvest_months": [5,6,7,8,9,10,11,12],
+    "seeding_depth_cm": 2,
+    "line_distance_cm": 60,
+    "spacing_cm": 60
   },
   "concombre": {
     "name": "Concombre",
     "seeding_indoors_months": [3,4],
     "seeding_outdoors_months": [4,5,6],
     "planting_months": [4,5],
-    "harvest_months": [6,7,8,9,10,11]
+    "harvest_months": [6,7,8,9,10,11],
+    "seeding_depth_cm": 3,
+    "line_distance_cm": 100,
+    "spacing_cm": 100
   },
   "cote_de_bette": {
     "name": "Côte de Bette",
@@ -55,63 +73,96 @@
     "seeding_indoors_months": [3,4],
     "seeding_outdoors_months": [4,5,6],
     "planting_months": [5,6],
-    "harvest_months": [9,10,11]
+    "harvest_months": [9,10,11],
+    "seeding_depth_cm": 2,
+    "line_distance_cm": 70,
+    "spacing_cm": 70
   },
   "courgette": {
     "name": "Courgette",
     "seeding_indoors_months": [3,4],
     "planting_months": [5,6],
-    "harvest_months": [6,7,8,9,10,11]
+    "harvest_months": [6,7,8,9,10,11],
+    "seeding_depth_cm": 2,
+    "line_distance_cm": 70,
+    "spacing_cm": 70
   },
   "epinard": {
     "name": "Epinard",
     "seeding_outdoors_months": [2,3,4,8,9,10,11],
-    "harvest_months": [1,2,3,4,5,6,10,11,12]
+    "harvest_months": [1,2,3,4,5,6,10,11,12],
+    "seeding_depth_cm": 2,
+    "line_distance_cm": 30,
+    "spacing_cm": 10
   },
   "feve": {
     "name": "Fève",
     "seeding_outdoors_months": [1,2,3,4,10,11,12],
-    "harvest_months": [5,6,8,9,10]
+    "harvest_months": [5,6,8,9,10],
+    "seeding_depth_cm": 3,
+    "line_distance_cm": 35,
+    "spacing_cm": 11
   },
   "haricot": {
     "name": "Haricot",
     "seeding_outdoors_months": [4,5,6,7,8],
-    "harvest_months": [6,7,8,9,10]
+    "harvest_months": [6,7,8,9,10],
+    "seeding_depth_cm": 3,
+    "line_distance_cm": 45,
+    "spacing_cm": 5
   },
   "laitue": {
     "name": "Laitue",
     "seeding_indoors_months": [2,3,4],
     "seeding_outdoors_months": [4,5,6,7,8,9,10],
     "planting_months": [4,5,6,7,8,9,10],
-    "harvest_months": [5,6,7,8,9,10]
+    "harvest_months": [5,6,7,8,9,10],
+    "seeding_depth_cm": 1,
+    "line_distance_cm": 35,
+    "spacing_cm": 25
   },
   "mache": {
     "name": "Mâche",
     "seeding_outdoors_months": [8,9,10],
-    "harvest_months": [1,2,3,9,10,11,12]
+    "harvest_months": [1,2,3,9,10,11,12],
+    "seeding_depth_cm": 1,
+    "line_distance_cm": 20,
+    "spacing_cm": 5
   },
   "melon": {
     "name": "Melon",
     "seeding_indoors_months": [2,3,4],
     "seeding_outdoors_months": [5],
     "planting_months": [4,5],
-    "harvest_months": [7,8,9,10]
+    "harvest_months": [7,8,9,10],
+    "seeding_depth_cm": 2,
+    "line_distance_cm": 80,
+    "spacing_cm": 80
   },
   "navet": {
     "name": "Navet",
     "seeding_outdoors_months": [3,4,5,7,8,9],
-    "harvest_months": [3,4,5,6,7,8,10,11]
+    "harvest_months": [3,4,5,6,7,8,10,11],
+    "seeding_depth_cm": 1,
+    "line_distance_cm": 18,
+    "spacing_cm": 12
   },
   "oignon": {
     "name": "Oignon",
     "seeding_outdoors_months": [2,3,4,8,9],
     "planting_months": [1,2,5,10,11],
-    "harvest_months": [4,5,6,7,8,9]
+    "harvest_months": [4,5,6,7,8,9],
+    "seeding_depth_cm": 2,
+    "line_distance_cm": 18,
+    "spacing_cm": 8
   },
   "panais": {
     "name": "Panais",
     "seeding_outdoors_months": [2,3,4,5,6,10,11],
-    "harvest_months": [1,2,3,4,5,6,7,8,9,10,11,12]
+    "harvest_months": [1,2,3,4,5,6,7,8,9,10,11,12],
+    "seeding_depth_cm": 1,
+    "line_distance_cm": 30,
+    "spacing_cm": 20
   },
   "persil": {
     "name": "Persil",
@@ -129,24 +180,36 @@
     "seeding_indoors_months": [1,2,3],
     "seeding_outdoors_months": [3,4,5,8,9],
     "planting_months": [2,3,4,5,10,11],
-    "harvest_months": [1,2,3,4,5,6,7,8,9,10,11,12]
+    "harvest_months": [1,2,3,4,5,6,7,8,9,10,11,12],
+    "seeding_depth_cm": 1,
+    "line_distance_cm": 30,
+    "spacing_cm": 10
   },
   "pois": {
     "name": "Pois",
     "seeding_outdoors_months": [2,3,4,5,10,11],
-    "harvest_months": [5,6,7,8,9]
+    "harvest_months": [5,6,7,8,9],
+    "seeding_depth_cm": 3,
+    "line_distance_cm": 40,
+    "spacing_cm": 20
   },
   "radis": {
     "name": "Radis",
     "seeding_indoors_months": [2,3],
     "seeding_outdoors_months": [3,4,5,6,7,8,9],
-    "harvest_months": [4,5,6,7,8,9,10,11]
+    "harvest_months": [4,5,6,7,8,9,10,11],
+    "seeding_depth_cm": 2,
+    "line_distance_cm": 20,
+    "spacing_cm": 5
   },
   "tomates": {
     "name": "Tomates",
     "seeding_indoors_months": [2,3,4],
     "seeding_outdoors_months": [5,6],
     "planting_months": [5,6],
-    "harvest_months": [7,8,9,10]
+    "harvest_months": [7,8,9,10],
+    "seeding_depth_cm": 1,
+    "line_distance_cm": 70,
+    "spacing_cm": 70
   }
 }

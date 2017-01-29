@@ -38,4 +38,18 @@
     "count": 4,
     "photo": "https://lh3.googleusercontent.com/AVGuBncfXbnSadSeKDD3LTrAOZegVDFQgOmFtu-OvDXgzLWdn6HztssQSn_5XXEQOUsqZCsn9qJzVA0uH_vre2a14VW0px4-LQXCcqlUoUWIK8uk2YrpawyiJ-W2vuYuFTlhuVYWSCGBwVlhi4nHWKj5otbLn5rm1Wzo6dPTVLLZBu_Na__GjlJCt1XURK5xv-7GIrxxJ5aKraIAjD_83gX3Arf-CDJgrWO1AsuLj2LiWZYrUpTBOfkn9tVokKXH94_unrin7JZZYh5Ru6Zp1YsaPmmHVxPLqgVhuWMS4MbcNc_FPHwuDmAq-ykrB7vvOlT2tC8pOt9II4oPU-16xc4w42s4OIemKxm0ND3NgF0UQc3GPGGIPWZx04On9rFGFyFhedGE_DqGXixxW5CYOIorqSOVtjujVUVZEXVvSQRt_kQ8v8Ik6zqKGMI1j0ZaEPEdWnNvfbGieucEjkv0u_omUMi7hwa4RLlrfhvMCMH5T_1CVm9DpiS9jbMyrjCvXMN75TlatB_RVBFBJBzXkNKMvE9BXcVXNmVPaLJ_FVy0SOvJ8aQmUIvVccojfPbfetU_1s77vzNpVCdhCBwW5hDQZfrpdJFwFgfolSt6HZ2SQsweHjCr0A=w438-h582-no"
   },
+  {
+    "type": "etalage_compost",
+    "date": "2017-01-29",
+    "place": "potager",
+    "potager": "gauche",
+    "area": [0, 0, 999, 999],
+    "_comment_": "^ need to measure that area^^"
+  },
+  {
+    "type": "init_compost",
+    "date": "2017-01-29",
+    "place": "compost",
+    "height_percent": 0.1
+  }
 ]

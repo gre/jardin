@@ -63,7 +63,7 @@
     "name": "Romanesco",
     "latin": "Brassica olaracea",
     "desc": "Cette variété unique et magnifique se présente comme un chou-fleur compact et tout en spirales. La couleur est d'un beau vert pomme. La saveur est excellente. La variété est réputée être très digeste, car exempte de substances soufrées.",
-    "growth_days": 80,
+    "growth_days": 80
   },
   "corno_di_toro_rouge": {
     "generic": "Piment Doux",
