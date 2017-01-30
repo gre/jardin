@@ -1,4 +1,21 @@
 {
+  "ciboulette_tfd": {
+    "generic": "Ciboulette",
+    "name": "Très Fine Danoise",
+    "family": "ciboulette",
+    "latin": "Allium schoenoprasum",
+    "desc": "Cette plante, originaire de Chine où elle est cultivée depuis 4000 ans, a été introduite en Occident par Marco Polo à la fin du 13ème siècle. Elle repousse après les coupes."
+  },
+  "poireau_gprm": {
+    "generic": "Poireau",
+    "name": "Géant Précoce race Major",
+    "family": "poireau",
+    "latin": "Allium porrum",
+    "desc": "Cette variété, très précoce et particulièrement productive, donne des poireaux à très gros fût. Elle est idéale pour les récoltes d'été-automne.",
+    "growth_days": 20,
+    "min_temp_celsius": 10,
+    "term": "early"
+  },
   "persil": {
     "generic": "Persil",
     "latin": "Petroselinum crispum",

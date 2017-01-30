@@ -140,5 +140,17 @@
     "species": "persil",
     "type": "bio",
     "brand": "kokopelli"
-  }
+  },
+  {
+    "year": 2016,
+    "species": "ciboulette_tfd",
+    "type": "commercial",
+    "brand": "Vilmorin"
+  },
+  {
+    "year": 2016,
+    "species": "poireau_gprm",
+    "type": "commercial",
+    "brand": "Vilmorin"
+  },
 ]
