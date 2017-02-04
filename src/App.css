@@ -1,0 +1,144 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+}
+
+.App-body {
+  max-width: 600px;
+  margin: 10px auto;
+}
+
+.seedling {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.seedlingStarter {
+  position: relative;
+  width: 100px;
+  height: 60px;
+  background: #eee;
+  border-radius: 4px;
+  margin: 8px 4px;
+}
+.seedlingStarter-bottom {
+  background: #261;
+  border-radius: 0 0 4px 4px;
+  border: 1px #261 solid;
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  bottom: -1px;
+  left: -1px;
+}
+
+.bigboxes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.bigBox {
+  position: relative;
+  width: 80px;
+  height: 60px;
+  background: #f9f9f9;
+  border: 2px solid #eee;
+  border-radius: 2px;
+  margin: 8px;
+}
+
+.eggboxes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.eggBox {
+  position: relative;
+  width: 100px;
+  height: 60px;
+  background: #eee;
+  border-radius: 4px;
+  margin: 8px 2px;
+}
+
+.waterTanks {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.waterTank {
+  width: 40px;
+  height: 50px;
+  margin: 0 10px;
+  background: #ccc;
+  border: #aaa 1px solid;
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.waterTank-inner {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #6cf;
+}
+.waterTank-value {
+  font-size: 10px;
+  color: #fff;
+  opacity: 0.6;
+}
+
+.compost {
+  width: 50px;
+  height: 50px;
+  margin: 0 10px;
+  background: #ccc;
+  border: #aaa 1px solid;
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.compost-inner {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #532;
+}
+.compost-level {
+  font-size: 10px;
+  color: #fff;
+  opacity: 0.6;
+}
+
+.seed {
+  text-align: left;
+  margin: 10px 0;
+  padding: 10px 0;
+}
+
+.months {
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  font-family: monospace;
+}
+.months .month {
+
+}
+.months .month.off {
+  opacity: 0.1;
+}
+blockquote {
+  font-family: serif;
+}
