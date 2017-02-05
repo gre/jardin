@@ -2,13 +2,13 @@
   {
     "type": "water-tank-status",
     "date": "2017-01-01",
-    "box": "tank-1",
+    "id": "tank-1",
     "value": 1
   },
   {
     "type": "water-tank-status",
     "date": "2017-01-01",
-    "box": "tank-2",
+    "id": "tank-2",
     "value": 0
   },
   {
@@ -726,5 +726,19 @@
     "box": "bac-1",
     "species": "ciboulette_tfd",
     "count": 200
+  },
+  {
+    "type": "add-seeds",
+    "date": "2017-02-05",
+    "year_limit": 2020,
+    "bio": false,
+    "brand": "Vilmorin",
+    "species": "cerfeuil_commun",
+    "generic": "Cerfeuil",
+    "name": "Commun",
+    "latin": "Anthriscus cerefolium",
+    "desc": "Cette plante aromatique, à la base des “fines herbes”, justifie pleinement l'étymologie de son nom, signifiant “herbe réjouissante”, par son parfum subtil et délicat, qui agrémente parfaitement les plats cuisinés.",
+    "growth_days": 12,
+    "min_temp_celsius": 18
   }
 ]

@@ -32,6 +32,7 @@ class Seedling extends Component {
         const startSplit = (seedling.sectionSplitters||[])[i - 1] || 0;
         const endSplit = (seedling.sectionSplitters||[1])[i] || 1;
         return <div
+          key={i}
           className={["section", "species-"+section.species].join(" ")}
           style={{ left: (100 * startSplit)+"%", width: (100 * (endSplit - startSplit))+"%" }}
         />;
@@ -39,7 +40,10 @@ class Seedling extends Component {
       </div>
       <div className="splitters">
       {(seedling.sectionSplitters||[]).map((split, i) =>
-        <span className="splitter" style={{ left: (100 * split)+"%" }} />
+        <span
+          key={i}
+          className="splitter" style={{ left: (100 * split)+"%" }}
+        />
         )}
       </div>
       <div className="decorator" />

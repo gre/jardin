@@ -26,7 +26,7 @@ function reducer (state, event) {
   }
   case "water-tank-status": {
     state.waterTanks = { ...state.waterTanks };
-    state.waterTanks[event.item] = event.value;
+    state.waterTanks[event.id] = event.value;
     break;
   }
   case "add-seeds": {
