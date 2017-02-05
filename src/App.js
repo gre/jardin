@@ -23,9 +23,32 @@ class MoonPhase extends Component {
   }
 }
 
+class Seedling extends Component {
+  render() {
+    const {seedling} = this.props;
+    return <div className={["seedling", seedling.group].join(" ")}>
+      <div className="body">
+      {(seedling.sections||[]).map((section, i) => {
+        const startSplit = (seedling.sectionSplitters||[])[i - 1] || 0;
+        const endSplit = (seedling.sectionSplitters||[1])[i] || 1;
+        return <div
+          className={["section", "species-"+section.species].join(" ")}
+          style={{ left: (100 * startSplit)+"%", width: (100 * (endSplit - startSplit))+"%" }}
+        />;
+      })}
+      </div>
+      <div className="splitters">
+      {(seedling.sectionSplitters||[]).map((split, i) =>
+        <span className="splitter" style={{ left: (100 * split)+"%" }} />
+        )}
+      </div>
+      <div className="decorator" />
+    </div>;
+  }
+}
 class SeedlingStarter extends Component {
   render() {
-    const {id} = this.props;
+    const {id, seedling} = this.props;
     return <div className="seedlingStarter">
       <div className="seedlingStarter-bottom" />
     </div>;
@@ -49,23 +72,24 @@ class EggBox extends Component {
   }
 }
 
-class Seedling extends Component {
+class Seedlings extends Component {
   render() {
+    const { seedlings } = this.props;
     return <div>
-      <div className="seedling">
-        {[1,2,3,4,5,6,7,8,9].map(i =>
-          <SeedlingStarter
+      <div className="seedling-group">
+        {[1,2].map(i =>
+          <Seedling
             key={i}
-            id={"starter-"+i}
+            seedling={seedlings["starter-"+i]}
           />
         )}
       </div>
-      <div className="bigboxes">
-        <BigBox id="bigbox-1" />
+      <div className="seedling-group">
+        <Seedling seedling={seedlings["bigbox-1"]} />
       </div>
-      <div className="eggboxes">
-        <EggBox id="eggbox-1" />
-        <EggBox id="eggbox-2" />
+      <div className="seedling-group">
+        <Seedling seedling={seedlings["eggbox-1"]} />
+        <Seedling seedling={seedlings["eggbox-2"]} />
       </div>
     </div>;
   }
@@ -145,7 +169,7 @@ class App extends Component {
             <MoonPhase moon={moon} />
           </div>
           <h3>Semis</h3>
-          <Seedling />
+          <Seedlings seedlings={data.seedlings} />
           <h3>Eau</h3>
           <div className="waterTanks">
           {Object.keys(data.waterTanks).map(id =>
