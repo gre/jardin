@@ -6,6 +6,8 @@ const initialState = {
   photos: [],
   waterTanks: {},
   families,
+  plots: {},
+  species: {},
   seeds: {},
   seedlings: {},
   garden: {},
@@ -14,12 +16,13 @@ const initialState = {
 };
 
 function reducer (state, event) {
+  console.log(event);
   invariant(event.date, "event %s have a date", event);
   if (state.lastEvent) {
     invariant(new Date(state.lastEvent.date)<=new Date(event.date), "event %s is before previous event %s", event, state.lastEvent);
   }
   state = { ...state, lastEvent: event };
-  switch (event.type) {
+  switch (event.op) {
   case "photo": {
     state.photos = [ ...state.photos, event ];
     break;
@@ -29,11 +32,31 @@ function reducer (state, event) {
     state.waterTanks[event.id] = event.value;
     break;
   }
+  case "add-species": {
+    invariant(!(event.species in state.species), "species %s does not exist yet in state.species", event.species);
+    state.species = {...state.species};
+    state.species[event.species] = {
+      ...event,
+    };
+    break;
+  }
   case "add-seeds": {
+    invariant(event.species in state.species, "species %s exists in state.species", event.species);
     state.seeds = {...state.seeds};
     state.seeds[event.species] = {
       ...event,
     };
+    break;
+  }
+  case "add-plot": {
+    state.plots = {
+      ...state.plots,
+      [event.id]: event,
+    };
+    break;
+  };
+  case "plant-in-plot": {
+
     break;
   }
   case "compost-status": {
@@ -41,7 +64,7 @@ function reducer (state, event) {
     state.compost.level = event.level;
     break;
   }
-  case "define-seedling": {
+  case "add-seedling": {
     state.seedlings = {...state.seedlings};
     let {sectionSplitters} = event;
     if (!sectionSplitters) sectionSplitters = [];
@@ -55,7 +78,7 @@ function reducer (state, event) {
     state.seedlings = {...state.seedlings};
     invariant(event.box in state.seedlings, "%s is defined in seedling", event.box);
     const section = state.seedlings[event.box].sections[event.section||0] = { ...event };
-    delete section.type;
+    delete section.op;
     delete section.id;
     delete section.section;
     break;
@@ -67,7 +90,7 @@ function reducer (state, event) {
       ...section,
       ...event,
     };
-    delete section.type;
+    delete section.op;
     delete section.id;
     delete section.section;
     break;
@@ -75,8 +98,11 @@ function reducer (state, event) {
   case "etalage-compost": {
     break;
   }
+  case "binage": {
+    break;
+  }
   default:
-    invariant(false, "unsupported event %s", event.type);
+    invariant(false, "unsupported event %s", event.op);
   }
   return state;
 }

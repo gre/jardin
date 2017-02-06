@@ -50,31 +50,6 @@ class Seedling extends Component {
     </div>;
   }
 }
-class SeedlingStarter extends Component {
-  render() {
-    const {id, seedling} = this.props;
-    return <div className="seedlingStarter">
-      <div className="seedlingStarter-bottom" />
-    </div>;
-  }
-}
-class BigBox extends Component {
-  render() {
-    const {id} = this.props;
-    return <div className="bigBox">
-
-    </div>;
-  }
-}
-
-class EggBox extends Component {
-  render() {
-    const {id} = this.props;
-    return <div className="eggBox">
-
-    </div>;
-  }
-}
 
 class Seedlings extends Component {
   render() {
@@ -205,9 +180,9 @@ class App extends Component {
             />
           )}
           </div>
-          <h3>{Object.keys(data.seeds).length} Graines</h3>
+          <h3>{Object.keys(data.species).length} Graines Différentes</h3>
           <div>
-          {Object.keys(data.seeds).map(id => {
+          {Object.keys(data.species).map(id => {
             const {
               generic,
               name,
@@ -218,7 +193,7 @@ class App extends Component {
               bio,
               brand,
               country,
-            } = data.seeds[id];
+            } = data.species[id];
             const {
               line_distance_cm,
               seeding_depth_cm,

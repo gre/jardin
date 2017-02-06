@@ -1,22 +1,107 @@
 [
   {
-    "type": "water-tank-status",
+    "op": "add-plot",
+    "date": "2016-04-01",
+    "id": "droite",
+    "name": "Jardin droite",
+    "dims": [
+      [0, 14],
+      [0, 14],
+      [0, 14],
+      [0, 14],
+      [0, 14],
+      [0, 14],
+      [0, 14],
+      [0, 14],
+      [0, 14],
+      [0, 14],
+      [0, 14],
+      [0, 14],
+      [0, 14],
+      [0, 14],
+      [0, 14],
+      [0, 14],
+      [0, 14],
+      [0, 14],
+      [0, 14],
+      [0, 14]
+    ]
+  },
+  {
+    "op": "add-species",
+    "species": "fraises_mount_everest",
+    "date": "2016-06-14",
+    "bio": false,
+    "generic": "Fraises",
+    "family": "fraise",
+    "name": "Moint Everest",
+    "brand": "jardiland",
+    "latin": "Fragaria ananassa",
+    "desc": "Les fraisiers sont des plantes vivaces herbacées, feuilles vertes à trois folioles, aux bords dentés, situées à l'extrémité d'un pétiole grêle. Les plantes produisent des stolons, sortes de tiges formant en extrémité de jeunes fraisiers qui s'enracinent spontanément. Fleurs en grappes, blanches au coeur jaune. La variété mont everest développe de très longs stolons qui peuvent être palissés, remontante, elle produit de mi-juin à fin septembre, des fruits, moyens, rouges, goûteux et parfumés, ces fruits (fraises) sont consommés frais comme dessert, seuls ou avec d'autres fruits, ils permettent la confection de délicieuses confitures et entrent dans la composition de nombreuses pâtisseries"
+  },
+  {
+    "op": "add-seeds",
+    "species": "fraises_mount_everest",
+    "date": "2016-06-14",
+    "year": 2016
+  },
+  {
+    "op": "plant-in-plot",
+    "date": "2016-06-14",
+    "plot": "droite",
+    "species": "fraises_mount_everest",
+    "area": [0, 9, 14, 5]
+  },
+  {
+    "op": "add-plot",
+    "date": "2017-01-01",
+    "id": "gauche",
+    "name": "Jardin gauche",
+    "dims": [
+      [0, 16],
+      [0, 16],
+      [0, 16],
+      [0, 16],
+      [0, 16],
+      [0, 16],
+      [0, 16],
+      [0, 16],
+      [0, 16],
+      [0, 16],
+      [0, 16],
+      [1, 16],
+      [1, 16],
+      [2, 16],
+      [2, 16],
+      [3, 16],
+      [3, 16],
+      [4, 16],
+      [4, 16],
+      [5, 16],
+      [5, 16],
+      [6, 16],
+      [6, 16],
+      [7, 16],
+      [7, 16]
+    ]
+  },
+  {
+    "op": "water-tank-status",
     "date": "2017-01-01",
     "id": "tank-1",
     "value": 1
   },
   {
-    "type": "water-tank-status",
+    "op": "water-tank-status",
     "date": "2017-01-01",
     "id": "tank-2",
     "value": 0
   },
   {
-    "type": "add-seeds",
-    "date": "2017-01-01",
-    "year": 2015,
-    "bio": true,
+    "op": "add-species",
     "species": "coeur_de_boeuf_akers",
+    "date": "2017-01-01",
+    "bio": true,
     "generic": "Tomate Rose Violette",
     "family": "tomates",
     "name": "Coeur de Boeuf Akers",
@@ -27,12 +112,17 @@
     "post_transplanting_days": 90
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "coeur_de_boeuf_akers",
     "date": "2017-01-01",
-    "year_limit": 2020,
+    "year": 2015
+  },
+  {
+    "op": "add-species",
+    "species": "radis_flamboyant_5",
+    "date": "2017-01-01",
     "bio": false,
     "brand": "Vilmorin",
-    "species": "radis_flamboyant_5",
     "generic": "Radis",
     "name": "Flamboyant 5",
     "family": "radis",
@@ -42,11 +132,16 @@
     "min_temp_celsius": 12
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "radis_flamboyant_5",
     "date": "2017-01-01",
-    "year": 2013,
-    "bio": true,
+    "expiration_year": 2020
+  },
+  {
+    "op": "add-species",
     "species": "radis_geant_allemagne",
+    "date": "2017-01-01",
+    "bio": true,
     "generic": "Radis",
     "family": "radis",
     "name": "Géant d'Allemagne",
@@ -55,12 +150,18 @@
     "desc": "Ces radis annuels sont délicieux dès la formation de la racine mais ils peuvent atteindre la taille d'une balle de tennis. Ils restent alors doux, croquants et n'éclatent pas. Ils sont de couleur rouge."
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "radis_geant_allemagne",
+    "date": "2017-01-01",
+    "year": 2013
+  },
+  {
+    "op": "add-species",
+    "species": "mache_louviers",
     "date": "2017-01-01",
     "year": 2013,
     "bio": true,
     "family": "mache",
-    "species": "mache_louviers",
     "generic": "Mâche",
     "name": "Coquille de Louviers",
     "brand": "kokopelli",
@@ -68,12 +169,17 @@
     "desc": "Petite rosace de feuilles vert foncé en forme de cuillère, à texture fine et de saveur délicieuse. Grande rusticité au froid."
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "mache_louviers",
     "date": "2017-01-01",
-    "year": 2013,
+    "year": 2013
+  },
+  {
+    "op": "add-species",
+    "species": "haricot_henridorff",
+    "date": "2017-01-01",
     "bio": true,
     "family": "haricot",
-    "species": "haricot_henridorff",
     "generic": "Haricot Mangetout Nain",
     "name": "Marie de Henridorff",
     "brand": "kokopelli",
@@ -81,12 +187,17 @@
     "desc": "Variété d'excellente qualité, très fin et sans fil."
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "haricot_henridorff",
     "date": "2017-01-01",
-    "year_limit": 2016,
+    "year": 2013
+  },
+  {
+    "op": "add-species",
+    "species": "haricot_maxi",
+    "date": "2017-01-01",
     "bio": false,
     "family": "haricot",
-    "species": "haricot_maxi",
     "generic": "Haricot Maxi",
     "name": "Nain filet",
     "brand": "Jardiver",
@@ -94,13 +205,18 @@
     "desc": "Grandes gousses de 18/20 cm, vert foncé, charnues, précoces. Les gousses poussent bien au-dessus des feuilles ce qui facilite grandement la récolte. Grain café au lait."
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "haricot_maxi",
     "date": "2017-01-01",
-    "year_limit": 2020,
+    "expiration_year": 2016
+  },
+  {
+    "op": "add-species",
+    "species": "carotte_nantaise3",
+    "date": "2017-01-01",
     "bio": false,
     "brand": "Vilmorin",
     "family": "carotte",
-    "species": "carotte_nantaise3",
     "generic": "Carotte",
     "name": "Nantaise Améliorée 3",
     "family": "carotte",
@@ -109,10 +225,15 @@
     "growth_days": 15
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "carotte_nantaise3",
     "date": "2017-01-01",
-    "year": 2016,
+    "expiration_year": 2020
+  },
+  {
+    "op": "add-species",
     "species": "laitue_reine_de_mai",
+    "date": "2017-01-01",
     "bio": false,
     "brand": "Vilmorin",
     "name": "Laitue Reine de Mai de Pleine Terre",
@@ -122,10 +243,15 @@
     "latin": "Lactuca sativa"
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "laitue_reine_de_mai",
     "date": "2017-01-01",
-    "year": 2016,
+    "year": 2016
+  },
+  {
+    "op": "add-species",
     "species": "laitue_appia",
+    "date": "2017-01-01",
     "bio": false,
     "brand": "Vilmorin",
     "name": "Laitue Appia",
@@ -136,11 +262,15 @@
     "latin": "Lactuca sativa"
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "laitue_appia",
     "date": "2017-01-01",
-    "year": 2014,
-    "expiration": 2018,
+    "year": 2016
+  },
+  {
+    "op": "add-species",
     "species": "blonde_de_paris",
+    "date": "2017-01-01",
     "bio": true,
     "brand": "kokopelli",
     "generic": "Laitue Batavia",
@@ -150,10 +280,15 @@
     "desc": "Les belles pommes sont fermes avec des feuilles découpées et cloquées très croquantes. Cette variété est relativement résistante à la sécheresse. On peut la cultiver durant le printemps et l'été. Variété originaire de France."
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "blonde_de_paris",
     "date": "2017-01-01",
-    "year": 2016,
+    "expiration": 2018
+  },
+  {
+    "op": "add-species",
     "species": "barbaniaka",
+    "date": "2017-01-01",
     "bio": true,
     "brand": "kokopelli",
     "generic": "Tomate-Cerise Rouge",
@@ -165,10 +300,15 @@
     "growth_days": 35
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "barbaniaka",
     "date": "2017-01-01",
-    "year": 2015,
+    "year": 2016
+  },
+  {
+    "op": "add-species",
     "species": "red_centiflor_cherry",
+    "date": "2017-01-01",
     "bio": true,
     "brand": "kokopelli",
     "generic": "Tomate-Cerise Rouge",
@@ -179,10 +319,15 @@
     "growth_days": 35
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "red_centiflor_cherry",
     "date": "2017-01-01",
-    "year": 2016,
+    "year": 2015
+  },
+  {
+    "op": "add-species",
     "species": "speckled_roman",
+    "date": "2017-01-01",
     "bio": true,
     "brand": "kokopelli",
     "generic": "Tomate Bigarrée",
@@ -193,10 +338,16 @@
     "growth_days": 35
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "speckled_roman",
+    "date": "2017-01-01",
+    "year": 2016
+  },
+  {
+    "op": "add-species",
+    "species": "black_from_tula",
     "date": "2017-01-01",
     "year": 2015,
-    "species": "black_from_tula",
     "bio": true,
     "brand": "kokopelli",
     "generic": "Tomate Noire",
@@ -208,10 +359,15 @@
     "growth_days": 85
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "black_from_tula",
     "date": "2017-01-01",
-    "year": 2015,
+    "year": 2015
+  },
+  {
+    "op": "add-species",
     "species": "striato_italia",
+    "date": "2017-01-01",
     "bio": true,
     "brand": "kokopelli",
     "generic": "Courgette",
@@ -222,10 +378,15 @@
     "growth_days": 16
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "striato_italia",
     "date": "2017-01-01",
-    "year": 2015,
+    "year": 2015
+  },
+  {
+    "op": "add-species",
     "species": "oignon_stuttgart",
+    "date": "2017-01-01",
     "bio": true,
     "brand": "kokopelli",
     "generic": "Oignon",
@@ -237,10 +398,15 @@
     "conservation_months": 8
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "oignon_stuttgart",
     "date": "2017-01-01",
-    "year": 2015,
+    "year": 2015
+  },
+  {
+    "op": "add-species",
     "species": "marketmore_76",
+    "date": "2017-01-01",
     "bio": true,
     "brand": "kokopelli",
     "generic": "Concombre",
@@ -251,10 +417,15 @@
     "latin": "Cucumis sativus"
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "marketmore_76",
     "date": "2017-01-01",
-    "year": 2014,
+    "year": 2015
+  },
+  {
+    "op": "add-species",
     "species": "corno_di_toro_rouge",
+    "date": "2017-01-01",
     "bio": true,
     "brand": "kokopelli",
     "generic": "Piment Doux",
@@ -265,10 +436,15 @@
     "growth_days": 80
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "corno_di_toro_rouge",
     "date": "2017-01-01",
-    "year": 2016,
+    "year": 2014
+  },
+  {
+    "op": "add-species",
     "species": "romanesco",
+    "date": "2017-01-01",
     "bio": true,
     "brand": "kokopelli",
     "generic": "Chou Brocoli",
@@ -279,10 +455,15 @@
     "growth_days": 80
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "romanesco",
     "date": "2017-01-01",
-    "year": 2015,
+    "year": 2016
+  },
+  {
+    "op": "add-species",
     "species": "butternut_honey_nut",
+    "date": "2017-01-01",
     "bio": true,
     "brand": "kokopelli",
     "generic": "Courge Moschata",
@@ -293,10 +474,15 @@
     "growth_days": 110
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "butternut_honey_nut",
     "date": "2017-01-01",
-    "year": 2016,
+    "year": 2015
+  },
+  {
+    "op": "add-species",
     "species": "chantenay_coeur_rouge",
+    "date": "2017-01-01",
     "bio": true,
     "brand": "kokopelli",
     "generic": "Carotte Rouge",
@@ -307,10 +493,15 @@
     "growth_days": 74
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "chantenay_coeur_rouge",
     "date": "2017-01-01",
-    "year": 2015,
+    "year": 2016
+  },
+  {
+    "op": "add-species",
     "species": "red_ball_jets",
+    "date": "2017-01-01",
     "bio": true,
     "brand": "kokopelli",
     "generic": "Laitue Batavia",
@@ -320,10 +511,16 @@
     "desc": "Une nouvelle laitue de couleur rouge intense. Les feuilles rondes, gaufrées et aux bords ondulés entourent un coeur pommé de couleur rouge cristallin. Très grande résistance au bremia, à la montaison et à la nécrose. Une variété sélectionnée par Frank Morton en Oregon."
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "red_ball_jets",
+    "date": "2017-01-01",
+    "year": 2015
+  },
+  {
+    "op": "add-species",
+    "species": "baipiyuanpu",
     "date": "2017-01-01",
     "year": 2014,
-    "species": "baipiyuanpu",
     "bio": false,
     "brand": "oujiang",
     "country": "Chine",
@@ -334,10 +531,15 @@
     "desc": "espacer les pieds de 2 mètres."
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "baipiyuanpu",
     "date": "2017-01-01",
-    "year": 2014,
+    "year": 2014
+  },
+  {
+    "op": "add-species",
     "species": "sigua",
+    "date": "2017-01-01",
     "bio": false,
     "brand": "cephagri",
     "country": "Chine",
@@ -348,10 +550,15 @@
     "chinese_name": "丝瓜"
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "sigua",
     "date": "2017-01-01",
-    "year": 2013,
+    "year": 2014
+  },
+  {
+    "op": "add-species",
     "species": "dark_green_skin_wax_gourd",
+    "date": "2017-01-01",
     "bio": false,
     "brand": "huinonliangzhong",
     "country": "Chine",
@@ -362,10 +569,15 @@
     "chinese_name": "黑皮冬瓜"
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "dark_green_skin_wax_gourd",
     "date": "2017-01-01",
-    "year": 2015,
+    "year": 2013
+  },
+  {
+    "op": "add-species",
     "species": "tournesol",
+    "date": "2017-01-01",
     "bio": false,
     "brand": "gartenshop",
     "country": "Allemagne",
@@ -373,30 +585,30 @@
     "latin": "Helianthus annuus"
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "tournesol",
     "date": "2017-01-01",
-    "year": 2013,
+    "year": 2015
+  },
+  {
+    "op": "add-species",
     "species": "coriandre",
+    "date": "2017-01-01",
     "bio": true,
     "brand": "kokopelli",
     "generic": "Coriandre",
     "latin": "Coriandrum sativum"
   },
   {
-    "type": "add-seeds",
-    "date": "2017-01-01",
-    "year": 2013,
+    "op": "add-seeds",
     "species": "coriandre",
-    "bio": false,
-    "brand": "Vilmorin",
-    "generic": "Coriandre",
-    "latin": "Coriandrum sativum"
+    "date": "2017-01-01",
+    "year": 2013
   },
   {
-    "type": "add-seeds",
-    "date": "2017-01-01",
-    "year": 2014,
+    "op": "add-species",
     "species": "persil",
+    "date": "2017-01-01",
     "bio": true,
     "brand": "kokopelli",
     "generic": "Persil",
@@ -405,10 +617,15 @@
     "desc": "Persil très parfumé au feuillage plat et peu découpé."
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "persil",
     "date": "2017-01-01",
-    "year": 2016,
+    "year": 2014
+  },
+  {
+    "op": "add-species",
     "species": "ciboulette_tfd",
+    "date": "2017-01-01",
     "bio": false,
     "brand": "Vilmorin",
     "generic": "Ciboulette",
@@ -418,10 +635,15 @@
     "desc": "Cette plante, originaire de Chine où elle est cultivée depuis 4000 ans, a été introduite en Occident par Marco Polo à la fin du 13ème siècle. Elle repousse après les coupes."
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "ciboulette_tfd",
     "date": "2017-01-01",
-    "year": 2016,
+    "year": 2016
+  },
+  {
+    "op": "add-species",
     "species": "poireau_gprm",
+    "date": "2017-01-01",
     "bio": false,
     "brand": "Vilmorin",
     "generic": "Poireau",
@@ -434,11 +656,16 @@
     "term": "early"
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "poireau_gprm",
     "date": "2017-01-01",
-    "year": 2016,
-    "bio": true,
+    "year": 2016
+  },
+  {
+    "op": "add-species",
     "species": "pomme_de_terre_nicola",
+    "date": "2017-01-01",
+    "bio": true,
     "generic": "Pomme de Terre",
     "name": "Nicola",
     "latin": "Solanum tuberosum",
@@ -446,39 +673,45 @@
     "link": "https://fr.wikipedia.org/wiki/Nicola_(pomme_de_terre)"
   },
   {
-    "type": "define-seedling",
+    "op": "add-seeds",
+    "species": "pomme_de_terre_nicola",
+    "date": "2017-01-01",
+    "year": 2016
+  },
+  {
+    "op": "add-seedling",
     "date": "2017-01-21",
     "id": "eggbox-1",
     "name": "Boite oeuf 1",
     "group": "eggbox"
   },
   {
-    "type": "define-seedling",
+    "op": "add-seedling",
     "date": "2017-01-21",
     "id": "eggbox-2",
     "name": "Boite oeuf 2",
     "group": "eggbox"
   },
   {
-    "type": "start-seedling",
+    "op": "start-seedling",
     "date": "2017-01-21",
     "box": "eggbox-1",
     "species": "pomme_de_terre_nicola"
   },
   {
-    "type": "start-seedling",
+    "op": "start-seedling",
     "date": "2017-01-21",
     "box": "eggbox-2",
     "species": "pomme_de_terre_nicola"
   },
   {
-    "type": "photo",
+    "op": "photo",
     "date": "2017-01-21",
     "boxs": ["eggbox-1","eggbox-2"],
     "photo": "https://lh3.googleusercontent.com/aDGw3cQKy0KZpBVrOO4nIPI-rMAaDCgKWN90iMe4ZLbpJVk8ZJyRWHtftVMDF3tjj-YJczsMU2vtIAeGa-V41j3kM5F-YbR7JkxKFM0Ggc04vnBW33Ofkg7uzD-n7o6Xdp_KrNkMa2Jb-uDxcfNm1uDKKJPuth3-u29fMQMOyYMU8su0g0lJBo-NqoxuCCc7ZbGhevdN62QhyLhEVdzR-A_Jq8FbYsW10zIgnAc29Zgrrc261Qlh1iR58SmtOh9lgUH2lATBoGob_Tu2ozrUHNFp2d1b7oGOBjSn4Tct7KPMuqUb7dolID4iUPaV74QgJ1RscLeAoXCK-Qhh1_U6kGxfz1CiOS1xJpcwtnigcRdYc6ls5MzdebH1sngmhqUBre9lhFWCIu5IlKSpVf6TPA3WJ-ipKiTAp6IPDId6p2nLMfEXiJTqWRugnKSaGL0X8fNgJ_kIJKVqpMzG1deEB63Ah0liKJuSaNZIGCSoj6Ihvh9poVl3g8XmopcACVn39QY2Hr2QICCDHsax5bVxgWRWLfsr5XCjsrbYb34WJeqztCztbOLlnV3eoFBut6nLMJTRZADcOdBOfWtQQyQIfD7vQGc3Nfag457Pjorl-a3YsV2L5iVwLCmuOswWhkrQQZo88uiNq-VKcDMte_RjQoPT3yhXrMOxayZkiRq_wfQ=w1664-h1248-no"
   },
   {
-    "type": "define-seedling",
+    "op": "add-seedling",
     "date": "2017-01-27",
     "id": "starter-1",
     "name": "MiniSerre 1",
@@ -486,7 +719,7 @@
     "sectionSplitters": [ 0.5, 0.8 ]
   },
   {
-    "type": "start-seedling",
+    "op": "start-seedling",
     "date": "2017-01-27",
     "box": "starter-1",
     "section": 0,
@@ -494,7 +727,7 @@
     "count": 50
   },
   {
-    "type": "start-seedling",
+    "op": "start-seedling",
     "date": "2017-01-27",
     "box": "starter-1",
     "section": 1,
@@ -502,7 +735,7 @@
     "count": 8
   },
   {
-    "type": "start-seedling",
+    "op": "start-seedling",
     "date": "2017-01-27",
     "box": "starter-1",
     "section": 2,
@@ -510,13 +743,13 @@
     "count": 4
   },
   {
-    "type": "photo",
+    "op": "photo",
     "date": "2017-01-27",
     "boxs": ["starter-1"],
     "photo": "https://lh3.googleusercontent.com/AVGuBncfXbnSadSeKDD3LTrAOZegVDFQgOmFtu-OvDXgzLWdn6HztssQSn_5XXEQOUsqZCsn9qJzVA0uH_vre2a14VW0px4-LQXCcqlUoUWIK8uk2YrpawyiJ-W2vuYuFTlhuVYWSCGBwVlhi4nHWKj5otbLn5rm1Wzo6dPTVLLZBu_Na__GjlJCt1XURK5xv-7GIrxxJ5aKraIAjD_83gX3Arf-CDJgrWO1AsuLj2LiWZYrUpTBOfkn9tVokKXH94_unrin7JZZYh5Ru6Zp1YsaPmmHVxPLqgVhuWMS4MbcNc_FPHwuDmAq-ykrB7vvOlT2tC8pOt9II4oPU-16xc4w42s4OIemKxm0ND3NgF0UQc3GPGGIPWZx04On9rFGFyFhedGE_DqGXixxW5CYOIorqSOVtjujVUVZEXVvSQRt_kQ8v8Ik6zqKGMI1j0ZaEPEdWnNvfbGieucEjkv0u_omUMi7hwa4RLlrfhvMCMH5T_1CVm9DpiS9jbMyrjCvXMN75TlatB_RVBFBJBzXkNKMvE9BXcVXNmVPaLJ_FVy0SOvJ8aQmUIvVccojfPbfetU_1s77vzNpVCdhCBwW5hDQZfrpdJFwFgfolSt6HZ2SQsweHjCr0A=w438-h582-no"
   },
   {
-    "type": "etalage-compost",
+    "op": "etalage-compost",
     "date": "2017-01-29",
     "place": "potager",
     "potager": "gauche",
@@ -524,13 +757,13 @@
     "_comment_": "^ need to measure that area^^"
   },
   {
-    "type": "compost-status",
+    "op": "compost-status",
     "date": "2017-01-29",
     "place": "compost",
     "level": 0.1
   },
   {
-    "type": "define-seedling",
+    "op": "add-seedling",
     "date": "2017-01-31",
     "id": "bigbox-1",
     "name": "BacSemis",
@@ -542,7 +775,7 @@
     ]
   },
   {
-    "type": "start-seedling",
+    "op": "start-seedling",
     "date": "2017-01-31",
     "box": "bigbox-1",
     "section": 0,
@@ -550,7 +783,7 @@
     "count": 100
   },
   {
-    "type": "start-seedling",
+    "op": "start-seedling",
     "date": "2017-01-31",
     "box": "bigbox-1",
     "section": 1,
@@ -558,7 +791,7 @@
     "count": 100
   },
   {
-    "type": "start-seedling",
+    "op": "start-seedling",
     "date": "2017-01-31",
     "box": "bigbox-1",
     "section": 2,
@@ -566,7 +799,7 @@
     "count": 100
   },
   {
-    "type": "start-seedling",
+    "op": "start-seedling",
     "date": "2017-01-31",
     "box": "bigbox-1",
     "section": 3,
@@ -574,18 +807,16 @@
     "count": 100
   },
   {
-    "type": "photo",
+    "op": "photo",
     "date": "2017-01-31",
     "boxs": ["bigbox-1"],
     "photo": "https://lh3.googleusercontent.com/8fbsbRje2_Nu5DRBiwnn1KcSeO5lnOM2Y-5fRPxO2NVk0vZeER-hRxCXe0m_A5jg0Adwfg0KSQj9gAL3j507JQLrCYj2xqZmnvZqa6WpFJ7QQKMqwU4azBrcPeNOVQTkwln39_RU-21x3a6abEWgRenLCKWrL2uBU33ZR_sdqIB-cVQpclRylT1O5Rv5F2hQaYdPuauPPcXxfsAIIygESTgpq4qVfYkjEXIbNcAKbSi2n_IN2AziEnTRu6gBcdhKLJi3nkOZUAcKyZYYvcP0Jm1OrSudXSevJ_4iJAsd3RKkahch8ocSXG0ckqYuI-UHfb2c-u3JK-a76k763sNgsZVVUiXwnXe6aBC6UrVnJvPB2ehxXIcuqjCySQtIh9Q_ZOjapLXz5x_psKIfySt-6dRP_X5zdl7A3obzHFIrYAJWlqyoOpMxXAjSG291Vs-L1xVVW7vWsAFnP9c96TD-nakYz3fhGZ8oLhe2_KcGCxZwmZ2q3aCRLsfyVBHp4mJrBhs6JifUrRzUtyLNajNWQh-XSH-qnFJeE9dA0Ls-3tFG9yeS00vHaoVxZI-joJ2FlLh2OeDM1DRct1oxxf7lNuBFeqPJ7XMEcYvxfxDJ3te_frdc0fG-EP9pmhrj2ngUU2qEuX2BOITKegUSPF4wPUeHHvp3JLn7Ex-xbwHIF4k=w950-h1266-no"
   },
   {
-    "type": "add-seeds",
-    "date": "2017-02-01",
-    "year": 2016,
-    "count": 10,
-    "bio": true,
+    "op": "add-species",
     "species": "helianti",
+    "date": "2017-02-01",
+    "bio": true,
     "generic": "Helianti",
     "brand": "ferme de sainte marthe",
     "link": "http://www.fermedesaintemarthe.com/A-1606-helianti-ab.aspx",
@@ -593,11 +824,17 @@
     "desc": "Décoratifs grâce à leur belle floraison lumineuse jaune et délicieux, les héliantis originaires d'Amérique du nord, tout comme les topinambours appartiennent à la famille des astéracées, la même espèce que le tournesol. Le système racinaire de l'hélianti est très puissant et pourra former rapidement d'importants organes de réserve et donner rapidement à partir d'un minuscule éclat. De culture facile, l'hélianti est une vivace qui se développera rapidement au jardin et restera en place longtemps.\nL'hélianti est un légume racine ancien qui revient dans les jardins pour son délicieux goût d'artichaut proche du topinambour. On pourra le déguster à la vapeur, en veloutés ou en mousselines par exemple."
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "helianti",
     "date": "2017-02-01",
-    "year_limit": 2020,
-    "bio": true,
+    "year": 2016,
+    "count": 10
+  },
+  {
+    "op": "add-species",
     "species": "thym",
+    "date": "2017-02-01",
+    "bio": true,
     "generic": "Thym",
     "name": "Commun",
     "brand": "ferme de sainte marthe",
@@ -605,11 +842,16 @@
     "desc": "Aromatique vivace mellifère. Un condiment essentiel en cuisine, pour bouquets garnis, sauces, marinades, poissons, viandes, légumes. Il entre aussi dans la composition d'huiles essentielles."
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "thym",
     "date": "2017-02-01",
-    "year_limit": 2020,
-    "bio": true,
+    "expiration_year": 2020
+  },
+  {
+    "op": "add-species",
     "species": "radis_n2",
+    "date": "2017-02-01",
+    "bio": true,
     "family": "radis",
     "generic": "Radis",
     "name": "National 2",
@@ -618,11 +860,16 @@
     "desc": "Radis rond rose à bout blanc et feuillage développé. Variété semi-précoce, chair ferme et croquante."
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "radis_n2",
     "date": "2017-02-01",
-    "year_limit": 2020,
-    "bio": true,
+    "expiration_year": 2020
+  },
+  {
+    "op": "add-species",
     "species": "radis_rh",
+    "date": "2017-02-01",
+    "bio": true,
     "family": "radis",
     "generic": "Radis Noir Gros",
     "name": "Rond d'Hiver",
@@ -630,11 +877,16 @@
     "latin": "Raphanus sativus"
   },
   {
-    "type": "add-seeds",
+    "op": "add-seeds",
+    "species": "radis_rh",
     "date": "2017-02-01",
-    "year_limit": 2020,
-    "bio": true,
+    "expiration_year": 2020
+  },
+  {
+    "op": "add-species",
     "species": "poireau_carentan2",
+    "date": "2017-02-01",
+    "bio": true,
     "family": "poireau",
     "generic": "Poireau",
     "name": "De Carentan 2",
@@ -643,54 +895,60 @@
     "desc": "Variété rustique à pied court. Le poireau est reconnu pour ses nombreuses vertus (digestif, antiseptique,...), riche en vitamines, cuivre, fer, phosphore, il est un légume d'automne et d'hiver indispensable."
   },
   {
-    "type": "photo",
+    "op": "add-seeds",
+    "species": "poireau_carentan2",
+    "date": "2017-02-01",
+    "expiration_year": 2020
+  },
+  {
+    "op": "photo",
     "date": "2017-02-03",
     "boxs": ["starter-1"],
     "photo": "https://lh3.googleusercontent.com/zqXg6BN_cIyrhjnolBAfWyDzvFczNxbsjYD3sGA546Pd-JLyXl7BskAhz8OPc6zfnkTyc99yvjh22qlG6Lccl8WUSyo7QhfNW9wnfyHqlMxeixG4rowKmR-2Bo1t7mUBZ2mrXCdVFIkpQa8JJfBWK9T9IQJWorihTgDz5N2TJ_AZ27yRhhTJGMPEu94pyUdVqa9pvZ_UE7VXR2kM6qOIx4c5fjFCnlZLo1SwIN1-qxpQ7a80VsjecXhnLQp3ujmSE8ySN9oDe1JW0Vx_CnzAgLTpQQJHDxVQ0KsxTWT7jaNOfqRKfCBPgNO2lxm7wtJ0U52s-hfmH4SiRmPIOFf_R7u4_HCDKYLYkPTeszZ21JybgRFBkl0WApMg0IWmZcqTv6g-nBLkm1XtkQWGGiZScDzTLnvNLmffw5FNWUpDIezs491g--MMU1yBAadZPCYeOvYNXES6xba5U1RUa6n9y4ij3QDoh4ytgWjq9U9jaKQaB3-OH7gTQLuAtfj06L5S0Tfl3BEPe9Gw19bd8ZwY1cPhqbq_JSdVmeY61vXk5KdrlULSbc5rsl5CMHRortpaOfOGYx4IYl_6JX5_zN1moQv1NHYdLyBP9t-pKVgvyMS3UAMIfItU36yH_8fll1Vxwf479BrwpuCcfso9186YhvFpvS-H8wgO5Xu4Cd3KDWQ=w1206-h1606-no"
   },
   {
-    "type": "photo",
+    "op": "photo",
     "date": "2017-02-03",
     "boxs": ["bigbox-1"],
     "photo": "https://lh3.googleusercontent.com/gAc32PpB3Y0Ihcg6eWLGaseNT0Id5zEawEXFoCzlL_XIZiyZFQFCxJFUpw3f-aQF5pGfw6daW6p1cXsRFTjDgkbpp_zYPiDZKfa4d_HnUZft8kul7TuKX1BPGDTUw4lJW1LWv1gSJm6WSkvWbTaHtcm6eQ5y3S4kS6BnveuDafvV0OlJSSBJ1uNlciMribTGaYK2lgZzLgJUaWxQZ2uNRm4v833Ewkju6HZA7vFFDE9Ko03lV24VzjQIXe-qukZGXqYTNZUuIm2XFooJpg5Xd39e1S-74aFj3lCpqI5YoDfwjEnmWmZJ_vaCrtREmx7GPALb4rbeiFRuJfbfm_UDgRhwn3-vg7UCB3K0GXqFZzmaBycANB1RH9fQKoiZmhQdWnDFzYXQCTsErdjiOVZZETD8mJZ3DYlVaPSP76IDUG-p4euAnLOjycB3sMagJxAkF97amL0TjNviqhf_vAs1tjHVZ3mJ4AmLhrpKYzTEtuWcBsLzQCVufTBjAcWAAqjYBxYvJB3zwchw1on3doHQ1J5AWd-e_9bSADa_WlZS6UuSaLD6fTFlHr-ZjS6304wSJRX86-nKakmcaNe9rim3r51KWPu7JyMPuMByLAd8iQMqvgZjcaMtSiMLvWUafRmWe5O4EZnvnEqLQdVlcd7XSuuSGyL6-NtYKiHzpUKg6pk=w1206-h1606-no"
   },
   {
-    "type": "status-germination",
+    "op": "status-germination",
     "box": "bigbox-1",
     "date": "2017-02-03",
     "section": 0,
     "length_cm": 0.5
   },
   {
-    "type": "status-germination",
+    "op": "status-germination",
     "box": "bigbox-1",
     "date": "2017-02-03",
     "section": 1,
     "length_cm": 0.5
   },
   {
-    "type": "status-germination",
+    "op": "status-germination",
     "box": "bigbox-1",
     "date": "2017-02-03",
     "section": 2,
     "length_cm": 0.5
   },
   {
-    "type": "status-germination",
+    "op": "status-germination",
     "box": "starter-1",
     "date": "2017-02-03",
     "section": 1,
     "length_cm": 0.5
   },
   {
-    "type": "status-germination",
+    "op": "status-germination",
     "box": "starter-1",
     "date": "2017-02-03",
     "section": 0,
     "length_cm": 0.2
   },
   {
-    "type": "define-seedling",
+    "op": "add-seedling",
     "id": "starter-2",
     "group": "starter",
     "name": "MiniSerre 2",
@@ -698,7 +956,7 @@
     "sectionSplitters": [0.5]
   },
   {
-    "type": "start-seedling",
+    "op": "start-seedling",
     "date": "2017-02-04",
     "box": "starter-2",
     "section": 0,
@@ -706,7 +964,7 @@
     "count": 50
   },
   {
-    "type": "start-seedling",
+    "op": "start-seedling",
     "date": "2017-02-04",
     "box": "starter-2",
     "section": 1,
@@ -714,31 +972,48 @@
     "count": 50
   },
   {
-    "type": "define-seedling",
+    "op": "add-seedling",
     "id": "bac-1",
     "group": "bac",
     "name": "Bac 1",
     "date": "2017-02-04"
   },
   {
-    "type": "start-seedling",
+    "op": "start-seedling",
     "date": "2017-02-04",
     "box": "bac-1",
     "species": "ciboulette_tfd",
     "count": 200
   },
   {
-    "type": "add-seeds",
+    "op": "add-species",
+    "species": "cerfeuil_commun",
     "date": "2017-02-05",
-    "year_limit": 2020,
     "bio": false,
     "brand": "Vilmorin",
-    "species": "cerfeuil_commun",
     "generic": "Cerfeuil",
     "name": "Commun",
     "latin": "Anthriscus cerefolium",
     "desc": "Cette plante aromatique, à la base des “fines herbes”, justifie pleinement l'étymologie de son nom, signifiant “herbe réjouissante”, par son parfum subtil et délicat, qui agrémente parfaitement les plats cuisinés.",
     "growth_days": 12,
     "min_temp_celsius": 18
+  },
+  {
+    "op": "add-seeds",
+    "species": "cerfeuil_commun",
+    "date": "2017-02-05",
+    "expiration_year": 2020
+  },
+  {
+    "op": "binage",
+    "date": "2017-02-05",
+    "plot": "gauche",
+    "area": [0, 0, 16, 25]
+  },
+  {
+    "op": "binage",
+    "date": "2017-02-05",
+    "plot": "droite",
+    "area": [0, 0, 14, 8]
   }
 ]
