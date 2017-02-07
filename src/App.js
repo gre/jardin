@@ -31,11 +31,14 @@ class Seedling extends Component {
       {(seedling.sections||[]).map((section, i) => {
         const startSplit = (seedling.sectionSplitters||[])[i - 1] || 0;
         const endSplit = (seedling.sectionSplitters||[1])[i] || 1;
+        const name = `${section.species.generic||""} ${section.species.name||""}`;
+        const date = `${section.seedlingDate}`;
         return <div
           key={i}
-          className={["section", "species-"+section.species].join(" ")}
-          style={{ left: (100 * startSplit)+"%", width: (100 * (endSplit - startSplit))+"%" }}
-        />;
+          title={name}
+          className={["section", "species-"+section.species.id].join(" ")}
+          style={{ left: (100 * startSplit)+"%", width: (100 * (endSplit - startSplit))+"%" }}>
+        </div>;
       })}
       </div>
       <div className="splitters">
@@ -47,6 +50,7 @@ class Seedling extends Component {
         )}
       </div>
       <div className="decorator" />
+      <div className="name">{seedling.name}</div>
     </div>;
   }
 }
@@ -55,6 +59,9 @@ class Seedlings extends Component {
   render() {
     const { seedlings } = this.props;
     return <div>
+      <div className="seedling-group">
+        <Seedling seedling={seedlings["bac-1"]} />
+      </div>
       <div className="seedling-group">
         {[1,2].map(i =>
           <Seedling

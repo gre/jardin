@@ -33,11 +33,10 @@ function reducer (state, event) {
     break;
   }
   case "add-species": {
-    invariant(!(event.species in state.species), "species %s does not exist yet in state.species", event.species);
+    invariant(!(event.id in state.species), "species %s does not exist yet in state.species", event.id);
     state.species = {...state.species};
-    state.species[event.species] = {
-      ...event,
-    };
+    const { op, ...species } = event;
+    state.species[event.id] = species;
     break;
   }
   case "add-seeds": {
@@ -77,22 +76,26 @@ function reducer (state, event) {
   case "start-seedling": {
     state.seedlings = {...state.seedlings};
     invariant(event.box in state.seedlings, "%s is defined in seedling", event.box);
-    const section = state.seedlings[event.box].sections[event.section||0] = { ...event };
-    delete section.op;
-    delete section.id;
-    delete section.section;
+    const { count: seedsCount, species, date: seedlingDate } = event;
+    state.seedlings[event.box].sections[event.section||0] = {
+      length_cm: 0,
+      seedsCount,
+      species: state.species[species],
+      seedlingDate,
+    };
     break;
   }
   case "status-germination": {
     state.seedlings = {...state.seedlings};
-    let section = state.seedlings[event.box].sections[event.section||0];
-    section = state.seedlings[event.box].sections[event.section||0] = {
-      ...section,
-      ...event,
+    const box = state.seedlings[event.box];
+    const sectionIndex = event.section || 0;
+    const {
+      length_cm,
+    } = event;
+    box.sections[sectionIndex] = {
+      ...box.sections[sectionIndex],
+      length_cm,
     };
-    delete section.op;
-    delete section.id;
-    delete section.section;
     break;
   }
   case "etalage-compost": {
