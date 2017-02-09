@@ -16,7 +16,6 @@ const initialState = {
 };
 
 function reducer (state, event) {
-  console.log(event);
   invariant(event.date, "event %s have a date", event);
   if (state.lastEvent) {
     invariant(new Date(state.lastEvent.date)<=new Date(event.date), "event %s is before previous event %s", event, state.lastEvent);
@@ -25,11 +24,6 @@ function reducer (state, event) {
   switch (event.op) {
   case "photo": {
     state.photos = [ ...state.photos, event ];
-    break;
-  }
-  case "water-tank-status": {
-    state.waterTanks = { ...state.waterTanks };
-    state.waterTanks[event.id] = event.value;
     break;
   }
   case "add-species": {
@@ -48,21 +42,30 @@ function reducer (state, event) {
     break;
   }
   case "add-plot": {
+    const { op, ...plot } = event;
+    const gridW = plot.dims.reduce((max, d) => Math.max(max, d[1]), 0);
     state.plots = {
       ...state.plots,
-      [event.id]: event,
+      [event.id]: {
+        ...plot,
+        gridW,
+        gridH: plot.dims.length,
+        grid: plot.dims.reduce((arr, dim) => {
+          return arr.concat(
+            Array(gridW).fill(null).map((_, i) => {
+              if (i < dim[0] || i >= dim[1]) {
+                return null;
+              }
+              return {
+                type: "empty",
+              };
+            }),
+          );
+        }, []),
+      },
     };
     break;
   };
-  case "plant-in-plot": {
-
-    break;
-  }
-  case "compost-status": {
-    state.compost = {...state.compost};
-    state.compost.level = event.level;
-    break;
-  }
   case "add-seedling": {
     state.seedlings = {...state.seedlings};
     let {sectionSplitters} = event;
@@ -73,16 +76,32 @@ function reducer (state, event) {
     };
     break;
   }
-  case "start-seedling": {
-    state.seedlings = {...state.seedlings};
-    invariant(event.box in state.seedlings, "%s is defined in seedling", event.box);
-    const { count: seedsCount, species, date: seedlingDate } = event;
-    state.seedlings[event.box].sections[event.section||0] = {
-      length_cm: 0,
-      seedsCount,
-      species: state.species[species],
-      seedlingDate,
-    };
+  case "seed": {
+    if (event.box) {
+      state.seedlings = {...state.seedlings};
+      invariant(event.box in state.seedlings, "%s is defined in seedling", event.box);
+      const { count: seedsCount, species, date: seedlingDate } = event;
+      state.seedlings[event.box].sections[event.section||0] = {
+        length_cm: 0,
+        seedsCount,
+        species: state.species[species],
+        seedlingDate,
+      };
+    }
+    break;
+  }
+  case "plant": {
+    console.log(event)
+    break;
+  }
+  case "status-water-tank": {
+    state.waterTanks = { ...state.waterTanks };
+    state.waterTanks[event.id] = event.value;
+    break;
+  }
+  case "status-compost": {
+    state.compost = {...state.compost};
+    state.compost.level = event.level;
     break;
   }
   case "status-germination": {

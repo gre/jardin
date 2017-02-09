@@ -1,0 +1,9 @@
+- log the events from last year to have more history
+- draw the ground areas
+- add a cursor to time travel
+- review all seeds and correct/complete missing info
+- add missing family data, all seed must have a family
+- plan what to do, where
+- app should tell what seeds should be done when
+- try to generate the same moon phases info that in gardener magazines
+- add a boolean to tell if or not a family should be seeded in door first

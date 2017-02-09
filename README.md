@@ -18,7 +18,42 @@ I also want to start developing some devices and sensors to track everything I c
 
 `families.json` contains generic stats and useful information for a given species family.
 
+### types
+
+```js
+type VegType =
+"root" | "flower" | "leaf" | "fruit";
+
+type Family = {
+  // identifier. (derivated from name)
+  id: String,
+  // name in English
+  name: String,
+  // name in French
+  french_name: String,
+  types: Array<VegType>,
+  // months it can be seeded indoors (if can be seeded in doors). month are from 0 to 11.
+  seeding_indoors_months?: Array<number>,
+  // months it can be seeded outdoors (if can be seeded in doors). month are from 0 to 11.
+  seeding_outdoors_months?: Array<number>,
+  // months it can be replanted outside (if can be seeded in doors). month are from 0 to 11.
+  planting_months?: Array<number>,
+  // months it can be harvested
+  harvest_months: Array<number>,
+  // how many years can you keep the seeds
+  seeds_expiration_years?: number,
+  seeding_depth_cm: number,
+  line_distance_cm: number,
+  // minimum space in centimeters the vegetable need next to each other
+  spacing_cm: number,
+  min_germination_temp_celsius?: number,
+}
+```
+
+
 ### conventions
+
+**the data is contextualized to Paris area climate** (type Ile-de-France).
 
 **garden unit: 1 = 25cm.**
 

@@ -5,6 +5,14 @@ import moment from "moment";
 import mooncalc from "./logic/mooncalc";
 import consumeEventsForDate from "./logic/consumeEventsForDate";
 
+const groupBy = (groupFn) => (acc, el) => {
+  const group = groupFn(el);
+  return {
+    ...acc,
+    [group]: (acc[group] || []).concat([ el ]),
+  };
+};
+
 const phaseIcons = {
   "NEW": "🌑",
   "Waxing crescent": "🌒",
@@ -16,10 +24,63 @@ const phaseIcons = {
   "Waning crescent": "🌘",
 };
 
+function moonPhaseAscii (moon) {
+  return phaseIcons[moon.phase];
+}
+
+function moonIsAscending (moon) {
+  const { ecliptic: { longitude } } = moon;
+  return longitude < 93.44 || longitude >= 271.26;
+}
+
+const vegTypeForConstellation = {
+  Pisces: "leaf",
+  Aries: "fruit",
+  Taurus: "root",
+  Gemini: "flower",
+  Cancer: "leaf",
+  Leo: "fruit",
+  Virgo: "root",
+  Libra: "flower",
+  Scorpio: "leaf",
+  Sagittarius: "fruit",
+  Capricorn: "root",
+  Aquarius: "flower",
+};
+
+function moonVegType (moon) {
+  return vegTypeForConstellation[moon.constellation];
+}
+
 class MoonPhase extends Component {
   render() {
-    const { moon: {phase} } = this.props;
-    return <span title={phase}>{phaseIcons[phase]}</span>;
+    const { moon } = this.props;
+    return <span title={moon.phase}>{moonPhaseAscii(moon)}</span>;
+  }
+}
+
+class MoonProgression extends Component {
+  render() {
+    const { moon } = this.props;
+    return <span>{
+      moonIsAscending(moon)
+      ? "Montante"
+      : "Descendante"
+    }</span>;
+  }
+}
+
+class MoonVegType extends Component {
+  render() {
+    const { moon } = this.props;
+    return <span>Jour {
+      ({
+        leaf: "Feuilles",
+        root: "Racines",
+        fruit: "Fruits",
+        flower: "Fleurs"
+      })[moonVegType(moon)]
+    }</span>;
   }
 }
 
@@ -51,32 +112,6 @@ class Seedling extends Component {
       </div>
       <div className="decorator" />
       <div className="name">{seedling.name}</div>
-    </div>;
-  }
-}
-
-class Seedlings extends Component {
-  render() {
-    const { seedlings } = this.props;
-    return <div>
-      <div className="seedling-group">
-        <Seedling seedling={seedlings["bac-1"]} />
-      </div>
-      <div className="seedling-group">
-        {[1,2].map(i =>
-          <Seedling
-            key={i}
-            seedling={seedlings["starter-"+i]}
-          />
-        )}
-      </div>
-      <div className="seedling-group">
-        <Seedling seedling={seedlings["bigbox-1"]} />
-      </div>
-      <div className="seedling-group">
-        <Seedling seedling={seedlings["eggbox-1"]} />
-        <Seedling seedling={seedlings["eggbox-2"]} />
-      </div>
     </div>;
   }
 }
@@ -132,7 +167,56 @@ class Months extends Component {
   }
 }
 
+class Plot extends Component {
+  static defaultProps = {
+    pixelRatio: window.devicePixelRatio || 1,
+  };
+  componentDidMount() {
+    const {canvas} = this.refs;
+    this.ctx = canvas.getContext("2d");
+    this.draw();
+  }
+  componentDidUpdate() {
+    this.draw();
+  }
+  draw() {
+    const {plot, cellSize, pixelRatio} = this.props;
+    const {ctx} = this;
+    const size = cellSize * pixelRatio;
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    plot.grid.map((cell, i) => {
+      const xi = i % plot.gridW;
+      const yi = (i - xi) / plot.gridW;
+      if (cell) {
+        switch (cell.type) {
+          case "empty":
+            ctx.fillStyle = "#953";
+            break;
 
+          default:
+            throw new Error("unknown cell.type="+cell.type);
+        }
+      }
+      else {
+        ctx.fillStyle = "#6A5";
+      }
+      ctx.fillRect(xi * size, yi * size, size, size);
+    });
+  }
+  render() {
+    const {plot, cellSize, pixelRatio} = this.props;
+    const width = cellSize * plot.gridW;
+    const height = cellSize * plot.gridH;
+    return (
+      <canvas
+        ref="canvas"
+        style={{ width, height }}
+        width={pixelRatio * width}
+        height={pixelRatio * height}
+      />
+    );
+  }
+}
 
 class App extends Component {
   state = {
@@ -142,6 +226,16 @@ class App extends Component {
   render() {
     const { data, moon } = this.state;
     console.log(this.state);
+
+    const seedlingGroups =
+    Object.keys(data.seedlings)
+      .map(key => ({
+        key,
+        group: key.slice(0, key.indexOf("-")),
+        value: data.seedlings[key],
+      }))
+      .reduce(groupBy(el => el.group), {});
+
     return (
       <div className="App">
         <div className="App-header">
@@ -151,24 +245,46 @@ class App extends Component {
           <div>
             <Timeline />
           </div>
-          <div>
-            <MoonPhase moon={moon} />
+
+          <div style={{ background: "#eee", padding: 10, fontSize: "1.4em" }}>
+            <div style={{ fontWeight: "bold" }}>
+              <MoonPhase moon={moon} />
+              &nbsp;
+              <MoonProgression moon={moon} />
+            </div>
+            <div style={{ fontStyle: "italic" }}>
+              <MoonVegType moon={moon} />
+            </div>
           </div>
-          <h3>Semis</h3>
-          <Seedlings seedlings={data.seedlings} />
-          <h3>Eau</h3>
-          <div className="waterTanks">
-          {Object.keys(data.waterTanks).map(id =>
-            <WaterTank
-              key={id}
-              waterTank={data.waterTanks[id]}
-            />
-          )}
+
+          <div className="map">
+            <div className="garden">
+              <Plot plot={data.plots.gauche} cellSize={14} />
+              <Plot plot={data.plots.droite} cellSize={14} />
+              <div className="garden-right">
+                <WaterTank waterTank={data.waterTanks["tank-1"]} />
+                <Compost {...data.compost} />
+              </div>
+            </div>
+            <div className="garden-front">
+              <WaterTank waterTank={data.waterTanks["tank-2"]} />
+            </div>
+            <div className="veranda">
+            {[
+              "bac",
+              "starter",
+              "bigbox",
+              "eggbox",
+            ].map(group =>
+              <div key={group} className="seedling-group">
+                {seedlingGroups[group].map(({ key, value }) =>
+                  <Seedling key={key} seedling={value} /> )}
+              </div> )}
+            </div>
           </div>
-          <h3>Compost</h3>
-          <Compost
-            {...data.compost}
-          />
+
+
+
           <h3>Photos</h3>
           <div>
           {data.photos.map(({ photo }, i) =>
@@ -209,7 +325,7 @@ class App extends Component {
               seeding_outdoors_months,
               planting_months,
               harvest_months,
-            } = data.families[family]||{};
+            } = data.families.find(f => f.id === family) || {};
             return <div className="seed" key={id}>
               <strong>{generic}</strong>&nbsp;
               <span>{name}</span>&nbsp;

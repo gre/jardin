@@ -46,7 +46,7 @@
     "year": 2016
   },
   {
-    "op": "plant-in-plot",
+    "op": "plant",
     "date": "2016-06-14",
     "plot": "droite",
     "species": "fraises_mount_everest",
@@ -86,13 +86,13 @@
     ]
   },
   {
-    "op": "water-tank-status",
+    "op": "status-water-tank",
     "date": "2017-01-01",
     "id": "tank-1",
     "value": 1
   },
   {
-    "op": "water-tank-status",
+    "op": "status-water-tank",
     "date": "2017-01-01",
     "id": "tank-2",
     "value": 0
@@ -693,14 +693,14 @@
     "group": "eggbox"
   },
   {
-    "op": "start-seedling",
+    "op": "seed",
     "date": "2017-01-21",
     "box": "eggbox-1",
     "species": "pomme_de_terre_nicola",
     "count": 6
   },
   {
-    "op": "start-seedling",
+    "op": "seed",
     "date": "2017-01-21",
     "box": "eggbox-2",
     "species": "pomme_de_terre_nicola",
@@ -721,7 +721,7 @@
     "sectionSplitters": [ 0.5, 0.8 ]
   },
   {
-    "op": "start-seedling",
+    "op": "seed",
     "date": "2017-01-27",
     "box": "starter-1",
     "section": 0,
@@ -729,7 +729,7 @@
     "count": 50
   },
   {
-    "op": "start-seedling",
+    "op": "seed",
     "date": "2017-01-27",
     "box": "starter-1",
     "section": 1,
@@ -737,7 +737,7 @@
     "count": 8
   },
   {
-    "op": "start-seedling",
+    "op": "seed",
     "date": "2017-01-27",
     "box": "starter-1",
     "section": 2,
@@ -758,7 +758,7 @@
     "area": [0, 0, 16, 25]
   },
   {
-    "op": "compost-status",
+    "op": "status-compost",
     "date": "2017-01-29",
     "place": "compost",
     "level": 0.1
@@ -776,7 +776,7 @@
     ]
   },
   {
-    "op": "start-seedling",
+    "op": "seed",
     "date": "2017-01-31",
     "box": "bigbox-1",
     "section": 0,
@@ -784,7 +784,7 @@
     "count": 100
   },
   {
-    "op": "start-seedling",
+    "op": "seed",
     "date": "2017-01-31",
     "box": "bigbox-1",
     "section": 1,
@@ -792,7 +792,7 @@
     "count": 100
   },
   {
-    "op": "start-seedling",
+    "op": "seed",
     "date": "2017-01-31",
     "box": "bigbox-1",
     "section": 2,
@@ -800,7 +800,7 @@
     "count": 100
   },
   {
-    "op": "start-seedling",
+    "op": "seed",
     "date": "2017-01-31",
     "box": "bigbox-1",
     "section": 3,
@@ -957,7 +957,7 @@
     "sectionSplitters": [0.5]
   },
   {
-    "op": "start-seedling",
+    "op": "seed",
     "date": "2017-02-04",
     "box": "starter-2",
     "section": 0,
@@ -965,7 +965,7 @@
     "count": 50
   },
   {
-    "op": "start-seedling",
+    "op": "seed",
     "date": "2017-02-04",
     "box": "starter-2",
     "section": 1,
@@ -980,7 +980,7 @@
     "date": "2017-02-04"
   },
   {
-    "op": "start-seedling",
+    "op": "seed",
     "date": "2017-02-04",
     "box": "bac-1",
     "species": "ciboulette_tfd",
@@ -1018,6 +1018,25 @@
     "area": [0, 0, 14, 8]
   },
   {
+    "op": "add-species",
+    "id": "panais_turga",
+    "date": "2017-02-07",
+    "bio": true,
+    "family": "panais",
+    "generic": "Panais",
+    "name": "Turga",
+    "brand": "kokopelli",
+    "latin": "Pastinaca sativa",
+    "desc": "Amélioration du Panais de Guernesey. Les racines font 25 à 30 cm de longueur. L'épiderme est blanc et lisse. Les jeunes feuilles peuvent être mangées en salade et les autres en soupe."
+  },
+  {
+    "op": "add-seeds",
+    "species": "panais_turga",
+    "date": "2017-02-07",
+    "year": 2016,
+    "expiration_year": 2018
+  },
+  {
     "op": "status-germination",
     "box": "bigbox-1",
     "date": "2017-02-07 12:00",
@@ -1051,24 +1070,5 @@
     "date": "2017-02-07 12:00",
     "section": 1,
     "length_cm": 4
-  },
-  {
-    "op": "add-species",
-    "id": "panais_turga",
-    "date": "2017-02-07",
-    "bio": true,
-    "family": "panais",
-    "generic": "Panais",
-    "name": "Turga",
-    "brand": "kokopelli",
-    "latin": "Pastinaca sativa",
-    "desc": "Amélioration du Panais de Guernesey. Les racines font 25 à 30 cm de longueur. L'épiderme est blanc et lisse. Les jeunes feuilles peuvent être mangées en salade et les autres en soupe."
-  },
-  {
-    "op": "add-seeds",
-    "species": "panais_turga",
-    "date": "2017-02-01",
-    "year": 2016,
-    "expiration_year": 2018
   }
 ]

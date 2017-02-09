@@ -14,7 +14,7 @@
 
 .App-body {
   max-width: 600px;
-  margin: 10px auto;
+  margin: 0px auto;
 }
 
 .seedling-group {
@@ -104,18 +104,18 @@
   border-radius: 4px;
 }
 
-.waterTanks {
+.tanks {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  margin: 20px 0;
 }
+
 .waterTank {
   width: 40px;
   height: 50px;
   margin: 0 10px;
   background: #ccc;
-  border: #aaa 1px solid;
-  border-radius: 4px;
+  border-radius: 6px;
   position: relative;
   display: flex;
   align-items: center;
@@ -126,6 +126,7 @@
   bottom: 0;
   width: 100%;
   background: #6cf;
+  border-radius: 6px;
 }
 .waterTank-value {
   font-size: 10px;
@@ -134,12 +135,10 @@
 }
 
 .compost {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   margin: 0 10px;
   background: #ccc;
-  border: #aaa 1px solid;
-  border-radius: 4px;
   position: relative;
   display: flex;
   align-items: center;
@@ -176,4 +175,43 @@
 }
 blockquote {
   font-family: serif;
+}
+
+.map {
+  display: flex;
+  flex-direction: column;
+  background: #6A5;
+  position: relative;
+}
+.garden {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.garden > * {
+  margin: 20px;
+}
+.garden-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.garden-right > * {
+  margin-top: 40px;
+}
+
+.garden-front {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+}
+
+.veranda {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-top: none;
+  background: #fff;
 }
