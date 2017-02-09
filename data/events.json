@@ -50,7 +50,7 @@
     "date": "2016-06-14",
     "plot": "droite",
     "species": "fraises_mount_everest",
-    "area": [0, 14, 15, 5]
+    "area": [0, 15, 15, 5]
   },
   {
     "op": "add-plot",

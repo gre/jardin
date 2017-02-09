@@ -101,8 +101,8 @@ function reducer (state, event) {
             grid: plot.grid.map((cell, i) => {
               const xi = i % plot.gridW;
               const yi = (i - xi) / plot.gridW;
-              if (xi < x || xi > x + w) return cell;
-              if (yi < y || yi > y + h) return cell;
+              if (xi < x || xi >= x + w) return cell;
+              if (yi < y || yi >= y + h) return cell;
               return {
                 ...cell,
                 type: "culture",
