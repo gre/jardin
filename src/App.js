@@ -185,12 +185,25 @@ class Plot extends Component {
     const size = cellSize * pixelRatio;
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     plot.grid.map((cell, i) => {
+      ctx.globalAlpha = 0.9 + 0.1 * Math.random();
       const xi = i % plot.gridW;
       const yi = (i - xi) / plot.gridW;
       if (cell) {
         switch (cell.type) {
           case "empty":
             ctx.fillStyle = "#953";
+            ctx.fillRect(xi * size, yi * size, size, size);
+            break;
+
+          case "culture":
+            ctx.fillStyle = "#060";
+            ctx.fillRect(xi * size, yi * size, size, size);
+            if (cell.species === "fraises_mount_everest") {
+              ctx.font = "24px serif";
+              ctx.textBaseline = "middle";
+              ctx.textAlign = "center";
+              ctx.fillText("🍓", (xi + 0.5) * size, (yi + 0.5) * size);
+            }
             break;
 
           default:
@@ -199,8 +212,8 @@ class Plot extends Component {
       }
       else {
         ctx.fillStyle = "#6A5";
+        ctx.fillRect(xi * size, yi * size, size, size);
       }
-      ctx.fillRect(xi * size, yi * size, size, size);
     });
   }
   render() {

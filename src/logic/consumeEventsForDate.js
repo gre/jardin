@@ -50,18 +50,16 @@ function reducer (state, event) {
         ...plot,
         gridW,
         gridH: plot.dims.length,
-        grid: plot.dims.reduce((arr, dim) => {
-          return arr.concat(
-            Array(gridW).fill(null).map((_, i) => {
-              if (i < dim[0] || i >= dim[1]) {
-                return null;
-              }
-              return {
-                type: "empty",
-              };
-            }),
-          );
-        }, []),
+        grid: plot.dims.reduce((arr, dim) => arr.concat(
+          Array(gridW).fill(null).map((_, i) => {
+            if (i < dim[0] || i >= dim[1]) {
+              return null;
+            }
+            return {
+              type: "empty",
+            };
+          }),
+        ), []),
       },
     };
     break;
@@ -91,7 +89,36 @@ function reducer (state, event) {
     break;
   }
   case "plant": {
-    console.log(event)
+    if (event.plot) {
+      const { area, species, plot: plotId } = event;
+      if (event.area) {
+        const [ x, y, w, h ] = event.area;
+        const plot = state.plots[plotId];
+        state.plots = {
+          ...state.plots,
+          [plotId]: {
+            ...plot,
+            grid: plot.grid.map((cell, i) => {
+              const xi = i % plot.gridW;
+              const yi = (i - xi) / plot.gridW;
+              if (xi < x || xi > x + w) return cell;
+              if (yi < y || yi > y + h) return cell;
+              return {
+                ...cell,
+                type: "culture",
+                species,
+              };
+            }),
+          }
+        };
+      }
+      else {
+        throw new Error("event plant: area not provided");
+      }
+    }
+    else {
+      throw new Error("event plant: no plot");
+    }
     break;
   }
   case "status-water-tank": {
