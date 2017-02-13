@@ -188,9 +188,7 @@ blockquote {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
-}
-.garden > * {
-  margin: 20px;
+  padding: 20px;
 }
 .garden-right {
   display: flex;
@@ -199,14 +197,6 @@ blockquote {
 }
 .garden-right > * {
   margin-top: 40px;
-}
-
-.garden-front {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 20px;
 }
 
 .veranda {

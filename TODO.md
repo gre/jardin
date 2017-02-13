@@ -1,4 +1,6 @@
 - log the events from last year to have more history
+- introduce a missing 'count' in the events. because we need not only the quality / height but the quantity.
+- show the latest events
 - draw the ground areas
 - add a cursor to time travel
 - review all seeds and correct/complete missing info

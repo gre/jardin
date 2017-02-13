@@ -98,7 +98,15 @@ class Seedling extends Component {
           key={i}
           title={name}
           className={["section", "species-"+section.species.id].join(" ")}
-          style={{ left: (100 * startSplit)+"%", width: (100 * (endSplit - startSplit))+"%" }}>
+          style={{ left: (100 * startSplit)+"%", width: (100 * (endSplit - startSplit))+"%", lineHeight: "1.2em", fontSize: "0.2em", padding: "1em 0" }}>
+          <div>
+            <strong>
+              {section.species.generic}
+            </strong>
+          </div>
+          <div>
+            {section.length_cm||0}cm
+          </div>
         </div>;
       })}
       </div>
@@ -231,14 +239,155 @@ class Plot extends Component {
   }
 }
 
+class SpeciesDetail extends Component {
+  render() {
+    const {
+      species,
+      families,
+    } = this.props;
+    const {
+      generic,
+      name,
+      desc,
+      year,
+      family,
+      latin,
+      bio,
+      brand,
+      country,
+    } = species;
+    const {
+      line_distance_cm,
+      seeding_depth_cm,
+      spacing_cm,
+      seeding_indoors_months,
+      seeding_outdoors_months,
+      planting_months,
+      harvest_months,
+    } = families.find(f => f.id === family) || {};
+    return <div className="seed">
+      <strong>{generic}</strong>&nbsp;
+      <span>{name}</span>&nbsp;
+      <em>({year})</em>&nbsp;
+      {
+        bio
+        ? <span title={brand} style={{ color: "#0d0", fontWeight: "bold", fontSize: "0.8em" }}>BIO, {country||"France"}</span>
+        : <em style={{ fontSize: "0.6em", color: "#930" }}>({brand||"?"}, {country||"France"})</em>}
+      <em style={{ marginLeft: 10, fontSize: "0.6em" }}>{latin}</em>
+      <p style={{ opacity: 0.8, fontSize: "0.8em" }}>
+        prof.graines: {seeding_depth_cm}cm,
+        dist.lignes: {line_distance_cm}cm,
+        dist.graines: {spacing_cm}cm
+      </p>
+      <Months color="#F50" months={seeding_indoors_months||[]} />
+      <Months color="#09F" months={seeding_outdoors_months||[]} />
+      <Months color="#0C3" months={planting_months||[]} />
+      <Months color="#F09" months={harvest_months||[]} />
+      <blockquote>{desc}</blockquote>
+    </div>;
+  }
+}
+
+function findSeedlingBySectionTest (seedlings, predicate) {
+  return Object.keys(seedlings).find(k => {
+    const seedling = seedlings[k];
+    return seedling.sections.find((section, i) => {
+      if (predicate(section)) {
+        return seedling;
+      }
+    });
+  });
+}
+
+class SuggestSeedsUsableForMonth extends Component {
+  render() {
+    const {data, month} = this.props;
+    const {seeds, species, families, seedlings} = data;
+    const options = [];
+    Object.keys(seeds).forEach(id => {
+      const seed = seeds[id];
+      const spec = species[seed.species];
+      const family = families.find(family => family.id === spec.family);
+      if (family) {
+        let res;
+        const seedling = findSeedlingBySectionTest(
+          seedlings,
+          section => section.species.id === id
+        );
+        if (!seedling && family.seeding_indoors_months && family.seeding_indoors_months.indexOf(month)!==-1) {
+          res = { ...res, indoors: true };
+        }
+        if (family.seeding_outdoors_months && family.seeding_outdoors_months.indexOf(month)!==-1) {
+          res = { ...res, outdoors: true };
+        }
+        if (seedling && family.planting_months && family.planting_months.indexOf(month)!==-1) {
+          res = { ...res, replant: true, seedling };
+        }
+        if (res) {
+          options.push({
+            ...res,
+            seed,
+            spec,
+            family,
+          });
+        }
+      }
+      else {
+        console.warn("No family on seed", id, seed);
+      }
+    });
+    return <div>
+      {options.map((option, i) => {
+        const verbs = [];
+        if (option.indoors) {
+          verbs.push("Semer au chaud");
+        }
+        if (option.outdoors) {
+          verbs.push("Semer dehors");
+        }
+        if (option.replant) {
+          verbs.push("Replanter");
+        }
+
+        return <div>
+          <h4>
+            {(i+1)+". "}
+            <strong>{verbs.join(" ou ")}</strong>
+            {":"}
+          </h4>
+          <SpeciesDetail species={option.spec} families={data.families} />
+        </div>
+      })}
+    </div>;
+  }
+}
+
+const months = [
+  "Janvier",
+  "Février",
+  "Mars",
+  "Avril",
+  "Mai",
+  "Juin",
+  "Juillet",
+  "Août",
+  "September",
+  "Octobre",
+  "Novembre",
+  "Décembre"
+];
+
 class App extends Component {
   state = {
-    data: consumeEventsForDate(new Date()),
-    moon: mooncalc(new Date()),
+    date: new Date(),
   };
   render() {
-    const { data, moon } = this.state;
-    console.log(this.state);
+    const { date } = this.state;
+    const data = consumeEventsForDate(date);
+    const moon = mooncalc(date);
+    const month = date.getMonth();
+    const nextMonth = (month+1) % 12;
+    console.log(data);
 
     const seedlingGroups =
     Object.keys(data.seedlings)
@@ -277,89 +426,38 @@ class App extends Component {
               <div className="garden-right">
                 <WaterTank waterTank={data.waterTanks["tank-1"]} />
                 <Compost {...data.compost} />
+                <WaterTank waterTank={data.waterTanks["tank-2"]} />
               </div>
             </div>
-            <div className="garden-front">
-              <WaterTank waterTank={data.waterTanks["tank-2"]} />
-            </div>
             <div className="veranda">
-            {[
-              "bac",
-              "starter",
-              "bigbox",
-              "eggbox",
-            ].map(group =>
-              <div key={group} className="seedling-group">
-                {seedlingGroups[group].map(({ key, value }) =>
-                  <Seedling key={key} seedling={value} /> )}
-              </div> )}
+              <div className="seedling-group">
+              {[
+                "bac",
+                "starter",
+                "bigbox",
+                "eggbox",
+              ].map(group => seedlingGroups[group].map(({ key, value }) =>
+                <Seedling key={key} seedling={value} />
+              ))}
+              </div>
             </div>
           </div>
 
-
-
-          <h3>Photos</h3>
-          <div>
-          {data.photos.map(({ photo }, i) =>
-            <a
-              key={i}
-              href={photo}
-              style={{
-                display: "inline-block",
-                width: 100,
-                height: 80,
-                backgroundImage: `url(${photo})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "contain",
-                backgroundPosition: "center",
-              }}
-            />
-          )}
+          <div style={{ textAlign: "left", margin: "200px 0"}}>
+            <h4>Reste à faire en {months[month]}:</h4>
+            <SuggestSeedsUsableForMonth month={month} data={data} />
+            <h4>Reste à faire en {months[nextMonth]}:</h4>
+            <SuggestSeedsUsableForMonth month={month} data={data} />
           </div>
-          <h3>{Object.keys(data.species).length} Graines Différentes</h3>
+
+          <h3>{Object.keys(data.species).length} Espèces Différentes</h3>
           <div>
-          {Object.keys(data.species).map(id => {
-            const {
-              generic,
-              name,
-              desc,
-              year,
-              family,
-              latin,
-              bio,
-              brand,
-              country,
-            } = data.species[id];
-            const {
-              line_distance_cm,
-              seeding_depth_cm,
-              spacing_cm,
-              seeding_indoors_months,
-              seeding_outdoors_months,
-              planting_months,
-              harvest_months,
-            } = data.families.find(f => f.id === family) || {};
-            return <div className="seed" key={id}>
-              <strong>{generic}</strong>&nbsp;
-              <span>{name}</span>&nbsp;
-              <em>({year})</em>&nbsp;
-              {
-                bio
-                ? <span title={brand} style={{ color: "#0d0", fontWeight: "bold", fontSize: "0.8em" }}>BIO, {country||"France"}</span>
-                : <em style={{ fontSize: "0.6em", color: "#930" }}>({brand||"?"}, {country||"France"})</em>}
-              <em style={{ marginLeft: 10, fontSize: "0.6em" }}>{latin}</em>
-              <p style={{ opacity: 0.8, fontSize: "0.8em" }}>
-                prof.graines: {seeding_depth_cm}cm,
-                dist.lignes: {line_distance_cm}cm,
-                dist.graines: {spacing_cm}cm
-              </p>
-              <Months color="#F50" months={seeding_indoors_months||[]} />
-              <Months color="#09F" months={seeding_outdoors_months||[]} />
-              <Months color="#0C3" months={planting_months||[]} />
-              <Months color="#F09" months={harvest_months||[]} />
-              <blockquote>{desc}</blockquote>
-            </div>;
-          })}
+          {Object.keys(data.species).map(id =>
+            <SpeciesDetail
+              species={data.species[id]}
+              families={data.families}
+              key={id}
+            /> )}
           </div>
         </div>
       </div>

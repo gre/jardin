@@ -3,7 +3,6 @@ import events from "../../data/events.json";
 import families from "../../data/families.json";
 
 const initialState = {
-  photos: [],
   waterTanks: {},
   families,
   plots: {},
@@ -15,6 +14,27 @@ const initialState = {
   lastEvent: null,
 };
 
+function consumeSeeds (state, event) {
+  state = {...state};
+  if (event.count) {
+    state.seeds = {...state.seeds};
+    const seed = state.seeds[event.species];
+    if (seed.count) {
+      const count = seed.count - event.count;
+      if (count > 0) {
+        state.seeds[event.species] = {
+          ...seed,
+          count,
+        };
+      }
+      else {
+        delete state.seeds[event.species];
+      }
+    }
+  }
+  return state;
+}
+
 function reducer (state, event) {
   invariant(event.date, "event %s have a date", event);
   if (state.lastEvent) {
@@ -22,10 +42,6 @@ function reducer (state, event) {
   }
   state = { ...state, lastEvent: event };
   switch (event.op) {
-  case "photo": {
-    state.photos = [ ...state.photos, event ];
-    break;
-  }
   case "add-species": {
     invariant(!(event.id in state.species), "species %s does not exist yet in state.species", event.id);
     state.species = {...state.species};
@@ -75,6 +91,7 @@ function reducer (state, event) {
     break;
   }
   case "seed": {
+    state = consumeSeeds(state, event);
     if (event.box) {
       state.seedlings = {...state.seedlings};
       invariant(event.box in state.seedlings, "%s is defined in seedling", event.box);
@@ -89,6 +106,7 @@ function reducer (state, event) {
     break;
   }
   case "plant": {
+    state = consumeSeeds(state, event);
     if (event.plot) {
       const { area, species, plot: plotId } = event;
       if (event.area) {

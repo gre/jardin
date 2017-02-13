@@ -43,14 +43,16 @@
     "op": "add-seeds",
     "species": "fraises_mount_everest",
     "date": "2016-06-14",
-    "year": 2016
+    "year": 2016,
+    "count": 8
   },
   {
     "op": "plant",
     "date": "2016-06-14",
     "plot": "droite",
     "species": "fraises_mount_everest",
-    "area": [0, 15, 16, 5]
+    "area": [0, 15, 16, 5],
+    "count": 8
   },
   {
     "op": "add-plot",
@@ -69,20 +71,19 @@
       [0, 16],
       [0, 16],
       [0, 16],
-      [1, 16],
-      [1, 16],
-      [2, 16],
-      [2, 16],
-      [3, 16],
-      [3, 16],
-      [4, 16],
-      [4, 16],
-      [5, 16],
-      [5, 16],
-      [6, 16],
-      [6, 16],
-      [7, 16],
-      [7, 16]
+      [0, 16],
+      [8, 16],
+      [8, 16],
+      [8, 16],
+      [8, 16],
+      [8, 16],
+      [8, 16],
+      [8, 16],
+      [8, 16],
+      [8, 16],
+      [8, 16],
+      [8, 16],
+      [8, 16]
     ]
   },
   {
@@ -236,7 +237,8 @@
     "date": "2017-01-01",
     "bio": false,
     "brand": "Vilmorin",
-    "name": "Laitue Reine de Mai de Pleine Terre",
+    "generic": "Laitue",
+    "name": "Reine de Mai de Pleine Terre",
     "family": "laitue",
     "growth_days": 8,
     "min_temp_celsius": 10,
@@ -254,7 +256,8 @@
     "date": "2017-01-01",
     "bio": false,
     "brand": "Vilmorin",
-    "name": "Laitue Appia",
+    "generic": "Laitue",
+    "name": "Appia",
     "family": "laitue",
     "latin": "Lactuca sativa",
     "growth_days": 8,
@@ -1040,5 +1043,62 @@
     "date": "2017-02-07 12:00",
     "section": 1,
     "length_cm": 4
+  },
+
+  {
+    "op": "status-germination",
+    "box": "bigbox-1",
+    "date": "2017-02-11 13:00",
+    "section": 0,
+    "length_cm": 3
+  },
+  {
+    "op": "status-germination",
+    "box": "bigbox-1",
+    "date": "2017-02-11 13:00",
+    "section": 1,
+    "length_cm": 2
+  },
+  {
+    "op": "status-germination",
+    "box": "bigbox-1",
+    "date": "2017-02-11 13:00",
+    "section": 2,
+    "length_cm": 2
+  },
+  {
+    "op": "status-germination",
+    "box": "bigbox-1",
+    "date": "2017-02-11 13:00",
+    "section": 3,
+    "length_cm": 2
+  },
+  {
+    "op": "status-germination",
+    "box": "starter-1",
+    "date": "2017-02-11 13:00",
+    "section": 0,
+    "length_cm": 4
+  },
+  {
+    "op": "status-germination",
+    "box": "starter-1",
+    "date": "2017-02-11 13:00",
+    "section": 1,
+    "length_cm": 6
+  },
+  {
+    "op": "status-germination",
+    "box": "starter-2",
+    "date": "2017-02-11 13:00",
+    "section": 0,
+    "length_cm": 0.2
+  },
+  {
+    "op": "status-germination",
+    "box": "starter-2",
+    "date": "2017-02-11 13:00",
+    "section": 1,
+    "length_cm": 0.5
   }
 ]
