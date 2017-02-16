@@ -49,10 +49,12 @@
   {
     "op": "plant",
     "date": "2016-06-14",
-    "plot": "droite",
     "species": "fraises_mount_everest",
-    "area": [0, 15, 16, 5],
-    "count": 8
+    "count": 8,
+    "at": {
+      "plot": "droite",
+      "area": [0, 15, 16, 5]
+    }
   },
   {
     "op": "add-plot",
@@ -686,28 +688,34 @@
     "date": "2017-01-21",
     "id": "eggbox-1",
     "name": "BoiteOeuf 1",
-    "group": "eggbox"
+    "group": "eggbox",
+    "count": 6
   },
   {
     "op": "add-seedling",
     "date": "2017-01-21",
     "id": "eggbox-2",
     "name": "BoiteOeuf 2",
-    "group": "eggbox"
-  },
-  {
-    "op": "seed",
-    "date": "2017-01-21",
-    "box": "eggbox-1",
-    "species": "pomme_de_terre_nicola",
+    "group": "eggbox",
     "count": 6
   },
   {
     "op": "seed",
     "date": "2017-01-21",
-    "box": "eggbox-2",
     "species": "pomme_de_terre_nicola",
-    "count": 6
+    "at": {
+      "box": "eggbox-1",
+      "range":[0, 6]
+    }
+  },
+  {
+    "op": "seed",
+    "date": "2017-01-21",
+    "species": "pomme_de_terre_nicola",
+    "at": {
+      "box": "eggbox-2",
+      "range":[0, 6]
+    }
   },
   {
     "op": "add-seedling",
@@ -720,38 +728,44 @@
   {
     "op": "seed",
     "date": "2017-01-27",
-    "box": "starter-1",
-    "section": 0,
+    "at": {
+      "box": "starter-1",
+      "section": 0
+    },
     "species": "oignon_stuttgart",
     "count": 50
   },
   {
     "op": "seed",
     "date": "2017-01-27",
-    "box": "starter-1",
-    "section": 1,
+    "at": {
+      "box": "starter-1",
+      "section": 1
+    },
     "species": "marketmore_76",
     "count": 8
   },
   {
     "op": "seed",
     "date": "2017-01-27",
-    "box": "starter-1",
-    "section": 2,
+    "at": {
+      "box": "starter-1",
+      "section": 2
+    },
     "species": "corno_di_toro_rouge",
     "count": 4
   },
   {
     "op": "etalage-compost",
     "date": "2017-01-29",
-    "place": "potager",
-    "potager": "gauche",
-    "area": [0, 0, 16, 25]
+    "at": {
+      "plot": "gauche",
+      "area": [0, 0, 16, 25]
+    }
   },
   {
     "op": "status-compost",
     "date": "2017-01-29",
-    "place": "compost",
     "level": 0.1
   },
   {
@@ -769,34 +783,42 @@
   {
     "op": "seed",
     "date": "2017-01-31",
-    "box": "bigbox-1",
-    "section": 0,
     "species": "laitue_reine_de_mai",
-    "count": 100
+    "count": 100,
+    "at": {
+      "box": "bigbox-1",
+      "section": 0
+    }
   },
   {
     "op": "seed",
     "date": "2017-01-31",
-    "box": "bigbox-1",
-    "section": 1,
     "species": "laitue_appia",
-    "count": 100
+    "count": 100,
+    "at": {
+      "box": "bigbox-1",
+      "section": 1
+    }
   },
   {
     "op": "seed",
     "date": "2017-01-31",
-    "box": "bigbox-1",
-    "section": 2,
     "species": "red_ball_jets",
-    "count": 100
+    "count": 100,
+    "at": {
+      "box": "bigbox-1",
+      "section": 2
+    }
   },
   {
     "op": "seed",
     "date": "2017-01-31",
-    "box": "bigbox-1",
-    "section": 3,
     "species": "blonde_de_paris",
-    "count": 100
+    "count": 100,
+    "at": {
+      "box": "bigbox-1",
+      "section": 3
+    }
   },
   {
     "op": "add-species",
@@ -888,38 +910,48 @@
   },
   {
     "op": "status-germination",
-    "box": "bigbox-1",
     "date": "2017-02-03",
-    "section": 0,
-    "length_cm": 0.5
+    "length_cm": 0.5,
+    "at": {
+      "box": "bigbox-1",
+      "section": 0
+    }
   },
   {
     "op": "status-germination",
-    "box": "bigbox-1",
     "date": "2017-02-03",
-    "section": 1,
-    "length_cm": 0.5
+    "length_cm": 0.5,
+    "at": {
+      "box": "bigbox-1",
+      "section": 1
+    }
   },
   {
     "op": "status-germination",
-    "box": "bigbox-1",
     "date": "2017-02-03",
-    "section": 2,
-    "length_cm": 0.5
+    "length_cm": 0.5,
+    "at": {
+      "box": "bigbox-1",
+      "section": 2
+    }
   },
   {
     "op": "status-germination",
-    "box": "starter-1",
     "date": "2017-02-03",
-    "section": 1,
-    "length_cm": 0.5
+    "length_cm": 0.5,
+    "at": {
+      "box": "starter-1",
+      "section": 1
+    }
   },
   {
     "op": "status-germination",
-    "box": "starter-1",
     "date": "2017-02-03",
-    "section": 0,
-    "length_cm": 0.2
+    "length_cm": 0.2,
+    "at": {
+      "box": "starter-1",
+      "section": 0
+    }
   },
   {
     "op": "add-seedling",
@@ -932,18 +964,22 @@
   {
     "op": "seed",
     "date": "2017-02-04",
-    "box": "starter-2",
-    "section": 0,
     "species": "poireau_carentan2",
-    "count": 50
+    "count": 50,
+    "at": {
+      "box": "starter-2",
+      "section": 0
+    }
   },
   {
     "op": "seed",
     "date": "2017-02-04",
-    "box": "starter-2",
-    "section": 1,
     "species": "poireau_gprm",
-    "count": 50
+    "count": 50,
+    "at": {
+      "box": "starter-2",
+      "section": 1
+    }
   },
   {
     "op": "add-seedling",
@@ -955,9 +991,11 @@
   {
     "op": "seed",
     "date": "2017-02-04",
-    "box": "bac-1",
     "species": "ciboulette_tfd",
-    "count": 200
+    "count": 200,
+    "at": {
+      "box": "bac-1"
+    }
   },
   {
     "op": "add-species",
@@ -981,14 +1019,18 @@
   {
     "op": "binage",
     "date": "2017-02-05",
-    "plot": "gauche",
-    "area": [0, 0, 16, 25]
+    "at": {
+      "plot": "gauche",
+      "area": [0, 0, 16, 24]
+    }
   },
   {
     "op": "binage",
     "date": "2017-02-05",
-    "plot": "droite",
-    "area": [0, 0, 14, 8]
+    "at": {
+      "plot": "droite",
+      "area": [0, 0, 14, 8]
+    }
   },
   {
     "op": "add-species",
@@ -1011,94 +1053,239 @@
   },
   {
     "op": "status-germination",
-    "box": "bigbox-1",
     "date": "2017-02-07 12:00",
-    "section": 0,
-    "length_cm": 1.5
+    "length_cm": 1.5,
+    "at": {
+      "box": "bigbox-1",
+      "section": 0
+    }
   },
   {
     "op": "status-germination",
-    "box": "bigbox-1",
     "date": "2017-02-07 12:00",
-    "section": 1,
-    "length_cm": 1.5
+    "length_cm": 1.5,
+    "at": {
+      "box": "bigbox-1",
+      "section": 1
+    }
   },
   {
     "op": "status-germination",
-    "box": "bigbox-1",
     "date": "2017-02-07 12:00",
-    "section": 2,
-    "length_cm": 2
+    "length_cm": 2,
+    "at": {
+      "box": "bigbox-1",
+      "section": 2
+    }
   },
   {
     "op": "status-germination",
-    "box": "starter-1",
     "date": "2017-02-07 12:00",
-    "section": 0,
-    "length_cm": 2
+    "length_cm": 2,
+    "at": {
+      "box": "starter-1",
+      "section": 0
+    }
   },
   {
     "op": "status-germination",
-    "box": "starter-1",
     "date": "2017-02-07 12:00",
-    "section": 1,
-    "length_cm": 4
+    "length_cm": 4,
+    "at": {
+      "box": "starter-1",
+      "section": 1
+    }
   },
 
   {
     "op": "status-germination",
-    "box": "bigbox-1",
     "date": "2017-02-11 13:00",
-    "section": 0,
-    "length_cm": 3
+    "length_cm": 3,
+    "at": {
+      "box": "bigbox-1",
+      "section": 0
+    }
   },
   {
     "op": "status-germination",
-    "box": "bigbox-1",
     "date": "2017-02-11 13:00",
-    "section": 1,
-    "length_cm": 2
+    "length_cm": 2,
+    "at": {
+      "box": "bigbox-1",
+      "section": 1
+    }
   },
   {
     "op": "status-germination",
-    "box": "bigbox-1",
     "date": "2017-02-11 13:00",
-    "section": 2,
-    "length_cm": 2
+    "length_cm": 2,
+    "at": {
+      "box": "bigbox-1",
+      "section": 2
+    }
   },
   {
     "op": "status-germination",
-    "box": "bigbox-1",
     "date": "2017-02-11 13:00",
-    "section": 3,
-    "length_cm": 2
+    "length_cm": 2,
+    "at": {
+      "box": "bigbox-1",
+      "section": 3
+    }
   },
   {
     "op": "status-germination",
+    "date": "2017-02-11 13:00",
+    "length_cm": 4,
+    "at": {
+      "box": "starter-1",
+      "section": 0
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-11 13:00",
+    "length_cm": 6,
+    "at": {
+      "box": "starter-1",
+      "section": 1
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-11 13:00",
+    "length_cm": 0.2,
+    "at": {
+      "box": "starter-2",
+      "section": 0
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-11 13:00",
+    "length_cm": 0.5,
+    "at": {
+      "box": "starter-2",
+      "section": 1
+    }
+  },
+
+  {
+    "op": "add-seedling",
+    "id": "concombre-pots",
+    "date": "2017-02-15 18:00",
+    "name": "Pots de concombre",
+    "group": "pots",
+    "count": 10
+  },
+
+  {
+    "op": "transplant",
+    "date": "2017-02-15 18:00",
+    "from": {
+      "box": "starter-1",
+      "section": 1
+    },
+    "to": {
+      "box": "concombre-pots",
+      "range": [0, 10]
+    }
+  },
+  {
+    "op": "seedling-resize",
     "box": "starter-1",
-    "date": "2017-02-11 13:00",
-    "section": 0,
-    "length_cm": 4
+    "date": "2017-02-15 18:00",
+    "sectionSplitters": [ 0.5 ],
+    "sectionMoves": [ 0, 2 ]
   },
   {
     "op": "status-germination",
-    "box": "starter-1",
-    "date": "2017-02-11 13:00",
-    "section": 1,
-    "length_cm": 6
+    "date": "2017-02-15 18:00",
+    "length_cm": 6,
+    "at": {
+      "box": "starter-1",
+      "section": 0
+    }
   },
   {
     "op": "status-germination",
-    "box": "starter-2",
-    "date": "2017-02-11 13:00",
-    "section": 0,
-    "length_cm": 0.2
+    "date": "2017-02-15 18:00",
+    "length_cm": 0.2,
+    "at": {
+      "box": "starter-1",
+      "section": 1
+    }
   },
   {
     "op": "status-germination",
-    "box": "starter-2",
-    "date": "2017-02-11 13:00",
-    "section": 1,
-    "length_cm": 0.5
+    "date": "2017-02-15 18:00",
+    "length_cm": 1,
+    "at": {
+      "box": "starter-2",
+      "section": 0
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-15 18:00",
+    "length_cm": 1.5,
+    "at": {
+      "box": "starter-2",
+      "section": 1
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-15 18:00",
+    "length_cm": 3,
+    "at": {
+      "box": "bigbox-1",
+      "section": 0
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-15 18:00",
+    "length_cm": 3,
+    "at": {
+      "box": "bigbox-1",
+      "section": 1
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-15 18:00",
+    "length_cm": 3,
+    "at": {
+      "box": "bigbox-1",
+      "section": 2
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-15 18:00",
+    "length_cm": 3,
+    "at": {
+      "box": "bigbox-1",
+      "section": 3
+    }
+  },
+  {
+    "op": "add-species",
+    "id": "basilic_marseillais",
+    "date": "2017-02-16",
+    "bio": false,
+    "brand": "Vilmorin",
+    "country": "France",
+    "generic": "Basilic",
+    "name": "Marseillais",
+    "family": "basilic",
+    "desc": "Cette variété présente de grandes feuilles et un parfum sans égal. Le basilic, originaire d'Inde où on lui attribuait une nature divine, est très employé dans la cuisine méridionale."
+  },
+  {
+    "op": "add-seeds",
+    "species": "basilic_marseillais",
+    "date": "2017-02-16",
+    "expiration_year": 2020
   }
 ]

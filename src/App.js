@@ -1,7 +1,11 @@
 import React, { Component } from "react";
+import raf from "raf";
+import smoothstep from "smoothstep";
 import logo from "./logo.svg";
 import "./App.css";
 import moment from "moment";
+import "moment/locale/fr";
+moment.locale("fr");
 import mooncalc from "./logic/mooncalc";
 import consumeEventsForDate from "./logic/consumeEventsForDate";
 
@@ -59,6 +63,100 @@ class MoonPhase extends Component {
   }
 }
 
+class TimeTravelButton extends Component {
+  state = {
+    pressed: null,
+  };
+  componentDidMount () {
+    let startTime = 0, lastT = 0;
+    const loop = t => {
+      if (!startTime) startTime = lastT = t;
+      this._raf = raf(loop);
+      this.update(t - lastT, t - startTime);
+      lastT = t;
+    };
+    this._raf = raf(loop);
+  }
+  componentWillUnmount () {
+    raf.cancel(this._raf);
+  }
+  onMouseDown = (e) => {
+    e.preventDefault();
+    this.setState({
+      pressed: {
+        time: Date.now(),
+      },
+    });
+  };
+  onMouseUp = () => {
+    this.setState({
+      pressed: null,
+    });
+  };
+  onMouseEnter = () => {};
+  onMouseLeave = () => {
+    this.setState({
+      pressed: null,
+    });
+  };
+  update = (dt) => {
+    const { onChange, backward, value } = this.props;
+    const { pressed } = this.state;
+    if (!pressed) return;
+    const pressedDuration = Date.now() - pressed.time;
+    const travel = Math.round(
+      (backward ? -1 : 1)
+      * dt
+      * 10000
+      * (1 + 100 * smoothstep(500, 10000, pressedDuration))
+    );
+    onChange(new Date(value.getTime() + travel));
+  };
+  render() {
+    const { backward } = this.props;
+    const { pressed } = this.state;
+    // TODO: i want to render an animation, à la back-from-the-future
+    return <button
+      style={{ color: pressed ? "#E51" : "#333" }}
+      onMouseDown={this.onMouseDown}
+      onMouseUp={this.onMouseUp}
+      onMouseEnter={this.onMouseEnter}
+      onMouseLeave={this.onMouseLeave}>
+      {backward ? "<=" : "=>"}
+    </button>;
+  }
+}
+
+class TimeTravel extends Component {
+  render() {
+    const {value, onChange} = this.props;
+    const diff = Date.now() - value;
+    const present = Math.abs(diff) < 60000;
+    const future = !present && diff < 0;
+    return <div className={[
+      "time-travel",
+      present
+      ? "present"
+      : future
+        ? "future"
+        : "past"
+    ].join(" ")}>
+      <TimeTravelButton backward value={value} onChange={onChange} />
+      <div className="moment">
+      {moment(value).calendar(null, {
+        sameDay: "[Aujourd'hui à] LT",
+        nextDay: "[Demain à] LT",
+        nextWeek: "dddd [à] LT",
+        lastDay: "[Hier à] LT",
+        lastWeek: "dddd [dernier à] LT",
+        sameElse : "[Le] LL [à] LT"
+      })}
+      </div>
+      <TimeTravelButton value={value} onChange={onChange} />
+    </div>;
+  }
+}
+
 class MoonProgression extends Component {
   render() {
     const { moon } = this.props;
@@ -89,16 +187,28 @@ class Seedling extends Component {
     const {seedling} = this.props;
     return <div className={["seedling", seedling.group].join(" ")}>
       <div className="body">
-      {(seedling.sections||[]).map((section, i) => {
-        const startSplit = (seedling.sectionSplitters||[])[i - 1] || 0;
-        const endSplit = (seedling.sectionSplitters||[1])[i] || 1;
+      {(seedling.sections||[]).filter(section => section).map((section, i) => {
+        const style = {
+          lineHeight: "1.2em",
+          fontSize: "0.2em",
+          padding: "1em 0",
+        };
+        if (seedling.sectionSplitters) {
+          const startSplit = (seedling.sectionSplitters||[])[i - 1] || 0;
+          const endSplit = (seedling.sectionSplitters||[1])[i] || 1;
+          style.position = "absolute";
+          style.top = "0%";
+          style.height = "100%";
+          style.left = (100 * startSplit)+"%";
+          style.width = (100 * (endSplit - startSplit))+"%";
+        }
         const name = `${section.species.generic||""} ${section.species.name||""}`;
         const date = `${section.seedlingDate}`;
         return <div
           key={i}
           title={name}
           className={["section", "species-"+section.species.id].join(" ")}
-          style={{ left: (100 * startSplit)+"%", width: (100 * (endSplit - startSplit))+"%", lineHeight: "1.2em", fontSize: "0.2em", padding: "1em 0" }}>
+          style={style}>
           <div>
             <strong>
               {section.species.generic}
@@ -121,12 +231,6 @@ class Seedling extends Component {
       <div className="decorator" />
       <div className="name">{seedling.name}</div>
     </div>;
-  }
-}
-
-class Timeline extends Component {
-  render() {
-    return <div />;
   }
 }
 
@@ -292,7 +396,7 @@ function findSeedlingBySectionTest (seedlings, predicate) {
   return Object.keys(seedlings).find(k => {
     const seedling = seedlings[k];
     return seedling.sections.find((section, i) => {
-      if (predicate(section)) {
+      if (section && predicate(section)) {
         return seedling;
       }
     });
@@ -333,7 +437,7 @@ class SuggestSeedsUsableForMonth extends Component {
         }
       }
       else {
-        console.warn("No family on seed", id, seed);
+        //console.warn("No family on seed", id, seed);
       }
     });
     return <div>
@@ -349,7 +453,7 @@ class SuggestSeedsUsableForMonth extends Component {
           verbs.push("Replanter");
         }
 
-        return <div>
+        return <div key={i}>
           <h4>
             {(i+1)+". "}
             <strong>{verbs.join(" ou ")}</strong>
@@ -381,32 +485,32 @@ class App extends Component {
   state = {
     date: new Date(),
   };
+  onDateChange = date => {
+    this.setState({ date });
+  };
   render() {
     const { date } = this.state;
     const data = consumeEventsForDate(date);
     const moon = mooncalc(date);
     const month = date.getMonth();
     const nextMonth = (month+1) % 12;
-    console.log(data);
+    const nextNextMonth = (month+2) % 12;
 
     const seedlingGroups =
     Object.keys(data.seedlings)
       .map(key => ({
         key,
-        group: key.slice(0, key.indexOf("-")),
         value: data.seedlings[key],
       }))
-      .reduce(groupBy(el => el.group), {});
+      .reduce(groupBy(el => el.value.group), {});
 
     return (
       <div className="App">
         <div className="App-header">
           <h2>Le Jardin de Gaëtan</h2>
         </div>
+        <TimeTravel onChange={this.onDateChange} value={date} />
         <div className="App-body">
-          <div>
-            <Timeline />
-          </div>
 
           <div style={{ background: "#eee", padding: 10, fontSize: "1.4em" }}>
             <div style={{ fontWeight: "bold" }}>
@@ -421,8 +525,12 @@ class App extends Component {
 
           <div className="map">
             <div className="garden">
-              <Plot plot={data.plots.gauche} cellSize={14} />
-              <Plot plot={data.plots.droite} cellSize={14} />
+              { data.plots.gauche
+                ? <Plot plot={data.plots.gauche} cellSize={14} />
+                : null }
+                { data.plots.droite
+                  ? <Plot plot={data.plots.droite} cellSize={14} />
+                  : null }
               <div className="garden-right">
                 <WaterTank waterTank={data.waterTanks["tank-1"]} />
                 <Compost {...data.compost} />
@@ -436,7 +544,8 @@ class App extends Component {
                 "starter",
                 "bigbox",
                 "eggbox",
-              ].map(group => seedlingGroups[group].map(({ key, value }) =>
+                "pots"
+              ].map(group => (seedlingGroups[group]||[]).map(({ key, value }) =>
                 <Seedling key={key} seedling={value} />
               ))}
               </div>
@@ -447,7 +556,9 @@ class App extends Component {
             <h4>Reste à faire en {months[month]}:</h4>
             <SuggestSeedsUsableForMonth month={month} data={data} />
             <h4>Reste à faire en {months[nextMonth]}:</h4>
-            <SuggestSeedsUsableForMonth month={month} data={data} />
+            <SuggestSeedsUsableForMonth month={nextMonth} data={data} />
+            <h4>Reste à faire en {months[nextNextMonth]}:</h4>
+            <SuggestSeedsUsableForMonth month={nextNextMonth} data={data} />
           </div>
 
           <h3>{Object.keys(data.species).length} Espèces Différentes</h3>

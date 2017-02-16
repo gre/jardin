@@ -17,6 +17,26 @@
   margin: 0px auto;
 }
 
+.time-travel {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.time-travel.present {
+  padding: 10px;
+  background: #9f9;
+}
+.time-travel.past {
+  padding: 10px;
+  background: #99f;
+}
+.time-travel.future {
+  padding: 10px;
+  background: #f99;
+}
+
 .seedling-group {
   display: flex;
   flex-direction: row;
@@ -49,9 +69,6 @@
 }
 
 .seedling .body .section {
-  position: absolute;
-  top: 0%;
-  height: 100%;
   overflow: hidden;
 }
 
@@ -99,6 +116,12 @@
 }
 
 .seedling.eggbox {
+  width: 80px;
+  background: #eee;
+  border-radius: 4px;
+}
+
+.seedling.pots {
   width: 80px;
   background: #eee;
   border-radius: 4px;

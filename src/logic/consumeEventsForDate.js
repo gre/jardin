@@ -35,7 +35,49 @@ function consumeSeeds (state, event) {
   return state;
 }
 
+function updateSelection (state, cursor, update) {
+  state = {...state};
+  if (cursor.box) {
+    invariant(cursor.box in state.seedlings, "seedling '%s' is defined in seedlings", cursor.box);
+    const seedling = { ...state.seedlings[cursor.box] };
+    if (cursor.section) {
+      invariant(cursor.section in seedling.sections, "section '%s' is defined in seedling.sections", cursor.section);
+      seedling.sections = [...seedling.sections];
+      seedling.sections[cursor.section] = update(seedling.sections[cursor.section]);
+    }
+    else {
+      const [ from, length ] = cursor.range || [ 0, seedling.sections.length ];
+      seedling.sections = seedling.sections.map((section, i) => {
+        if (i < from || i >= length) return section;
+        return update(section);
+      });
+    }
+    state.seedlings = {
+      ...state.seedlings,
+      [cursor.box]: seedling,
+    };
+  }
+  else if (cursor.plot) {
+    invariant(cursor.plot in state.plots, "seedling '%s' is defined in plots", cursor.plot);
+    const plot = { ...state.plots[cursor.plot] };
+    const [ x, y, w, h ] = cursor.area || [ 0, 0, plot.gridW, Math.ceil(plot.grid.length/plot.gridW) ];
+    plot.grid = plot.grid.map((cell, i) => {
+      const xi = i % plot.gridW;
+      const yi = (i - xi) / plot.gridW;
+      if (xi < x || xi >= x + w) return cell;
+      if (yi < y || yi >= y + h) return cell;
+      return update(cell);
+    });
+    state.plots = {
+      ...state.plots,
+      [cursor.plot]: plot,
+    };
+  }
+  return state;
+}
+
 function reducer (state, event) {
+  //console.log(event);
   invariant(event.date, "event %s have a date", event);
   if (state.lastEvent) {
     invariant(new Date(state.lastEvent.date)<=new Date(event.date), "event %s is before previous event %s", event, state.lastEvent);
@@ -81,62 +123,61 @@ function reducer (state, event) {
     break;
   };
   case "add-seedling": {
-    state.seedlings = {...state.seedlings};
-    let {sectionSplitters} = event;
-    if (!sectionSplitters) sectionSplitters = [];
-    state.seedlings[event.id] = {
-      ...event,
-      sections: [...sectionSplitters, 1].map(endPos => null),
+    state.seedlings = {
+      ...state.seedlings,
+      [event.id]: {
+        ...event,
+        sections: Array(
+          event.sectionSplitters
+          ? event.sectionSplitters.length + 1
+          : event.count || 1
+        ).fill(null),
+      }
+    };
+    break;
+  }
+  case "seedling-resize": {
+    invariant(event.box in state.seedlings, "seedling-resize: seedling '%s' should exist", event.box);
+    state = {...state};
+    const seedling = { ...state.seedlings[event.box] };
+    seedling.sectionSplitters = event.sectionSplitters;
+    seedling.sections = event.sectionMoves.map(oldIndex => seedling.sections[oldIndex]);
+    state.seedlings = {
+      ...state.seedlings,
+      [event.box]: seedling,
     };
     break;
   }
   case "seed": {
     state = consumeSeeds(state, event);
-    if (event.box) {
-      state.seedlings = {...state.seedlings};
-      invariant(event.box in state.seedlings, "%s is defined in seedling", event.box);
-      const { count: seedsCount, species, date: seedlingDate } = event;
-      state.seedlings[event.box].sections[event.section||0] = {
-        length_cm: 0,
-        seedsCount,
-        species: state.species[species],
-        seedlingDate,
-      };
-    }
+    state = updateSelection(state, event.at, () => ({
+      length_cm: 0,
+      seedsCount: event.count,
+      species: state.species[event.species],
+      seedlingDate: event.date,
+    }));
+    break;
+  }
+  case "transplant": {
+    // NB currently, transplant is not a partial op, do for the whole section
+    let fromSection;
+    state = updateSelection(state, event.from, section => {
+      fromSection = section;
+      return null;
+    });
+    state = updateSelection(state, event.to, () => ({
+      ...fromSection,
+      transpantDate: event.date,
+    }));
     break;
   }
   case "plant": {
     state = consumeSeeds(state, event);
-    if (event.plot) {
-      const { area, species, plot: plotId } = event;
-      if (event.area) {
-        const [ x, y, w, h ] = event.area;
-        const plot = state.plots[plotId];
-        state.plots = {
-          ...state.plots,
-          [plotId]: {
-            ...plot,
-            grid: plot.grid.map((cell, i) => {
-              const xi = i % plot.gridW;
-              const yi = (i - xi) / plot.gridW;
-              if (xi < x || xi >= x + w) return cell;
-              if (yi < y || yi >= y + h) return cell;
-              return {
-                ...cell,
-                type: "culture",
-                species,
-              };
-            }),
-          }
-        };
-      }
-      else {
-        throw new Error("event plant: area not provided");
-      }
-    }
-    else {
-      throw new Error("event plant: no plot");
-    }
+    state = updateSelection(state, event.at, cell => ({
+      ...cell,
+      type: "culture",
+      species: event.species,
+    }));
     break;
   }
   case "status-water-tank": {
@@ -150,16 +191,10 @@ function reducer (state, event) {
     break;
   }
   case "status-germination": {
-    state.seedlings = {...state.seedlings};
-    const box = state.seedlings[event.box];
-    const sectionIndex = event.section || 0;
-    const {
-      length_cm,
-    } = event;
-    box.sections[sectionIndex] = {
-      ...box.sections[sectionIndex],
-      length_cm,
-    };
+    state = updateSelection(state, event.at, section => ({
+      ...section,
+      length_cm: event.length_cm,
+    }));
     break;
   }
   case "etalage-compost": {
