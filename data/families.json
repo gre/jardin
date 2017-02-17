@@ -1,248 +1,3021 @@
 [
   {
-    "id": "aubergine",
-    "name": "Aubergine",
-    "seeding_indoors_months": [2,3,4],
-    "seeding_outdoors_months": [4,5],
-    "planting_months": [4,5,6],
-    "harvest_months": [7,8,9,10],
-    "seeding_depth_cm": 1,
-    "line_distance_cm": 50,
-    "spacing_cm": 50,
-    "min_temp_celsius": 18
+    "id": "ail",
+    "name": "Ail",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Ail_cultiv%C3%A9",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 12 ],
+        "seedling_outdoors_or_planting_months": [ 2, 3, 4, 9, 10, 11 ],
+        "harvest_months": [ 6, 7, 8 ]
+      }
+    ],
+    "germination_days": 30,
+    "harvest_days": 120,
+    "spacing_cm": 3,
+    "likes": [],
+    "hates": [
+      "haricot-despagne",
+      "haricot-vert",
+      "haricot",
+      "haricot-rouge",
+      "tribu-haricot",
+      "pole-haricot",
+      "pole-haricots-verts",
+      "chou-frise",
+      "chou-fleur",
+      "chou-romanesco",
+      "chou-rave",
+      "chou-rouge",
+      "chou-cabus",
+      "chou-de-milan",
+      "chou-de-bruxelles"
+    ]
+  },
+  {
+    "id": "ail-cultive",
+    "name": "Ail cultivé",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Ail_cultiv%C3%A9",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 1, 2, 3, 4, 10, 11, 12 ],
+        "harvest_months": [ 6, 7 ]
+      }
+    ],
+    "germination_days": 20,
+    "harvest_days": 180,
+    "spacing_cm": 15,
+    "likes": [],
+    "hates": [
+      "haricot-despagne",
+      "haricot-vert",
+      "haricot",
+      "haricot-rouge",
+      "tribu-haricot",
+      "pole-haricot",
+      "pole-haricots-verts",
+      "chou-frise",
+      "chou-fleur",
+      "chou-romanesco",
+      "chou-rave",
+      "chou-rouge",
+      "chou-cabus",
+      "chou-de-milan",
+      "chou-de-bruxelles"
+    ]
+  },
+  {
+    "id": "aneth",
+    "name": "Aneth",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Aneth",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 4 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6, 7 ],
+        "harvest_months": [ 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 60,
+    "spacing_cm": 15,
+    "likes": [
+      "carotte",
+      "poireau",
+      "navet",
+      "sauge",
+      "celeri-rave",
+      "celeri-a-couper"
+    ],
+    "hates": []
+  },
+  {
+    "id": "anis-vert",
+    "name": "Anis vert",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Anis_vert",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6 ],
+        "harvest_months": [ 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 120,
+    "spacing_cm": 25,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "arroche-des-jardins",
+    "name": "Arroche des jardins",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Arroche_des_jardins",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6, 7 ],
+        "harvest_months": [ 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 14,
+    "harvest_days": 60,
+    "spacing_cm": 30,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "artichaut",
+    "name": "Artichaut",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Artichaut",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4 ],
+        "seedling_outdoors_or_planting_months": [ 5 ],
+        "harvest_months": [ 8, 9 ]
+      }
+    ],
+    "germination_days": 20,
+    "harvest_days": 180,
+    "spacing_cm": 75,
+    "likes": [],
+    "hates": []
   },
   {
     "id": "basilic",
     "name": "Basilic",
-    "seeding_indoors_months": [3,4],
-    "seeding_outdoors_months": [5,6],
-    "planting_months": [5,6,7],
-    "harvest_months": [6,7,8,9,10]
+    "wikipedia": "https://fr.wikipedia.org/wiki/Basilic_(plante)",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5, 6 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6, 7 ],
+        "harvest_months": [ 6, 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 14,
+    "harvest_days": 90,
+    "spacing_cm": 30,
+    "likes": [],
+    "hates": []
   },
   {
-    "id": "betterave",
-    "name": "Betterave",
-    "seeding_outdoors_months": [2,3,4,5,6,7],
-    "harvest_months": [8,9,10,11],
-    "seeding_depth_cm": 2,
-    "line_distance_cm": 30,
-    "spacing_cm": 30
+    "id": "basilic-citron",
+    "name": "Basilic citron",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Basilic_(plante)",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6, 7 ],
+        "harvest_months": [ 6, 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 14,
+    "harvest_days": 90,
+    "spacing_cm": 25,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "betterave-potagere",
+    "name": "Betterave potagère",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Betterave_potag%C3%A8re",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 2, 3 ],
+        "harvest_months": [ 4, 5, 6 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 85,
+    "spacing_cm": 10,
+    "likes": [
+      "oignon-rocambole",
+      "loignon-cebette",
+      "oignon-semis",
+      "loignon-ensemencement",
+      "oignon-plante-1ere-annee",
+      "oignon-plante-2e-annee",
+      "oignons-dhiver",
+      "oignon-blanc",
+      "aneth",
+      "celeri-rave",
+      "celeri-a-couper",
+      "chou-rave",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail"
+    ],
+    "hates": []
+  },
+  {
+    "id": "blette",
+    "name": "Blette",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Blette_(plante)",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5, 6, 7, 8 ],
+        "seedling_outdoors_or_planting_months": [ 3, 4, 5, 6, 7, 8, 9, 10, 11 ],
+        "harvest_months": [ 5, 6, 7, 8, 9, 10, 11 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 70,
+    "spacing_cm": 20,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "bok-choy",
+    "name": "Bok choy",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Bok_choy",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5, 6, 7, 8 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6, 7, 8 ],
+        "harvest_months": [ 5, 6, 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 90,
+    "spacing_cm": 25,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "bourrache",
+    "name": "Bourrache",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Bourrache_officinale",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 4 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6, 7 ],
+        "harvest_months": [ 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 60,
+    "spacing_cm": 20,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "brocoli",
+    "name": "Brocoli",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Brocoli",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "Cultures d’été",
+        "seedling_indoors_months": [ 2, 3, 4 ],
+        "seedling_outdoors_or_planting_months": [ 6 ],
+        "harvest_months": [ 8 ]
+      },
+      {
+        "name": "Culture d’hiver",
+        "seedling_indoors_months": [ 4 ],
+        "seedling_outdoors_or_planting_months": [ 6 ],
+        "harvest_months": [ 1, 2, 3, 4, 10, 11, 12 ]
+      }
+    ],
+    "germination_days": 8,
+    "harvest_days": 100,
+    "spacing_cm": 50,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "brocoli-rave",
+    "name": "Brocoli-rave",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Brocoli-rave",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 1, 2 ],
+        "seedling_outdoors_or_planting_months": [ 3, 4, 5 ],
+        "harvest_months": [ 5, 6, 7, 8, 9, 10, 11 ]
+      }
+    ],
+    "germination_days": 3,
+    "harvest_days": 35,
+    "spacing_cm": 8,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "camomille",
+    "name": "Camomille",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Matricaria_recutita",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6, 7 ],
+        "harvest_months": [ 5, 6, 7, 8 ]
+      }
+    ],
+    "germination_days": 18,
+    "harvest_days": 60,
+    "spacing_cm": 25,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "capucine",
+    "name": "Capucine",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Grande_capucine",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6 ],
+        "harvest_months": [ 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 14,
+    "harvest_days": 85,
+    "spacing_cm": 50,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "cardamines",
+    "name": "Cardamines",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Cardamine",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 3, 4, 5, 6, 7, 8 ],
+        "harvest_months": [ 5, 6, 7, 8, 9, 10, 11 ]
+      }
+    ],
+    "germination_days": 14,
+    "harvest_days": 90,
+    "spacing_cm": 30,
+    "likes": [],
+    "hates": []
   },
   {
     "id": "carotte",
     "name": "Carotte",
-    "likes": ["poireau"],
-    "seeding_indoors_months": [2,3],
-    "seeding_outdoors_months": [3,4,5,6,7],
-    "harvest_months": [5,6,7,8,9,10,11],
-    "seeding_depth_cm": 1,
-    "line_distance_cm": 20,
-    "spacing_cm": 5
+    "wikipedia": "http://fr.wikipedia.org/wiki/Carotte",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "Carotte hiver",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 5, 6, 7 ],
+        "harvest_months": [ 8, 9, 10, 11, 12 ]
+      },
+      {
+        "name": "Carotte d’été",
+        "seedling_indoors_months": [ 3, 4 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6 ],
+        "harvest_months": [ 6, 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 240,
+    "spacing_cm": 20,
+    "likes": [
+      "laitue-romaine",
+      "laitue-cultivee",
+      "laitue",
+      "coupe-laitue",
+      "laitue-chinoise",
+      "poireau",
+      "pois-gris",
+      "pois",
+      "pois-de-neige",
+      "poivrier-noir",
+      "aneth",
+      "ciboulette",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail"
+    ],
+    "hates": []
   },
   {
-    "id": "celeri_branche",
-    "name": "Céleri branche",
-    "seeding_indoors_months": [2,3],
-    "seeding_outdoors_months": [4,5],
-    "planting_months": [4,5],
-    "harvest_months": [8,9,10,11],
-    "seeding_depth_cm": 1,
-    "line_distance_cm": 40,
-    "spacing_cm": 40
+    "id": "celeri-a-couper",
+    "name": "Céleri à couper",
+    "wikipedia": "http://fr.wikipedia.org/wiki/C%C3%A9leri",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6, 7 ],
+        "harvest_months": [ 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 20,
+    "harvest_days": 120,
+    "spacing_cm": 30,
+    "likes": [
+      "poireau",
+      "chou-frise",
+      "chou-fleur",
+      "chou-romanesco",
+      "chou-rave",
+      "chou-rouge",
+      "chou-cabus",
+      "chou-de-milan",
+      "chou-de-bruxelles",
+      "basilic",
+      "basilic-citron"
+    ],
+    "hates": []
+  },
+  {
+    "id": "celeri-rave",
+    "name": "Céleri-rave",
+    "wikipedia": "http://fr.wikipedia.org/wiki/C%C3%A9leri-rave",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 2, 3 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5 ],
+        "harvest_months": [ 9, 10, 11, 12 ]
+      }
+    ],
+    "germination_days": 20,
+    "harvest_days": 260,
+    "spacing_cm": 35,
+    "likes": [
+      "poireau",
+      "chou-frise",
+      "chou-fleur",
+      "chou-romanesco",
+      "chou-rave",
+      "chou-rouge",
+      "chou-cabus",
+      "chou-de-milan",
+      "chou-de-bruxelles",
+      "basilic",
+      "basilic-citron"
+    ],
+    "hates": []
+  },
+  {
+    "id": "cerfeuil-commun",
+    "name": "Cerfeuil commun",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Cerfeuil_commun",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6, 7, 8 ],
+        "harvest_months": [ 6, 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 14,
+    "harvest_days": 90,
+    "spacing_cm": 10,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "chicoree-endive",
+    "name": "Chicorée endive",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Chicor%C3%A9e_endive",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5, 6, 7 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6, 7, 8 ],
+        "harvest_months": [ 7, 8, 9, 10, 11 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 90,
+    "spacing_cm": 30,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "chou-cabus",
+    "name": "Chou cabus",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Chou_cabus",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "Culture précoce",
+        "seedling_indoors_months": [ 1 ],
+        "seedling_outdoors_or_planting_months": [ 4 ],
+        "harvest_months": [ 5, 6 ]
+      },
+      {
+        "name": "Cultures d’été",
+        "seedling_indoors_months": [ 3 ],
+        "seedling_outdoors_or_planting_months": [ 5 ],
+        "harvest_months": [ 7, 8 ]
+      },
+      {
+        "name": "Cultures d’automne",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 4 ],
+        "harvest_months": [ 9, 10, 11 ]
+      },
+      {
+        "name": "Culture d’hiver",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 8 ],
+        "harvest_months": [ 4, 5 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 120,
+    "spacing_cm": 50,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "chou-de-bruxelles",
+    "name": "Chou de Bruxelles",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Chou_de_Bruxelles",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 2, 3, 4 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6 ],
+        "harvest_months": [ 9, 10, 11, 12 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 250,
+    "spacing_cm": 60,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "chou-de-milan",
+    "name": "Chou de Milan",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Chou_de_Milan",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "Culture précoce",
+        "seedling_indoors_months": [ 1 ],
+        "seedling_outdoors_or_planting_months": [ 4 ],
+        "harvest_months": [ 5, 6 ]
+      },
+      {
+        "name": "Cultures d’été",
+        "seedling_indoors_months": [ 3 ],
+        "seedling_outdoors_or_planting_months": [ 5 ],
+        "harvest_months": [ 7, 8 ]
+      },
+      {
+        "name": "Cultures d’automne",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 4 ],
+        "harvest_months": [ 9, 10, 11 ]
+      },
+      {
+        "name": "Culture d’hiver",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 8 ],
+        "harvest_months": [ 4, 5 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 160,
+    "spacing_cm": 60,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "chou-fleur",
+    "name": "Chou-fleur",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Chou-fleur",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "Culture précoce",
+        "seedling_indoors_months": [ 2 ],
+        "seedling_outdoors_or_planting_months": [ 4 ],
+        "harvest_months": [ 7 ]
+      },
+      {
+        "name": "Cultures d’été",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 3, 4, 5 ],
+        "harvest_months": [ 8, 9 ]
+      },
+      {
+        "name": "Cultures d’automne",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 6, 7 ],
+        "harvest_months": [ 10, 11 ]
+      },
+      {
+        "name": "Culture d’hiver",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 7, 8 ],
+        "harvest_months": [ 4, 5 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 175,
+    "spacing_cm": 60,
+    "likes": [ "marjolaine-lorigan" ],
+    "hates": [ "epinard" ]
+  },
+  {
+    "id": "chou-frise",
+    "name": "Chou frisé",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Chou_fris%C3%A9",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 5, 6 ],
+        "seedling_outdoors_or_planting_months": [ 7 ],
+        "harvest_months": [ 1, 2, 8, 9, 10, 11, 12 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 160,
+    "spacing_cm": 75,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "chou-rave",
+    "name": "Chou-rave",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Chou-rave",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5, 6, 7 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6, 7, 8 ],
+        "harvest_months": [ 6, 7, 8, 9, 10, 11 ]
+      }
+    ],
+    "germination_days": 8,
+    "harvest_days": 85,
+    "spacing_cm": 25,
+    "likes": [ "celeri-rave", "celeri-a-couper" ],
+    "hates": []
+  },
+  {
+    "id": "chou-romanesco",
+    "name": "Chou romanesco",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Chou_romanesco",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 4, 5, 6, 7 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6, 7 ],
+        "harvest_months": [ 7, 8, 9, 10, 11 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 110,
+    "spacing_cm": 60,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "chou-rouge",
+    "name": "Chou rouge",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Chou_rouge",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "Culture précoce",
+        "seedling_indoors_months": [ 1 ],
+        "seedling_outdoors_or_planting_months": [ 4 ],
+        "harvest_months": [ 5, 6 ]
+      },
+      {
+        "name": "Cultures d’été",
+        "seedling_indoors_months": [ 3 ],
+        "seedling_outdoors_or_planting_months": [ 5 ],
+        "harvest_months": [ 7, 8 ]
+      },
+      {
+        "name": "Cultures d’automne",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 4 ],
+        "harvest_months": [ 9, 10, 11 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 160,
+    "spacing_cm": 50,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "ciboule-de-chine",
+    "name": "Ciboule de Chine",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Ciboule_de_Chine",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 2, 3, 4 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6 ],
+        "harvest_months": [ 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 18,
+    "harvest_days": 150,
+    "spacing_cm": 25,
+    "likes": [],
+    "hates": []
   },
   {
     "id": "ciboulette",
     "name": "Ciboulette",
-    "likes": ["carotte"]
+    "wikipedia": "http://fr.wikipedia.org/wiki/Ciboulette_(botanique)",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6, 7, 8 ],
+        "harvest_months": [ 6, 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 18,
+    "harvest_days": 90,
+    "spacing_cm": 25,
+    "likes": [],
+    "hates": []
   },
   {
-    "id": "chou_fleur",
-    "name": "Chou-fleur",
-    "seeding_indoors_months": [1,2],
-    "seeding_outdoors_months": [3,4,5,6],
-    "planting_months": [3,4,5,6,7,8,9,10,11,12],
-    "harvest_months": [5,6,7,8,9,10,11,12],
-    "seeding_depth_cm": 2,
-    "line_distance_cm": 60,
-    "spacing_cm": 60
+    "id": "citronnelle",
+    "name": "Citronnelle",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Citronnelle",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 2, 3, 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6, 7, 8 ],
+        "harvest_months": [ 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 21,
+    "harvest_days": 90,
+    "spacing_cm": 25,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "citrouille",
+    "name": "Citrouille",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Citrouille",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 4 ],
+        "seedling_outdoors_or_planting_months": [ 5 ],
+        "harvest_months": [ 8, 9 ]
+      }
+    ],
+    "germination_days": 20,
+    "harvest_days": 140,
+    "spacing_cm": 100,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "claytone-de-cuba",
+    "name": "Claytone de Cuba",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Claytonia_perfoliata",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 7, 8, 9, 10 ],
+        "seedling_outdoors_or_planting_months": [ 8, 9, 10 ],
+        "harvest_months": [ 1, 2, 3, 10, 11, 12 ]
+      }
+    ],
+    "germination_days": 3,
+    "harvest_days": 30,
+    "spacing_cm": 0,
+    "likes": [],
+    "hates": []
   },
   {
     "id": "concombre",
     "name": "Concombre",
-    "seeding_indoors_months": [3,4],
-    "seeding_outdoors_months": [4,5,6],
-    "planting_months": [4,5],
-    "harvest_months": [6,7,8,9,10,11],
-    "seeding_depth_cm": 3,
-    "line_distance_cm": 100,
-    "spacing_cm": 100
+    "wikipedia": "https://fr.wikipedia.org/wiki/Concombre",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 4 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6 ],
+        "harvest_months": [ 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 100,
+    "spacing_cm": 15,
+    "likes": [
+      "aneth",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail",
+      "celeri-rave",
+      "celeri-a-couper"
+    ],
+    "hates": []
   },
   {
-    "id": "cote_de_bette",
-    "name": "Côte de Bette",
-    "seeding_outdoors_months": [3,4,5,6],
-    "planting_months": [2,3,6,7,8,9,10,11]
+    "id": "coriandre",
+    "name": "Coriandre",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Coriandre",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6, 7 ],
+        "harvest_months": [ 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 16,
+    "harvest_days": 120,
+    "spacing_cm": 25,
+    "likes": [],
+    "hates": []
   },
   {
-    "id": "courge",
-    "name": "Courge",
-    "seeding_indoors_months": [3,4],
-    "seeding_outdoors_months": [4,5,6],
-    "planting_months": [5,6],
-    "harvest_months": [9,10,11],
-    "seeding_depth_cm": 2,
-    "line_distance_cm": 70,
-    "spacing_cm": 70
+    "id": "cornichon",
+    "name": "Cornichon",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Cornichon",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 4 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6 ],
+        "harvest_months": [ 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 90,
+    "spacing_cm": 15,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "coupe-laitue",
+    "name": "Coupe laitue",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Laitue_cultiv%C3%A9e",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 2, 3 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6, 7, 8, 9 ],
+        "harvest_months": [ 4, 5, 6, 7, 8, 9, 10, 11 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 45,
+    "spacing_cm": 5,
+    "likes": [
+      "cerfeuil-commun",
+      "aneth",
+      "carotte",
+      "navet",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail"
+    ],
+    "hates": [ "persil", "persil", "persil-tubereux" ]
   },
   {
     "id": "courgette",
     "name": "Courgette",
-    "seeding_indoors_months": [3,4],
-    "planting_months": [5,6],
-    "harvest_months": [6,7,8,9,10,11],
-    "seeding_depth_cm": 2,
-    "line_distance_cm": 70,
-    "spacing_cm": 70
+    "wikipedia": "http://fr.wikipedia.org/wiki/Courgette",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 4, 5, 6 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6, 7 ],
+        "harvest_months": [ 9, 10, 11 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 95,
+    "spacing_cm": 100,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "cresson-alenois",
+    "name": "Cresson alénois",
+    "wikipedia": "https://fr.wikipedia.org/wiki/Cresson_al%C3%A9nois",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
+        "seedling_outdoors_or_planting_months": [ 3, 4, 5, 6, 7, 8, 9, 10 ],
+        "harvest_months": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
+      }
+    ],
+    "germination_days": 3,
+    "harvest_days": 12,
+    "spacing_cm": 0,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "echalotte",
+    "name": "Échalotte",
+    "wikipedia": "http://fr.wikipedia.org/wiki/%C3%89chalote",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 3, 4 ],
+        "harvest_months": [ 7, 8 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 130,
+    "spacing_cm": 10,
+    "likes": [],
+    "hates": []
   },
   {
     "id": "epinard",
-    "name": "Epinard",
-    "seeding_outdoors_months": [2,3,4,8,9,10,11],
-    "harvest_months": [1,2,3,4,5,6,10,11,12],
-    "seeding_depth_cm": 2,
-    "line_distance_cm": 30,
-    "spacing_cm": 10
+    "name": "Épinard",
+    "wikipedia": "http://fr.wikipedia.org/wiki/%C3%89pinard",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 1, 2 ],
+        "seedling_outdoors_or_planting_months": [ 1, 2, 3, 4, 5, 6, 7, 8 ],
+        "harvest_months": [ 4, 5, 6, 7, 8, 9, 10, 11 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 35,
+    "spacing_cm": 5,
+    "likes": [ "celeri-rave", "celeri-a-couper" ],
+    "hates": []
   },
   {
-    "id": "feve",
-    "name": "Fève",
-    "seeding_outdoors_months": [1,2,3,4,10,11,12],
-    "harvest_months": [5,6,8,9,10],
-    "seeding_depth_cm": 3,
-    "line_distance_cm": 35,
-    "spacing_cm": 11
+    "id": "estragon",
+    "name": "Estragon",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Estragon",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6 ],
+        "harvest_months": [ 6, 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 21,
+    "harvest_days": 90,
+    "spacing_cm": 50,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "fraisier-des-bois",
+    "name": "Fraisier des bois",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Fraisier_des_bois",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [],
+        "harvest_months": [ 5, 6, 7 ]
+      }
+    ],
+    "germination_days": null,
+    "harvest_days": null,
+    "spacing_cm": null,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "fraisiers",
+    "name": "Fraisiers",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Fragaria",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 8, 9 ],
+        "harvest_months": [ 6, 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 20,
+    "harvest_days": 170,
+    "spacing_cm": 35,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "framboise",
+    "name": "Framboise",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Framboise",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [],
+        "harvest_months": [ 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": null,
+    "harvest_days": null,
+    "spacing_cm": null,
+    "likes": [],
+    "hates": []
   },
   {
     "id": "haricot",
     "name": "Haricot",
-    "seeding_outdoors_months": [4,5,6,7,8],
-    "harvest_months": [6,7,8,9,10],
-    "seeding_depth_cm": 3,
-    "line_distance_cm": 45,
-    "spacing_cm": 5
+    "wikipedia": "http://fr.wikipedia.org/wiki/Haricot_vert",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 3, 4 ],
+        "harvest_months": [ 9 ]
+      }
+    ],
+    "germination_days": 14,
+    "harvest_days": 70,
+    "spacing_cm": 10,
+    "likes": [
+      "celeri-rave",
+      "celeri-a-couper",
+      "sauge",
+      "carotte",
+      "chou-fleur",
+      "laitue-romaine",
+      "laitue-cultivee",
+      "laitue",
+      "coupe-laitue",
+      "laitue-chinoise",
+      "pomme-de-terre"
+    ],
+    "hates": [
+      "oignon-rocambole",
+      "loignon-cebette",
+      "oignon-semis",
+      "loignon-ensemencement",
+      "oignon-plante-1ere-annee",
+      "oignon-plante-2e-annee",
+      "oignons-dhiver",
+      "oignon-blanc",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail"
+    ]
+  },
+  {
+    "id": "haricot-despagne",
+    "name": "Haricot d’Espagne",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Haricot_d'Espagne",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 5, 6 ],
+        "harvest_months": [ 8, 9 ]
+      }
+    ],
+    "germination_days": 12,
+    "harvest_days": 90,
+    "spacing_cm": 5,
+    "likes": [
+      "celeri-rave",
+      "celeri-a-couper",
+      "sauge",
+      "carotte",
+      "chou-fleur",
+      "laitue-romaine",
+      "laitue-cultivee",
+      "laitue",
+      "coupe-laitue",
+      "laitue-chinoise",
+      "pomme-de-terre"
+    ],
+    "hates": [
+      "oignon-rocambole",
+      "loignon-cebette",
+      "oignon-semis",
+      "loignon-ensemencement",
+      "oignon-plante-1ere-annee",
+      "oignon-plante-2e-annee",
+      "oignons-dhiver",
+      "oignon-blanc",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail"
+    ]
+  },
+  {
+    "id": "haricot-rouge",
+    "name": "Haricot rouge",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Haricot",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 5, 6 ],
+        "harvest_months": [ 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 14,
+    "harvest_days": 70,
+    "spacing_cm": 10,
+    "likes": [
+      "celeri-rave",
+      "celeri-a-couper",
+      "sauge",
+      "carotte",
+      "chou-fleur",
+      "laitue-romaine",
+      "laitue-cultivee",
+      "laitue",
+      "coupe-laitue",
+      "laitue-chinoise",
+      "pomme-de-terre"
+    ],
+    "hates": [
+      "oignon-rocambole",
+      "loignon-cebette",
+      "oignon-semis",
+      "loignon-ensemencement",
+      "oignon-plante-1ere-annee",
+      "oignon-plante-2e-annee",
+      "oignons-dhiver",
+      "oignon-blanc",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail"
+    ]
+  },
+  {
+    "id": "haricot-vert",
+    "name": "Haricot vert",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Haricot_vert",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6, 7 ],
+        "harvest_months": [ 8, 9 ]
+      }
+    ],
+    "germination_days": 14,
+    "harvest_days": 70,
+    "spacing_cm": 10,
+    "likes": [
+      "celeri-rave",
+      "celeri-a-couper",
+      "sauge",
+      "carotte",
+      "chou-fleur",
+      "laitue-romaine",
+      "laitue-cultivee",
+      "laitue",
+      "coupe-laitue",
+      "laitue-chinoise",
+      "pomme-de-terre"
+    ],
+    "hates": [
+      "oignon-rocambole",
+      "loignon-cebette",
+      "oignon-semis",
+      "loignon-ensemencement",
+      "oignon-plante-1ere-annee",
+      "oignon-plante-2e-annee",
+      "oignons-dhiver",
+      "oignon-blanc",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail"
+    ]
+  },
+  {
+    "id": "helianti",
+    "name": "Helianti",
+    "wikipedia": "https://fr.wikipedia.org/wiki/H%C3%A9lianthi",
+    "types": [ "flower", "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 4, 5 ],
+        "harvest_months": [ 11, 12 ]
+      }
+    ],
+    "germination_days": 0,
+    "harvest_days": 200,
+    "spacing_cm": 50,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "lail-des-ours",
+    "name": "L’Ail des ours",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Allium_ursinum",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 4 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6 ],
+        "harvest_months": [ 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
+      }
+    ],
+    "germination_days": 365,
+    "harvest_days": 90,
+    "spacing_cm": 10,
+    "likes": [],
+    "hates": [
+      "haricot-despagne",
+      "haricot-vert",
+      "haricot",
+      "haricot-rouge",
+      "tribu-haricot",
+      "pole-haricot",
+      "pole-haricots-verts",
+      "chou-frise",
+      "chou-fleur",
+      "chou-romanesco",
+      "chou-rave",
+      "chou-rouge",
+      "chou-cabus",
+      "chou-de-milan",
+      "chou-de-bruxelles"
+    ]
   },
   {
     "id": "laitue",
     "name": "Laitue",
-    "seeding_indoors_months": [2,3,4],
-    "seeding_outdoors_months": [4,5,6,7,8,9,10],
-    "planting_months": [4,5,6,7,8,9,10],
-    "harvest_months": [5,6,7,8,9,10],
-    "seeding_depth_cm": 1,
-    "line_distance_cm": 35,
-    "spacing_cm": 25
+    "wikipedia": "http://fr.wikipedia.org/wiki/Laitue_cultiv%C3%A9e",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 2, 3, 4, 5, 6, 7, 8 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6, 7, 8 ],
+        "harvest_months": [ 5, 6, 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 65,
+    "spacing_cm": 30,
+    "likes": [
+      "cerfeuil-commun",
+      "aneth",
+      "carotte",
+      "navet",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail"
+    ],
+    "hates": [ "persil", "persil", "persil-tubereux" ]
+  },
+  {
+    "id": "laitue-chinoise",
+    "name": "laitue chinoise",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Laitue_cultiv%C3%A9e",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 3, 4, 5, 6, 7 ],
+        "harvest_months": [ 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 60,
+    "spacing_cm": 20,
+    "likes": [
+      "cerfeuil-commun",
+      "aneth",
+      "carotte",
+      "navet",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail"
+    ],
+    "hates": [ "persil", "persil", "persil-tubereux" ]
+  },
+  {
+    "id": "laitue-cultivee",
+    "name": "Laitue cultivée",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Lactuca_sativa",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5, 6, 7 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6, 7, 8 ],
+        "harvest_months": [ 6, 7, 8, 9, 10, 11 ]
+      }
+    ],
+    "germination_days": 12,
+    "harvest_days": 75,
+    "spacing_cm": 40,
+    "likes": [
+      "cerfeuil-commun",
+      "aneth",
+      "carotte",
+      "navet",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail"
+    ],
+    "hates": [ "persil", "persil", "persil-tubereux" ]
+  },
+  {
+    "id": "laitue-romaine",
+    "name": "Laitue romaine",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Laitue_romaine",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 2, 3, 4, 5, 6, 7 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6, 7, 8 ],
+        "harvest_months": [ 6, 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 12,
+    "harvest_days": 90,
+    "spacing_cm": 25,
+    "likes": [
+      "cerfeuil-commun",
+      "aneth",
+      "carotte",
+      "navet",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail"
+    ],
+    "hates": [ "persil", "persil", "persil-tubereux" ]
+  },
+  {
+    "id": "lasperule-odorante",
+    "name": "L’Aspérule odorante",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Galium_odoratum",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3 ],
+        "seedling_outdoors_or_planting_months": [ 3, 4, 5, 6, 7, 10, 11 ],
+        "harvest_months": [ 5, 6, 7 ]
+      }
+    ],
+    "germination_days": 50,
+    "harvest_days": 180,
+    "spacing_cm": 20,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "lavandula",
+    "name": "Lavandula",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Lavandula",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 2, 3, 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6, 7 ],
+        "harvest_months": [ 6, 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 20,
+    "harvest_days": 120,
+    "spacing_cm": 35,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "lendive-ou-chicon",
+    "name": "L’endive ou chicon",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Endive",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 4 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6 ],
+        "harvest_months": [ 1, 9, 10, 11, 12 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 280,
+    "spacing_cm": 10,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "liveche",
+    "name": "Livèche",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Liv%C3%A8che",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6, 7 ],
+        "harvest_months": [ 6, 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 21,
+    "harvest_days": 90,
+    "spacing_cm": 50,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "loignon-cebette",
+    "name": "L’oignon cébette",
+    "wikipedia": "https://fr.wikipedia.org/wiki/C%C3%A9bette",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 2, 3, 4, 5, 6 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6, 7 ],
+        "harvest_months": [ 6, 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 16,
+    "harvest_days": 100,
+    "spacing_cm": 15,
+    "likes": [
+      "carotte",
+      "betterave-potagere",
+      "tomate",
+      "camomille",
+      "sarriette",
+      "persil",
+      "persil",
+      "persil-tubereux"
+    ],
+    "hates": [
+      "haricot-despagne",
+      "haricot-vert",
+      "haricot",
+      "haricot-rouge",
+      "tribu-haricot",
+      "pole-haricot",
+      "pole-haricots-verts",
+      "chou-frise",
+      "chou-fleur",
+      "chou-romanesco",
+      "chou-rave",
+      "chou-rouge",
+      "chou-cabus",
+      "chou-de-milan",
+      "chou-de-bruxelles"
+    ]
+  },
+  {
+    "id": "loignon-ensemencement",
+    "name": "L’oignon ensemencement",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Oignon",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 1, 2, 3 ],
+        "seedling_outdoors_or_planting_months": [ 4 ],
+        "harvest_months": [ 9 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 220,
+    "spacing_cm": 5,
+    "likes": [
+      "carotte",
+      "betterave-potagere",
+      "tomate",
+      "camomille",
+      "sarriette",
+      "persil",
+      "persil",
+      "persil-tubereux"
+    ],
+    "hates": [
+      "haricot-despagne",
+      "haricot-vert",
+      "haricot",
+      "haricot-rouge",
+      "tribu-haricot",
+      "pole-haricot",
+      "pole-haricots-verts",
+      "chou-frise",
+      "chou-fleur",
+      "chou-romanesco",
+      "chou-rave",
+      "chou-rouge",
+      "chou-cabus",
+      "chou-de-milan",
+      "chou-de-bruxelles"
+    ]
+  },
+  {
+    "id": "loseille-sanguine",
+    "name": "L’Oseille sanguine",
+    "wikipedia": "https://fr.wikipedia.org/wiki/Rumex",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6 ],
+        "harvest_months": [ 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 12,
+    "harvest_days": 60,
+    "spacing_cm": 5,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "lotier",
+    "name": "Lotier",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Lotier",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 3, 4, 5, 6 ],
+        "harvest_months": [ 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 12,
+    "harvest_days": 120,
+    "spacing_cm": 5,
+    "likes": [],
+    "hates": []
   },
   {
     "id": "mache",
     "name": "Mâche",
-    "seeding_outdoors_months": [8,9,10],
-    "harvest_months": [1,2,3,9,10,11,12],
-    "seeding_depth_cm": 1,
-    "line_distance_cm": 20,
-    "spacing_cm": 5
+    "wikipedia": "http://fr.wikipedia.org/wiki/Valerianella_locusta",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 3, 4, 5, 6, 7, 8, 9 ],
+        "harvest_months": [ 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 75,
+    "spacing_cm": 5,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "mais",
+    "name": "Maïs",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Ma%C3%AFs",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6 ],
+        "harvest_months": [ 6, 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 130,
+    "spacing_cm": 40,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "mais-doux",
+    "name": "Maïs doux",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Ma%C3%AFs_doux",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 6 ],
+        "harvest_months": [ 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 130,
+    "spacing_cm": 40,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "marjolaine-lorigan",
+    "name": "Marjolaine, l’Origan",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Origanum_vulgare",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6 ],
+        "harvest_months": [ 6, 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 130,
+    "spacing_cm": 25,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "melisse-officinale",
+    "name": "Mélisse officinale",
+    "wikipedia": "http://fr.wikipedia.org/wiki/M%C3%A9lisse_officinale",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 7, 8, 9 ],
+        "harvest_months": [ 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 21,
+    "harvest_days": 120,
+    "spacing_cm": 30,
+    "likes": [],
+    "hates": []
   },
   {
     "id": "melon",
     "name": "Melon",
-    "seeding_indoors_months": [2,3,4],
-    "seeding_outdoors_months": [5],
-    "planting_months": [4,5],
-    "harvest_months": [7,8,9,10],
-    "seeding_depth_cm": 2,
-    "line_distance_cm": 80,
-    "spacing_cm": 80
+    "wikipedia": "http://fr.wikipedia.org/wiki/Melon_(plante)",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 4, 5, 6 ],
+        "seedling_outdoors_or_planting_months": [ 6 ],
+        "harvest_months": [ 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 150,
+    "spacing_cm": 30,
+    "likes": [ "ail-cultive", "lail-des-ours", "ail", "capucine" ],
+    "hates": []
+  },
+  {
+    "id": "menthe-pouliot",
+    "name": "Menthe pouliot",
+    "wikipedia": "https://fr.wikipedia.org/wiki/Menthe_pouliot",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6, 7, 8 ],
+        "harvest_months": [ 6, 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 20,
+    "harvest_days": 90,
+    "spacing_cm": 35,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "menthe-verte",
+    "name": "Menthe verte",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Mentha_spicata",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6, 7, 8 ],
+        "harvest_months": [ 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 21,
+    "harvest_days": 120,
+    "spacing_cm": 30,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "moutarde",
+    "name": "Moutarde",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Moutarde_blanche",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5, 6, 7, 8 ],
+        "seedling_outdoors_or_planting_months": [ 3, 4, 5, 6, 7, 8, 9, 10 ],
+        "harvest_months": [ 4, 5, 6, 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 4,
+    "harvest_days": 90,
+    "spacing_cm": 15,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "moutarde",
+    "name": "Moutarde",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Moutarde_(condiment)",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6, 7, 8 ],
+        "harvest_months": [ 7, 8, 9, 10, 11 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 90,
+    "spacing_cm": 15,
+    "likes": [],
+    "hates": []
   },
   {
     "id": "navet",
     "name": "Navet",
-    "seeding_outdoors_months": [3,4,5,7,8,9],
-    "harvest_months": [3,4,5,6,7,8,10,11],
-    "seeding_depth_cm": 1,
-    "line_distance_cm": 18,
-    "spacing_cm": 12
+    "wikipedia": "http://fr.wikipedia.org/wiki/Navet",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 3, 4, 5 ],
+        "harvest_months": [ 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 12,
+    "harvest_days": 70,
+    "spacing_cm": 10,
+    "likes": [
+      "haricot-despagne",
+      "haricot-vert",
+      "haricot",
+      "haricot-rouge",
+      "tribu-haricot",
+      "pole-haricot",
+      "pole-haricots-verts",
+      "carotte",
+      "poireau",
+      "persil",
+      "persil",
+      "persil-tubereux"
+    ],
+    "hates": []
   },
   {
-    "id": "oignon",
-    "name": "Oignon",
-    "seeding_outdoors_months": [2,3,4,8,9],
-    "planting_months": [1,2,5,10,11],
-    "harvest_months": [4,5,6,7,8,9],
-    "seeding_depth_cm": 2,
-    "line_distance_cm": 18,
-    "spacing_cm": 8
+    "id": "oignon-blanc",
+    "name": "Oignon blanc",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Oignon",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 3, 4, 5 ],
+        "harvest_months": [ 7, 8 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 220,
+    "spacing_cm": 5,
+    "likes": [
+      "carotte",
+      "betterave-potagere",
+      "tomate",
+      "camomille",
+      "sarriette",
+      "persil",
+      "persil",
+      "persil-tubereux"
+    ],
+    "hates": [
+      "haricot-despagne",
+      "haricot-vert",
+      "haricot",
+      "haricot-rouge",
+      "tribu-haricot",
+      "pole-haricot",
+      "pole-haricots-verts",
+      "chou-frise",
+      "chou-fleur",
+      "chou-romanesco",
+      "chou-rave",
+      "chou-rouge",
+      "chou-cabus",
+      "chou-de-milan",
+      "chou-de-bruxelles"
+    ]
+  },
+  {
+    "id": "oignon-plante-1ere-annee",
+    "name": "Oignon plante 1ère année",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Oignon",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 4 ],
+        "harvest_months": [ 8 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 220,
+    "spacing_cm": 5,
+    "likes": [
+      "carotte",
+      "betterave-potagere",
+      "tomate",
+      "camomille",
+      "sarriette",
+      "persil",
+      "persil",
+      "persil-tubereux"
+    ],
+    "hates": [
+      "haricot-despagne",
+      "haricot-vert",
+      "haricot",
+      "haricot-rouge",
+      "tribu-haricot",
+      "pole-haricot",
+      "pole-haricots-verts",
+      "chou-frise",
+      "chou-fleur",
+      "chou-romanesco",
+      "chou-rave",
+      "chou-rouge",
+      "chou-cabus",
+      "chou-de-milan",
+      "chou-de-bruxelles"
+    ]
+  },
+  {
+    "id": "oignon-plante-2e-annee",
+    "name": "Oignon plante 2e année",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Oignon",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 3, 4 ],
+        "harvest_months": [ 8 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 220,
+    "spacing_cm": 5,
+    "likes": [
+      "carotte",
+      "betterave-potagere",
+      "tomate",
+      "camomille",
+      "sarriette",
+      "persil",
+      "persil",
+      "persil-tubereux"
+    ],
+    "hates": [
+      "haricot-despagne",
+      "haricot-vert",
+      "haricot",
+      "haricot-rouge",
+      "tribu-haricot",
+      "pole-haricot",
+      "pole-haricots-verts",
+      "chou-frise",
+      "chou-fleur",
+      "chou-romanesco",
+      "chou-rave",
+      "chou-rouge",
+      "chou-cabus",
+      "chou-de-milan",
+      "chou-de-bruxelles"
+    ]
+  },
+  {
+    "id": "oignon-rocambole",
+    "name": "Oignon rocambole",
+    "wikipedia": "http://en.wikipedia.org/wiki/Tree_onion",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "(en)",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 3 ],
+        "harvest_months": [ 6, 7, 8 ]
+      }
+    ],
+    "germination_days": 12,
+    "harvest_days": 90,
+    "spacing_cm": 15,
+    "likes": [
+      "carotte",
+      "betterave-potagere",
+      "tomate",
+      "camomille",
+      "sarriette",
+      "persil",
+      "persil",
+      "persil-tubereux"
+    ],
+    "hates": [
+      "haricot-despagne",
+      "haricot-vert",
+      "haricot",
+      "haricot-rouge",
+      "tribu-haricot",
+      "pole-haricot",
+      "pole-haricots-verts",
+      "chou-frise",
+      "chou-fleur",
+      "chou-romanesco",
+      "chou-rave",
+      "chou-rouge",
+      "chou-cabus",
+      "chou-de-milan",
+      "chou-de-bruxelles"
+    ]
+  },
+  {
+    "id": "oignon-semis",
+    "name": "Oignon semis",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Oignon",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 1, 2, 3 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5 ],
+        "harvest_months": [ 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 20,
+    "harvest_days": 170,
+    "spacing_cm": 2,
+    "likes": [
+      "carotte",
+      "betterave-potagere",
+      "tomate",
+      "camomille",
+      "sarriette",
+      "persil",
+      "persil",
+      "persil-tubereux"
+    ],
+    "hates": [
+      "haricot-despagne",
+      "haricot-vert",
+      "haricot",
+      "haricot-rouge",
+      "tribu-haricot",
+      "pole-haricot",
+      "pole-haricots-verts",
+      "chou-frise",
+      "chou-fleur",
+      "chou-romanesco",
+      "chou-rave",
+      "chou-rouge",
+      "chou-cabus",
+      "chou-de-milan",
+      "chou-de-bruxelles"
+    ]
+  },
+  {
+    "id": "oignons-dhiver",
+    "name": "Oignons d’hiver",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Oignon",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 8 ],
+        "harvest_months": [ 5, 6 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 220,
+    "spacing_cm": 5,
+    "likes": [
+      "carotte",
+      "betterave-potagere",
+      "tomate",
+      "camomille",
+      "sarriette",
+      "persil",
+      "persil",
+      "persil-tubereux"
+    ],
+    "hates": [
+      "haricot-despagne",
+      "haricot-vert",
+      "haricot",
+      "haricot-rouge",
+      "tribu-haricot",
+      "pole-haricot",
+      "pole-haricots-verts",
+      "chou-frise",
+      "chou-fleur",
+      "chou-romanesco",
+      "chou-rave",
+      "chou-rouge",
+      "chou-cabus",
+      "chou-de-milan",
+      "chou-de-bruxelles"
+    ]
+  },
+  {
+    "id": "oseille",
+    "name": "Oseille",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Oseille",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5 ],
+        "harvest_months": [ 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 16,
+    "harvest_days": 120,
+    "spacing_cm": 30,
+    "likes": [],
+    "hates": []
   },
   {
     "id": "panais",
     "name": "Panais",
-    "seeding_outdoors_months": [2,3,4,5,6,10,11],
-    "harvest_months": [1,2,3,4,5,6,7,8,9,10,11,12],
-    "seeding_depth_cm": 1,
-    "line_distance_cm": 30,
-    "spacing_cm": 20
+    "wikipedia": "http://fr.wikipedia.org/wiki/Panais",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3 ],
+        "seedling_outdoors_or_planting_months": [ 4 ],
+        "harvest_months": [ 10, 11, 12 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 260,
+    "spacing_cm": 30,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "pe-tsai",
+    "name": "Pe-tsaï",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Pe-tsa%C3%AF",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5, 6, 7 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6, 7, 8 ],
+        "harvest_months": [ 6, 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 90,
+    "spacing_cm": 30,
+    "likes": [],
+    "hates": []
   },
   {
     "id": "persil",
     "name": "Persil",
-    "seeding_outdoors_months": [2,3,4,5,6,7,8,9],
-    "harvest_months": [3,4,5,6,7,8,9,10,11]
+    "wikipedia": "http://fr.wikipedia.org/wiki/Petroselinum_crispum",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 4 ],
+        "harvest_months": [ 10, 11 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 130,
+    "spacing_cm": 10,
+    "likes": [],
+    "hates": []
   },
   {
-    "id": "piment_poivron",
+    "id": "persil",
+    "name": "Persil",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Persil",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 2, 3, 4, 5, 6, 7 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6, 7 ],
+        "harvest_months": [ 5, 6, 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 30,
+    "harvest_days": 90,
+    "spacing_cm": 30,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "persil-tubereux",
+    "name": "Persil tubéreux",
+    "wikipedia": "https://fr.wikipedia.org/wiki/Persil",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 2, 3, 4 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5 ],
+        "harvest_months": [ 9, 10, 11 ]
+      }
+    ],
+    "germination_days": 30,
+    "harvest_days": 210,
+    "spacing_cm": 25,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "piment-poivron",
     "name": "Piment-Poivron",
-    "seeding_indoors_months": [2,3],
-    "planting_months": [5],
-    "harvest_months": [8,9,10,11]
+    "wikipedia": "https://fr.wikipedia.org/wiki/Poivron",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [2,3],
+        "seedling_outdoors_or_planting_months": [5],
+        "harvest_months": [8,9,10,11]
+      }
+    ],
+    "germination_days": 12,
+    "harvest_days": 80,
+    "spacing_cm": 50,
+    "likes": [],
+    "hates": []
   },
   {
     "id": "poireau",
     "name": "Poireau",
-    "likes": ["carotte"],
-    "seeding_indoors_months": [1,2,3],
-    "seeding_outdoors_months": [3,4,5,8,9],
-    "planting_months": [2,3,4,5,10,11],
-    "harvest_months": [1,2,3,4,5,6,7,8,9,10,11,12],
-    "seeding_depth_cm": 1,
-    "line_distance_cm": 30,
-    "spacing_cm": 10
+    "wikipedia": "http://fr.wikipedia.org/wiki/Poireau",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "Cultures d’été",
+        "seedling_indoors_months": [ 1 ],
+        "seedling_outdoors_or_planting_months": [ 3 ],
+        "harvest_months": [ 7, 8, 9 ]
+      },
+      {
+        "name": "Cultures d’automne",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 3 ],
+        "harvest_months": [ 10, 11, 12 ]
+      },
+      {
+        "name": "Culture d’hiver",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 4 ],
+        "harvest_months": [ 1, 2, 3 ]
+      }
+    ],
+    "germination_days": 20,
+    "harvest_days": 170,
+    "spacing_cm": 15,
+    "likes": [
+      "haricot-despagne",
+      "haricot-vert",
+      "haricot",
+      "haricot-rouge",
+      "tribu-haricot",
+      "pole-haricot",
+      "pole-haricots-verts",
+      "carotte",
+      "poireau",
+      "navet",
+      "sauge",
+      "celeri-rave",
+      "celeri-a-couper",
+      "haricot-despagne",
+      "haricot-vert",
+      "haricot",
+      "haricot-rouge",
+      "tribu-haricot",
+      "pole-haricot",
+      "pole-haricots-verts",
+      "carotte",
+      "navet"
+    ],
+    "hates": [
+      "oignon-rocambole",
+      "loignon-cebette",
+      "oignon-semis",
+      "loignon-ensemencement",
+      "oignon-plante-1ere-annee",
+      "oignon-plante-2e-annee",
+      "oignons-dhiver",
+      "oignon-blanc",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail"
+    ]
   },
   {
     "id": "pois",
     "name": "Pois",
-    "seeding_outdoors_months": [2,3,4,5,10,11],
-    "harvest_months": [5,6,7,8,9],
-    "seeding_depth_cm": 3,
-    "line_distance_cm": 40,
-    "spacing_cm": 20
+    "wikipedia": "http://fr.wikipedia.org/wiki/Pisum_sativum",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 2, 3 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5 ],
+        "harvest_months": [ 6, 7 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 70,
+    "spacing_cm": 5,
+    "likes": [
+      "haricot-despagne",
+      "haricot-vert",
+      "haricot",
+      "haricot-rouge",
+      "tribu-haricot",
+      "pole-haricot",
+      "pole-haricots-verts",
+      "carotte",
+      "poireau",
+      "navet",
+      "sauge",
+      "celeri-rave",
+      "celeri-a-couper"
+    ],
+    "hates": [
+      "oignon-rocambole",
+      "loignon-cebette",
+      "oignon-semis",
+      "loignon-ensemencement",
+      "oignon-plante-1ere-annee",
+      "oignon-plante-2e-annee",
+      "oignons-dhiver",
+      "oignon-blanc",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail"
+    ]
+  },
+  {
+    "id": "pois-de-neige",
+    "name": "Pois de neige",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Pois",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3 ],
+        "seedling_outdoors_or_planting_months": [ 4 ],
+        "harvest_months": [ 6, 7 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 70,
+    "spacing_cm": 5,
+    "likes": [
+      "haricot-despagne",
+      "haricot-vert",
+      "haricot",
+      "haricot-rouge",
+      "tribu-haricot",
+      "pole-haricot",
+      "pole-haricots-verts",
+      "carotte",
+      "poireau",
+      "navet",
+      "sauge",
+      "celeri-rave",
+      "celeri-a-couper"
+    ],
+    "hates": [
+      "oignon-rocambole",
+      "loignon-cebette",
+      "oignon-semis",
+      "loignon-ensemencement",
+      "oignon-plante-1ere-annee",
+      "oignon-plante-2e-annee",
+      "oignons-dhiver",
+      "oignon-blanc",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail"
+    ]
+  },
+  {
+    "id": "pois-gris",
+    "name": "Pois gris",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Pisum_sativum",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 2 ],
+        "seedling_outdoors_or_planting_months": [ 3 ],
+        "harvest_months": [ 7 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 70,
+    "spacing_cm": 5,
+    "likes": [
+      "haricot-despagne",
+      "haricot-vert",
+      "haricot",
+      "haricot-rouge",
+      "tribu-haricot",
+      "pole-haricot",
+      "pole-haricots-verts",
+      "carotte",
+      "poireau",
+      "navet",
+      "sauge",
+      "celeri-rave",
+      "celeri-a-couper"
+    ],
+    "hates": [
+      "oignon-rocambole",
+      "loignon-cebette",
+      "oignon-semis",
+      "loignon-ensemencement",
+      "oignon-plante-1ere-annee",
+      "oignon-plante-2e-annee",
+      "oignons-dhiver",
+      "oignon-blanc",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail"
+    ]
+  },
+  {
+    "id": "poivrier-noir",
+    "name": "Poivrier noir",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Poivrier_noir",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4 ],
+        "seedling_outdoors_or_planting_months": [ 6 ],
+        "harvest_months": [ 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 180,
+    "spacing_cm": 45,
+    "likes": [
+      "haricot-despagne",
+      "haricot-vert",
+      "haricot",
+      "haricot-rouge",
+      "tribu-haricot",
+      "pole-haricot",
+      "pole-haricots-verts",
+      "carotte",
+      "poireau",
+      "navet",
+      "sauge",
+      "celeri-rave",
+      "celeri-a-couper"
+    ],
+    "hates": [
+      "oignon-rocambole",
+      "loignon-cebette",
+      "oignon-semis",
+      "loignon-ensemencement",
+      "oignon-plante-1ere-annee",
+      "oignon-plante-2e-annee",
+      "oignons-dhiver",
+      "oignon-blanc",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail"
+    ]
+  },
+  {
+    "id": "pole-haricot",
+    "name": "Pôle haricot",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Haricot",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 5 ],
+        "seedling_outdoors_or_planting_months": [ 6 ],
+        "harvest_months": [ 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 14,
+    "harvest_days": 70,
+    "spacing_cm": 10,
+    "likes": [
+      "celeri-rave",
+      "celeri-a-couper",
+      "sauge",
+      "carotte",
+      "chou-fleur",
+      "laitue-romaine",
+      "laitue-cultivee",
+      "laitue",
+      "coupe-laitue",
+      "laitue-chinoise",
+      "pomme-de-terre"
+    ],
+    "hates": [
+      "oignon-rocambole",
+      "loignon-cebette",
+      "oignon-semis",
+      "loignon-ensemencement",
+      "oignon-plante-1ere-annee",
+      "oignon-plante-2e-annee",
+      "oignons-dhiver",
+      "oignon-blanc",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail"
+    ]
+  },
+  {
+    "id": "pole-haricots-verts",
+    "name": "Pôle haricots verts",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Haricot_vert",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 5, 6, 7 ],
+        "harvest_months": [ 8, 9 ]
+      }
+    ],
+    "germination_days": 14,
+    "harvest_days": 70,
+    "spacing_cm": 10,
+    "likes": [
+      "celeri-rave",
+      "celeri-a-couper",
+      "sauge",
+      "carotte",
+      "chou-fleur",
+      "laitue-romaine",
+      "laitue-cultivee",
+      "laitue",
+      "coupe-laitue",
+      "laitue-chinoise",
+      "pomme-de-terre"
+    ],
+    "hates": [
+      "oignon-rocambole",
+      "loignon-cebette",
+      "oignon-semis",
+      "loignon-ensemencement",
+      "oignon-plante-1ere-annee",
+      "oignon-plante-2e-annee",
+      "oignons-dhiver",
+      "oignon-blanc",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail"
+    ]
+  },
+  {
+    "id": "pomme-de-terre",
+    "name": "Pomme de terre",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Pomme_de_terre",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6 ],
+        "harvest_months": [ 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 20,
+    "harvest_days": 120,
+    "spacing_cm": 40,
+    "likes": [
+      "poireau",
+      "pois-gris",
+      "pois",
+      "pois-de-neige",
+      "poivrier-noir",
+      "haricot-despagne",
+      "haricot-vert",
+      "haricot",
+      "haricot-rouge",
+      "tribu-haricot",
+      "pole-haricot",
+      "pole-haricots-verts",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail"
+    ],
+    "hates": []
+  },
+  {
+    "id": "pourpier",
+    "name": "Pourpier",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Portulaca_oleracea",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 4, 5, 6, 7, 8 ],
+        "seedling_outdoors_or_planting_months": [ 7, 8 ],
+        "harvest_months": [ 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 3,
+    "harvest_days": 28,
+    "spacing_cm": 0,
+    "likes": [],
+    "hates": []
   },
   {
     "id": "radis",
     "name": "Radis",
-    "seeding_indoors_months": [2,3],
-    "seeding_outdoors_months": [3,4,5,6,7,8,9],
-    "harvest_months": [4,5,6,7,8,9,10,11],
-    "seeding_depth_cm": 2,
-    "line_distance_cm": 20,
-    "spacing_cm": 5
+    "wikipedia": "http://fr.wikipedia.org/wiki/Raphanus_sativus",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6, 7, 8, 9 ],
+        "harvest_months": [ 4, 5, 6, 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 40,
+    "spacing_cm": 5,
+    "likes": [ "persil", "persil", "persil-tubereux" ],
+    "hates": []
   },
   {
-    "id": "tomates",
-    "name": "Tomates",
-    "seeding_indoors_months": [2,3,4],
-    "seeding_outdoors_months": [5,6],
-    "planting_months": [5,6],
-    "harvest_months": [7,8,9,10],
-    "seeding_depth_cm": 1,
-    "line_distance_cm": 70,
-    "spacing_cm": 70
+    "id": "radis-noir",
+    "name": "Radis noir",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Radis_noir",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5, 6, 7, 8 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6, 7, 8 ],
+        "harvest_months": [ 5, 6, 7, 8, 9, 10, 11, 12 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 90,
+    "spacing_cm": 15,
+    "likes": [ "persil", "persil", "persil-tubereux" ],
+    "hates": []
+  },
+  {
+    "id": "rhubarbe",
+    "name": "Rhubarbe",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Rheum_rhabarbarum",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 9, 10, 11, 12 ],
+        "harvest_months": [ 4, 5, 6, 7, 8 ]
+      }
+    ],
+    "germination_days": 8,
+    "harvest_days": 360,
+    "spacing_cm": 50,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "romarin",
+    "name": "Romarin",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Romarin",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 2, 3, 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6 ],
+        "harvest_months": [ 5, 6, 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 30,
+    "harvest_days": 90,
+    "spacing_cm": 40,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "rorippa",
+    "name": "Rorippa",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Rorippa",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6 ],
+        "harvest_months": [ 6, 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 16,
+    "harvest_days": 30,
+    "spacing_cm": 10,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "rorippa",
+    "name": "Rorippa",
+    "wikipedia": "https://fr.wikipedia.org/wiki/Rorippa",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 3, 4, 5, 6 ],
+        "harvest_months": [ 4, 5, 6, 7, 8, 9, 10, 11 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 50,
+    "spacing_cm": 20,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "rubus",
+    "name": "Rubus",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Rubus",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [],
+        "harvest_months": [ 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": null,
+    "harvest_days": null,
+    "spacing_cm": null,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "rumex",
+    "name": "Rumex",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Oseille_commune",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6 ],
+        "harvest_months": [ 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 45,
+    "spacing_cm": 3,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "rutabaga",
+    "name": "Rutabaga",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Rutabaga",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6 ],
+        "harvest_months": [ 10, 11, 12 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 135,
+    "spacing_cm": 35,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "rutabaga",
+    "name": "Rutabaga",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Rutabaga",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 1, 2, 11, 12 ],
+        "seedling_outdoors_or_planting_months": [ 3, 4, 5, 6, 7, 8 ],
+        "harvest_months": [ 3, 4, 5, 6, 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 100,
+    "spacing_cm": 10,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "salade-de-jardin",
+    "name": "Salade de jardin",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Salade_(plante)",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6, 7, 8 ],
+        "harvest_months": [ 5, 6, 7, 8, 9, 10, 11 ]
+      }
+    ],
+    "germination_days": 12,
+    "harvest_days": 65,
+    "spacing_cm": 30,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "sarriette",
+    "name": "Sarriette",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Sarriette",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 2, 3 ],
+        "seedling_outdoors_or_planting_months": [ 3, 4, 5, 6 ],
+        "harvest_months": [ 6, 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 18,
+    "harvest_days": 60,
+    "spacing_cm": 20,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "sauge",
+    "name": "Sauge",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Sauge",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 2, 3, 4 ],
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6 ],
+        "harvest_months": [ 6, 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 25,
+    "harvest_days": 120,
+    "spacing_cm": 35,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "scorsonere-despagne",
+    "name": "Scorsonère d’Espagne",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Scorzonera_hispanica",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 4, 5 ],
+        "harvest_months": [ 1, 2, 10, 11, 12 ]
+      }
+    ],
+    "germination_days": 15,
+    "harvest_days": 200,
+    "spacing_cm": 10,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "tetragonia",
+    "name": "Tetragonia",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Tetragonia",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 6, 7 ],
+        "harvest_months": [ 6, 7, 8, 9, 10, 11 ]
+      }
+    ],
+    "germination_days": 30,
+    "harvest_days": 100,
+    "spacing_cm": 40,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "thym",
+    "name": "Thym",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Thym",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6, 7 ],
+        "harvest_months": [ 6, 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 18,
+    "harvest_days": 90,
+    "spacing_cm": 25,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "tomate",
+    "name": "Tomate",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Tomate",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 2, 3 ],
+        "seedling_outdoors_or_planting_months": [ 5 ],
+        "harvest_months": [ 7, 8, 9, 10 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 130,
+    "spacing_cm": 45,
+    "likes": [ "persil", "persil", "persil-tubereux", "basilic", "basilic-citron" ],
+    "hates": [ "chou-rave" ]
+  },
+  {
+    "id": "topinambour",
+    "name": "Topinambour",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Topinambour",
+    "types": [ "root" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 3, 4 ],
+        "harvest_months": [ 10, 11 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 300,
+    "spacing_cm": 40,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "tournesol",
+    "name": "Tournesol",
+    "wikipedia": "https://fr.wikipedia.org/wiki/Tournesol",
+    "types": [ "flower" ],
+    "calendars": [],
+    "germination_days": 0,
+    "harvest_days": 0,
+    "spacing_cm": 0,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "tribu-haricot",
+    "name": "Tribu Haricot",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Haricot",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 3, 4 ],
+        "harvest_months": [ 7, 8, 9 ]
+      }
+    ],
+    "germination_days": 14,
+    "harvest_days": 70,
+    "spacing_cm": 10,
+    "likes": [
+      "celeri-rave",
+      "celeri-a-couper",
+      "sauge",
+      "carotte",
+      "chou-fleur",
+      "laitue-romaine",
+      "laitue-cultivee",
+      "laitue",
+      "coupe-laitue",
+      "laitue-chinoise",
+      "pomme-de-terre"
+    ],
+    "hates": [
+      "oignon-rocambole",
+      "loignon-cebette",
+      "oignon-semis",
+      "loignon-ensemencement",
+      "oignon-plante-1ere-annee",
+      "oignon-plante-2e-annee",
+      "oignons-dhiver",
+      "oignon-blanc",
+      "ail-cultive",
+      "lail-des-ours",
+      "ail"
+    ]
   }
 ]

@@ -347,7 +347,6 @@ class SpeciesDetail extends Component {
   render() {
     const {
       species,
-      families,
     } = this.props;
     const {
       generic,
@@ -361,14 +360,11 @@ class SpeciesDetail extends Component {
       country,
     } = species;
     const {
-      line_distance_cm,
-      seeding_depth_cm,
+      germination_days,
+      harvest_days,
       spacing_cm,
-      seeding_indoors_months,
-      seeding_outdoors_months,
-      planting_months,
-      harvest_months,
-    } = families.find(f => f.id === family) || {};
+      calendars,
+    } = species.family;
     return <div className="seed">
       <strong>{generic}</strong>&nbsp;
       <span>{name}</span>&nbsp;
@@ -379,14 +375,16 @@ class SpeciesDetail extends Component {
         : <em style={{ fontSize: "0.6em", color: "#930" }}>({brand||"?"}, {country||"France"})</em>}
       <em style={{ marginLeft: 10, fontSize: "0.6em" }}>{latin}</em>
       <p style={{ opacity: 0.8, fontSize: "0.8em" }}>
-        prof.graines: {seeding_depth_cm}cm,
-        dist.lignes: {line_distance_cm}cm,
+        germination: {germination_days}j,
+        récolte: {harvest_days}j,
         dist.graines: {spacing_cm}cm
       </p>
-      <Months color="#F50" months={seeding_indoors_months||[]} />
-      <Months color="#09F" months={seeding_outdoors_months||[]} />
-      <Months color="#0C3" months={planting_months||[]} />
-      <Months color="#F09" months={harvest_months||[]} />
+      {calendars.map(calendar => <div>
+        <p><strong>{calendar.name}</strong></p>
+        <Months color="#F50" months={calendar.seedling_indoors_months||[]} />
+        <Months color="#0C3" months={calendar.seedling_outdoors_or_planting_months||[]} />
+        <Months color="#F09" months={calendar.harvest_months||[]} />
+      </div>)}
       <blockquote>{desc}</blockquote>
     </div>;
   }
@@ -406,38 +404,34 @@ function findSeedlingBySectionTest (seedlings, predicate) {
 class SuggestSeedsUsableForMonth extends Component {
   render() {
     const {data, month} = this.props;
-    const {seeds, species, families, seedlings} = data;
+    const {seeds, species, seedlings} = data;
     const options = [];
     Object.keys(seeds).forEach(id => {
       const seed = seeds[id];
-      const spec = species[seed.species];
-      const family = families.find(family => family.id === spec.family);
-      if (family) {
-        let res;
-        const seedling = findSeedlingBySectionTest(
-          seedlings,
-          section => section.species.id === id
-        );
-        if (!seedling && family.seeding_indoors_months && family.seeding_indoors_months.indexOf(month)!==-1) {
-          res = { ...res, indoors: true };
-        }
-        if (family.seeding_outdoors_months && family.seeding_outdoors_months.indexOf(month)!==-1) {
-          res = { ...res, outdoors: true };
-        }
-        if (seedling && family.planting_months && family.planting_months.indexOf(month)!==-1) {
-          res = { ...res, replant: true, seedling };
-        }
-        if (res) {
-          options.push({
-            ...res,
-            seed,
-            spec,
-            family,
-          });
-        }
+      const spec = species[seed.species]; // FIXME spec should already be the object of seed.species
+      const family = spec.family;
+      let res;
+      const seedling = findSeedlingBySectionTest(
+        seedlings,
+        section => section.species.id === id
+      );
+      if (!seedling && family.calendars.some(calendar => calendar.seedling_indoors_months.indexOf(month)!==-1)) {
+        res = { ...res, indoors: true };
       }
-      else {
-        //console.warn("No family on seed", id, seed);
+      const readyForOutdoors = family.calendars.some(calendar => calendar.seedling_outdoors_or_planting_months.indexOf(month)!==-1);
+      if (readyForOutdoors) {
+        res = { ...res, outdoors: true };
+      }
+      if (seedling && readyForOutdoors) {
+        res = { ...res, replant: true, seedling };
+      }
+      if (res) {
+        options.push({
+          ...res,
+          seed,
+          spec,
+          family,
+        });
       }
     });
     return <div>
@@ -459,7 +453,7 @@ class SuggestSeedsUsableForMonth extends Component {
             <strong>{verbs.join(" ou ")}</strong>
             {":"}
           </h4>
-          <SpeciesDetail species={option.spec} families={data.families} />
+          <SpeciesDetail species={option.spec} />
         </div>
       })}
     </div>;
@@ -566,7 +560,6 @@ class App extends Component {
           {Object.keys(data.species).map(id =>
             <SpeciesDetail
               species={data.species[id]}
-              families={data.families}
               key={id}
             /> )}
           </div>

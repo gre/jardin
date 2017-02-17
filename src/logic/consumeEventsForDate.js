@@ -4,7 +4,6 @@ import families from "../../data/families.json";
 
 const initialState = {
   waterTanks: {},
-  families,
   plots: {},
   species: {},
   seeds: {},
@@ -86,17 +85,21 @@ function reducer (state, event) {
   switch (event.op) {
   case "add-species": {
     invariant(!(event.id in state.species), "species %s does not exist yet in state.species", event.id);
-    state.species = {...state.species};
+    const family = families.find(f => f.id === event.family);
+    invariant(family, "species '%s': valid family field defined in families is required. Got '%s'", event.id, event.family);
     const { op, ...species } = event;
-    state.species[event.id] = species;
+    state.species = {
+      ...state.species,
+      [event.id]: {
+        ...species,
+        family,
+      },
+    };
     break;
   }
   case "add-seeds": {
     invariant(event.species in state.species, "species %s exists in state.species", event.species);
-    state.seeds = {...state.seeds};
-    state.seeds[event.species] = {
-      ...event,
-    };
+    state.seeds[event.species] = event;
     break;
   }
   case "add-plot": {
