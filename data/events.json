@@ -841,7 +841,8 @@
     "species": "helianti",
     "date": "2017-02-01",
     "year": 2016,
-    "count": 10
+    "count": 10,
+    "tuber": true
   },
   {
     "op": "add-species",

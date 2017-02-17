@@ -419,10 +419,10 @@ class SuggestSeedsUsableForMonth extends Component {
         res = { ...res, indoors: true };
       }
       const readyForOutdoors = family.calendars.some(calendar => calendar.seedling_outdoors_or_planting_months.indexOf(month)!==-1);
-      if (readyForOutdoors) {
+      if (readyForOutdoors && !seed.tuber) {
         res = { ...res, outdoors: true };
       }
-      if (seedling && readyForOutdoors) {
+      if ((seedling || seed.tuber) && readyForOutdoors) {
         res = { ...res, replant: true, seedling };
       }
       if (res) {
@@ -486,9 +486,9 @@ class App extends Component {
     const { date } = this.state;
     const data = consumeEventsForDate(date);
     const moon = mooncalc(date);
-    const month = date.getMonth();
-    const nextMonth = (month+1) % 12;
-    const nextNextMonth = (month+2) % 12;
+    const month = 1 + date.getMonth();
+    const nextMonth = 1 + (month+1) % 12;
+    const nextNextMonth = 1 + (month+2) % 12;
 
     const seedlingGroups =
     Object.keys(data.seedlings)
