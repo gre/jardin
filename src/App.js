@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import raf from "raf";
 import smoothstep from "smoothstep";
+import uniq from "lodash/uniq";
+import flatMap from "lodash/flatMap";
 import logo from "./logo.svg";
 import "./App.css";
 import moment from "moment";
@@ -267,14 +269,17 @@ class WaterTank extends Component {
 const MONTHS = ["J","F","M","A","M","J","J","A","S","O","N","D"];
 class Months extends Component {
   render() {
-    const {color,months} = this.props;
+    const {color,months,label} = this.props;
     return <div className="months" style={{ color }}>
+      <span className="body">
       {MONTHS.map((m,i) =>
         <span
           key={i}
           className={["month",(months.indexOf(i+1)===-1?"off":"on")].join(" ")}>
           {m}
         </span>)}
+      </span>
+      <span className="label">{label}</span>
     </div>;
   }
 }
@@ -346,6 +351,7 @@ class Plot extends Component {
 class SpeciesDetail extends Component {
   render() {
     const {
+      data,
       species,
     } = this.props;
     const {
@@ -364,29 +370,62 @@ class SpeciesDetail extends Component {
       harvest_days,
       spacing_cm,
       calendars,
+      likes,
+      hates,
     } = species.family;
-    return <div className="seed">
-      <strong>{generic}</strong>&nbsp;
-      <span>{name}</span>&nbsp;
-      <em>({year})</em>&nbsp;
-      {
-        bio
-        ? <span title={brand} style={{ color: "#0d0", fontWeight: "bold", fontSize: "0.8em" }}>BIO, {country||"France"}</span>
-        : <em style={{ fontSize: "0.6em", color: "#930" }}>({brand||"?"}, {country||"France"})</em>}
-      <em style={{ marginLeft: 10, fontSize: "0.6em" }}>{latin}</em>
+
+    const speciesForFamilyId = id =>
+      Object.keys(data.species)
+      .map(specId => data.species[specId])
+      .filter(spec => spec.family.id === id);
+
+    const renderAssociations = (ids, prefix, className) => {
+      const species = uniq(flatMap(ids, speciesForFamilyId));
+      if (species.length === 0) return null;
+      return <p className={["associations", className].join(" ")}>
+        <strong>{prefix}{" "}</strong>
+        {species.map(seed => (seed.generic||"")+" "+(seed.name||"")).join(", ")}
+      </p>
+    };
+
+    return <details className="seed">
+      <summary>
+        <strong>{generic}</strong>&nbsp;
+        <span>{name}</span>&nbsp;
+        <em>({year})</em>&nbsp;
+        {
+          bio
+          ? <span title={brand} style={{ color: "#0d0", fontWeight: "bold", fontSize: "0.8em" }}>BIO, {country||"France"}</span>
+          : <em style={{ fontSize: "0.6em", color: "#930" }}>({brand||"?"}, {country||"France"})</em>}
+        <em style={{ marginLeft: 10, fontSize: "0.6em" }}>{latin}</em>
+      </summary>
       <p style={{ opacity: 0.8, fontSize: "0.8em" }}>
         germination: {germination_days}j,
         récolte: {harvest_days}j,
         dist.graines: {spacing_cm}cm
       </p>
-      {calendars.map(calendar => <div>
+      {calendars.map((calendar, i) => <div key={i}>
         <p><strong>{calendar.name}</strong></p>
-        <Months color="#F50" months={calendar.seedling_indoors_months||[]} />
-        <Months color="#0C3" months={calendar.seedling_outdoors_or_planting_months||[]} />
-        <Months color="#F09" months={calendar.harvest_months||[]} />
+        <Months
+          color="#F50"
+          label="Semer au chaud"
+          months={calendar.seedling_indoors_months||[]}
+        />
+        <Months
+          color="#0C3"
+          label="Semer dehors / Replanter"
+          months={calendar.seedling_outdoors_or_planting_months||[]}
+        />
+        <Months
+          color="#F09"
+          label="Récolter"
+          months={calendar.harvest_months||[]}
+        />
       </div>)}
       <blockquote>{desc}</blockquote>
-    </div>;
+      {renderAssociations(likes, "✔︎ Adore: ", "likes")}
+      {renderAssociations(hates, "❌ Déteste: ", "hates")}
+    </details>;
   }
 }
 
@@ -434,28 +473,21 @@ class SuggestSeedsUsableForMonth extends Component {
         });
       }
     });
-    return <div>
-      {options.map((option, i) => {
-        const verbs = [];
-        if (option.indoors) {
-          verbs.push("Semer au chaud");
-        }
-        if (option.outdoors) {
-          verbs.push("Semer dehors");
-        }
-        if (option.replant) {
-          verbs.push("Replanter");
-        }
 
-        return <div key={i}>
-          <h4>
-            {(i+1)+". "}
-            <strong>{verbs.join(" ou ")}</strong>
-            {":"}
-          </h4>
-          <SpeciesDetail species={option.spec} />
-        </div>
-      })}
+    const indoors = options.filter(option => option.indoors);
+    const outdoors = options.filter(option => option.outdoors);
+    const replant = options.filter(option => option.replant);
+
+    return <div>
+      { indoors.length ? <h4>Semer au chaud</h4> : null }
+      { indoors.map((option, i) =>
+        <SpeciesDetail key={"indoors_"+i} species={option.spec} data={data} /> )}
+      { outdoors.length ? <h4>Semer dehors</h4> : null }
+      { outdoors.map((option, i) =>
+        <SpeciesDetail key={"outdoors_"+i} species={option.spec} data={data} /> )}
+      { replant.length ? <h4>Replanter</h4> : null }
+      { replant.map((option, i) =>
+        <SpeciesDetail key={"replant_"+i} species={option.spec} data={data} /> )}
     </div>;
   }
 }
@@ -488,7 +520,6 @@ class App extends Component {
     const moon = mooncalc(date);
     const month = 1 + date.getMonth();
     const nextMonth = 1 + (month+1) % 12;
-    const nextNextMonth = 1 + (month+2) % 12;
 
     const seedlingGroups =
     Object.keys(data.seedlings)
@@ -549,18 +580,19 @@ class App extends Component {
           <div style={{ textAlign: "left", margin: "200px 0"}}>
             <h4>Reste à faire en {months[month]}:</h4>
             <SuggestSeedsUsableForMonth month={month} data={data} />
-            <h4>Reste à faire en {months[nextMonth]}:</h4>
+            <h4>Reste à venir en {months[nextMonth]}:</h4>
             <SuggestSeedsUsableForMonth month={nextMonth} data={data} />
-            <h4>Reste à faire en {months[nextNextMonth]}:</h4>
-            <SuggestSeedsUsableForMonth month={nextNextMonth} data={data} />
           </div>
 
           <h3>{Object.keys(data.species).length} Espèces Différentes</h3>
           <div>
-          {Object.keys(data.species).map(id =>
+          {Object.keys(data.species)
+            .sort((a,b) => data.species[a].family.id < data.species[b].family.id ? -1 : 1)
+            .map(id =>
             <SpeciesDetail
-              species={data.species[id]}
               key={id}
+              species={data.species[id]}
+              data={data}
             /> )}
           </div>
         </div>

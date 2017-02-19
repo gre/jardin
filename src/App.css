@@ -181,14 +181,21 @@
 
 .seed {
   text-align: left;
-  margin: 10px 0;
-  padding: 10px 0;
+  padding: 8px 0;
 }
 
 .months {
-  font-size: 14px;
-  letter-spacing: 0.3em;
+  font-size: 16px;
   font-family: monospace;
+}
+.months .label {
+  margin-left: 2em;
+  font-size: 0.5em;
+  vertical-align: middle;
+}
+.months .body {
+  font-size: 1em;
+  letter-spacing: 0.3em;
 }
 .months .month {
 
@@ -227,4 +234,14 @@ blockquote {
   border: 1px solid #ccc;
   border-top: none;
   background: #fff;
+}
+
+.associations {
+  font-size: 0.8em;
+}
+.associations.likes {
+  color: #0E0;
+}
+.associations.hates {
+  color: #f66;
 }

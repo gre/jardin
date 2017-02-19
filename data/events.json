@@ -1295,5 +1295,84 @@
     "species": "basilic_marseillais",
     "date": "2017-02-16",
     "expiration_year": 2020
+  },
+
+  {
+    "op": "add-seedling",
+    "id": "oignon-pots",
+    "date": "2017-02-19",
+    "name": "Pots d'oignons",
+    "group": "pots",
+    "count": 6
+  },
+  {
+    "op": "transplant",
+    "date": "2017-02-19",
+    "from": {
+      "box": "starter-1",
+      "section": 0
+    },
+    "to": {
+      "box": "oignon-pots"
+    }
+  },
+
+  {
+    "op": "add-seedling",
+    "id": "poireau-gprm-pots",
+    "date": "2017-02-19",
+    "name": "Pots de Poireau Géant",
+    "group": "pots",
+    "count": 6
+  },
+  {
+    "op": "transplant",
+    "date": "2017-02-19",
+    "from": {
+      "box": "starter-2",
+      "section": 1
+    },
+    "to": {
+      "box": "poireau-gprm-pots"
+    }
+  },
+  {
+    "op": "add-seedling",
+    "id": "poireau-carentan2-pots",
+    "date": "2017-02-19",
+    "name": "Pots de Poireau Carentan 2",
+    "group": "pots",
+    "count": 6
+  },
+  {
+    "op": "transplant",
+    "date": "2017-02-19",
+    "from": {
+      "box": "starter-2",
+      "section": 0
+    },
+    "to": {
+      "box": "poireau-carentan2-pots"
+    }
+  },
+  {
+    "op": "remove-seedling",
+    "id": "starter-2",
+    "date": "2017-02-19"
+  },
+  {
+    "op": "add-seedling",
+    "id": "starter-2",
+    "date": "2017-02-19",
+    "group": "starter",
+    "name": "MiniSerre 2"
+  },
+  {
+    "op": "seed",
+    "date": "2017-02-19",
+    "species": "poireau_gprm",
+    "at": {
+      "box": "starter-2"
+    }
   }
 ]

@@ -36,10 +36,10 @@ function consumeSeeds (state, event) {
 
 function updateSelection (state, cursor, update) {
   state = {...state};
-  if (cursor.box) {
+  if ("box" in cursor) {
     invariant(cursor.box in state.seedlings, "seedling '%s' is defined in seedlings", cursor.box);
     const seedling = { ...state.seedlings[cursor.box] };
-    if (cursor.section) {
+    if ("section" in cursor) {
       invariant(cursor.section in seedling.sections, "section '%s' is defined in seedling.sections", cursor.section);
       seedling.sections = [...seedling.sections];
       seedling.sections[cursor.section] = update(seedling.sections[cursor.section]);
@@ -56,7 +56,7 @@ function updateSelection (state, cursor, update) {
       [cursor.box]: seedling,
     };
   }
-  else if (cursor.plot) {
+  else if ("plot" in cursor) {
     invariant(cursor.plot in state.plots, "seedling '%s' is defined in plots", cursor.plot);
     const plot = { ...state.plots[cursor.plot] };
     const [ x, y, w, h ] = cursor.area || [ 0, 0, plot.gridW, Math.ceil(plot.grid.length/plot.gridW) ];
@@ -139,6 +139,11 @@ function reducer (state, event) {
     };
     break;
   }
+  case "remove-seedling": {
+    state.seedlings = { ...state.seedlings };
+    delete state.seedlings[event.id];
+    break;
+  }
   case "seedling-resize": {
     invariant(event.box in state.seedlings, "seedling-resize: seedling '%s' should exist", event.box);
     state = {...state};
@@ -164,10 +169,14 @@ function reducer (state, event) {
   case "transplant": {
     // NB currently, transplant is not a partial op, do for the whole section
     let fromSection;
+    console.log(event.from, "???", state);
     state = updateSelection(state, event.from, section => {
+      console.log("section", section);
       fromSection = section;
       return null;
     });
+    console.log(event.from, fromSection, state);
+    invariant(fromSection, "from was found");
     state = updateSelection(state, event.to, () => ({
       ...fromSection,
       transpantDate: event.date,
