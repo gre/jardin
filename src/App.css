@@ -127,6 +127,24 @@
   border-radius: 4px;
 }
 
+.seedling.pots .body,
+.seedling.eggbox .body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.seedling.pots .body > *,
+.seedling.eggbox .body > * {
+  display: block;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  margin: 4px;
+  background-color: #c44;
+  color: transparent;
+}
+
 .tanks {
   display: flex;
   flex-direction: row;

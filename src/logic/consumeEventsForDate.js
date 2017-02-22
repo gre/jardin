@@ -158,6 +158,7 @@ function reducer (state, event) {
   }
   case "seed": {
     state = consumeSeeds(state, event);
+    invariant(event.at, "seed: 'at' field is required");
     state = updateSelection(state, event.at, () => ({
       length_cm: 0,
       seedsCount: event.count,
@@ -167,19 +168,17 @@ function reducer (state, event) {
     break;
   }
   case "transplant": {
-    // NB currently, transplant is not a partial op, do for the whole section
+    // FIXME currently, transplant is not a partial op, do for the whole section
     let fromSection;
-    console.log(event.from, "???", state);
     state = updateSelection(state, event.from, section => {
-      console.log("section", section);
       fromSection = section;
-      return null;
+      return event.destructive ? null : section;
     });
-    console.log(event.from, fromSection, state);
     invariant(fromSection, "from was found");
     state = updateSelection(state, event.to, () => ({
       ...fromSection,
       transpantDate: event.date,
+      count: event.countPerSection || 1,
     }));
     break;
   }

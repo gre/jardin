@@ -355,6 +355,7 @@ class SpeciesDetail extends Component {
       species,
     } = this.props;
     const {
+      id,
       generic,
       name,
       desc,
@@ -389,7 +390,7 @@ class SpeciesDetail extends Component {
     };
 
     return <details className="seed">
-      <summary>
+      <summary title={id}>
         <strong>{generic}</strong>&nbsp;
         <span>{name}</span>&nbsp;
         <em>({year})</em>&nbsp;
@@ -493,6 +494,7 @@ class SuggestSeedsUsableForMonth extends Component {
 }
 
 const months = [
+  "",
   "Janvier",
   "Février",
   "Mars",
@@ -519,7 +521,7 @@ class App extends Component {
     const data = consumeEventsForDate(date);
     const moon = mooncalc(date);
     const month = 1 + date.getMonth();
-    const nextMonth = 1 + (month+1) % 12;
+    const nextMonth = (month+1) % 12;
 
     const seedlingGroups =
     Object.keys(data.seedlings)

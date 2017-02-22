@@ -1190,6 +1190,7 @@
   {
     "op": "transplant",
     "date": "2017-02-15 18:00",
+    "destructive": true,
     "from": {
       "box": "starter-1",
       "section": 1
@@ -1308,6 +1309,8 @@
   {
     "op": "transplant",
     "date": "2017-02-19",
+    "destructive": true,
+    "countPerSection": 3,
     "from": {
       "box": "starter-1",
       "section": 0
@@ -1328,6 +1331,8 @@
   {
     "op": "transplant",
     "date": "2017-02-19",
+    "destructive": false,
+    "countPerSection": 4,
     "from": {
       "box": "starter-2",
       "section": 1
@@ -1347,6 +1352,8 @@
   {
     "op": "transplant",
     "date": "2017-02-19",
+    "countPerSection": 4,
+    "destructive": false,
     "from": {
       "box": "starter-2",
       "section": 0
@@ -1355,24 +1362,286 @@
       "box": "poireau-carentan2-pots"
     }
   },
+
   {
-    "op": "remove-seedling",
-    "id": "starter-2",
-    "date": "2017-02-19"
+    "op": "add-seedling",
+    "id": "bac-2",
+    "group": "bac",
+    "name": "Bac 2",
+    "date": "2017-02-20",
+    "sectionSplitters": [
+      0.25,
+      0.5,
+      0.75
+    ]
+  },
+  {
+    "op": "transplant",
+    "date": "2017-02-20",
+    "destructive": false,
+    "from": {
+      "box": "bigbox-1",
+      "section": 0
+    },
+    "to": {
+      "box": "bac-2",
+      "section": 0
+    }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-02-20",
+    "destructive": false,
+    "from": {
+      "box": "bigbox-1",
+      "section": 1
+    },
+    "to": {
+      "box": "bac-2",
+      "section": 1
+    }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-02-20",
+    "destructive": false,
+    "from": {
+      "box": "bigbox-1",
+      "section": 2
+    },
+    "to": {
+      "box": "bac-2",
+      "section": 2
+    }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-02-20",
+    "destructive": false,
+    "from": {
+      "box": "bigbox-1",
+      "section": 3
+    },
+    "to": {
+      "box": "bac-2",
+      "section": 3
+    }
   },
   {
     "op": "add-seedling",
-    "id": "starter-2",
-    "date": "2017-02-19",
-    "group": "starter",
-    "name": "MiniSerre 2"
+    "date": "2017-02-20",
+    "id": "eggbox-3",
+    "name": "BoiteOeuf 3",
+    "group": "eggbox",
+    "count": 6
+  },
+  {
+    "op": "add-seedling",
+    "date": "2017-02-20",
+    "id": "eggbox-4",
+    "name": "BoiteOeuf 4",
+    "group": "eggbox",
+    "count": 6
+  },
+  {
+    "op": "add-seedling",
+    "date": "2017-02-20",
+    "id": "eggbox-5",
+    "name": "BoiteOeuf 5",
+    "group": "eggbox",
+    "count": 6
+  },
+  {
+    "op": "add-seedling",
+    "date": "2017-02-20",
+    "id": "eggbox-6",
+    "name": "BoiteOeuf 6",
+    "group": "eggbox",
+    "count": 6
+  },
+  {
+    "op": "transplant",
+    "date": "2017-02-20",
+    "destructive": true,
+    "from": {
+      "box": "bigbox-1",
+      "section": 0
+    },
+    "to": {
+      "box": "eggbox-3"
+    }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-02-20",
+    "destructive": true,
+    "from": {
+      "box": "bigbox-1",
+      "section": 1
+    },
+    "to": {
+      "box": "eggbox-4"
+    }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-02-20",
+    "destructive": true,
+    "from": {
+      "box": "bigbox-1",
+      "section": 2
+    },
+    "to": {
+      "box": "eggbox-5"
+    }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-02-20",
+    "destructive": true,
+    "from": {
+      "box": "bigbox-1",
+      "section": 3
+    },
+    "to": {
+      "box": "eggbox-6"
+    }
+  },
+  {
+    "op": "remove-seedling",
+    "date": "2017-02-20",
+    "id": "bigbox-1"
+  },
+  {
+    "op": "add-seedling",
+    "date": "2017-02-22",
+    "id": "bigbox-1",
+    "name": "Boite 1",
+    "group": "bigbox",
+    "sectionSplitters": [
+      0.2,
+      0.4,
+      0.6,
+      0.8
+    ]
   },
   {
     "op": "seed",
-    "date": "2017-02-19",
-    "species": "poireau_gprm",
+    "date": "2017-02-22",
+    "technique": "http://www.rustica.fr/tv/semis-tomates-terrine,4306.html",
+    "species": "barbaniaka",
+    "count": 10,
     "at": {
-      "box": "starter-2"
+      "box": "bigbox-1",
+      "section": 0
+    }
+  },
+  {
+    "op": "seed",
+    "date": "2017-02-22",
+    "technique": "http://www.rustica.fr/tv/semis-tomates-terrine,4306.html",
+    "species": "red_centiflor_cherry",
+    "count": 10,
+    "at": {
+      "box": "bigbox-1",
+      "section": 1
+    }
+  },
+  {
+    "op": "seed",
+    "date": "2017-02-22",
+    "technique": "http://www.rustica.fr/tv/semis-tomates-terrine,4306.html",
+    "species": "black_from_tula",
+    "count": 10,
+    "at": {
+      "box": "bigbox-1",
+      "section": 2
+    }
+  },
+  {
+    "op": "seed",
+    "date": "2017-02-22",
+    "technique": "http://www.rustica.fr/tv/semis-tomates-terrine,4306.html",
+    "species": "speckled_roman",
+    "count": 10,
+    "at": {
+      "box": "bigbox-1",
+      "section": 3
+    }
+  },
+  {
+    "op": "seed",
+    "date": "2017-02-22",
+    "technique": "http://www.rustica.fr/tv/semis-tomates-terrine,4306.html",
+    "species": "coeur_de_boeuf_akers",
+    "count": 30,
+    "at": {
+      "box": "bigbox-1",
+      "section": 4
+    }
+  },
+  {
+    "op": "add-seedling",
+    "date": "2017-02-22",
+    "id": "starter-3",
+    "name": "MiniSerre 3",
+    "group": "starter"
+  },
+  {
+    "op": "add-seedling",
+    "date": "2017-02-22",
+    "id": "starter-4",
+    "name": "MiniSerre 4",
+    "group": "starter"
+  },
+  {
+    "op": "add-seedling",
+    "date": "2017-02-22",
+    "id": "starter-5",
+    "name": "MiniSerre 5",
+    "group": "starter"
+  },
+  {
+    "op": "add-seedling",
+    "date": "2017-02-22",
+    "id": "starter-6",
+    "name": "MiniSerre 6",
+    "group": "starter"
+  },
+  {
+    "op": "seed",
+    "date": "2017-02-22",
+    "species": "ciboulette_tfd",
+    "count": 30,
+    "at": {
+      "box": "starter-3"
+    }
+  },
+  {
+    "op": "seed",
+    "date": "2017-02-22",
+    "species": "romanesco",
+    "count": 30,
+    "at": {
+      "box": "starter-4"
+    }
+  },
+  {
+    "op": "seed",
+    "date": "2017-02-22",
+    "species": "cerfeuil_commun",
+    "count": 30,
+    "at": {
+      "box": "starter-5"
+    }
+  },
+  {
+    "op": "seed",
+    "date": "2017-02-22",
+    "species": "thym",
+    "count": 30,
+    "at": {
+      "box": "starter-6"
     }
   }
 ]
