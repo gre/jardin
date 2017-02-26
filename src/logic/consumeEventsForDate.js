@@ -202,10 +202,10 @@ function reducer (state, event) {
     break;
   }
   case "status-germination": {
-    state = updateSelection(state, event.at, section => ({
+    state = updateSelection(state, event.at, section => section && {
       ...section,
       length_cm: event.length_cm,
-    }));
+    });
     break;
   }
   case "etalage-compost": {

@@ -1643,5 +1643,252 @@
     "at": {
       "box": "starter-6"
     }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-24",
+    "length_cm": 6,
+    "at": {
+      "box": "starter-2"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-24",
+    "length_cm": 0.1,
+    "at": {
+      "box": "starter-4"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-24",
+    "length_cm": 2,
+    "at": {
+      "box": "starter-1"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-24",
+    "length_cm": 4,
+    "at": {
+      "box": "bac-2"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-24",
+    "length_cm": 4,
+    "at": {
+      "box": "concombre-pots"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-24",
+    "length_cm": 6,
+    "at": {
+      "box": "poireau-gprm-pots"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-24",
+    "length_cm": 6,
+    "at": {
+      "box": "oignon-pots"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-24",
+    "length_cm": 6,
+    "at": {
+      "box": "eggbox-1"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-24",
+    "length_cm": 6,
+    "at": {
+      "box": "eggbox-2"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 4,
+    "at": {
+      "box": "bac-2"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 2.5,
+    "at": {
+      "box": "starter-1",
+      "section": 0
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 7,
+    "at": {
+      "box": "starter-2"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 0,
+    "at": {
+      "box": "starter-3"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 2,
+    "at": {
+      "box": "starter-4"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 0,
+    "at": {
+      "box": "starter-5"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 0.5,
+    "at": {
+      "box": "starter-6"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 1,
+    "at": {
+      "box": "bigbox-1",
+      "section": 0
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 1,
+    "at": {
+      "box": "bigbox-1",
+      "section": 1
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 1,
+    "at": {
+      "box": "bigbox-1",
+      "section": 2
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 1,
+    "at": {
+      "box": "bigbox-1",
+      "section": 3
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 0,
+    "at": {
+      "box": "bigbox-1",
+      "section": 4
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 1,
+    "at": {
+      "box": "bigbox-1",
+      "section": 0
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 4,
+    "at": {
+      "box": "eggbox-3"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 4,
+    "at": {
+      "box": "eggbox-4"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 4,
+    "at": {
+      "box": "eggbox-5"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 4,
+    "at": {
+      "box": "eggbox-6"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 5,
+    "at": {
+      "box": "concombre-pots"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 6,
+    "at": {
+      "box": "oignon-pots"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 7,
+    "at": {
+      "box": "poireau-gprm-pots"
+    }
+  },
+  {
+    "op": "status-germination",
+    "date": "2017-02-26",
+    "length_cm": 7,
+    "at": {
+      "box": "poireau-carentan2-pots"
+    }
   }
 ]
