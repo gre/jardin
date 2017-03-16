@@ -1,8 +1,8 @@
 # Concept
 
-Gardening is like an hardcore version of Sim City game. This is the ultimate real-life simulation game you ever imagined. It's always about solving problems, your vegetables get attacked by some bugs, you find specific plants to counter specific bugs, you plan your vegetables to be next to each other because they work well together, you need to rotate the culture over years, you need to make compost to fertilize the earth... This is tough work!
+Gardening is a daily survival game, some sort of hardcore version of Sim City. It's always about solving problems, your vegetables get attacked by some bugs, you find specific plants to counter specific bugs, you plan your vegetables to be next to each other because they work well together, you need to rotate the culture over years, you need to make compost to fertilize the earth... This is tough work! The ultimate real-life simulation game you ever imagined.
 
-Gardeners always have used pen and paper to plan their years, where to grow what... and so you can keep the map of things over years...  It's great, but i'm a computer guy, and I want to do something better. I don't want to remind things, nor to write down things on a paper that I will lose. Instead, I have Github. I will log everything I do in the computer way, in a JSON, so I can analyze and visualize that data later.
+Gardeners always have used pen and paper to plan their years, where to grow what... and so you can keep the map of things over years...  It's great, but i'm a computer guy, and I want to do something better. I don't want to remind things, nor to write down things on a paper that I will lose. Instead, I have Github. I will log everything I do in the computer way, in a JSON, so I can analyze and visualize that data later. It's hard to motivate myself to even do this, but it's going to be beneficial over years. I'll try to improve and simply the way you "input" the logs... currently it's just a JSON!
 
 ## Status
 

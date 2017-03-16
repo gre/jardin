@@ -302,7 +302,7 @@ class Plot extends Component {
     const size = cellSize * pixelRatio;
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     plot.grid.map((cell, i) => {
-      ctx.globalAlpha = 0.9 + 0.1 * Math.random();
+      //ctx.globalAlpha = 0.9 + 0.1 * Math.random();
       const xi = i % plot.gridW;
       const yi = (i - xi) / plot.gridW;
       if (cell) {
@@ -326,10 +326,11 @@ class Plot extends Component {
           default:
             throw new Error("unknown cell.type="+cell.type);
         }
+       ctx.strokeStyle = "#000";
+       ctx.strokeRect(xi*size,yi*size,size,size);
       }
       else {
-        ctx.fillStyle = "#6A5";
-        ctx.fillRect(xi * size, yi * size, size, size);
+        ctx.clearRect(xi * size, yi * size, size, size);
       }
     });
   }
