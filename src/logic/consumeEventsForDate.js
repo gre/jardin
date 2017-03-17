@@ -159,7 +159,9 @@ function reducer (state, event) {
   case "seed": {
     state = consumeSeeds(state, event);
     invariant(event.at, "seed: 'at' field is required");
-    state = updateSelection(state, event.at, () => ({
+    state = updateSelection(state, event.at, cell => ({
+      ...cell,
+      type: "culture",
       length_cm: 0,
       seedsCount: event.count,
       species: state.species[event.species],
@@ -187,7 +189,7 @@ function reducer (state, event) {
     state = updateSelection(state, event.at, cell => ({
       ...cell,
       type: "culture",
-      species: event.species,
+      species: state.species[event.species],
     }));
     break;
   }

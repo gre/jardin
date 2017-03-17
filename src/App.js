@@ -11,6 +11,16 @@ moment.locale("fr");
 import mooncalc from "./logic/mooncalc";
 import consumeEventsForDate from "./logic/consumeEventsForDate";
 
+import icons from "./icons";
+const iconTypeFallback = {
+  leaf: "generic-leaf",
+  fruit: "generic-fruit",
+  flower: "generic-flower",
+  root: "generic-root",
+};
+const iconForFamily = family =>
+  icons[family.icon || iconTypeFallback[family.types[0]]];
+
 const groupBy = (groupFn) => (acc, el) => {
   const group = groupFn(el);
   return {
@@ -212,12 +222,17 @@ class Seedling extends Component {
           className={["section", "species-"+section.species.id].join(" ")}
           style={style}>
           <div>
+            <img
+              src={iconForFamily(section.species.family)}
+              style={{ height: 14, verticalAlign: "middle", marginRight: 4 }}
+            />
+            <span>{section.length_cm||0}cm</span>
+          </div>
+          <div>
             <strong>
               {section.species.generic}
             </strong>
-          </div>
-          <div>
-            {section.length_cm||0}cm
+            &nbsp;
           </div>
         </div>;
       })}
@@ -315,11 +330,12 @@ class Plot extends Component {
           case "culture":
             ctx.fillStyle = "#060";
             ctx.fillRect(xi * size, yi * size, size, size);
-            if (cell.species === "fraises_mount_everest") {
-              ctx.font = "24px serif";
-              ctx.textBaseline = "middle";
-              ctx.textAlign = "center";
-              ctx.fillText("🍓", (xi + 0.5) * size, (yi + 0.5) * size);
+            const maybeIcon = iconForFamily(cell.species.family);
+            if (maybeIcon) {
+              // freaking hack.. i'll just use <svg> asap
+              const img = new Image();
+              img.src = maybeIcon;
+              img.onload = () => ctx.drawImage(img, xi * size, yi * size, size, size);
             }
             break;
 
@@ -374,7 +390,7 @@ class SpeciesDetail extends Component {
       calendars,
       likes,
       hates,
-    } = species.family;
+    } = family;
 
     const speciesForFamilyId = id =>
       Object.keys(data.species)
@@ -392,6 +408,10 @@ class SpeciesDetail extends Component {
 
     return <details className="seed">
       <summary title={id}>
+        <img
+          src={iconForFamily(family)}
+          style={{ verticalAlign: "-4px", height: 24, marginRight: 4, }}
+        />
         <strong>{generic}</strong>&nbsp;
         <span>{name}</span>&nbsp;
         <em>({year})</em>&nbsp;
@@ -522,7 +542,6 @@ class App extends Component {
     const data = consumeEventsForDate(date);
     const moon = mooncalc(date);
     const month = 1 + date.getMonth();
-    const nextMonth = (month+1) % 12;
 
     const seedlingGroups =
     Object.keys(data.seedlings)
@@ -535,7 +554,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Le Jardin de Gaëtan</h2>
+          <h2><img src={icons.sprout} style={{ height: 40, verticalAlign: "middle", marginRight: 4 }} /> Le Jardin de Gaëtan</h2>
         </div>
         <TimeTravel onChange={this.onDateChange} value={date} />
         <div className="App-body">
@@ -546,9 +565,11 @@ class App extends Component {
               &nbsp;
               <MoonProgression moon={moon} />
             </div>
+            {/* // currently not reliable. bug in the lib
             <div style={{ fontStyle: "italic" }}>
               <MoonVegType moon={moon} />
             </div>
+            */}
           </div>
 
           <div className="map">
@@ -572,7 +593,8 @@ class App extends Component {
                 "starter",
                 "bigbox",
                 "eggbox",
-                "pots"
+                "pots",
+                "grid"
               ].map(group => (seedlingGroups[group]||[]).map(({ key, value }) =>
                 <Seedling key={key} seedling={value} />
               ))}
@@ -583,8 +605,6 @@ class App extends Component {
           <div style={{ textAlign: "left", margin: "200px 0"}}>
             <h4>Reste à faire en {months[month]}:</h4>
             <SuggestSeedsUsableForMonth month={month} data={data} />
-            <h4>Reste à venir en {months[nextMonth]}:</h4>
-            <SuggestSeedsUsableForMonth month={nextMonth} data={data} />
           </div>
 
           <h3>{Object.keys(data.species).length} Espèces Différentes</h3>

@@ -4,6 +4,7 @@
     "name": "Ail",
     "wikipedia": "http://fr.wikipedia.org/wiki/Ail_cultiv%C3%A9",
     "types": [ "leaf" ],
+    "icon": "garlic",
     "calendars": [
       {
         "name": "",
@@ -39,6 +40,7 @@
     "name": "Ail cultivé",
     "wikipedia": "http://fr.wikipedia.org/wiki/Ail_cultiv%C3%A9",
     "types": [ "root" ],
+    "icon": "garlic",
     "calendars": [
       {
         "name": "",
@@ -193,6 +195,7 @@
   {
     "id": "betterave-potagere",
     "name": "Betterave potagère",
+    "icon": "beet",
     "wikipedia": "http://fr.wikipedia.org/wiki/Betterave_potag%C3%A8re",
     "types": [ "root" ],
     "calendars": [
@@ -285,6 +288,7 @@
   {
     "id": "brocoli",
     "name": "Brocoli",
+    "icon": "broccoli",
     "wikipedia": "http://fr.wikipedia.org/wiki/Brocoli",
     "types": [ "root" ],
     "calendars": [
@@ -310,6 +314,7 @@
   {
     "id": "brocoli-rave",
     "name": "Brocoli-rave",
+    "icon": "broccoli",
     "wikipedia": "http://fr.wikipedia.org/wiki/Brocoli-rave",
     "types": [ "leaf" ],
     "calendars": [
@@ -386,6 +391,7 @@
   {
     "id": "carotte",
     "name": "Carotte",
+    "icon": "carrot",
     "wikipedia": "http://fr.wikipedia.org/wiki/Carotte",
     "types": [ "root" ],
     "calendars": [
@@ -427,6 +433,7 @@
   {
     "id": "celeri-a-couper",
     "name": "Céleri à couper",
+    "icon": "celery",
     "wikipedia": "http://fr.wikipedia.org/wiki/C%C3%A9leri",
     "types": [ "leaf" ],
     "calendars": [
@@ -458,6 +465,7 @@
   {
     "id": "celeri-rave",
     "name": "Céleri-rave",
+    "icon": "celery",
     "wikipedia": "http://fr.wikipedia.org/wiki/C%C3%A9leri-rave",
     "types": [ "root" ],
     "calendars": [
@@ -527,6 +535,7 @@
   {
     "id": "chou-cabus",
     "name": "Chou cabus",
+    "icon": "cabbage",
     "wikipedia": "http://fr.wikipedia.org/wiki/Chou_cabus",
     "types": [ "root" ],
     "calendars": [
@@ -564,6 +573,7 @@
   {
     "id": "chou-de-bruxelles",
     "name": "Chou de Bruxelles",
+    "icon": "cabbage",
     "wikipedia": "http://fr.wikipedia.org/wiki/Chou_de_Bruxelles",
     "types": [ "root" ],
     "calendars": [
@@ -583,6 +593,7 @@
   {
     "id": "chou-de-milan",
     "name": "Chou de Milan",
+    "icon": "cabbage",
     "wikipedia": "http://fr.wikipedia.org/wiki/Chou_de_Milan",
     "types": [ "root" ],
     "calendars": [
@@ -620,6 +631,7 @@
   {
     "id": "chou-fleur",
     "name": "Chou-fleur",
+    "icon": "cabbage",
     "wikipedia": "http://fr.wikipedia.org/wiki/Chou-fleur",
     "types": [ "root" ],
     "calendars": [
@@ -657,6 +669,7 @@
   {
     "id": "chou-frise",
     "name": "Chou frisé",
+    "icon": "cabbage",
     "wikipedia": "http://fr.wikipedia.org/wiki/Chou_fris%C3%A9",
     "types": [ "root" ],
     "calendars": [
@@ -676,6 +689,7 @@
   {
     "id": "chou-rave",
     "name": "Chou-rave",
+    "icon": "cabbage",
     "wikipedia": "http://fr.wikipedia.org/wiki/Chou-rave",
     "types": [ "root" ],
     "calendars": [
@@ -695,6 +709,7 @@
   {
     "id": "chou-romanesco",
     "name": "Chou romanesco",
+    "icon": "cabbage",
     "wikipedia": "http://fr.wikipedia.org/wiki/Chou_romanesco",
     "types": [ "root" ],
     "calendars": [
@@ -714,6 +729,7 @@
   {
     "id": "chou-rouge",
     "name": "Chou rouge",
+    "icon": "cabbage",
     "wikipedia": "http://fr.wikipedia.org/wiki/Chou_rouge",
     "types": [ "root" ],
     "calendars": [
@@ -840,6 +856,7 @@
   {
     "id": "concombre",
     "name": "Concombre",
+    "icon": "cucumber",
     "wikipedia": "https://fr.wikipedia.org/wiki/Concombre",
     "types": [ "fruit" ],
     "calendars": [
@@ -885,6 +902,7 @@
   {
     "id": "cornichon",
     "name": "Cornichon",
+    "icon": "cucumber",
     "wikipedia": "http://fr.wikipedia.org/wiki/Cornichon",
     "types": [ "fruit" ],
     "calendars": [
@@ -904,6 +922,7 @@
   {
     "id": "coupe-laitue",
     "name": "Coupe laitue",
+    "icon": "lettuce",
     "wikipedia": "http://fr.wikipedia.org/wiki/Laitue_cultiv%C3%A9e",
     "types": [ "leaf" ],
     "calendars": [
@@ -950,6 +969,7 @@
   {
     "id": "cresson-alenois",
     "name": "Cresson alénois",
+    "icon": "lettuce",
     "wikipedia": "https://fr.wikipedia.org/wiki/Cresson_al%C3%A9nois",
     "types": [ "leaf" ],
     "calendars": [
@@ -1026,6 +1046,7 @@
   {
     "id": "fraisier-des-bois",
     "name": "Fraisier des bois",
+    "icon": "strawberry",
     "wikipedia": "http://fr.wikipedia.org/wiki/Fraisier_des_bois",
     "types": [ "fruit" ],
     "calendars": [
@@ -1045,6 +1066,7 @@
   {
     "id": "fraisiers",
     "name": "Fraisiers",
+    "icon": "strawberry",
     "wikipedia": "http://fr.wikipedia.org/wiki/Fragaria",
     "types": [ "fruit" ],
     "calendars": [
@@ -1064,6 +1086,7 @@
   {
     "id": "framboise",
     "name": "Framboise",
+    "icon": "raspberry",
     "wikipedia": "http://fr.wikipedia.org/wiki/Framboise",
     "types": [ "fruit" ],
     "calendars": [
@@ -1083,6 +1106,7 @@
   {
     "id": "haricot",
     "name": "Haricot",
+    "icon": "peas",
     "wikipedia": "http://fr.wikipedia.org/wiki/Haricot_vert",
     "types": [ "fruit" ],
     "calendars": [
@@ -1126,6 +1150,7 @@
   {
     "id": "haricot-despagne",
     "name": "Haricot d’Espagne",
+    "icon": "peas",
     "wikipedia": "http://fr.wikipedia.org/wiki/Haricot_d'Espagne",
     "types": [ "fruit" ],
     "calendars": [
@@ -1169,6 +1194,7 @@
   {
     "id": "haricot-rouge",
     "name": "Haricot rouge",
+    "icon": "peas",
     "wikipedia": "http://fr.wikipedia.org/wiki/Haricot",
     "types": [ "fruit" ],
     "calendars": [
@@ -1212,6 +1238,7 @@
   {
     "id": "haricot-vert",
     "name": "Haricot vert",
+    "icon": "peas",
     "wikipedia": "http://fr.wikipedia.org/wiki/Haricot_vert",
     "types": [ "fruit" ],
     "calendars": [
@@ -1309,6 +1336,7 @@
   {
     "id": "laitue",
     "name": "Laitue",
+    "icon": "lettuce",
     "wikipedia": "http://fr.wikipedia.org/wiki/Laitue_cultiv%C3%A9e",
     "types": [ "leaf" ],
     "calendars": [
@@ -1336,6 +1364,7 @@
   {
     "id": "laitue-chinoise",
     "name": "laitue chinoise",
+    "icon": "lettuce",
     "wikipedia": "http://fr.wikipedia.org/wiki/Laitue_cultiv%C3%A9e",
     "types": [ "leaf" ],
     "calendars": [
@@ -1363,6 +1392,7 @@
   {
     "id": "laitue-cultivee",
     "name": "Laitue cultivée",
+    "icon": "lettuce",
     "wikipedia": "http://fr.wikipedia.org/wiki/Lactuca_sativa",
     "types": [ "leaf" ],
     "calendars": [
@@ -1390,6 +1420,7 @@
   {
     "id": "laitue-romaine",
     "name": "Laitue romaine",
+    "icon": "lettuce",
     "wikipedia": "http://fr.wikipedia.org/wiki/Laitue_romaine",
     "types": [ "leaf" ],
     "calendars": [
@@ -1455,6 +1486,7 @@
   {
     "id": "lendive-ou-chicon",
     "name": "L’endive ou chicon",
+    "icon": "lettuce",
     "wikipedia": "http://fr.wikipedia.org/wiki/Endive",
     "types": [ "root" ],
     "calendars": [
@@ -1493,6 +1525,7 @@
   {
     "id": "loignon-cebette",
     "name": "L’oignon cébette",
+    "icon": "garlic",
     "wikipedia": "https://fr.wikipedia.org/wiki/C%C3%A9bette",
     "types": [ "root" ],
     "calendars": [
@@ -1537,6 +1570,7 @@
   {
     "id": "loignon-ensemencement",
     "name": "L’oignon ensemencement",
+    "icon": "garlic",
     "wikipedia": "http://fr.wikipedia.org/wiki/Oignon",
     "types": [ "root" ],
     "calendars": [
@@ -1619,6 +1653,7 @@
   {
     "id": "mache",
     "name": "Mâche",
+    "icon": "lettuce",
     "wikipedia": "http://fr.wikipedia.org/wiki/Valerianella_locusta",
     "types": [ "leaf" ],
     "calendars": [
@@ -1638,6 +1673,7 @@
   {
     "id": "mais",
     "name": "Maïs",
+    "icon": "corn",
     "wikipedia": "http://fr.wikipedia.org/wiki/Ma%C3%AFs",
     "types": [ "fruit" ],
     "calendars": [
@@ -1657,6 +1693,7 @@
   {
     "id": "mais-doux",
     "name": "Maïs doux",
+    "icon": "corn",
     "wikipedia": "http://fr.wikipedia.org/wiki/Ma%C3%AFs_doux",
     "types": [ "fruit" ],
     "calendars": [
@@ -1714,6 +1751,7 @@
   {
     "id": "melon",
     "name": "Melon",
+    "icon": "melon",
     "wikipedia": "http://fr.wikipedia.org/wiki/Melon_(plante)",
     "types": [ "fruit" ],
     "calendars": [
@@ -1841,6 +1879,7 @@
   {
     "id": "oignon-blanc",
     "name": "Oignon blanc",
+    "icon": "onion",
     "wikipedia": "http://fr.wikipedia.org/wiki/Oignon",
     "types": [ "root" ],
     "calendars": [
@@ -1885,6 +1924,7 @@
   {
     "id": "oignon-plante-1ere-annee",
     "name": "Oignon plante 1ère année",
+    "icon": "onion",
     "wikipedia": "http://fr.wikipedia.org/wiki/Oignon",
     "types": [ "root" ],
     "calendars": [
@@ -1929,6 +1969,7 @@
   {
     "id": "oignon-plante-2e-annee",
     "name": "Oignon plante 2e année",
+    "icon": "onion",
     "wikipedia": "http://fr.wikipedia.org/wiki/Oignon",
     "types": [ "root" ],
     "calendars": [
@@ -1973,6 +2014,7 @@
   {
     "id": "oignon-rocambole",
     "name": "Oignon rocambole",
+    "icon": "onion",
     "wikipedia": "http://en.wikipedia.org/wiki/Tree_onion",
     "types": [ "root" ],
     "calendars": [
@@ -2017,6 +2059,7 @@
   {
     "id": "oignon-semis",
     "name": "Oignon semis",
+    "icon": "onion",
     "wikipedia": "http://fr.wikipedia.org/wiki/Oignon",
     "types": [ "root" ],
     "calendars": [
@@ -2061,6 +2104,7 @@
   {
     "id": "oignons-dhiver",
     "name": "Oignons d’hiver",
+    "icon": "onion",
     "wikipedia": "http://fr.wikipedia.org/wiki/Oignon",
     "types": [ "root" ],
     "calendars": [
@@ -2143,6 +2187,7 @@
   {
     "id": "pe-tsai",
     "name": "Pe-tsaï",
+    "icon": "lettuce",
     "wikipedia": "http://fr.wikipedia.org/wiki/Pe-tsa%C3%AF",
     "types": [ "root" ],
     "calendars": [
@@ -2156,25 +2201,6 @@
     "germination_days": 15,
     "harvest_days": 90,
     "spacing_cm": 30,
-    "likes": [],
-    "hates": []
-  },
-  {
-    "id": "persil",
-    "name": "Persil",
-    "wikipedia": "http://fr.wikipedia.org/wiki/Petroselinum_crispum",
-    "types": [ "root" ],
-    "calendars": [
-      {
-        "name": "",
-        "seedling_indoors_months": [],
-        "seedling_outdoors_or_planting_months": [ 4 ],
-        "harvest_months": [ 10, 11 ]
-      }
-    ],
-    "germination_days": 10,
-    "harvest_days": 130,
-    "spacing_cm": 10,
     "likes": [],
     "hates": []
   },
@@ -2219,6 +2245,7 @@
   {
     "id": "piment-poivron",
     "name": "Piment-Poivron",
+    "icon": "chili-pepper",
     "wikipedia": "https://fr.wikipedia.org/wiki/Poivron",
     "types": [ "fruit" ],
     "calendars": [
@@ -2238,6 +2265,7 @@
   {
     "id": "poireau",
     "name": "Poireau",
+    "icon": "leek",
     "wikipedia": "http://fr.wikipedia.org/wiki/Poireau",
     "types": [ "root" ],
     "calendars": [
@@ -2304,6 +2332,7 @@
   {
     "id": "pois",
     "name": "Pois",
+    "icon": "peas",
     "wikipedia": "http://fr.wikipedia.org/wiki/Pisum_sativum",
     "types": [ "fruit" ],
     "calendars": [
@@ -2349,6 +2378,7 @@
   {
     "id": "pois-de-neige",
     "name": "Pois de neige",
+    "icon": "peas",
     "wikipedia": "http://fr.wikipedia.org/wiki/Pois",
     "types": [ "fruit" ],
     "calendars": [
@@ -2394,6 +2424,7 @@
   {
     "id": "pois-gris",
     "name": "Pois gris",
+    "icon": "peas",
     "wikipedia": "http://fr.wikipedia.org/wiki/Pisum_sativum",
     "types": [ "fruit" ],
     "calendars": [
@@ -2484,6 +2515,7 @@
   {
     "id": "pole-haricot",
     "name": "Pôle haricot",
+    "icon": "peas",
     "wikipedia": "http://fr.wikipedia.org/wiki/Haricot",
     "types": [ "fruit" ],
     "calendars": [
@@ -2527,6 +2559,7 @@
   {
     "id": "pole-haricots-verts",
     "name": "Pôle haricots verts",
+    "icon": "peas",
     "wikipedia": "http://fr.wikipedia.org/wiki/Haricot_vert",
     "types": [ "fruit" ],
     "calendars": [
@@ -2570,6 +2603,7 @@
   {
     "id": "pomme-de-terre",
     "name": "Pomme de terre",
+    "icon": "potato",
     "wikipedia": "http://fr.wikipedia.org/wiki/Pomme_de_terre",
     "types": [ "root" ],
     "calendars": [
@@ -2624,6 +2658,7 @@
   {
     "id": "radis",
     "name": "Radis",
+    "icon": "radish",
     "wikipedia": "http://fr.wikipedia.org/wiki/Raphanus_sativus",
     "types": [ "root" ],
     "calendars": [
@@ -2643,6 +2678,7 @@
   {
     "id": "radis-noir",
     "name": "Radis noir",
+    "icon": "radish",
     "wikipedia": "http://fr.wikipedia.org/wiki/Radis_noir",
     "types": [ "root" ],
     "calendars": [
@@ -2717,25 +2753,6 @@
     "hates": []
   },
   {
-    "id": "rorippa",
-    "name": "Rorippa",
-    "wikipedia": "https://fr.wikipedia.org/wiki/Rorippa",
-    "types": [ "leaf" ],
-    "calendars": [
-      {
-        "name": "",
-        "seedling_indoors_months": [],
-        "seedling_outdoors_or_planting_months": [ 3, 4, 5, 6 ],
-        "harvest_months": [ 4, 5, 6, 7, 8, 9, 10, 11 ]
-      }
-    ],
-    "germination_days": 15,
-    "harvest_days": 50,
-    "spacing_cm": 20,
-    "likes": [],
-    "hates": []
-  },
-  {
     "id": "rubus",
     "name": "Rubus",
     "wikipedia": "http://fr.wikipedia.org/wiki/Rubus",
@@ -2770,25 +2787,6 @@
     "germination_days": 10,
     "harvest_days": 45,
     "spacing_cm": 3,
-    "likes": [],
-    "hates": []
-  },
-  {
-    "id": "rutabaga",
-    "name": "Rutabaga",
-    "wikipedia": "http://fr.wikipedia.org/wiki/Rutabaga",
-    "types": [ "root" ],
-    "calendars": [
-      {
-        "name": "",
-        "seedling_indoors_months": [],
-        "seedling_outdoors_or_planting_months": [ 4, 5, 6 ],
-        "harvest_months": [ 10, 11, 12 ]
-      }
-    ],
-    "germination_days": 15,
-    "harvest_days": 135,
-    "spacing_cm": 35,
     "likes": [],
     "hates": []
   },
@@ -2928,6 +2926,7 @@
   {
     "id": "tomate",
     "name": "Tomate",
+    "icon": "tomato",
     "wikipedia": "http://fr.wikipedia.org/wiki/Tomate",
     "types": [ "fruit" ],
     "calendars": [
@@ -2978,6 +2977,7 @@
   {
     "id": "tribu-haricot",
     "name": "Tribu Haricot",
+    "icon": "peas",
     "wikipedia": "http://fr.wikipedia.org/wiki/Haricot",
     "types": [ "fruit" ],
     "calendars": [

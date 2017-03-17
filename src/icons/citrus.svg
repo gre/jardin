@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="48px" height="48px" viewBox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve">
+<g>
+	<path fill="#FFD600" d="M44,24c0,1-1.119,3-2.5,3S39,25.656,39,24s1.119-3,2.5-3S44,23,44,24z"/>
+	<path fill="#FFD600" d="M42,24c0,19-22.567,19-24.5,19S6,39,6,24C6,8,15.567,5,17.5,5S42,5,42,24z"/>
+</g>
+<g>
+	<g>
+		<path fill="#FFF59D" d="M18,9c5.42,0,10,6.869,10,15s-4.58,15-10,15S8,32.131,8,24S12.58,9,18,9 M18,5C10.268,5,4,13.507,4,24
+			s6.268,19,14,19s14-8.507,14-19S25.732,5,18,5L18,5z"/>
+	</g>
+	<rect x="17" y="6.001" fill="#FFF59D" width="2" height="34"/>
+	<rect x="6" y="22.999" fill="#FFF59D" width="24" height="2"/>
+	<polyline fill="none" stroke="#FFF59D" stroke-width="2" points="27,12.999 18,23.999 10,12.999 	"/>
+	<polyline fill="none" stroke="#FFF59D" stroke-width="2" points="10,34.999 18,23.999 26,34.999 	"/>
+</g>
+<g>
+	<circle fill="#FFA000" cx="34" cy="29" r="1"/>
+	<circle fill="#FFA000" cx="35" cy="33" r="1"/>
+	<circle fill="#FFA000" cx="38" cy="30" r="1"/>
+</g>
+</svg>

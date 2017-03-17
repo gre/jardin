@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="48px" height="48px" viewBox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve">
+<g>
+	<line fill="none" stroke="#795548" stroke-width="4" x1="24" y1="42" x2="24" y2="30"/>
+	<path fill="#795548" d="M28,43h-8c0,0,2-0.999,2-1.999s4-1,4,0S28,43,28,43z"/>
+</g>
+<g>
+	<circle fill="#8BC34A" cx="22.5" cy="9.5" r="4.5"/>
+	<circle fill="#8BC34A" cx="29" cy="28" r="5"/>
+	<circle fill="#8BC34A" cx="36" cy="29" r="4"/>
+	<circle fill="#8BC34A" cx="32.5" cy="13.5" r="3.5"/>
+	<circle fill="#8BC34A" cx="38" cy="22" r="4"/>
+	<circle fill="#8BC34A" cx="27.5" cy="11.5" r="3.5"/>
+	<circle fill="#8BC34A" cx="35" cy="19" r="4"/>
+	<circle fill="#8BC34A" cx="23.5" cy="31.5" r="4.5"/>
+	<ellipse fill="#8BC34A" cx="23.5" cy="22" rx="12.5" ry="11.001"/>
+	<circle fill="#8BC34A" cx="18" cy="11" r="4"/>
+	<circle fill="#8BC34A" cx="13.5" cy="30.5" r="3.5"/>
+	<circle fill="#8BC34A" cx="18.5" cy="29.5" r="3.5"/>
+	<circle fill="#8BC34A" cx="9.5" cy="27.5" r="3.5"/>
+	<circle fill="#8BC34A" cx="12.5" cy="13.5" r="3.5"/>
+	<circle fill="#8BC34A" cx="12.5" cy="23.5" r="3.5"/>
+	<circle fill="#8BC34A" cx="9.5" cy="17.5" r="3.5"/>
+</g>
+<g>
+	<path fill="none" stroke="#689F38" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15,16
+		c0-1.933,2.067-3,4-3"/>
+	<path fill="none" stroke="#689F38" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M31,18
+		c0-2.209-1.791-4-4-4"/>
+	<path fill="none" stroke="#689F38" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M32,27
+		c1.656,0,3-1.344,3-3"/>
+	<path fill="none" stroke="#689F38" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22,30
+		c0-1.381,1.619-3,3-3"/>
+	<path fill="none" stroke="#689F38" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21,19
+		c1.381,0,3,1.619,3,3"/>
+	<path fill="none" stroke="#689F38" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M16,28
+		c-1.934,0-3-2.066-3-4"/>
+</g>
+</svg>
