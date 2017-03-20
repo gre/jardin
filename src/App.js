@@ -545,10 +545,10 @@ class App extends Component {
           <div className="map">
             <div className="garden">
               { data.plots.gauche
-                ? <Plot plot={data.plots.gauche} cellSize={14} />
+                ? <Plot plot={data.plots.gauche} cellSize={16} />
                 : null }
                 { data.plots.droite
-                  ? <Plot plot={data.plots.droite} cellSize={14} />
+                  ? <Plot plot={data.plots.droite} cellSize={16} />
                   : null }
             </div>
             <div className="veranda">

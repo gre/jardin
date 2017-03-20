@@ -1690,5 +1690,30 @@
       "plot": "gauche",
       "area": [8, 20, 8, 4]
     }
+  },
+  {
+    "op": "add-species",
+    "id": "oseille",
+    "date": "2017-03-20",
+    "family": "oseille",
+    "generic": "Oseille",
+    "bio": true
+  },
+  {
+    "op": "add-seeds",
+    "species": "oseille",
+    "date": "2017-03-20",
+    "year": 2017,
+    "count": 4
+  },
+  {
+    "op": "plant",
+    "date": "2017-03-20",
+    "species": "oseille",
+    "count": 4,
+    "at": {
+      "plot": "gauche",
+      "area": [15, 18, 1, 2]
+    }
   }
 ]
