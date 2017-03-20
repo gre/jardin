@@ -160,58 +160,6 @@
   left: -2px;
 }
 
-.tanks {
-  display: flex;
-  flex-direction: row;
-  margin: 20px 0;
-}
-
-.waterTank {
-  width: 40px;
-  height: 50px;
-  margin: 0 10px;
-  background: #ccc;
-  border-radius: 6px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.waterTank-inner {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: #6cf;
-  border-radius: 6px;
-}
-.waterTank-value {
-  font-size: 10px;
-  color: #fff;
-  opacity: 0.6;
-}
-
-.compost {
-  width: 40px;
-  height: 40px;
-  margin: 0 10px;
-  background: #ccc;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.compost-inner {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: #532;
-}
-.compost-level {
-  font-size: 10px;
-  color: #fff;
-  opacity: 0.6;
-}
-
 .seed {
   text-align: left;
   padding: 8px 0;
@@ -252,14 +200,6 @@ blockquote {
   justify-content: space-between;
   align-items: flex-end;
   padding: 20px;
-}
-.garden-right {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-.garden-right > * {
-  margin-top: 40px;
 }
 
 .veranda {

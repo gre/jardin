@@ -224,15 +224,15 @@ class Seedling extends Component {
           <div>
             <img
               src={iconForFamily(section.species.family)}
-              style={{ height: 14, verticalAlign: "middle", marginRight: 4 }}
+              style={{ height: 12, verticalAlign: "middle", marginRight: 4 }}
             />
-            <span>{section.length_cm||0}cm</span>
-          </div>
-          <div>
             <strong>
               {section.species.generic}
             </strong>
             &nbsp;
+          </div>
+          <div>
+            {section.species.name}
           </div>
         </div>;
       })}
@@ -248,36 +248,6 @@ class Seedling extends Component {
       <div className="decorator" />
       <div className="name">{seedling.name}</div>
     </div>;
-  }
-}
-
-class Compost extends Component {
-  render() {
-    const {level} = this.props;
-    return (
-      <div className="compost">
-        <div
-          className="compost-inner"
-          style={{ height: (100 * level).toFixed(2)+"%" }}
-        />
-        <span className="compost-level">{(100 * level).toFixed(0)}%</span>
-      </div>
-    );
-  }
-}
-
-class WaterTank extends Component {
-  render() {
-    const {waterTank} = this.props;
-    return (
-      <div className="waterTank">
-        <div
-          className="waterTank-inner"
-          style={{ height: (100 * waterTank).toFixed(2)+"%" }}
-        />
-        <span className="waterTank-value">{(100 * waterTank).toFixed(0)}%</span>
-      </div>
-    );
   }
 }
 
@@ -580,11 +550,6 @@ class App extends Component {
                 { data.plots.droite
                   ? <Plot plot={data.plots.droite} cellSize={14} />
                   : null }
-              <div className="garden-right">
-                <WaterTank waterTank={data.waterTanks["tank-1"]} />
-                <Compost {...data.compost} />
-                <WaterTank waterTank={data.waterTanks["tank-2"]} />
-              </div>
             </div>
             <div className="veranda">
               <div className="seedling-group">

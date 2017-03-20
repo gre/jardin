@@ -162,7 +162,6 @@ function reducer (state, event) {
     state = updateSelection(state, event.at, cell => ({
       ...cell,
       type: "culture",
-      length_cm: 0,
       seedsCount: event.count,
       species: state.species[event.species],
       seedlingDate: event.date,
@@ -191,23 +190,6 @@ function reducer (state, event) {
       type: "culture",
       species: state.species[event.species],
     }));
-    break;
-  }
-  case "status-water-tank": {
-    state.waterTanks = { ...state.waterTanks };
-    state.waterTanks[event.id] = event.value;
-    break;
-  }
-  case "status-compost": {
-    state.compost = {...state.compost};
-    state.compost.level = event.level;
-    break;
-  }
-  case "status-germination": {
-    state = updateSelection(state, event.at, section => section && {
-      ...section,
-      length_cm: event.length_cm,
-    });
     break;
   }
   case "etalage-compost": {
