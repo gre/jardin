@@ -166,8 +166,6 @@
 }
 
 .months {
-  font-size: 16px;
-  font-family: monospace;
 }
 .months .label {
   margin-left: 2em;
@@ -175,13 +173,17 @@
   vertical-align: middle;
 }
 .months .body {
-  font-size: 1em;
-  letter-spacing: 0.3em;
+  font-size: 14px;
+  font-family: monospace;
 }
 .months .month {
-
+  margin: 0 0.1em;
+}
+.months .month.current {
+  text-decoration: underline;
 }
 .months .month.off {
+  color: #000;
   opacity: 0.1;
 }
 blockquote {

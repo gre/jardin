@@ -37,6 +37,26 @@ const DAYS = [
   "Samedi"
 ];
 
+const CALS = [ "seedling_indoors", "seedling_outdoors_or_planting", "harvest" ];
+const CAL_FOR_ACTION = {
+  indoors: "seedling_indoors",
+  outdoors: "seedling_outdoors_or_planting",
+  replant: "seedling_outdoors_or_planting",
+  harvest: "harvest",
+};
+const ACTION_TEXT = {
+  indoors: "Semer au chaud",
+  outdoors: "Semer dehors",
+  replant: "Replanter",
+  harvest: "Récolter",
+};
+const ACTION_COLORS = {
+  indoors: "#F50",
+  outdoors: "#3C0",
+  replant: "#09C",
+  harvest: "#F09",
+};
+
 import icons from "./icons";
 const iconTypeFallback = {
   leaf: "generic-leaf",
@@ -306,17 +326,21 @@ class Seedling extends Component {
 
 class Months extends Component {
   render() {
-    const {color,months,label} = this.props;
-    return <div className="months" style={{ color }}>
-      <span className="body">
+    const { color, month, months, children } = this.props;
+    return <div className="months">
+      <span className="body" style={{ color }}>
       {MONTHS.map((m,i) =>
         <span
           key={i}
-          className={["month",(months.indexOf(i+1)===-1?"off":"on")].join(" ")}>
+          className={[
+            "month",
+            (months.indexOf(i+1)===-1?"off":"on"),
+            i+1===month ? "current" : ""
+          ].join(" ")}>
           {m.slice(0, 1)}
         </span>)}
       </span>
-      <span className="label">{label}</span>
+      {children}
     </div>;
   }
 }
@@ -399,6 +423,7 @@ class SpeciesDetail extends Component {
       data,
       species,
       children,
+      month,
     } = this.props;
     const {
       id,
@@ -459,20 +484,23 @@ class SpeciesDetail extends Component {
       {calendars.map((calendar, i) => <div key={i}>
         <p><strong>{calendar.name}</strong></p>
         <Months
-          color="#F50"
-          label="Semer au chaud"
-          months={calendar.seedling_indoors_months||[]}
-        />
+          color={ACTION_COLORS.indoors}
+          month={month}
+          months={calendar.seedling_indoors_months||[]}>
+          <span className="label">Semer au chaud</span>
+        </Months>
         <Months
-          color="#0C3"
-          label="Semer dehors / Replanter"
-          months={calendar.seedling_outdoors_or_planting_months||[]}
-        />
+          color={ACTION_COLORS.outdoors}
+          month={month}
+          months={calendar.seedling_outdoors_or_planting_months||[]}>
+          <span className="label">Semer dehors / Replanter</span>
+        </Months>
         <Months
-          color="#F09"
-          label="Récolter"
-          months={calendar.harvest_months||[]}
-        />
+          color={ACTION_COLORS.harvest}
+          month={month}
+          months={calendar.harvest_months||[]}>
+          <span className="label">Récolter</span>
+        </Months>
       </div>)}
       <blockquote>{desc}</blockquote>
       {renderAssociations(likes, "✔︎ Adore: ", "likes")}
@@ -495,19 +523,6 @@ function findSeedlingPathBySectionTest (seedlings, predicate) {
   return path;
 }
 
-const CALS = [ "seedling_indoors", "seedling_outdoors_or_planting", "harvest" ];
-const CAL_FOR_ACTION = {
-  indoors: "seedling_indoors",
-  outdoors: "seedling_outdoors_or_planting",
-  replant: "seedling_outdoors_or_planting",
-  harvest: "harvest",
-};
-const ACTION_TEXT = {
-  indoors: "Semer au chaud",
-  outdoors: "Semer dehors",
-  replant: "Replanter",
-  harvest: "Récolter",
-};
 const actionMoonSatisfied = {
   indoors: moon => moonIsAscending(moon),
   outdoors: moon => moonIsAscending(moon),
@@ -519,34 +534,22 @@ class JobsInfo extends Component {
   render() {
     const { month, jobs, moon } = this.props;
     return <div style={{ padding: 10 }}>{jobs.map(({ months, calendarName, action }, i) =>
-      <div key={i}>
-        <span>
-          {MONTHS.map((monthName, m) =>
-            <span style={{
-              margin: "0 0.1em",
-              fontFamily: "monospace",
-              fontSize: "14px",
-              textDecoration: month===m+1 ? "underline" : "none",
-              color:
-                months.indexOf(m+1)===-1
-                ? "#eee"
-                : "#000"
-              }}>
-              {monthName.slice(0, 1)}
-            </span>
-          )}
-          <span style={{ marginLeft: 8, fontSize: "12px" }}>
-            {calendarName}
-            {" à "}
-            <strong style={{ textDecoration: "underline" }}>{ACTION_TEXT[action]}</strong>
-            {
-              actionMoonSatisfied[action](moon)
-              ? "👌 la lune est d'accord"
-              : ""
-            }
-          </span>
+      <Months
+        key={i}
+        color={ACTION_COLORS[action]}
+        month={month}
+        months={months}>
+        <span style={{ marginLeft: 8, fontSize: "12px" }}>
+          {calendarName}
+          {" à "}
+          <strong style={{ textDecoration: "underline" }}>{ACTION_TEXT[action]}</strong>
+          <em style={{ marginLeft: 8 }}>{
+            actionMoonSatisfied[action](moon)
+            ? "👌 la lune est d'accord"
+            : ""
+          }</em>
         </span>
-      </div>
+      </Months>
     )}</div>;
   }
 }
@@ -616,10 +619,11 @@ class SpeciesList extends Component {
         return <SpeciesDetail
             key={species.id}
             species={species}
-            data={data}>
+            data={data}
+            month={month}>
           {seedling
             ?
-            <div style={{ fontSize: "14px", padding: 10 }}>
+            <div style={{ fontSize: "14px", paddingLeft: 10, margin: 10, borderLeft: "2px solid #0F0" }}>
               semé dans
               <img
                 src={icons.sprout}
