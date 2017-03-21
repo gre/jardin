@@ -1821,5 +1821,21 @@
       "box": "petiteboite-1"
     },
     "species": "coriandre"
+  },
+  {
+    "op": "add-seedling",
+    "date": "2017-03-21",
+    "id": "eggbox-7",
+    "name": "BoiteOeuf 7",
+    "group": "eggbox",
+    "count": 6
+  },
+  {
+    "op": "seed",
+    "date": "2017-03-21",
+    "at": {
+      "box": "eggbox-7"
+    },
+    "species": "persil"
   }
 ]
