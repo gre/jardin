@@ -3,6 +3,7 @@ import raf from "raf";
 import smoothstep from "smoothstep";
 import uniq from "lodash/uniq";
 import flatMap from "lodash/flatMap";
+import get from "lodash/get";
 import logo from "./logo.svg";
 import "./App.css";
 import moment from "moment";
@@ -480,26 +481,45 @@ class SpeciesDetail extends Component {
   }
 }
 
-function findSeedlingBySectionTest (seedlings, predicate) {
-  return Object.keys(seedlings).find(k => {
+function findSeedlingPathBySectionTest (seedlings, predicate) {
+  let path = null;
+  Object.keys(seedlings).find(k => {
     const seedling = seedlings[k];
     return seedling.sections.find((section, i) => {
       if (section && predicate(section)) {
-        return seedling;
+        path = [ "seedlings", k, "sections", i ];
+        return true;
       }
     });
   });
+  return path;
 }
 
-class StatsInfo extends Component {
+const CALS = [ "seedling_indoors", "seedling_outdoors_or_planting", "harvest" ];
+const CAL_FOR_ACTION = {
+  indoors: "seedling_indoors",
+  outdoors: "seedling_outdoors_or_planting",
+  replant: "seedling_outdoors_or_planting",
+  harvest: "harvest",
+};
+const ACTION_TEXT = {
+  indoors: "Semer au chaud",
+  outdoors: "Semer dehors",
+  replant: "Replanter",
+  harvest: "Récolter",
+};
+
+class JobsInfo extends Component {
   render() {
-    const { month, stats } = this.props;
-    return <div style={{ padding: 10 }}>{stats.map(({ months, calendarName }) =>
-      <div>
-        <span style={{ fontFamily: "monospace", fontSize: "14px" }}>
+    const { month, jobs } = this.props;
+    return <div style={{ padding: 10 }}>{jobs.map(({ months, calendarName, action }, i) =>
+      <div key={i}>
+        <span>
           {MONTHS.map((monthName, m) =>
             <span style={{
               margin: "0 0.1em",
+              fontFamily: "monospace",
+              fontSize: "14px",
               textDecoration: month===m+1 ? "underline" : "none",
               color:
                 months.indexOf(m+1)===-1
@@ -509,8 +529,10 @@ class StatsInfo extends Component {
               {monthName.slice(0, 1)}
             </span>
           )}
-          <span style={{ marginLeft: 8 }}>
-            {calendarName || (stats.length===1 ? "" : "Standard")}
+          <span style={{ marginLeft: 8, fontSize: "12px" }}>
+            {calendarName}
+            {" à "}
+            <strong style={{ textDecoration: "underline" }}>{ACTION_TEXT[action]}</strong>
           </span>
         </span>
       </div>
@@ -518,85 +540,101 @@ class StatsInfo extends Component {
   }
 }
 
-const CALS = [ "seedling_indoors", "seedling_outdoors_or_planting", "harvest" ];
-function familyMonthStats (family, targetMonth) {
-  const stats = {};
-  CALS.forEach(cal => stats[cal] = []);
-  family.calendars.forEach(calendar => {
-    CALS.forEach(key => {
-      const months = calendar[key+"_months"];
+function getActionJobs (species, targetMonth, seedlingPath) {
+  const jobs = {
+    indoors: !species.family.seedlings_non_replantable && !seedlingPath,
+    outdoors: !species.tuber,
+    replant: seedlingPath || species.tuber,
+    harvest: false, // TODO
+  };
+  const all = [];
+  species.family.calendars.forEach(calendar => {
+    CALS.forEach(cal => {
+      const months = calendar[cal+"_months"];
       const i = months.indexOf(targetMonth);
       if (i !== -1) {
-        const firstMonth = i===0;
-        const lastMonth = i===months.length-1;
-        stats[key].push({
-          calendarName: calendar.name,
-          firstMonth,
-          lastMonth,
-          months,
+        Object.keys(CAL_FOR_ACTION).forEach(action => {
+          if (CAL_FOR_ACTION[action]===cal && jobs[action]) {
+            all.push({
+              action,
+              calendarName: calendar.name,
+              months,
+            });
+          }
         });
       }
     });
   });
-  return stats;
+  return all;
 }
 
-class SuggestSeedsUsableForMonth extends Component {
+class SpeciesList extends Component {
   render() {
     const {data, month} = this.props;
-    const {seeds, species, seedlings} = data;
-    const options = [];
-    Object.keys(seeds).forEach(id => {
-      const seed = seeds[id];
-      const spec = species[seed.species]; // FIXME spec should already be the object of seed.species
-      const family = spec.family;
-      let res;
-      const stats = familyMonthStats(family, month + 1);
-      const seedling = findSeedlingBySectionTest(
-        seedlings,
-        section => section.species.id === id
-      );
-      if (!family.seedlings_non_replantable && !seedling && stats.seedling_indoors.length) {
-        res = { ...res, indoors: stats.seedling_indoors };
-      }
-      const readyForOutdoors = stats.seedling_outdoors_or_planting.length;
-      if (readyForOutdoors && !seed.tuber) {
-        res = { ...res, outdoors: stats.seedling_outdoors_or_planting };
-      }
-      if ((seedling || seed.tuber) && readyForOutdoors) {
-        res = { ...res, replant: stats.seedling_outdoors_or_planting, seedling };
-      }
-      if (res) {
-        options.push({
-          ...res,
-          seed,
-          spec,
-          family,
-        });
-      }
-    });
-
-    const indoors = options.filter(option => option.indoors);
-    const outdoors = options.filter(option => option.outdoors);
-    const replant = options.filter(option => option.replant);
-
-    return <div>
-      { indoors.length ? <h4>Semer au chaud pour replanter</h4> : null }
-      { indoors.map((option, i) =>
-        <SpeciesDetail key={"indoors_"+i} species={option.spec} data={data}>
-          <StatsInfo month={month+1} stats={option.indoors} />
-        </SpeciesDetail> )}
-      { outdoors.length ? <h4>Semer dehors</h4> : null }
-      { outdoors.map((option, i) =>
-        <SpeciesDetail key={"outdoors_"+i} species={option.spec} data={data}>
-          <StatsInfo month={month+1} stats={option.outdoors} />
-        </SpeciesDetail> )}
-      { replant.length ? <h4>Replanter</h4> : null }
-      { replant.map((option, i) =>
-        <SpeciesDetail key={"replant_"+i} species={option.spec} data={data}>
-          <StatsInfo month={month+1} stats={option.replant} />
-        </SpeciesDetail> )}
-    </div>;
+    return <div>{
+      Object.keys(data.species)
+      .map(id => {
+        const species = data.species[id];
+        const seed = data.seeds[id];
+        const seedlingPath = findSeedlingPathBySectionTest(
+          data.seedlings,
+          section => section.species.id === species.id
+        );
+        const jobs = !seed ? [] : getActionJobs(
+          species,
+          month + 1,
+          seedlingPath
+        );
+        return { species, jobs, seedlingPath };
+      })
+      .sort((a, b) => {
+        const aHaveJobs = a.jobs.length>0;
+        const bHaveJobs = b.jobs.length>0;
+        if (aHaveJobs !== bHaveJobs) {
+          return bHaveJobs - aHaveJobs;
+        }
+        const aHaveSeedling = !!a.seedlingPath;
+        const bHaveSeedling = !!b.seedlingPath;
+        if (aHaveSeedling !== bHaveSeedling) {
+          return bHaveSeedling - aHaveSeedling;
+        }
+        return a.species.id > b.species.id ? 1 : -1;
+      })
+      .map(({ species, jobs, seedlingPath }) => {
+        const seedling = seedlingPath && get(data, seedlingPath.slice(0, 2));
+        return <SpeciesDetail
+            key={species.id}
+            species={species}
+            data={data}>
+          {seedling
+            ?
+            <div style={{ fontSize: "14px", padding: 10 }}>
+              semé dans
+              <img
+                src={icons.sprout}
+                style={{ height: 18, verticalAlign: -4 }}
+              />
+              <span style={{ color: "#0c0"}}>
+                {seedling.name}
+              </span>
+              { seedling.date
+                ? " " + moment(seedling.date).fromNow()
+                : null }
+            </div>
+            : null }
+          { jobs.length
+            ?
+            <div>
+              <JobsInfo
+                month={month+1}
+                jobs={jobs}
+                data={data}
+              />
+            </div>
+            : null }
+        </SpeciesDetail>;
+      })
+    }</div>;
   }
 }
 
@@ -672,22 +710,8 @@ class App extends Component {
             </div>
           </div>
 
-          <div style={{ textAlign: "left", margin: "200px 0"}}>
-            <h4>Reste à faire en {MONTHS[month]}:</h4>
-            <SuggestSeedsUsableForMonth month={month} data={data} />
-          </div>
-
           <h3>{Object.keys(data.species).length} Espèces Différentes</h3>
-          <div>
-          {Object.keys(data.species)
-            .sort((a,b) => data.species[a].family.id < data.species[b].family.id ? -1 : 1)
-            .map(id =>
-            <SpeciesDetail
-              key={id}
-              species={data.species[id]}
-              data={data}
-            /> )}
-          </div>
+          <SpeciesList month={month} data={data} />
         </div>
       </div>
     );
