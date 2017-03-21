@@ -9,7 +9,32 @@ import moment from "moment";
 import "moment/locale/fr";
 moment.locale("fr");
 import mooncalc from "./logic/mooncalc";
+import events from "../data/events.json";
 import consumeEventsForDate from "./logic/consumeEventsForDate";
+
+const MONTHS = [
+  "Janvier",
+  "Février",
+  "Mars",
+  "Avril",
+  "Mai",
+  "Juin",
+  "Juillet",
+  "Août",
+  "September",
+  "Octobre",
+  "Novembre",
+  "Décembre"
+];
+const DAYS = [
+  "Dimanche",
+  "Lundi",
+  "Mardi",
+  "Mercredi",
+  "Jeudi",
+  "Vendredi",
+  "Samedi"
+];
 
 import icons from "./icons";
 const iconTypeFallback = {
@@ -169,6 +194,33 @@ class TimeTravel extends Component {
   }
 }
 
+
+class Calendar extends Component {
+  render() {
+    /*
+    const { date } = this.props;
+    const firstDayOfMonth = moment(date).date(1);
+    const lastDayOfMonth = moment(date).add(1, "month").date(1).subtract(1, "day");
+    const weekFrom = firstDayOfMonth.week();
+    const weekTo = lastDayOfMonth.week();
+    console.log("days", firstDayOfMonth.toString(), lastDayOfMonth.toString());
+    console.log("weeks", weekFrom, weekTo);
+    console.log(moment(date).day(1).toString())
+    return <div className="calendar">
+      <div className="header">
+        <span className="title">
+          {moment(date).format("MMMM YYYY")}
+        </span>
+      </div>
+      <div className="body">
+
+      </div>
+    </div>;
+  */
+   return null;
+  }
+}
+
 class MoonProgression extends Component {
   render() {
     const { moon } = this.props;
@@ -251,7 +303,6 @@ class Seedling extends Component {
   }
 }
 
-const MONTHS = ["J","F","M","A","M","J","J","A","S","O","N","D"];
 class Months extends Component {
   render() {
     const {color,months,label} = this.props;
@@ -261,7 +312,7 @@ class Months extends Component {
         <span
           key={i}
           className={["month",(months.indexOf(i+1)===-1?"off":"on")].join(" ")}>
-          {m}
+          {m.slice(0, 1)}
         </span>)}
       </span>
       <span className="label">{label}</span>
@@ -298,9 +349,15 @@ class Plot extends Component {
             break;
 
           case "culture":
-            ctx.fillStyle = "#060";
+            const family = cell.species.family;
+            ctx.fillStyle = ({
+              leaf: "#060",
+              fruit: "#922",
+              flower: "#c90",
+              root: "#532",
+            })[family.types[0]];
             ctx.fillRect(xi * size, yi * size, size, size);
-            const maybeIcon = iconForFamily(cell.species.family);
+            const maybeIcon = iconForFamily(family);
             if (maybeIcon) {
               // freaking hack.. i'll just use <svg> asap
               const img = new Image();
@@ -312,7 +369,7 @@ class Plot extends Component {
           default:
             throw new Error("unknown cell.type="+cell.type);
         }
-       ctx.strokeStyle = "#000";
+       ctx.strokeStyle = "rgba(0,0,0,0.2)";
        ctx.strokeRect(xi*size,yi*size,size,size);
       }
       else {
@@ -340,6 +397,7 @@ class SpeciesDetail extends Component {
     const {
       data,
       species,
+      children,
     } = this.props;
     const {
       id,
@@ -384,12 +442,13 @@ class SpeciesDetail extends Component {
         />
         <strong>{generic}</strong>&nbsp;
         <span>{name}</span>&nbsp;
-        <em>({year})</em>&nbsp;
+        { year ? <em>({year})&nbsp;</em> : null }
         {
           bio
-          ? <span title={brand} style={{ color: "#0d0", fontWeight: "bold", fontSize: "0.8em" }}>BIO, {country||"France"}</span>
+          ? <span title={brand+", "+(country||"France")} style={{ color: "#0d0", fontWeight: "bold", fontSize: "0.8em" }}>BIO</span>
           : <em style={{ fontSize: "0.6em", color: "#930" }}>({brand||"?"}, {country||"France"})</em>}
         <em style={{ marginLeft: 10, fontSize: "0.6em" }}>{latin}</em>
+        {children}
       </summary>
       <p style={{ opacity: 0.8, fontSize: "0.8em" }}>
         germination: {germination_days}j,
@@ -432,6 +491,56 @@ function findSeedlingBySectionTest (seedlings, predicate) {
   });
 }
 
+class StatsInfo extends Component {
+  render() {
+    const { month, stats } = this.props;
+    return <div style={{ padding: 10 }}>{stats.map(({ months, calendarName }) =>
+      <div>
+        <span style={{ fontFamily: "monospace", fontSize: "14px" }}>
+          {MONTHS.map((monthName, m) =>
+            <span style={{
+              margin: "0 0.1em",
+              textDecoration: month===m+1 ? "underline" : "none",
+              color:
+                months.indexOf(m+1)===-1
+                ? "#eee"
+                : "#000"
+              }}>
+              {monthName.slice(0, 1)}
+            </span>
+          )}
+          <span style={{ marginLeft: 8 }}>
+            {calendarName || (stats.length===1 ? "" : "Standard")}
+          </span>
+        </span>
+      </div>
+    )}</div>;
+  }
+}
+
+const CALS = [ "seedling_indoors", "seedling_outdoors_or_planting", "harvest" ];
+function familyMonthStats (family, targetMonth) {
+  const stats = {};
+  CALS.forEach(cal => stats[cal] = []);
+  family.calendars.forEach(calendar => {
+    CALS.forEach(key => {
+      const months = calendar[key+"_months"];
+      const i = months.indexOf(targetMonth);
+      if (i !== -1) {
+        const firstMonth = i===0;
+        const lastMonth = i===months.length-1;
+        stats[key].push({
+          calendarName: calendar.name,
+          firstMonth,
+          lastMonth,
+          months,
+        });
+      }
+    });
+  });
+  return stats;
+}
+
 class SuggestSeedsUsableForMonth extends Component {
   render() {
     const {data, month} = this.props;
@@ -442,19 +551,20 @@ class SuggestSeedsUsableForMonth extends Component {
       const spec = species[seed.species]; // FIXME spec should already be the object of seed.species
       const family = spec.family;
       let res;
+      const stats = familyMonthStats(family, month + 1);
       const seedling = findSeedlingBySectionTest(
         seedlings,
         section => section.species.id === id
       );
-      if (!seedling && family.calendars.some(calendar => calendar.seedling_indoors_months.indexOf(month)!==-1)) {
-        res = { ...res, indoors: true };
+      if (!family.seedlings_non_replantable && !seedling && stats.seedling_indoors.length) {
+        res = { ...res, indoors: stats.seedling_indoors };
       }
-      const readyForOutdoors = family.calendars.some(calendar => calendar.seedling_outdoors_or_planting_months.indexOf(month)!==-1);
+      const readyForOutdoors = stats.seedling_outdoors_or_planting.length;
       if (readyForOutdoors && !seed.tuber) {
-        res = { ...res, outdoors: true };
+        res = { ...res, outdoors: stats.seedling_outdoors_or_planting };
       }
       if ((seedling || seed.tuber) && readyForOutdoors) {
-        res = { ...res, replant: true, seedling };
+        res = { ...res, replant: stats.seedling_outdoors_or_planting, seedling };
       }
       if (res) {
         options.push({
@@ -471,34 +581,24 @@ class SuggestSeedsUsableForMonth extends Component {
     const replant = options.filter(option => option.replant);
 
     return <div>
-      { indoors.length ? <h4>Semer au chaud</h4> : null }
+      { indoors.length ? <h4>Semer au chaud pour replanter</h4> : null }
       { indoors.map((option, i) =>
-        <SpeciesDetail key={"indoors_"+i} species={option.spec} data={data} /> )}
+        <SpeciesDetail key={"indoors_"+i} species={option.spec} data={data}>
+          <StatsInfo month={month+1} stats={option.indoors} />
+        </SpeciesDetail> )}
       { outdoors.length ? <h4>Semer dehors</h4> : null }
       { outdoors.map((option, i) =>
-        <SpeciesDetail key={"outdoors_"+i} species={option.spec} data={data} /> )}
+        <SpeciesDetail key={"outdoors_"+i} species={option.spec} data={data}>
+          <StatsInfo month={month+1} stats={option.outdoors} />
+        </SpeciesDetail> )}
       { replant.length ? <h4>Replanter</h4> : null }
       { replant.map((option, i) =>
-        <SpeciesDetail key={"replant_"+i} species={option.spec} data={data} /> )}
+        <SpeciesDetail key={"replant_"+i} species={option.spec} data={data}>
+          <StatsInfo month={month+1} stats={option.replant} />
+        </SpeciesDetail> )}
     </div>;
   }
 }
-
-const months = [
-  "",
-  "Janvier",
-  "Février",
-  "Mars",
-  "Avril",
-  "Mai",
-  "Juin",
-  "Juillet",
-  "Août",
-  "September",
-  "Octobre",
-  "Novembre",
-  "Décembre"
-];
 
 class App extends Component {
   state = {
@@ -511,7 +611,7 @@ class App extends Component {
     const { date } = this.state;
     const data = consumeEventsForDate(date);
     const moon = mooncalc(date);
-    const month = 1 + date.getMonth();
+    const month = date.getMonth();
 
     const seedlingGroups =
     Object.keys(data.seedlings)
@@ -527,6 +627,11 @@ class App extends Component {
           <h2><img src={icons.sprout} style={{ height: 40, verticalAlign: "middle", marginRight: 4 }} /> Le Jardin de Gaëtan</h2>
         </div>
         <TimeTravel onChange={this.onDateChange} value={date} />
+
+        <Calendar
+          date={date}
+        />
+
         <div className="App-body">
 
           <div style={{ background: "#eee", padding: 10, fontSize: "1.4em" }}>
@@ -568,7 +673,7 @@ class App extends Component {
           </div>
 
           <div style={{ textAlign: "left", margin: "200px 0"}}>
-            <h4>Reste à faire en {months[month]}:</h4>
+            <h4>Reste à faire en {MONTHS[month]}:</h4>
             <SuggestSeedsUsableForMonth month={month} data={data} />
           </div>
 

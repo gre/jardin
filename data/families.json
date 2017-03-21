@@ -393,6 +393,7 @@
     "name": "Carotte",
     "icon": "carrot",
     "wikipedia": "http://fr.wikipedia.org/wiki/Carotte",
+    "seedlings_non_replantable": true,
     "types": [ "root" ],
     "calendars": [
       {
@@ -1106,6 +1107,7 @@
   {
     "id": "haricot",
     "name": "Haricot",
+    "seedlings_non_replantable": true,
     "icon": "peas",
     "wikipedia": "http://fr.wikipedia.org/wiki/Haricot_vert",
     "types": [ "fruit" ],
@@ -1150,6 +1152,7 @@
   {
     "id": "haricot-despagne",
     "name": "Haricot d’Espagne",
+    "seedlings_non_replantable": true,
     "icon": "peas",
     "wikipedia": "http://fr.wikipedia.org/wiki/Haricot_d'Espagne",
     "types": [ "fruit" ],
@@ -1194,6 +1197,7 @@
   {
     "id": "haricot-rouge",
     "name": "Haricot rouge",
+    "seedlings_non_replantable": true,
     "icon": "peas",
     "wikipedia": "http://fr.wikipedia.org/wiki/Haricot",
     "types": [ "fruit" ],
@@ -1238,6 +1242,7 @@
   {
     "id": "haricot-vert",
     "name": "Haricot vert",
+    "seedlings_non_replantable": true,
     "icon": "peas",
     "wikipedia": "http://fr.wikipedia.org/wiki/Haricot_vert",
     "types": [ "fruit" ],
@@ -1282,6 +1287,7 @@
   {
     "id": "helianti",
     "name": "Helianti",
+    "seedlings_non_replantable": true,
     "wikipedia": "https://fr.wikipedia.org/wiki/H%C3%A9lianthi",
     "types": [ "flower", "root" ],
     "calendars": [
@@ -2168,6 +2174,7 @@
   {
     "id": "panais",
     "name": "Panais",
+    "seedlings_non_replantable": true,
     "wikipedia": "http://fr.wikipedia.org/wiki/Panais",
     "types": [ "root" ],
     "calendars": [
@@ -2559,6 +2566,7 @@
   {
     "id": "pole-haricots-verts",
     "name": "Pôle haricots verts",
+    "seedlings_non_replantable": true,
     "icon": "peas",
     "wikipedia": "http://fr.wikipedia.org/wiki/Haricot_vert",
     "types": [ "fruit" ],
@@ -2658,6 +2666,7 @@
   {
     "id": "radis",
     "name": "Radis",
+    "seedlings_non_replantable": true,
     "icon": "radish",
     "wikipedia": "http://fr.wikipedia.org/wiki/Raphanus_sativus",
     "types": [ "root" ],
@@ -2678,6 +2687,7 @@
   {
     "id": "radis-noir",
     "name": "Radis noir",
+    "seedlings_non_replantable": true,
     "icon": "radish",
     "wikipedia": "http://fr.wikipedia.org/wiki/Radis_noir",
     "types": [ "root" ],
@@ -2977,6 +2987,7 @@
   {
     "id": "tribu-haricot",
     "name": "Tribu Haricot",
+    "seedlings_non_replantable": true,
     "icon": "peas",
     "wikipedia": "http://fr.wikipedia.org/wiki/Haricot",
     "types": [ "fruit" ],

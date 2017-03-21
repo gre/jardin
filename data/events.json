@@ -1392,6 +1392,12 @@
     }
   },
   {
+    "op": "remove-seedling",
+    "date": "2017-02-28",
+    "id": "bac-1",
+    "comment": "la ciboulette n'a pas germée..."
+  },
+  {
     "op": "add-species",
     "id": "menthe_chinoise",
     "family": "menthe-verte",
@@ -1715,5 +1721,105 @@
       "plot": "gauche",
       "area": [15, 18, 1, 2]
     }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-03-21",
+    "count": 2,
+    "from": {
+      "box": "bac-2",
+      "section": 3
+    },
+    "to": {
+      "plot": "gauche",
+      "area": [ 13, 18, 1, 2 ]
+    }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-03-21",
+    "count": 2,
+    "from": {
+      "box": "bac-2",
+      "section": 2
+    },
+    "to": {
+      "plot": "gauche",
+      "area": [ 12, 19, 1, 1 ]
+    }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-03-21",
+    "count": 2,
+    "from": {
+      "box": "bac-2",
+      "section": 1
+    },
+    "to": {
+      "plot": "gauche",
+      "area": [ 11, 19, 1, 1 ]
+    }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-03-21",
+    "count": 2,
+    "from": {
+      "box": "bac-2",
+      "section": 0
+    },
+    "to": {
+      "plot": "gauche",
+      "area": [ 10, 19, 1, 1 ]
+    }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-03-21",
+    "count": 2,
+    "from": {
+      "box": "bac-2",
+      "section": 0
+    },
+    "to": {
+      "plot": "gauche",
+      "area": [ 9, 19, 1, 1 ]
+    }
+  },
+  {
+    "op": "seed",
+    "date": "2017-03-21",
+    "count": 100,
+    "species": "carotte_nantaise3",
+    "at": {
+      "plot": "droite",
+      "area": [ 0, 12, 8, 2 ]
+    }
+  },
+  {
+    "op": "seed",
+    "date": "2017-03-21",
+    "count": 100,
+    "species": "chantenay_coeur_rouge",
+    "at": {
+      "plot": "droite",
+      "area": [ 8, 12, 8, 2 ]
+    }
+  },
+  {
+    "op": "add-seedling",
+    "date": "2017-03-21",
+    "id": "petiteboite-1",
+    "name": "Petite Boite",
+    "group": "starter"
+  },
+  {
+    "op": "seed",
+    "date": "2017-03-21",
+    "at": {
+      "box": "petiteboite-1"
+    },
+    "species": "coriandre"
   }
 ]

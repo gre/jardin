@@ -169,7 +169,6 @@ function reducer (state, event) {
     break;
   }
   case "transplant": {
-    // FIXME currently, transplant is not a partial op, do for the whole section
     let fromSection;
     state = updateSelection(state, event.from, section => {
       fromSection = section;
