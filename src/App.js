@@ -508,10 +508,16 @@ const ACTION_TEXT = {
   replant: "Replanter",
   harvest: "Récolter",
 };
+const actionMoonSatisfied = {
+  indoors: moon => moonIsAscending(moon),
+  outdoors: moon => moonIsAscending(moon),
+  replant: moon => !moonIsAscending(moon),
+  harvest: moon => moon.age < 12.91963,
+};
 
 class JobsInfo extends Component {
   render() {
-    const { month, jobs } = this.props;
+    const { month, jobs, moon } = this.props;
     return <div style={{ padding: 10 }}>{jobs.map(({ months, calendarName, action }, i) =>
       <div key={i}>
         <span>
@@ -533,6 +539,11 @@ class JobsInfo extends Component {
             {calendarName}
             {" à "}
             <strong style={{ textDecoration: "underline" }}>{ACTION_TEXT[action]}</strong>
+            {
+              actionMoonSatisfied[action](moon)
+              ? "👌 la lune est d'accord"
+              : ""
+            }
           </span>
         </span>
       </div>
@@ -570,7 +581,7 @@ function getActionJobs (species, targetMonth, seedlingPath) {
 
 class SpeciesList extends Component {
   render() {
-    const {data, month} = this.props;
+    const {data, month, moon} = this.props;
     return <div>{
       Object.keys(data.species)
       .map(id => {
@@ -629,6 +640,7 @@ class SpeciesList extends Component {
                 month={month+1}
                 jobs={jobs}
                 data={data}
+                moon={moon}
               />
             </div>
             : null }
@@ -711,7 +723,7 @@ class App extends Component {
           </div>
 
           <h3>{Object.keys(data.species).length} Espèces Différentes</h3>
-          <SpeciesList month={month} data={data} />
+          <SpeciesList month={month} data={data} moon={moon} />
         </div>
       </div>
     );
