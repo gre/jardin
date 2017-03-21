@@ -1837,5 +1837,14 @@
       "box": "eggbox-7"
     },
     "species": "persil"
+  },
+  {
+    "op": "seed",
+    "date": "2017-03-21",
+    "at": {
+      "plot": "gauche",
+      "area": [ 15, 17, 1, 1 ]
+    },
+    "species": "persil"
   }
 ]
