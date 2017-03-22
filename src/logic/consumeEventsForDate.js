@@ -148,8 +148,13 @@ function reducer (state, event) {
     invariant(event.box in state.seedlings, "seedling-resize: seedling '%s' should exist", event.box);
     state = {...state};
     const seedling = { ...state.seedlings[event.box] };
-    seedling.sectionSplitters = event.sectionSplitters;
-    seedling.sections = event.sectionMoves.map(oldIndex => seedling.sections[oldIndex]);
+    if (event.sectionSplitters) {
+      seedling.sectionSplitters = event.sectionSplitters;
+      seedling.sections = event.sectionMoves.map(oldIndex => seedling.sections[oldIndex]);
+    }
+    else {
+      seedling.sections = seedling.sections.slice(0, event.count||0);
+    }
     state.seedlings = {
       ...state.seedlings,
       [event.box]: seedling,

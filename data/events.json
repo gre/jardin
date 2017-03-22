@@ -34,7 +34,7 @@
     "date": "2016-06-14",
     "bio": false,
     "generic": "Fraises",
-    "name": "Moint Everest",
+    "name": "Mount Everest",
     "brand": "jardiland",
     "latin": "Fragaria ananassa",
     "desc": "Les fraisiers sont des plantes vivaces herbacées, feuilles vertes à trois folioles, aux bords dentés, situées à l'extrémité d'un pétiole grêle. Les plantes produisent des stolons, sortes de tiges formant en extrémité de jeunes fraisiers qui s'enracinent spontanément. Fleurs en grappes, blanches au coeur jaune. La variété mont everest développe de très longs stolons qui peuvent être palissés, remontante, elle produit de mi-juin à fin septembre, des fruits, moyens, rouges, goûteux et parfumés, ces fruits (fraises) sont consommés frais comme dessert, seuls ou avec d'autres fruits, ils permettent la confection de délicieuses confitures et entrent dans la composition de nombreuses pâtisseries"
@@ -1401,6 +1401,12 @@
     "date": "2017-02-28",
     "id": "bac-1",
     "comment": "la ciboulette n'a pas germée..."
+  },
+  {
+    "op": "seedling-resize",
+    "box": "concombre-pots",
+    "date": "2017-03-12",
+    "count": 5
   },
   {
     "op": "add-species",
