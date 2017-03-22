@@ -40,6 +40,18 @@
   color: #F99;
 }
 
+.moonContainer {
+  background: #eee;
+  padding: 10px;
+}
+.moonContainer .moon {
+  font-size: 18px;
+}
+.moon .moonVegType {
+  font-size: 0.6em;
+  font-style: italic;
+}
+
 .seedling-group {
   display: flex;
   flex-direction: row;

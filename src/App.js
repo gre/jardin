@@ -4,13 +4,11 @@ import smoothstep from "smoothstep";
 import uniq from "lodash/uniq";
 import flatMap from "lodash/flatMap";
 import get from "lodash/get";
-import logo from "./logo.svg";
 import "./App.css";
 import moment from "moment";
 import "moment/locale/fr";
 moment.locale("fr");
 import mooncalc from "./logic/mooncalc";
-import events from "../data/events.json";
 import consumeEventsForDate from "./logic/consumeEventsForDate";
 
 const MONTHS = [
@@ -26,15 +24,6 @@ const MONTHS = [
   "Octobre",
   "Novembre",
   "Décembre"
-];
-const DAYS = [
-  "Dimanche",
-  "Lundi",
-  "Mardi",
-  "Mercredi",
-  "Jeudi",
-  "Vendredi",
-  "Samedi"
 ];
 
 const CALS = [ "seedling_indoors", "seedling_outdoors_or_planting", "harvest" ];
@@ -117,7 +106,7 @@ function moonVegType (moon) {
 class MoonPhase extends Component {
   render() {
     const { moon } = this.props;
-    return <span title={moon.phase}>{moonPhaseAscii(moon)}</span>;
+    return <span className="moonPhase" title={moon.phase}>{moonPhaseAscii(moon)}</span>;
   }
 }
 
@@ -215,7 +204,6 @@ class TimeTravel extends Component {
   }
 }
 
-
 class Calendar extends Component {
   render() {
     /*
@@ -245,7 +233,7 @@ class Calendar extends Component {
 class MoonProgression extends Component {
   render() {
     const { moon } = this.props;
-    return <span>{
+    return <span className="moonProgression">{
       moonIsAscending(moon)
       ? "Montante"
       : "Descendante"
@@ -256,7 +244,7 @@ class MoonProgression extends Component {
 class MoonVegType extends Component {
   render() {
     const { moon } = this.props;
-    return <span>Jour {
+    return <span className="moonVegType">Jour {
       ({
         leaf: "Feuilles",
         root: "Racines",
@@ -288,7 +276,6 @@ class Seedling extends Component {
           style.width = (100 * (endSplit - startSplit))+"%";
         }
         const name = `${section.species.generic||""} ${section.species.name||""}`;
-        const date = `${section.seedlingDate}`;
         return <div
           key={i}
           title={name}
@@ -296,6 +283,7 @@ class Seedling extends Component {
           style={style}>
           <div>
             <img
+              alt={section.species.family}
               src={iconForFamily(section.species.family)}
               style={{ height: 12, verticalAlign: "middle", marginRight: 4 }}
             />
@@ -362,7 +350,7 @@ class Plot extends Component {
     const {ctx} = this;
     const size = cellSize * pixelRatio;
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    plot.grid.map((cell, i) => {
+    plot.grid.forEach((cell, i) => {
       //ctx.globalAlpha = 0.9 + 0.1 * Math.random();
       const xi = i % plot.gridW;
       const yi = (i - xi) / plot.gridW;
@@ -463,6 +451,7 @@ class SpeciesDetail extends Component {
     return <details className="seed">
       <summary title={id}>
         <img
+          alt={family.id}
           src={iconForFamily(family)}
           style={{ verticalAlign: "-4px", height: 24, marginRight: 4, }}
         />
@@ -518,6 +507,7 @@ function findSeedlingPathBySectionTest (seedlings, predicate) {
         path = [ "seedlings", k, "sections", i ];
         return true;
       }
+      return false;
     });
   });
   return path;
@@ -626,6 +616,7 @@ class SpeciesList extends Component {
             <div style={{ fontSize: "14px", paddingLeft: 10, margin: 10, borderLeft: "2px solid #0F0" }}>
               semé dans
               <img
+                alt=""
                 src={icons.sprout}
                 style={{ height: 18, verticalAlign: -4 }}
               />
@@ -678,7 +669,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2><img src={icons.sprout} style={{ height: 40, verticalAlign: "middle", marginRight: 4 }} /> Le Jardin de Gaëtan</h2>
+          <h2><img alt="" src={icons.sprout} style={{ height: 40, verticalAlign: "middle", marginRight: 4 }} /> Le Jardin de Gaëtan</h2>
+          <a target="_blank" href="https://github.com/gre/jardin" style={{ position: "absolute", top: 4, right: 4 }}>
+            Github
+          </a>
         </div>
         <TimeTravel onChange={this.onDateChange} value={date} />
 
@@ -688,17 +682,14 @@ class App extends Component {
 
         <div className="App-body">
 
-          <div style={{ background: "#eee", padding: 10, fontSize: "1.4em" }}>
-            <div style={{ fontWeight: "bold" }}>
+          <div className="moonContainer">
+            <div className="moon">
               <MoonPhase moon={moon} />
               &nbsp;
               <MoonProgression moon={moon} />
-            </div>
-            {/* // currently not reliable. bug in the lib
-            <div style={{ fontStyle: "italic" }}>
+              &nbsp;
               <MoonVegType moon={moon} />
             </div>
-            */}
           </div>
 
           <div className="map">

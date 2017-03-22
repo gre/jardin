@@ -9,9 +9,9 @@ Sources of the algorithm : http://www.abecedarical.com/zenosamples/zs_lunarphase
 */
 
 function normalize(v) {
-  v = v - Math.floor(v);
+  v -= Math.floor(v);
   if (v < 0) {
-    v = v + 1;
+    v++;
   }
   return v;
 }
@@ -36,7 +36,7 @@ export default function MoonCalc (date) {
   yy = year - Math.floor((12 - month) / 10);
   mm = month + 9;
   if (mm >= 12) {
-    mm = mm - 12;
+    mm -= 12;
   }
 
   k1 = Math.floor(365.25 * (yy + 4712));
@@ -45,7 +45,7 @@ export default function MoonCalc (date) {
 
   jd = k1 + k2 + day + dayRemain + 59;  // for dates in Julian calendar
   if (jd > 2299160) {
-    jd = jd - k3;      // for Gregorian calendar
+    jd -= k3;      // for Gregorian calendar
   }
 
   //calculate moon's age in days

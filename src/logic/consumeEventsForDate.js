@@ -124,7 +124,7 @@ function reducer (state, event) {
       },
     };
     break;
-  };
+  }
   case "add-seedling": {
     state.seedlings = {
       ...state.seedlings,
