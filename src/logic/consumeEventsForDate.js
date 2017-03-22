@@ -177,7 +177,7 @@ function reducer (state, event) {
     invariant(fromSection, "from was found");
     state = updateSelection(state, event.to, () => ({
       ...fromSection,
-      transpantDate: event.date,
+      transplantDate: event.date,
       count: event.countPerSection || 1,
     }));
     break;
@@ -188,6 +188,7 @@ function reducer (state, event) {
       ...cell,
       type: "culture",
       species: state.species[event.species],
+      plantDate: event.date,
     }));
     break;
   }

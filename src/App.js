@@ -333,74 +333,77 @@ class Months extends Component {
   }
 }
 
+const PlotFillSizePerVegType = {
+  leaf: "#060",
+  fruit: "#922",
+  flower: "#c90",
+  root: "#532",
+};
+
 class Plot extends Component {
-  static defaultProps = {
-    pixelRatio: window.devicePixelRatio || 1,
-  };
-  componentDidMount() {
-    const {canvas} = this.refs;
-    this.ctx = canvas.getContext("2d");
-    this.draw();
-  }
-  componentDidUpdate() {
-    this.draw();
-  }
-  draw() {
-    const {plot, cellSize, pixelRatio} = this.props;
-    const {ctx} = this;
-    const size = cellSize * pixelRatio;
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    plot.grid.forEach((cell, i) => {
-      //ctx.globalAlpha = 0.9 + 0.1 * Math.random();
-      const xi = i % plot.gridW;
-      const yi = (i - xi) / plot.gridW;
-      if (cell) {
-        switch (cell.type) {
-          case "empty":
-            ctx.fillStyle = "#953";
-            ctx.fillRect(xi * size, yi * size, size, size);
-            break;
-
-          case "culture":
-            const family = cell.species.family;
-            ctx.fillStyle = ({
-              leaf: "#060",
-              fruit: "#922",
-              flower: "#c90",
-              root: "#532",
-            })[family.types[0]];
-            ctx.fillRect(xi * size, yi * size, size, size);
-            const maybeIcon = iconForFamily(family);
-            if (maybeIcon) {
-              // freaking hack.. i'll just use <svg> asap
-              const img = new Image();
-              img.src = maybeIcon;
-              img.onload = () => ctx.drawImage(img, xi * size, yi * size, size, size);
-            }
-            break;
-
-          default:
-            throw new Error("unknown cell.type="+cell.type);
-        }
-       ctx.strokeStyle = "rgba(0,0,0,0.2)";
-       ctx.strokeRect(xi*size,yi*size,size,size);
-      }
-      else {
-        ctx.clearRect(xi * size, yi * size, size, size);
-      }
-    });
-  }
   render() {
-    const {plot, cellSize, pixelRatio} = this.props;
+    const {plot, cellSize} = this.props;
     const width = cellSize * plot.gridW;
     const height = cellSize * plot.gridH;
     return (
-      <canvas
-        ref="canvas"
-        style={{ width, height }}
-        width={pixelRatio * width}
-        height={pixelRatio * height}
-      />
+    <div>
+      <svg width={width} height={height}>
+      {plot.grid.map((cell, i) => {
+        if (!cell) return null;
+        const xi = i % plot.gridW;
+        const yi = (i - xi) / plot.gridW;
+        let fill, imageSrc, title;
+        switch (cell.type) {
+        case "culture": {
+          const {species} = cell;
+          const {family} = species;
+          fill = PlotFillSizePerVegType[family.types[0]];
+          const maybeIcon = iconForFamily(family);
+          imageSrc = maybeIcon;
+          title = `${cell.species.generic||""} ${cell.species.name||""}`;
+          const meta = [
+            cell.seedlingDate ? "semé "+moment(cell.seedlingDate).fromNow() : null,
+            cell.plantDate ? "planté "+moment(cell.plantDate).fromNow() : null,
+            cell.transplantDate ? "replanté "+moment(cell.transplantDate).fromNow() : null,
+          ].filter(o => o);
+          if (meta.length) {
+            title += " (" + meta.join(", ") + ")";
+          }
+          break;
+        }
+        case "empty":
+          fill = "#953";
+          break;
+        default:
+        }
+        return (
+        <g
+          key={i}
+          transform={`translate(${xi*cellSize}, ${yi*cellSize})`}>
+          <title>{title}</title>
+          <rect
+            x={0}
+            y={0}
+            width={cellSize}
+            height={cellSize}
+            fill={fill}
+            stroke="rgba(0,0,0,0.2)"
+            strokeWidth={1}
+          />
+          { imageSrc
+            ? <image
+                href={imageSrc}
+                x={0}
+                y={0}
+                width={cellSize}
+                height={cellSize}
+              />
+            : null }
+        </g>
+        );
+      })}
+      </svg>
+    </div>
     );
   }
 }
@@ -606,39 +609,43 @@ class SpeciesList extends Component {
       })
       .map(({ species, jobs, seedlingPath }) => {
         const seedling = seedlingPath && get(data, seedlingPath.slice(0, 2));
+        const seedlingSection = seedlingPath && get(data, seedlingPath);
         return <SpeciesDetail
             key={species.id}
             species={species}
             data={data}
             month={month}>
-          {seedling
-            ?
-            <div style={{ fontSize: "14px", paddingLeft: 10, margin: 10, borderLeft: "2px solid #0F0" }}>
-              semé dans
-              <img
-                alt=""
-                src={icons.sprout}
-                style={{ height: 18, verticalAlign: -4 }}
-              />
-              <span style={{ color: "#0c0"}}>
-                {seedling.name}
-              </span>
-              { seedling.date
-                ? " " + moment(seedling.date).fromNow()
-                : null }
-            </div>
-            : null }
-          { jobs.length
-            ?
-            <div>
-              <JobsInfo
-                month={month+1}
-                jobs={jobs}
-                data={data}
-                moon={moon}
-              />
-            </div>
-            : null }
+        { seedling || jobs.length
+          ? <div style={{ fontSize: "14px", paddingLeft: 10, margin: 10, borderLeft: "2px solid #0F0" }}>
+            {seedling
+              ?
+              <div>
+                semé dans
+                <img
+                  alt=""
+                  src={icons.sprout}
+                  style={{ height: 18, verticalAlign: -4 }}
+                />
+                <span style={{ color: "#0c0"}}>
+                  {seedling.name}
+                </span>
+                { seedlingSection.seedlingDate
+                  ? " " + moment(seedlingSection.seedlingDate).fromNow()
+                  : null }
+              </div>
+              : null }
+            { jobs.length
+              ?
+              <div>
+                <JobsInfo
+                  month={month+1}
+                  jobs={jobs}
+                  data={data}
+                  moon={moon}
+                />
+              </div>
+              : null }
+          </div> : null }
         </SpeciesDetail>;
       })
     }</div>;

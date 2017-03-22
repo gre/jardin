@@ -71,7 +71,7 @@
   padding: 2px 4px;
   font-size: 8px;
   z-index: 2;
-  opacity: 0.3;
+  opacity: 0.4;
   pointer-events: none;
 }
 
@@ -93,9 +93,9 @@
   border-radius: 4px;
 }
 .seedling.starter .decorator {
-  background: #281;
+  background: #4A3;
   border-radius: 0 0 4px 4px;
-  border: 1px #281 solid;
+  border: 1px #4A3 solid;
   position: absolute;
   z-index: 1;
   width: 100%;
@@ -111,9 +111,9 @@
   border-radius: 4px;
 }
 .seedling.bac .decorator {
-  background: #281;
+  background: #4A3;
   border-radius: 0 0 4px 4px;
-  border: 1px #281 solid;
+  border: 1px #4A3 solid;
   position: absolute;
   z-index: 1;
   width: 100%;
