@@ -91,6 +91,7 @@
   {
     "op": "add-species",
     "id": "coeur_de_boeuf_akers",
+    "icon": "tomato-pink",
     "date": "2017-01-01",
     "bio": true,
     "generic": "Tomate Rose Violette",
@@ -284,6 +285,7 @@
     "date": "2017-01-01",
     "bio": true,
     "brand": "kokopelli",
+    "icon": "tomato-cherry",
     "generic": "Tomate-Cerise Rouge",
     "family": "tomate",
     "name": "Barbaniaka",
@@ -304,6 +306,7 @@
     "date": "2017-01-01",
     "bio": true,
     "brand": "kokopelli",
+    "icon": "tomato-cherry",
     "generic": "Tomate-Cerise Rouge",
     "family": "tomate",
     "name": "Red Centiflor Cherry",
@@ -344,6 +347,7 @@
     "bio": true,
     "brand": "kokopelli",
     "generic": "Tomate Noire",
+    "icon": "tomato-black",
     "family": "tomate",
     "name": "Black From Tula",
     "term": "mid-season",
@@ -460,7 +464,7 @@
     "bio": true,
     "brand": "kokopelli",
     "generic": "Courge Moschata",
-    "family": "courgette",
+    "family": "courge",
     "name": "Butternut Honey Nut",
     "latin": "Cucurbita moschata",
     "desc": "Les fruits de 10/12 cm de longueur font de 1 kg à 1.5 kg et sont beaucoup plus petis que le butternut Waltham. Epiderme vert virant à ocre à maturité. Chair de couleur jaune-orangé, très fine, excellente, au goût de noisette.",
@@ -518,7 +522,7 @@
     "brand": "oujiang",
     "country": "Chine",
     "generic": "白皮圆蒲",
-    "family": "courgette",
+    "family": "courge",
     "name": "白皮圆蒲",
     "chinese_name": "白皮圆蒲",
     "desc": "espacer les pieds de 2 mètres."
@@ -537,7 +541,7 @@
     "brand": "cephagri",
     "country": "Chine",
     "generic": "Courge éponge",
-    "family": "courgette",
+    "family": "courge",
     "name": "丝瓜",
     "latin": "Luffa aegyptiaca",
     "chinese_name": "丝瓜"
@@ -558,7 +562,7 @@
     "generic": "Courge cireuse",
     "latin": "Benincasa hispida",
     "name": "Dark Green Skin Wax Gourd",
-    "family": "courgette",
+    "family": "courge",
     "chinese_name": "黑皮冬瓜"
   },
   {
@@ -1847,5 +1851,14 @@
       "area": [ 15, 17, 1, 1 ]
     },
     "species": "persil"
+  },
+  {
+    "op": "plant",
+    "date": "2017-03-22",
+    "at": {
+      "plot": "gauche",
+      "area": [ 15, 0, 1, 2 ]
+    },
+    "species": "ciboulette_tfd"
   }
 ]

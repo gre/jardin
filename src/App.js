@@ -53,8 +53,8 @@ const iconTypeFallback = {
   flower: "generic-flower",
   root: "generic-root",
 };
-const iconForFamily = family =>
-  icons[family.icon || iconTypeFallback[family.types[0]]];
+const iconForSpecies = species =>
+  icons[species.icon || species.family.icon || iconTypeFallback[species.family.types[0]]];
 
 const groupBy = (groupFn) => (acc, el) => {
   const group = groupFn(el);
@@ -275,8 +275,8 @@ class Seedling extends Component {
           style={style}>
           <div>
             <img
-              alt={section.species.family}
-              src={iconForFamily(section.species.family)}
+              alt={section.species.family.id}
+              src={iconForSpecies(section.species)}
               style={{ height: 12, verticalAlign: "middle", marginRight: 4 }}
             />
             <strong>
@@ -350,7 +350,7 @@ class Plot extends Component {
           const {species} = cell;
           const {family} = species;
           fill = PlotFillSizePerVegType[family.types[0]];
-          const maybeIcon = iconForFamily(family);
+          const maybeIcon = iconForSpecies(species);
           imageSrc = maybeIcon;
           title = `${cell.species.generic||""} ${cell.species.name||""}`;
           const meta = [
@@ -447,7 +447,7 @@ class SpeciesDetail extends Component {
       <summary title={id}>
         <img
           alt={family.id}
-          src={iconForFamily(family)}
+          src={iconForSpecies(species)}
           style={{ verticalAlign: "-4px", height: 24, marginRight: 4, }}
         />
         <strong>{generic}</strong>&nbsp;

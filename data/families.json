@@ -74,6 +74,7 @@
   {
     "id": "aneth",
     "name": "Aneth",
+    "icon": "dill",
     "wikipedia": "http://fr.wikipedia.org/wiki/Aneth",
     "types": [ "leaf" ],
     "calendars": [
@@ -100,6 +101,7 @@
   {
     "id": "anis-vert",
     "name": "Anis vert",
+    "icon": "anise",
     "wikipedia": "http://fr.wikipedia.org/wiki/Anis_vert",
     "types": [ "leaf" ],
     "calendars": [
@@ -157,6 +159,7 @@
   {
     "id": "basilic",
     "name": "Basilic",
+    "icon": "basil",
     "wikipedia": "https://fr.wikipedia.org/wiki/Basilic_(plante)",
     "types": [ "leaf" ],
     "calendars": [
@@ -176,6 +179,7 @@
   {
     "id": "basilic-citron",
     "name": "Basilic citron",
+    "icon": "basil",
     "wikipedia": "http://fr.wikipedia.org/wiki/Basilic_(plante)",
     "types": [ "leaf" ],
     "calendars": [
@@ -498,6 +502,7 @@
   {
     "id": "cerfeuil-commun",
     "name": "Cerfeuil commun",
+    "icon": "chervil",
     "wikipedia": "http://fr.wikipedia.org/wiki/Cerfeuil_commun",
     "types": [ "leaf" ],
     "calendars": [
@@ -762,6 +767,7 @@
   {
     "id": "ciboule-de-chine",
     "name": "Ciboule de Chine",
+    "icon": "chive",
     "wikipedia": "http://fr.wikipedia.org/wiki/Ciboule_de_Chine",
     "types": [ "leaf" ],
     "calendars": [
@@ -781,6 +787,7 @@
   {
     "id": "ciboulette",
     "name": "Ciboulette",
+    "icon": "chive",
     "wikipedia": "http://fr.wikipedia.org/wiki/Ciboulette_(botanique)",
     "types": [ "leaf" ],
     "calendars": [
@@ -800,6 +807,7 @@
   {
     "id": "citronnelle",
     "name": "Citronnelle",
+    "icon": "lemongrass",
     "wikipedia": "http://fr.wikipedia.org/wiki/Citronnelle",
     "types": [ "leaf" ],
     "calendars": [
@@ -884,6 +892,7 @@
   {
     "id": "coriandre",
     "name": "Coriandre",
+    "icon": "cilantro",
     "wikipedia": "http://fr.wikipedia.org/wiki/Coriandre",
     "types": [ "leaf" ],
     "calendars": [
@@ -946,12 +955,33 @@
       "lail-des-ours",
       "ail"
     ],
-    "hates": [ "persil", "persil", "persil-tubereux" ]
+    "hates": [ "persil", "persil-tubereux" ]
   },
   {
     "id": "courgette",
     "name": "Courgette",
+    "icon": "zucchini",
     "wikipedia": "http://fr.wikipedia.org/wiki/Courgette",
+    "types": [ "fruit" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 4, 5, 6 ],
+        "seedling_outdoors_or_planting_months": [ 5, 6, 7 ],
+        "harvest_months": [ 9, 10, 11 ]
+      }
+    ],
+    "germination_days": 10,
+    "harvest_days": 95,
+    "spacing_cm": 100,
+    "likes": [],
+    "hates": []
+  },
+  {
+    "id": "courge",
+    "name": "Courge",
+    "icon": "squash",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Courge",
     "types": [ "fruit" ],
     "calendars": [
       {
@@ -1009,6 +1039,7 @@
   {
     "id": "epinard",
     "name": "Épinard",
+    "icon": "spinach",
     "wikipedia": "http://fr.wikipedia.org/wiki/%C3%89pinard",
     "types": [ "leaf" ],
     "calendars": [
@@ -1287,6 +1318,7 @@
   {
     "id": "helianti",
     "name": "Helianti",
+    "icon": "sunflower",
     "seedlings_non_replantable": true,
     "wikipedia": "https://fr.wikipedia.org/wiki/H%C3%A9lianthi",
     "types": [ "flower", "root" ],
@@ -1365,7 +1397,7 @@
       "lail-des-ours",
       "ail"
     ],
-    "hates": [ "persil", "persil", "persil-tubereux" ]
+    "hates": [ "persil", "persil-tubereux" ]
   },
   {
     "id": "laitue-chinoise",
@@ -1393,7 +1425,7 @@
       "lail-des-ours",
       "ail"
     ],
-    "hates": [ "persil", "persil", "persil-tubereux" ]
+    "hates": [ "persil", "persil-tubereux" ]
   },
   {
     "id": "laitue-cultivee",
@@ -1421,7 +1453,7 @@
       "lail-des-ours",
       "ail"
     ],
-    "hates": [ "persil", "persil", "persil-tubereux" ]
+    "hates": [ "persil", "persil-tubereux" ]
   },
   {
     "id": "laitue-romaine",
@@ -1449,7 +1481,7 @@
       "lail-des-ours",
       "ail"
     ],
-    "hates": [ "persil", "persil", "persil-tubereux" ]
+    "hates": [ "persil", "persil-tubereux" ]
   },
   {
     "id": "lasperule-odorante",
@@ -1473,6 +1505,7 @@
   {
     "id": "lavandula",
     "name": "Lavandula",
+    "icon": "lavander",
     "wikipedia": "http://fr.wikipedia.org/wiki/Lavandula",
     "types": [ "leaf" ],
     "calendars": [
@@ -1552,7 +1585,6 @@
       "camomille",
       "sarriette",
       "persil",
-      "persil",
       "persil-tubereux"
     ],
     "hates": [
@@ -1597,7 +1629,6 @@
       "camomille",
       "sarriette",
       "persil",
-      "persil",
       "persil-tubereux"
     ],
     "hates": [
@@ -1621,6 +1652,7 @@
   {
     "id": "loseille-sanguine",
     "name": "L’Oseille sanguine",
+    "icon": "spinach",
     "wikipedia": "https://fr.wikipedia.org/wiki/Rumex",
     "types": [ "leaf" ],
     "calendars": [
@@ -1719,6 +1751,7 @@
   {
     "id": "marjolaine-lorigan",
     "name": "Marjolaine, l’Origan",
+    "icon": "oregano",
     "wikipedia": "http://fr.wikipedia.org/wiki/Origanum_vulgare",
     "types": [ "leaf" ],
     "calendars": [
@@ -1738,6 +1771,7 @@
   {
     "id": "melisse-officinale",
     "name": "Mélisse officinale",
+    "icon": "lemongrass",
     "wikipedia": "http://fr.wikipedia.org/wiki/M%C3%A9lisse_officinale",
     "types": [ "leaf" ],
     "calendars": [
@@ -1777,6 +1811,7 @@
   {
     "id": "menthe-pouliot",
     "name": "Menthe pouliot",
+    "icon": "mint",
     "wikipedia": "https://fr.wikipedia.org/wiki/Menthe_pouliot",
     "types": [ "leaf" ],
     "calendars": [
@@ -1796,6 +1831,7 @@
   {
     "id": "menthe-verte",
     "name": "Menthe verte",
+    "icon": "mint",
     "wikipedia": "http://fr.wikipedia.org/wiki/Mentha_spicata",
     "types": [ "leaf" ],
     "calendars": [
@@ -1877,7 +1913,6 @@
       "carotte",
       "poireau",
       "persil",
-      "persil",
       "persil-tubereux"
     ],
     "hates": []
@@ -1905,7 +1940,6 @@
       "tomate",
       "camomille",
       "sarriette",
-      "persil",
       "persil",
       "persil-tubereux"
     ],
@@ -1951,7 +1985,6 @@
       "camomille",
       "sarriette",
       "persil",
-      "persil",
       "persil-tubereux"
     ],
     "hates": [
@@ -1995,7 +2028,6 @@
       "tomate",
       "camomille",
       "sarriette",
-      "persil",
       "persil",
       "persil-tubereux"
     ],
@@ -2041,7 +2073,6 @@
       "camomille",
       "sarriette",
       "persil",
-      "persil",
       "persil-tubereux"
     ],
     "hates": [
@@ -2085,7 +2116,6 @@
       "tomate",
       "camomille",
       "sarriette",
-      "persil",
       "persil",
       "persil-tubereux"
     ],
@@ -2131,7 +2161,6 @@
       "camomille",
       "sarriette",
       "persil",
-      "persil",
       "persil-tubereux"
     ],
     "hates": [
@@ -2155,6 +2184,7 @@
   {
     "id": "oseille",
     "name": "Oseille",
+    "icon": "spinach",
     "wikipedia": "http://fr.wikipedia.org/wiki/Oseille",
     "types": [ "leaf" ],
     "calendars": [
@@ -2174,6 +2204,7 @@
   {
     "id": "panais",
     "name": "Panais",
+    "icon": "parsnip",
     "seedlings_non_replantable": true,
     "wikipedia": "http://fr.wikipedia.org/wiki/Panais",
     "types": [ "root" ],
@@ -2214,6 +2245,7 @@
   {
     "id": "persil",
     "name": "Persil",
+    "icon": "parsley",
     "wikipedia": "http://fr.wikipedia.org/wiki/Persil",
     "types": [ "leaf" ],
     "calendars": [
@@ -2233,6 +2265,7 @@
   {
     "id": "persil-tubereux",
     "name": "Persil tubéreux",
+    "icon": "parsley",
     "wikipedia": "https://fr.wikipedia.org/wiki/Persil",
     "types": [ "leaf" ],
     "calendars": [
@@ -2681,7 +2714,7 @@
     "germination_days": 10,
     "harvest_days": 40,
     "spacing_cm": 5,
-    "likes": [ "persil", "persil", "persil-tubereux" ],
+    "likes": [ "persil", "persil-tubereux" ],
     "hates": []
   },
   {
@@ -2702,7 +2735,7 @@
     "germination_days": 10,
     "harvest_days": 90,
     "spacing_cm": 15,
-    "likes": [ "persil", "persil", "persil-tubereux" ],
+    "likes": [ "persil", "persil-tubereux" ],
     "hates": []
   },
   {
@@ -2727,6 +2760,7 @@
   {
     "id": "romarin",
     "name": "Romarin",
+    "icon": "rosemary",
     "wikipedia": "http://fr.wikipedia.org/wiki/Romarin",
     "types": [ "leaf" ],
     "calendars": [
@@ -2784,6 +2818,7 @@
   {
     "id": "rumex",
     "name": "Rumex",
+    "icon": "spinach",
     "wikipedia": "http://fr.wikipedia.org/wiki/Oseille_commune",
     "types": [ "leaf" ],
     "calendars": [
@@ -2860,6 +2895,7 @@
   {
     "id": "sauge",
     "name": "Sauge",
+    "icon": "sage",
     "wikipedia": "http://fr.wikipedia.org/wiki/Sauge",
     "types": [ "leaf" ],
     "calendars": [
@@ -2917,6 +2953,7 @@
   {
     "id": "thym",
     "name": "Thym",
+    "icon": "thyme",
     "wikipedia": "http://fr.wikipedia.org/wiki/Thym",
     "types": [ "leaf" ],
     "calendars": [
@@ -2950,7 +2987,7 @@
     "germination_days": 10,
     "harvest_days": 130,
     "spacing_cm": 45,
-    "likes": [ "persil", "persil", "persil-tubereux", "basilic", "basilic-citron" ],
+    "likes": [ "persil", "persil-tubereux", "basilic", "basilic-citron" ],
     "hates": [ "chou-rave" ]
   },
   {

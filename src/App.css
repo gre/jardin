@@ -149,13 +149,6 @@
   flex-wrap: wrap;
 }
 
-.seedling.pots .body > * {
-  background-color: #c44;
-}
-.seedling.eggbox .body > * {
-  border-bottom: 1px solid #aaa;
-}
-
 .seedling.pots .body > *,
 .seedling.eggbox .body > * {
   display: block;
