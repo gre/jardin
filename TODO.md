@@ -1,10 +1,5 @@
 - log the events from last year to have more history
-- introduce a missing 'count' in the events. because we need not only the quality / height but the quantity.
+- a gauche, en colonne, faire un scroll qui viz le calendrier et permet de se déplacer temporellement
 - show the latest events
-- draw the ground areas
-- add a cursor to time travel
-- review all seeds and correct/complete missing info
-- add more data from http://www.jardinamel.fr/jardin/semisgermination.php
 - plan what to do, where
-- app should tell what seeds should be done when
 - try to generate the same moon phases info that in gardener magazines

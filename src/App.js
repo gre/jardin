@@ -154,8 +154,8 @@ class TimeTravelButton extends Component {
     const travel = Math.round(
       (backward ? -1 : 1)
       * dt
-      * 10000
-      * (1 + 100 * smoothstep(500, 10000, pressedDuration))
+      * 300000
+      * (1 + 4 * smoothstep(500, 10000, pressedDuration))
     );
     onChange(new Date(value.getTime() + travel));
   };
@@ -177,9 +177,8 @@ class TimeTravelButton extends Component {
 class TimeTravel extends Component {
   render() {
     const {value, onChange} = this.props;
-    const diff = Date.now() - value;
-    const present = Math.abs(diff) < 60000;
-    const future = !present && diff < 0;
+    const present = moment().dayOfYear()===moment(value).dayOfYear();
+    const future = !present && moment().isBefore(value);
     return <div className={[
       "time-travel",
       present
@@ -190,14 +189,7 @@ class TimeTravel extends Component {
     ].join(" ")}>
       <TimeTravelButton backward value={value} onChange={onChange} />
       <div className="moment">
-      {moment(value).calendar(null, {
-        sameDay: "[Aujourd'hui à] LT",
-        nextDay: "[Demain à] LT",
-        nextWeek: "dddd [à] LT",
-        lastDay: "[Hier à] LT",
-        lastWeek: "dddd [dernier à] LT",
-        sameElse : "[Le] LL [à] LT"
-      })}
+      {moment(value).format("LL")}
       </div>
       <TimeTravelButton value={value} onChange={onChange} />
     </div>;
@@ -342,7 +334,7 @@ const PlotFillSizePerVegType = {
 
 class Plot extends Component {
   render() {
-    const {plot, cellSize} = this.props;
+    const {date, plot, cellSize} = this.props;
     const width = cellSize * plot.gridW;
     const height = cellSize * plot.gridH;
     return (
@@ -362,9 +354,9 @@ class Plot extends Component {
           imageSrc = maybeIcon;
           title = `${cell.species.generic||""} ${cell.species.name||""}`;
           const meta = [
-            cell.seedlingDate ? "semé "+moment(cell.seedlingDate).fromNow() : null,
-            cell.plantDate ? "planté "+moment(cell.plantDate).fromNow() : null,
-            cell.transplantDate ? "replanté "+moment(cell.transplantDate).fromNow() : null,
+            cell.seedlingDate ? "semé "+moment(cell.seedlingDate).from(date) : null,
+            cell.plantDate ? "planté "+moment(cell.plantDate).from(date) : null,
+            cell.transplantDate ? "replanté "+moment(cell.transplantDate).from(date) : null,
           ].filter(o => o);
           if (meta.length) {
             title += " (" + meta.join(", ") + ")";
@@ -577,7 +569,7 @@ function getActionJobs (species, targetMonth, seedlingPath) {
 
 class SpeciesList extends Component {
   render() {
-    const {data, month, moon} = this.props;
+    const {date, data, month, moon} = this.props;
     return <div>{
       Object.keys(data.species)
       .map(id => {
@@ -630,7 +622,7 @@ class SpeciesList extends Component {
                   {seedling.name}
                 </span>
                 { seedlingSection.seedlingDate
-                  ? " " + moment(seedlingSection.seedlingDate).fromNow()
+                  ? " " + moment(seedlingSection.seedlingDate).from(date)
                   : null }
               </div>
               : null }
@@ -702,10 +694,10 @@ class App extends Component {
           <div className="map">
             <div className="garden">
               { data.plots.gauche
-                ? <Plot plot={data.plots.gauche} cellSize={16} />
+                ? <Plot date={date} plot={data.plots.gauche} cellSize={16} />
                 : null }
                 { data.plots.droite
-                  ? <Plot plot={data.plots.droite} cellSize={16} />
+                  ? <Plot date={date} plot={data.plots.droite} cellSize={16} />
                   : null }
             </div>
             <div className="veranda">
@@ -724,8 +716,7 @@ class App extends Component {
             </div>
           </div>
 
-          <h3>{Object.keys(data.species).length} Espèces Différentes</h3>
-          <SpeciesList month={month} data={data} moon={moon} />
+          <SpeciesList month={month} data={data} moon={moon} date={date} />
         </div>
       </div>
     );
