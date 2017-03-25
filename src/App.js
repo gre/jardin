@@ -688,6 +688,15 @@ class SvgPlot extends Component {
   }
 }
 
+class SvgTree extends Component {
+  render() {
+    const { transform, object } = this.props;
+    const [x, y] = transform.transformPoint(object.position);
+    const r = transform.transformRadius(20);
+    return <circle cx={x} cy={y} r={r} fill="#030" />;
+  }
+}
+
 const terrainTypeColors = {
   grass: "#6A5",
   stone: "#ccc",
@@ -698,6 +707,17 @@ const objectTypeColors = {
   "house": "#333",
   "hedge": "#061",
   "water-tank": "#29f",
+};
+
+class SvgGenericObject extends Component {
+  render() {
+    const { object, ...rest } = this.props;
+    return <SvgShape {...rest} object={object} fill={objectTypeColors[object.type]} />;
+  }
+}
+
+const objectTypeComponents = {
+  tree: SvgTree,
 };
 
 class Map extends Component {
@@ -729,6 +749,10 @@ class Map extends Component {
       scale * c[2],
     ];
   };
+  transformRadius = (r) => {
+    const { padding, scale, data: { mapBound } } = this.props;
+    return scale * r;
+  };
   render() {
     const {data, date, scale, padding} = this.props;
     const { map, mapBound } = data;
@@ -758,14 +782,17 @@ class Map extends Component {
             fill="none"
           />
           <g>
-            {data.objects.map((object, i) =>
-              <SvgShape
-                key={object.id}
-                object={object}
-                transform={this}
-                fill={objectTypeColors[object.type]}
-              />
-            )}
+            {data.objects.map((object, i) => {
+              const ObjectTypeComponent = objectTypeComponents[object.type] || SvgGenericObject;
+              return <g>
+                <title>{object.title||object.id}</title>
+                <ObjectTypeComponent
+                  key={object.id}
+                  object={object}
+                  transform={this}
+                />
+              </g>;
+            })}
           </g>
           <g>
             {Object.keys(data.plots).map(plotkey => {

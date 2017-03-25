@@ -14,13 +14,13 @@
         "polygon": [
           [ 0, 0 ],
           [ 1200, -200 ],
-          [ 1200, 3200 ],
-          [ 0, 3200 ]
+          [ 1200, 3400 ],
+          [ 0, 3400 ]
         ]
       },
       {
         "type": "stone",
-        "rectangle": [ 0, 3000, 1200, 970 ]
+        "rectangle": [ 0, 3400, 1200, 970 ]
       },
       {
         "type": "concrete",
@@ -29,10 +29,10 @@
       {
         "type": "grass",
         "polygon": [
-          [ 0, 3000 ],
-          [ 1200, 3000 ],
-          [ 1200, 3200 ],
-          [ 600, 3100 ]
+          [ 0, 3400 ],
+          [ 1200, 3400 ],
+          [ 1200, 3600 ],
+          [ 600, 3500 ]
         ]
       }
     ]
@@ -65,7 +65,15 @@
     "op": "add-object",
     "type": "water-tank",
     "id": "recuperateur-maison",
+    "title": "Récupérateur de l'eau du toit",
     "circle": [ 950, 3900, 50 ]
+  },
+  {
+    "op": "add-object",
+    "type": "tree",
+    "id": "cerisier",
+    "title": "Cerisier",
+    "position": [ 600, 2500 ]
   },
   {
     "op": "add-plot",
