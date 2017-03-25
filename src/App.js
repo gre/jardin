@@ -723,17 +723,17 @@ const objectTypeComponents = {
 class Map extends Component {
   static defaultProps = {
     scale: 1,
-    padding: 10,
+    padding: 4,
   };
   transformPoint = (p) => {
-    const { padding, scale, data: { mapBound } } = this.props;
+    const { scale, data: { mapBound } } = this.props;
     return [
       scale * (p[0] - mapBound[0]),
       scale * (p[1] - mapBound[1]),
     ];
   };
   transformRect = (r) => {
-    const { padding, scale, data: { mapBound } } = this.props;
+    const { scale, data: { mapBound } } = this.props;
     return [
       scale * (r[0] - mapBound[0]),
       scale * (r[1] - mapBound[1]),
@@ -742,7 +742,7 @@ class Map extends Component {
     ];
   };
   transformCircle = (c) => {
-    const { padding, scale, data: { mapBound } } = this.props;
+    const { scale, data: { mapBound } } = this.props;
     return [
       scale * (c[0] - mapBound[0]),
       scale * (c[1] - mapBound[1]),
@@ -750,20 +750,19 @@ class Map extends Component {
     ];
   };
   transformRadius = (r) => {
-    const { padding, scale, data: { mapBound } } = this.props;
+    const { scale } = this.props;
     return scale * r;
   };
   render() {
-    const {data, date, scale, padding} = this.props;
+    const {data, scale, padding} = this.props;
     const { map, mapBound } = data;
     const [width, height] = this.transformPoint([
       mapBound[0] + mapBound[2],
       mapBound[1] + mapBound[3]
     ]);
-    const pad = 4;
     return <div className="map">
-      <svg width={width+2*pad} height={height+2*pad}>
-        <g transform={`translate(${pad},${pad})`}>
+      <svg width={width+2*padding} height={height+2*padding}>
+        <g transform={`translate(${padding},${padding})`}>
           <g>
             {map.terrains.map((terrain, i) =>
               <SvgShape
@@ -784,10 +783,9 @@ class Map extends Component {
           <g>
             {data.objects.map((object, i) => {
               const ObjectTypeComponent = objectTypeComponents[object.type] || SvgGenericObject;
-              return <g>
+              return <g key={object.id}>
                 <title>{object.title||object.id}</title>
                 <ObjectTypeComponent
-                  key={object.id}
                   object={object}
                   transform={this}
                 />
