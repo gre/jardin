@@ -1,5 +1,23 @@
 [
   {
+    "id": "absinthe",
+    "name": "Absinthe",
+    "wikipedia": "https://fr.wikipedia.org/wiki/Absinthe_(plante)",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [ 3, 4, 5 ],
+        "seedling_outdoors_or_planting_months": [ 3, 4, 5 ],
+        "harvest_months": [ 5, 6, 7 ]
+      }
+    ],
+    "germination_days": 25,
+    "spacing_cm": 80,
+    "likes": [],
+    "hates": []
+  },
+  {
     "id": "ail",
     "name": "Ail",
     "wikipedia": "http://fr.wikipedia.org/wiki/Ail_cultiv%C3%A9",
@@ -669,7 +687,7 @@
     "germination_days": 15,
     "harvest_days": 175,
     "spacing_cm": 60,
-    "likes": [ "marjolaine-lorigan" ],
+    "likes": [ "origan" ],
     "hates": [ "epinard" ]
   },
   {
@@ -1766,8 +1784,8 @@
     "hates": []
   },
   {
-    "id": "marjolaine-lorigan",
-    "name": "Marjolaine, l’Origan",
+    "id": "origan",
+    "name": "Origan",
     "icon": "oregano",
     "wikipedia": "http://fr.wikipedia.org/wiki/Origanum_vulgare",
     "types": [ "leaf" ],
@@ -3082,5 +3100,22 @@
       "lail-des-ours",
       "ail"
     ]
+  },
+  {
+    "id": "verveine",
+    "name": "Verveine",
+    "wikipedia": "http://fr.wikipedia.org/wiki/Verveine",
+    "types": [ "flower" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 3, 4, 5 ],
+        "harvest_months": [ 6, 7, 8, 9 ]
+      }
+    ],
+    "spacing_cm": 40,
+    "likes": [],
+    "hates": []
   }
 ]

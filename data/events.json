@@ -72,7 +72,7 @@
     "date": "2016-04-01",
     "id": "droite",
     "name": "Jardin droite",
-    "position": [ 700, 400 ],
+    "position": [ 650, 250 ],
     "scale": 25,
     "angle": 0,
     "grid": [ 16, 20 ],
@@ -112,7 +112,7 @@
     "date": "2017-01-01",
     "id": "gauche",
     "name": "Jardin gauche",
-    "position": [ 200, 300 ],
+    "position": [ 100, 200 ],
     "angle": 0,
     "scale": 25,
     "grid": [ 16, 24 ],
@@ -2024,6 +2024,211 @@
     "at": {
       "plot": "droite",
       "rectangle": [ 0, 10, 16, 1 ]
+    }
+  },
+  {
+    "op": "add-species",
+    "id": "aneth_tetra_gold",
+    "family": "aneth",
+    "date": "2017-03-25",
+    "bio": true,
+    "brand": "fermedesaintemarthe",
+    "generic": "Aneth",
+    "name": "Tetra Gold",
+    "latin": "Anethum graveoiens"
+  },
+  {
+    "op": "add-seeds",
+    "species": "aneth_tetra_gold",
+    "date": "2017-03-25",
+    "count": 200
+  },
+  {
+    "op": "add-species",
+    "id": "sarriette",
+    "family": "sarriette",
+    "date": "2017-03-25",
+    "bio": true,
+    "brand": "fermedesaintemarthe",
+    "generic": "Sarriette",
+    "name": "Annuelle",
+    "latin": "Satureja hortensis",
+    "desc": "Connue depuis l'antiquité pour ses vertus antiseptiques, aphrodisiaques, elle repousse certains insects et parasites au potager. En cuisine, elle parfume sauces, salades, crudités, viandes, poissons."
+  },
+  {
+    "op": "add-seeds",
+    "species": "sarriette",
+    "date": "2017-03-25",
+    "count": 1000
+  },
+  {
+    "op": "add-species",
+    "id": "ail_des_ours",
+    "family": "lail-des-ours",
+    "date": "2017-03-25",
+    "bio": true,
+    "brand": "fermedesaintemarthe",
+    "generic": "Ail des Ours",
+    "latin": "Allium ursinum"
+  },
+  {
+    "op": "add-seeds",
+    "species": "ail_des_ours",
+    "date": "2017-03-25",
+    "count": 50
+  },
+  {
+    "op": "add-species",
+    "id": "poiree_bright_lights",
+    "family": "bourrache",
+    "date": "2017-03-25",
+    "bio": true,
+    "brand": "fermedesaintemarthe",
+    "generic": "Poirée Bright Lights",
+    "latin": "Beta vulgaris cicla",
+    "link": "http://www.fermedesaintemarthe.com/A-5609-poiree-bright-lights-ab.aspx",
+    "desc": "Les cardes sont délicieuses cuites au beurre, à la crème, avec du jus de viande, en gratin. Les feuilles sont utilisées dans les potages ou comme les épinards.\nCardes multicolores, jaunes, rouges, oranges, roses, pourpres, blanches, feuillage vert clair, foncé ou bronze.\nTrès décorative, elle peut servir d´ornement au potager mais elle n´en conserve pas moins ses qualités culinaires."
+  },
+  {
+    "op": "add-seeds",
+    "species": "poiree_bright_lights",
+    "date": "2017-03-25",
+    "count": 50
+  },
+  {
+    "op": "add-species",
+    "id": "courge_patidou",
+    "family": "courge",
+    "date": "2017-03-25",
+    "bio": true,
+    "brand": "fermedesaintemarthe",
+    "generic": "Courge",
+    "name": "Patidou",
+    "latin": "Cucurbita pepo",
+    "link": "http://www.fermedesaintemarthe.com/A-1339-courge-patidou-ou-sweet-dumpling-ab.aspx",
+    "desc": "La courge Patidou, parfois appelée courge Sweet Dumpling, est une variété coureuse produisant une dizaine de fruits par pied, de 8 à 15 cm de diamètre sur 6 à 10 cm de haut, 200 à 600 g. La chair de la courge patidou est orangée, très fine, ferme, sucrée, au délicieux goût de noisette. Elle est aussi décorative que succulente."
+  },
+  {
+    "op": "add-seeds",
+    "species": "courge_patidou",
+    "date": "2017-03-25",
+    "count": 10
+  },
+  {
+    "op": "add-species",
+    "id": "estragon_russie",
+    "family": "estragon",
+    "date": "2017-03-25",
+    "bio": true,
+    "brand": "fermedesaintemarthe",
+    "generic": "Estragon",
+    "name": "de Russie",
+    "latin": "Artemisia dracunculus",
+    "desc": ""
+  },
+  {
+    "op": "add-seeds",
+    "species": "estragon_russie",
+    "date": "2017-03-25",
+    "count": 1500
+  },
+  {
+    "op": "add-species",
+    "id": "origan",
+    "family": "origan",
+    "date": "2017-03-25",
+    "bio": true,
+    "brand": "fermedesaintemarthe",
+    "generic": "Origan",
+    "latin": "Origanum vulgare",
+    "link": "http://www.fermedesaintemarthe.com/A-4849-origan-ab.aspx",
+    "desc": "Aromatique emblématique du bassin méditerranéen. Vivace et rustique. Les feuilles séchées conservent longtemps leur arôme. A utiliser, frais ou sec, dans pizzas, marinades, sauces, farces, légumes..."
+  },
+  {
+    "op": "add-seeds",
+    "species": "origan",
+    "date": "2017-03-25",
+    "count": 300
+  },
+  {
+    "op": "add-species",
+    "id": "absinthe",
+    "family": "absinthe",
+    "date": "2017-03-25",
+    "bio": true,
+    "brand": "fermedesaintemarthe",
+    "generic": "Absinthe",
+    "name": "commune",
+    "latin": "Artemisia absinthium",
+    "link": "http://www.fermedesaintemarthe.com/A-9616-absinthe-commune-ab.aspx",
+    "desc": "Aromatique et médicinale, l'absinthe commune est une vivace pouvant atteindre 1.50 m de hauteur au beau feuillage duveteux et argenté. L'odeur de l'absinthe est forte et agréable, repoussant certains parasites au potager comme les limaces et escargots, altises, piéride du chou. L'absinthe habite les zones sèches d'Asie et d'Europe. Les fleurs jaunes de l'absinthe apparaissent de juillet à septembre."
+  },
+  {
+    "op": "add-seeds",
+    "species": "absinthe",
+    "date": "2017-03-25",
+    "count": 5000
+  },
+  {
+    "op": "add-species",
+    "id": "verveine",
+    "family": "absinthe",
+    "date": "2017-03-25",
+    "bio": true,
+    "brand": "fermedesaintemarthe",
+    "generic": "Verveine",
+    "name": "officinale",
+    "latin": "Verbena officinalis",
+    "link": "http://www.fermedesaintemarthe.com/A-14472-verveine-officinale-plant.aspx",
+    "desc": "A utiliser en infusions relaxantes et pour faire tomber la fièvre."
+  },
+
+  {
+    "op": "add-seedling",
+    "date": "2017-03-25",
+    "id": "eggbox-8",
+    "name": "BoiteOeuf 8",
+    "group": "eggbox",
+    "count": 6
+  },
+  {
+    "op": "add-seedling",
+    "date": "2017-03-25",
+    "id": "eggbox-9",
+    "name": "BoiteOeuf 9",
+    "group": "eggbox",
+    "count": 6
+  },
+  {
+    "op": "add-seedling",
+    "date": "2017-03-25",
+    "id": "eggbox-10",
+    "name": "BoiteOeuf 10",
+    "group": "eggbox",
+    "count": 6
+  },
+  {
+    "op": "seed",
+    "date": "2017-03-25",
+    "species": "absinthe",
+    "at": {
+      "box": "eggbox-8"
+    }
+  },
+  {
+    "op": "seed",
+    "date": "2017-03-25",
+    "species": "origan",
+    "at": {
+      "box": "eggbox-9"
+    }
+  },
+  {
+    "op": "seed",
+    "date": "2017-03-25",
+    "species": "estragon_russie",
+    "at": {
+      "box": "eggbox-10"
     }
   }
 ]
