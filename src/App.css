@@ -124,14 +124,14 @@
 }
 
 .seedling.bigbox {
-  width: 120px;
+  width: 210px;
   background: #f9f9f9;
   border: 2px solid #eee;
   border-radius: 2px;
 }
 
 .seedling.eggbox {
-  width: 80px;
+  width: 60px;
   background: #eee;
   border-radius: 4px;
 }
@@ -198,7 +198,6 @@ blockquote {
 .map {
   display: flex;
   flex-direction: column;
-  background: #6A5;
   position: relative;
 }
 .garden {
@@ -209,11 +208,8 @@ blockquote {
   padding: 20px;
 }
 
-.veranda {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-top: none;
-  background: #fff;
+.seedlings {
+  padding: 20px 0;
 }
 
 .associations {

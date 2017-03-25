@@ -1,31 +1,82 @@
 [
   {
+    "op": "define-map",
+    "north_vector": [ -0.09323948588550011, -0.9956437105068296 ],
+    "polygon": [
+      [ 0, 0 ],
+      [ 1200, -200 ],
+      [ 1200, 5700 ],
+      [ 0, 5700 ]
+    ],
+    "terrains": [
+      {
+        "type": "grass",
+        "polygon": [
+          [ 0, 0 ],
+          [ 1200, -200 ],
+          [ 1200, 3200 ],
+          [ 0, 3200 ]
+        ]
+      },
+      {
+        "type": "stone",
+        "rectangle": [ 0, 3000, 1200, 970 ]
+      },
+      {
+        "type": "concrete",
+        "rectangle": [ 0, 3970, 1200, 1730 ]
+      },
+      {
+        "type": "grass",
+        "polygon": [
+          [ 0, 3000 ],
+          [ 1200, 3000 ],
+          [ 1200, 3200 ],
+          [ 600, 3100 ]
+        ]
+      }
+    ]
+  },
+  {
+    "op": "add-object",
+    "type": "hedge",
+    "id": "lauriers_gauche",
+    "rectangle": [ 0, 2000, 100, 1400 ]
+  },
+  {
+    "op": "add-object",
+    "type": "hedge",
+    "id": "lauriers_droite",
+    "rectangle": [ 1100, 2000, 100, 1400 ]
+  },
+  {
+    "op": "add-object",
+    "type": "garden-hut",
+    "id": "hut1",
+    "rectangle": [ 100, 3300, 100, 100 ]
+  },
+  {
+    "op": "add-object",
+    "type": "house",
+    "id": "house",
+    "rectangle": [ 0, 3970, 1000, 1400 ]
+  },
+  {
+    "op": "add-object",
+    "type": "water-tank",
+    "id": "recuperateur-maison",
+    "circle": [ 950, 3900, 50 ]
+  },
+  {
     "op": "add-plot",
     "date": "2016-04-01",
     "id": "droite",
     "name": "Jardin droite",
-    "dims": [
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16]
-    ]
+    "position": [ 700, 400 ],
+    "scale": 25,
+    "angle": 0,
+    "grid": [ 16, 20 ],
+    "rectangle": [ 0, 0, 16, 20 ]
   },
   {
     "op": "add-species",
@@ -53,7 +104,7 @@
     "count": 8,
     "at": {
       "plot": "droite",
-      "area": [0, 15, 16, 5]
+      "rectangle": [0, 15, 16, 5]
     }
   },
   {
@@ -61,31 +112,17 @@
     "date": "2017-01-01",
     "id": "gauche",
     "name": "Jardin gauche",
-    "dims": [
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [0, 16],
-      [8, 16],
-      [8, 16],
-      [8, 16],
-      [8, 16],
-      [8, 16],
-      [8, 16],
-      [8, 16],
-      [8, 16],
-      [8, 16],
-      [8, 16],
-      [8, 16],
-      [8, 16]
+    "position": [ 200, 300 ],
+    "angle": 0,
+    "scale": 25,
+    "grid": [ 16, 24 ],
+    "polygon": [
+      [ 0, 0 ],
+      [ 16, 0 ],
+      [ 16, 24 ],
+      [ 8, 24 ],
+      [ 8, 12 ],
+      [ 0, 12 ]
     ]
   },
   {
@@ -757,7 +794,7 @@
     "date": "2017-01-29",
     "at": {
       "plot": "gauche",
-      "area": [0, 0, 16, 25]
+      "rectangle": [0, 0, 16, 25]
     }
   },
   {
@@ -972,7 +1009,7 @@
     "date": "2017-02-05",
     "at": {
       "plot": "gauche",
-      "area": [0, 0, 16, 24]
+      "rectangle": [0, 0, 16, 24]
     }
   },
   {
@@ -980,7 +1017,7 @@
     "date": "2017-02-05",
     "at": {
       "plot": "droite",
-      "area": [0, 0, 14, 8]
+      "rectangle": [0, 0, 14, 8]
     }
   },
   {
@@ -1630,7 +1667,7 @@
     "date": "2017-03-17",
     "at": {
       "box": "godet-grid-1",
-      "area": [0, 0, 2, 8]
+      "rectangle": [0, 0, 2, 8]
     },
     "species": "sigua"
   },
@@ -1639,7 +1676,7 @@
     "date": "2017-03-17",
     "at": {
       "box": "godet-grid-1",
-      "area": [2, 0, 2, 8]
+      "rectangle": [2, 0, 2, 8]
     },
     "species": "baipiyuanpu"
   },
@@ -1648,7 +1685,7 @@
     "date": "2017-03-17",
     "at": {
       "box": "godet-grid-1",
-      "area": [4, 0, 2, 8]
+      "rectangle": [4, 0, 2, 8]
     },
     "species": "dark_green_skin_wax_gourd"
   },
@@ -1665,16 +1702,16 @@
     "date": "2017-03-17",
     "at": {
       "box": "godet-grid-2",
-      "area": [0, 0, 2, 8]
+      "rectangle": [0, 0, 2, 8]
     },
-    "species": "moschata"
+    "species": "butternut_honey_nut"
   },
   {
     "op": "seed",
     "date": "2017-03-17",
     "at": {
       "box": "godet-grid-2",
-      "area": [2, 0, 2, 8]
+      "rectangle": [2, 0, 2, 8]
     },
     "species": "striato_italia"
   },
@@ -1685,7 +1722,7 @@
     "count": 3,
     "at": {
       "plot": "gauche",
-      "area": [8, 20, 8, 4]
+      "rectangle": [8, 20, 8, 4]
     }
   },
   {
@@ -1695,7 +1732,7 @@
     "count": 30,
     "at": {
       "plot": "gauche",
-      "area": [8, 20, 8, 4]
+      "rectangle": [8, 20, 8, 4]
     }
   },
   {
@@ -1705,7 +1742,38 @@
     "count": 30,
     "at": {
       "plot": "gauche",
-      "area": [8, 20, 8, 4]
+      "rectangle": [8, 20, 8, 4]
+    }
+  },
+  {
+    "op": "add-species",
+    "id": "consoude",
+    "family": "consoude",
+    "date": "2017-03-15",
+    "bio": true,
+    "generic": "Grande Consoude",
+    "latin": "Symphytum officinale"
+  },
+  {
+    "op": "add-seeds",
+    "species": "consoude",
+    "date": "2017-03-18"
+  },
+  {
+    "op": "add-seedling",
+    "date": "2017-03-18",
+    "id": "godet-grid-3",
+    "name": "Grille Godets 3",
+    "group": "grid",
+    "grid": [6, 8]
+  },
+  {
+    "op": "seed",
+    "date": "2017-03-18",
+    "species": "consoude",
+    "count": 24,
+    "at": {
+      "box": "godet-grid-3"
     }
   },
   {
@@ -1730,7 +1798,7 @@
     "count": 4,
     "at": {
       "plot": "gauche",
-      "area": [15, 18, 1, 2]
+      "rectangle": [15, 18, 1, 2]
     }
   },
   {
@@ -1743,7 +1811,7 @@
     },
     "to": {
       "plot": "gauche",
-      "area": [ 13, 18, 1, 2 ]
+      "rectangle": [ 13, 18, 1, 2 ]
     }
   },
   {
@@ -1756,7 +1824,7 @@
     },
     "to": {
       "plot": "gauche",
-      "area": [ 12, 19, 1, 1 ]
+      "rectangle": [ 12, 19, 1, 1 ]
     }
   },
   {
@@ -1769,7 +1837,7 @@
     },
     "to": {
       "plot": "gauche",
-      "area": [ 11, 19, 1, 1 ]
+      "rectangle": [ 11, 19, 1, 1 ]
     }
   },
   {
@@ -1782,7 +1850,7 @@
     },
     "to": {
       "plot": "gauche",
-      "area": [ 10, 19, 1, 1 ]
+      "rectangle": [ 10, 19, 1, 1 ]
     }
   },
   {
@@ -1795,7 +1863,7 @@
     },
     "to": {
       "plot": "gauche",
-      "area": [ 9, 19, 1, 1 ]
+      "rectangle": [ 9, 19, 1, 1 ]
     }
   },
   {
@@ -1805,7 +1873,7 @@
     "species": "carotte_nantaise3",
     "at": {
       "plot": "droite",
-      "area": [ 0, 12, 8, 2 ]
+      "rectangle": [ 0, 12, 8, 2 ]
     }
   },
   {
@@ -1815,7 +1883,7 @@
     "species": "chantenay_coeur_rouge",
     "at": {
       "plot": "droite",
-      "area": [ 8, 12, 8, 2 ]
+      "rectangle": [ 8, 12, 8, 2 ]
     }
   },
   {
@@ -1854,7 +1922,7 @@
     "date": "2017-03-21",
     "at": {
       "plot": "gauche",
-      "area": [ 15, 17, 1, 1 ]
+      "rectangle": [ 15, 17, 1, 1 ]
     },
     "species": "persil"
   },
@@ -1863,8 +1931,99 @@
     "date": "2017-03-22",
     "at": {
       "plot": "gauche",
-      "area": [ 15, 0, 1, 2 ]
+      "rectangle": [ 15, 0, 1, 2 ]
     },
     "species": "ciboulette_tfd"
+  },
+  {
+    "op": "transplant",
+    "date": "2017-03-24 13:00",
+    "from": {
+      "box": "starter-5"
+    },
+    "to": {
+      "plot": "gauche",
+      "rectangle": [ 15, 2, 1, 1 ]
+    },
+    "destructive": true
+  },
+  {
+    "op": "remove-seedling",
+    "date": "2017-03-24 13:00",
+    "id": "starter-5"
+  },
+  {
+    "op": "remove-plant",
+    "date": "2017-03-24 13:00",
+    "species": "laitue_reine_de_mai",
+    "count": 1,
+    "at": {
+      "plot": "gauche",
+      "rectangle": [ 10, 19, 1, 1 ]
+    }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-03-24 13:00",
+    "species": "blonde_de_paris",
+    "count": 1,
+    "from": {
+      "box": "bac-2",
+      "section": 3
+    },
+    "to": {
+      "plot": "gauche",
+      "rectangle": [ 10, 19, 1, 1 ]
+    }
+  },
+  {
+    "op": "seed",
+    "date": "2017-03-25",
+    "species": "consoude",
+    "count": 10,
+    "at": {
+      "plot": "gauche",
+      "rectangle": [ 7, 15, 1, 4 ]
+    }
+  },
+  {
+    "op": "seed",
+    "date": "2017-03-25",
+    "species": "hon_tsai_tai",
+    "count": 50,
+    "at": {
+      "plot": "gauche",
+      "rectangle": [ 8, 17, 5, 2 ]
+    }
+  },
+  {
+    "op": "seed",
+    "date": "2017-03-25",
+    "species": "poireau_carentan2",
+    "count": 50,
+    "at": {
+      "plot": "droite",
+      "rectangle": [ 0, 11, 8, 1 ]
+    }
+  },
+  {
+    "op": "seed",
+    "date": "2017-03-25",
+    "species": "poireau_gprm",
+    "count": 50,
+    "at": {
+      "plot": "droite",
+      "rectangle": [ 8, 11, 8, 1 ]
+    }
+  },
+  {
+    "op": "seed",
+    "date": "2017-03-25",
+    "species": "panais_turga",
+    "count": 50,
+    "at": {
+      "plot": "droite",
+      "rectangle": [ 0, 10, 16, 1 ]
+    }
   }
 ]

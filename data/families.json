@@ -890,6 +890,23 @@
     "hates": []
   },
   {
+    "id": "consoude",
+    "name": "Consoude",
+    "wikipedia": "https://fr.wikipedia.org/wiki/Consoude",
+    "types": [ "leaf" ],
+    "calendars": [
+      {
+        "name": "",
+        "seedling_indoors_months": [],
+        "seedling_outdoors_or_planting_months": [ 9, 10 ],
+        "harvest_months": []
+      }
+    ],
+    "spacing_cm": 60,
+    "likes": [],
+    "hates": []
+  },
+  {
     "id": "coriandre",
     "name": "Coriandre",
     "icon": "cilantro",

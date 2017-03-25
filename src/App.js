@@ -325,81 +325,6 @@ class Months extends Component {
   }
 }
 
-const PlotFillSizePerVegType = {
-  leaf: "#060",
-  fruit: "#922",
-  flower: "#c90",
-  root: "#532",
-};
-
-class Plot extends Component {
-  render() {
-    const {date, plot, cellSize} = this.props;
-    const width = cellSize * plot.gridW;
-    const height = cellSize * plot.gridH;
-    return (
-    <div>
-      <svg width={width} height={height}>
-      {plot.grid.map((cell, i) => {
-        if (!cell) return null;
-        const xi = i % plot.gridW;
-        const yi = (i - xi) / plot.gridW;
-        let fill, imageSrc, title;
-        switch (cell.type) {
-        case "culture": {
-          const {species} = cell;
-          const {family} = species;
-          fill = PlotFillSizePerVegType[family.types[0]];
-          const maybeIcon = iconForSpecies(species);
-          imageSrc = maybeIcon;
-          title = `${cell.species.generic||""} ${cell.species.name||""}`;
-          const meta = [
-            cell.seedlingDate ? "semé "+moment(cell.seedlingDate).from(date) : null,
-            cell.plantDate ? "planté "+moment(cell.plantDate).from(date) : null,
-            cell.transplantDate ? "replanté "+moment(cell.transplantDate).from(date) : null,
-          ].filter(o => o);
-          if (meta.length) {
-            title += " (" + meta.join(", ") + ")";
-          }
-          break;
-        }
-        case "empty":
-          fill = "#953";
-          break;
-        default:
-        }
-        return (
-        <g
-          key={i}
-          transform={`translate(${xi*cellSize}, ${yi*cellSize})`}>
-          <title>{title}</title>
-          <rect
-            x={0}
-            y={0}
-            width={cellSize}
-            height={cellSize}
-            fill={fill}
-            stroke="rgba(0,0,0,0.2)"
-            strokeWidth={1}
-          />
-          { imageSrc
-            ? <image
-                href={imageSrc}
-                x={0}
-                y={0}
-                width={cellSize}
-                height={cellSize}
-              />
-            : null }
-        </g>
-        );
-      })}
-      </svg>
-    </div>
-    );
-  }
-}
-
 class SpeciesDetail extends Component {
   render() {
     const {
@@ -644,6 +569,224 @@ class SpeciesList extends Component {
   }
 }
 
+class SvgShape extends Component {
+  render() {
+    const { object, transform, ...rest } = this.props;
+    if (object.polygon) {
+      const d = object.polygon.map((p, i) =>
+        (i===0?"M":"L")+transform.transformPoint(p)
+      ).join(" ")+" Z";
+      return <path d={d} {...rest} />;
+    }
+    if (object.rectangle) {
+      const [ x, y, width, height ] = transform.transformRect(object.rectangle);
+      return <rect {...{ ...rest, x, y, width, height }} />;
+    }
+    if (object.circle) {
+      const [ cx, cy, r ] = transform.transformCircle(object.circle);
+      return <circle {...{ ...rest, cx, cy, r }} />;
+    }
+    console.warn("SvgShape, not drawable:", object);
+    return null;
+  }
+}
+
+
+const PlotFillSizePerVegType = {
+  leaf: "#060",
+  fruit: "#922",
+  flower: "#c90",
+  root: "#532",
+};
+
+class SvgPlot extends Component {
+  getScale = () => this.props.scale * this.props.plot.scale;
+  transformPoint = (p) => {
+    const scale = this.getScale();
+    return [
+      scale * p[0],
+      scale * p[1],
+    ];
+  };
+  transformRect = (r) => {
+    const scale = this.getScale();
+    return [
+      scale * r[0],
+      scale * r[1],
+      scale * r[2],
+      scale * r[3],
+    ];
+  };
+  transformCircle = (c) => {
+    const scale = this.getScale();
+    return [
+      scale * c[0],
+      scale * c[1],
+      scale * c[2],
+    ];
+  };
+  render() {
+    const {date, plot, scale} = this.props;
+    const cellSize = plot.scale * scale;
+    return (
+      <g>
+        <SvgShape object={plot} transform={this} fill="#953" />
+      {plot.cells.map((cell, i) => {
+        const xi = i % plot.grid[0];
+        const yi = (i - xi) / plot.grid[0];
+        let fill = "none", imageSrc, title = `(${xi},${yi}) `;
+        if (cell) {
+          switch (cell.type) {
+          case "culture": {
+            const {species} = cell;
+            const {family} = species;
+            fill = PlotFillSizePerVegType[family.types[0]];
+            const maybeIcon = iconForSpecies(species);
+            imageSrc = maybeIcon;
+            title += `${cell.species.generic||""} ${cell.species.name||""}`;
+            const meta = [
+              cell.seedlingDate ? "semé "+moment(cell.seedlingDate).from(date) : null,
+              cell.plantDate ? "planté "+moment(cell.plantDate).from(date) : null,
+              cell.transplantDate ? "replanté "+moment(cell.transplantDate).from(date) : null,
+            ].filter(o => o);
+            if (meta.length) {
+              title += " (" + meta.join(", ") + ")";
+            }
+            break;
+          }
+          default:
+          }
+        }
+        return (
+        <g
+          key={i}
+          transform={`translate(${xi*cellSize}, ${yi*cellSize})`}>
+          <title>{title}</title>
+          <rect
+            x={0}
+            y={0}
+            width={cellSize}
+            height={cellSize}
+            fill={fill}
+            stroke="rgba(0,0,0,0.1)"
+            strokeWidth={1}
+          />
+          { imageSrc
+            ? <image
+                href={imageSrc}
+                x={0}
+                y={0}
+                width={cellSize}
+                height={cellSize}
+              />
+            : null }
+        </g>
+        );
+      })}
+      </g>
+    );
+  }
+}
+
+const terrainTypeColors = {
+  grass: "#6A5",
+  stone: "#ccc",
+  concrete: "#aaa",
+};
+const objectTypeColors = {
+  "garden-hut": "#932",
+  "house": "#333",
+  "hedge": "#061",
+  "water-tank": "#29f",
+};
+
+class Map extends Component {
+  static defaultProps = {
+    scale: 1,
+    padding: 10,
+  };
+  transformPoint = (p) => {
+    const { padding, scale, data: { mapBound } } = this.props;
+    return [
+      scale * (p[0] - mapBound[0]),
+      scale * (p[1] - mapBound[1]),
+    ];
+  };
+  transformRect = (r) => {
+    const { padding, scale, data: { mapBound } } = this.props;
+    return [
+      scale * (r[0] - mapBound[0]),
+      scale * (r[1] - mapBound[1]),
+      scale * r[2],
+      scale * r[3],
+    ];
+  };
+  transformCircle = (c) => {
+    const { padding, scale, data: { mapBound } } = this.props;
+    return [
+      scale * (c[0] - mapBound[0]),
+      scale * (c[1] - mapBound[1]),
+      scale * c[2],
+    ];
+  };
+  render() {
+    const {data, date, scale, padding} = this.props;
+    const { map, mapBound } = data;
+    const [width, height] = this.transformPoint([
+      mapBound[0] + mapBound[2],
+      mapBound[1] + mapBound[3]
+    ]);
+    const pad = 4;
+    return <div className="map">
+      <svg width={width+2*pad} height={height+2*pad}>
+        <g transform={`translate(${pad},${pad})`}>
+          <g>
+            {map.terrains.map((terrain, i) =>
+              <SvgShape
+                key={i}
+                object={terrain}
+                transform={this}
+                fill={terrainTypeColors[terrain.type]}
+              />
+            )}
+          </g>
+          <SvgShape
+            object={map}
+            transform={this}
+            strokeWidth={1}
+            stroke="black"
+            fill="none"
+          />
+          <g>
+            {data.objects.map((object, i) =>
+              <SvgShape
+                key={object.id}
+                object={object}
+                transform={this}
+                fill={objectTypeColors[object.type]}
+              />
+            )}
+          </g>
+          <g>
+            {Object.keys(data.plots).map(plotkey => {
+              const plot = data.plots[plotkey];
+              return (
+                <g key={plotkey} transform={`translate(${this.transformPoint(plot.position)})`}>
+                  <SvgPlot
+                    scale={scale}
+                    plot={plot}
+                    data={data}
+                  />
+                </g>
+              );
+            })}
+          </g>
+        </g>
+      </svg>
+    </div>;
+  }
+}
+
 class App extends Component {
   state = {
     date: new Date(),
@@ -691,30 +834,26 @@ class App extends Component {
             </div>
           </div>
 
-          <div className="map">
-            <div className="garden">
-              { data.plots.gauche
-                ? <Plot date={date} plot={data.plots.gauche} cellSize={16} />
-                : null }
-                { data.plots.droite
-                  ? <Plot date={date} plot={data.plots.droite} cellSize={16} />
-                  : null }
-            </div>
-            <div className="veranda">
-              <div className="seedling-group">
-              {[
-                "bac",
-                "starter",
-                "bigbox",
-                "eggbox",
-                "pots",
-                "grid"
-              ].map(group => (seedlingGroups[group]||[]).map(({ key, value }) =>
-                <Seedling key={key} seedling={value} />
-              ))}
-              </div>
+          <div className="seedlings">
+            <div className="seedling-group">
+            {[
+              "bac",
+              "starter",
+              "bigbox",
+              "eggbox",
+              "pots",
+              "grid"
+            ].map(group => (seedlingGroups[group]||[]).map(({ key, value }) =>
+              <Seedling key={key} seedling={value} />
+            ))}
             </div>
           </div>
+
+          <Map
+            date={date}
+            data={data}
+            scale={0.5}
+          />
 
           <SpeciesList month={month} data={data} moon={moon} date={date} />
         </div>

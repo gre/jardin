@@ -3,15 +3,32 @@ import events from "../../data/events.json";
 import families from "../../data/families.json";
 
 const initialState = {
-  waterTanks: {},
+  map: null,
+  mapBound: null,
+  objects: [],
   plots: {},
   species: {},
   seeds: {},
   seedlings: {},
-  garden: {},
-  compost: { level: 0 },
   lastEvent: null,
 };
+
+
+function getBoundRect (obj) {
+  if (obj.polygon) {
+    const minX = obj.polygon.reduce((min, pos) => Math.min(pos[0], min), 0);
+    const minY = obj.polygon.reduce((min, pos) => Math.min(pos[1], min), 0);
+    const maxX = obj.polygon.reduce((max, pos) => Math.max(pos[0], max), 0);
+    const maxY = obj.polygon.reduce((max, pos) => Math.max(pos[1], max), 0);
+    return [ minX, minY, maxX-minX, maxY-minY ];
+  }
+  else if (obj.rect) {
+    return obj.rect;
+  }
+  else {
+    console.error("getBound can't not handle obj", obj);
+  }
+}
 
 function consumeSeeds (state, event) {
   state = {...state};
@@ -59,10 +76,10 @@ function updateSelection (state, cursor, update) {
   else if ("plot" in cursor) {
     invariant(cursor.plot in state.plots, "seedling '%s' is defined in plots", cursor.plot);
     const plot = { ...state.plots[cursor.plot] };
-    const [ x, y, w, h ] = cursor.area || [ 0, 0, plot.gridW, Math.ceil(plot.grid.length/plot.gridW) ];
-    plot.grid = plot.grid.map((cell, i) => {
-      const xi = i % plot.gridW;
-      const yi = (i - xi) / plot.gridW;
+    const [ x, y, w, h ] = cursor.rectangle || [ 0, 0, ...plot.grid ];
+    plot.cells = plot.cells.map((cell, i) => {
+      const xi = i % plot.grid[0];
+      const yi = (i - xi) / plot.grid[0];
       if (xi < x || xi >= x + w) return cell;
       if (yi < y || yi >= y + h) return cell;
       return update(cell);
@@ -76,13 +93,25 @@ function updateSelection (state, cursor, update) {
 }
 
 function reducer (state, event) {
-  //console.log(event);
-  invariant(event.date, "event %s have a date", event);
-  if (state.lastEvent) {
+  if (state.lastEvent && event.date) {
     invariant(new Date(state.lastEvent.date)<=new Date(event.date), "event %s is before previous event %s", event, state.lastEvent);
+    state = { ...state, lastEvent: event };
   }
-  state = { ...state, lastEvent: event };
   switch (event.op) {
+  case "define-map": {
+    const { op, ...map } = event;
+    state = {
+      ...state,
+      map,
+      mapBound: getBoundRect(map),
+    };
+    break;
+  }
+  case "add-object": {
+    const { op, ...object } = event;
+    state = { ...state, objects: state.objects.concat(object) };
+    break;
+  }
   case "add-species": {
     invariant(!(event.id in state.species), "species %s does not exist yet in state.species", event.id);
     const family = families.find(f => f.id === event.family);
@@ -104,23 +133,11 @@ function reducer (state, event) {
   }
   case "add-plot": {
     const { op, ...plot } = event;
-    const gridW = plot.dims.reduce((max, d) => Math.max(max, d[1]), 0);
     state.plots = {
       ...state.plots,
       [event.id]: {
         ...plot,
-        gridW,
-        gridH: plot.dims.length,
-        grid: plot.dims.reduce((arr, dim) => arr.concat(
-          Array(gridW).fill(null).map((_, i) => {
-            if (i < dim[0] || i >= dim[1]) {
-              return null;
-            }
-            return {
-              type: "empty",
-            };
-          }),
-        ), []),
+        cells: Array(plot.grid[0] * plot.grid[1]).fill(null),
       },
     };
     break;
@@ -162,6 +179,7 @@ function reducer (state, event) {
     break;
   }
   case "seed": {
+    invariant(state.species[event.species], "species not found '%s'", event.species);
     state = consumeSeeds(state, event);
     invariant(event.at, "seed: 'at' field is required");
     state = updateSelection(state, event.at, cell => ({
@@ -171,6 +189,11 @@ function reducer (state, event) {
       species: state.species[event.species],
       seedlingDate: event.date,
     }));
+    break;
+  }
+  case "remove-plant": {
+    invariant(event.at, "remove-plant: at is required");
+    state = updateSelection(state, event.at, section => null);
     break;
   }
   case "transplant": {
@@ -211,5 +234,5 @@ function reducer (state, event) {
 
 export default (date) =>
   [...events]
-  .filter(e => new Date(e.date) <= date)
+  .filter(e => !e.date || new Date(e.date) <= date)
   .reduce(reducer, initialState);
