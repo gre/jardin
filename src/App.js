@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import raf from "raf";
-import smoothstep from "smoothstep";
+import React, { Component, PureComponent } from "react";
+import areaPolygon from "area-polygon";
 import uniq from "lodash/uniq";
 import flatMap from "lodash/flatMap";
 import get from "lodash/get";
 import "./App.css";
 import moment from "moment";
+import debounce from "lodash/debounce";
 import "moment/locale/fr";
 moment.locale("fr");
 import mooncalc from "./logic/mooncalc";
@@ -56,7 +56,7 @@ const iconTypeFallback = {
 const iconForSpecies = species =>
   icons[species.icon || species.family.icon || iconTypeFallback[species.family.types[0]]];
 
-const groupBy = (groupFn) => (acc, el) => {
+const groupByReducer = (groupFn) => (acc, el) => {
   const group = groupFn(el);
   return {
     ...acc,
@@ -110,115 +110,115 @@ class MoonPhase extends Component {
   }
 }
 
-class TimeTravelButton extends Component {
-  state = {
-    pressed: null,
+class CalendarCursor extends PureComponent {
+  static defaultProps = {
+    fromYear: 2016,
+    toYear: new Date().getFullYear()+2,
   };
+
+  onScrollRef = scrollContainer => {
+    this.scrollContainer = scrollContainer;
+  };
+
+  onTodayRef = todayDiv => {
+    if (todayDiv) {
+      this.todayDiv = todayDiv;
+    }
+  };
+
+  onScroll = e => {
+    const { date, onChange } = this.props;
+    const { scrollContainer, todayDiv } = this;
+    const containerRect = scrollContainer.getBoundingClientRect();
+    const todayRect = todayDiv.getBoundingClientRect();
+    const diff = containerRect.height / 2 - todayRect.top;
+    const dayAdd = diff / 20;
+    onChange(moment(date).add(dayAdd, "day").toDate());
+  };
+
+  debouncedSyncScroll = debounce(this.onScroll, 100);
+
   componentDidMount () {
-    let startTime = 0, lastT = 0;
-    const loop = t => {
-      if (!startTime) startTime = lastT = t;
-      this._raf = raf(loop);
-      this.update(t - lastT, t - startTime);
-      lastT = t;
+    this.syncScroll();
+  }
+  componentDidUpdate () {
+    this.debouncedSyncScroll();
+  }
+
+  syncScroll () {
+    const { scrollContainer, todayDiv } = this;
+    if (todayDiv) {
+      const containerRect = scrollContainer.getBoundingClientRect();
+      const todayRect = todayDiv.getBoundingClientRect();
+      scrollContainer.scrollTop = todayRect.top - containerRect.top - containerRect.height / 2;
+    }
+  }
+  render() {
+    const { date, fromYear, toYear } = this.props;
+    const dateDay = moment(date).startOf("day");
+
+    const style = {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      height: "100%",
+      width: 100,
     };
-    this._raf = raf(loop);
-  }
-  componentWillUnmount () {
-    raf.cancel(this._raf);
-  }
-  onMouseDown = (e) => {
-    e.preventDefault();
-    this.setState({
-      pressed: {
-        time: Date.now(),
-      },
-    });
-  };
-  onMouseUp = () => {
-    this.setState({
-      pressed: null,
-    });
-  };
-  onMouseEnter = () => {};
-  onMouseLeave = () => {
-    this.setState({
-      pressed: null,
-    });
-  };
-  update = (dt) => {
-    const { onChange, backward, value } = this.props;
-    const { pressed } = this.state;
-    if (!pressed) return;
-    const pressedDuration = Date.now() - pressed.time;
-    const travel = Math.round(
-      (backward ? -1 : 1)
-      * dt
-      * 300000
-      * (1 + 4 * smoothstep(500, 10000, pressedDuration))
-    );
-    onChange(new Date(value.getTime() + travel));
-  };
-  render() {
-    const { backward } = this.props;
-    const { pressed } = this.state;
-    // TODO: i want to render an animation, à la back-from-the-future
-    return <button
-      style={{ color: pressed ? "#E51" : "#333" }}
-      onMouseDown={this.onMouseDown}
-      onMouseUp={this.onMouseUp}
-      onMouseEnter={this.onMouseEnter}
-      onMouseLeave={this.onMouseLeave}>
-      {backward ? "<=" : "=>"}
-    </button>;
-  }
-}
+    const scrollContainerStyle = {
+      overflow: "scroll",
+      height: "100%",
+    };
 
-class TimeTravel extends Component {
-  render() {
-    const {value, onChange} = this.props;
-    const present = moment().dayOfYear()===moment(value).dayOfYear();
-    const future = !present && moment().isBefore(value);
-    return <div className={[
-      "time-travel",
-      present
-      ? "present"
-      : future
-        ? "future"
-        : "past"
-    ].join(" ")}>
-      <TimeTravelButton backward value={value} onChange={onChange} />
-      <div className="moment">
-      {moment(value).format("LL")}
+    const years = [];
+    for (let y = fromYear; y < toYear; y++) {
+      const months = [];
+      for(let m=0; m<12; m++) {
+        const days = [];
+        for(
+          let t = moment({ day: 1, month: m, year: y });
+          t.month()===m;
+          t = t.add(1, "day")
+        ) {
+          const today = t.isSame(dateDay);
+          const style = {
+            height: "20px",
+            color: today ? "#000" : "#999",
+            fontWeight: today ? "bold" : "normal",
+          };
+          days.push(
+            <div key={t.format("DD")} ref={today ? this.onTodayRef : null} style={style}>
+              {t.format("DD")}
+            </div>
+          );
+        }
+        months.push(
+          <div key={m}>
+            <strong>{moment({ day: 1, month: m, year: y }).format("MMMM YYYY")}</strong>
+            {days}
+          </div>
+        );
+      }
+      years.push(
+        <div key={y}>
+          {months}
+        </div>
+      );
+    }
+
+    return <div style={style}>
+      <div
+        style={scrollContainerStyle}
+        ref={this.onScrollRef}
+        onScroll={this.onScroll}>
+        {years}
       </div>
-      <TimeTravelButton value={value} onChange={onChange} />
+      <div style={{
+        position: "absolute",
+        top: "50%",
+        width: "100%",
+        border: "1px solid #000",
+      }} />
     </div>;
-  }
-}
-
-class Calendar extends Component {
-  render() {
-    /*
-    const { date } = this.props;
-    const firstDayOfMonth = moment(date).date(1);
-    const lastDayOfMonth = moment(date).add(1, "month").date(1).subtract(1, "day");
-    const weekFrom = firstDayOfMonth.week();
-    const weekTo = lastDayOfMonth.week();
-    console.log("days", firstDayOfMonth.toString(), lastDayOfMonth.toString());
-    console.log("weeks", weekFrom, weekTo);
-    console.log(moment(date).day(1).toString())
-    return <div className="calendar">
-      <div className="header">
-        <span className="title">
-          {moment(date).format("MMMM YYYY")}
-        </span>
-      </div>
-      <div className="body">
-
-      </div>
-    </div>;
-  */
-   return null;
   }
 }
 
@@ -591,6 +591,14 @@ class SvgShape extends Component {
   }
 }
 
+const shapeArea = object =>
+  object.circle
+  ? Math.pow(object.circle[2], 2) * Math.PI
+  : object.rectangle
+  ? object.rectangle[2] * object.rectangle[3]
+  : object.polygon
+  ? areaPolygon(object.polygon)
+  : 0;
 
 const PlotFillSizePerVegType = {
   leaf: "#060",
@@ -628,6 +636,7 @@ class SvgPlot extends Component {
   render() {
     const {date, plot, scale} = this.props;
     const cellSize = plot.scale * scale;
+    const area = Math.round(shapeArea(plot) * plot.scale * plot.scale / 10000);
     return (
       <g>
         <SvgShape object={plot} transform={this} fill="#953" />
@@ -683,6 +692,13 @@ class SvgPlot extends Component {
         </g>
         );
       })}
+
+        <text style={{
+          color: "rgba(0,0,0,0.3)",
+          fontSize: "10px",
+        }}>
+          {area}m²
+        </text>
       </g>
     );
   }
@@ -831,21 +847,22 @@ class App extends Component {
         key,
         value: data.seedlings[key],
       }))
-      .reduce(groupBy(el => el.value.group), {});
+      .reduce(groupByReducer(el => el.value.group), {});
 
     return (
       <div className="App">
+
+        <CalendarCursor
+          date={date}
+          onChange={this.onDateChange}
+        />
+
         <div className="App-header">
           <h2><img alt="" src={icons.sprout} style={{ height: 40, verticalAlign: "middle", marginRight: 4 }} /> Le Jardin de Gaëtan</h2>
           <a target="_blank" href="https://github.com/gre/jardin" style={{ position: "absolute", top: 4, right: 4 }}>
             Github
           </a>
         </div>
-        <TimeTravel onChange={this.onDateChange} value={date} />
-
-        <Calendar
-          date={date}
-        />
 
         <div className="App-body">
 
