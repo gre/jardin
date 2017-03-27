@@ -5,7 +5,6 @@ import flatMap from "lodash/flatMap";
 import get from "lodash/get";
 import "./App.css";
 import moment from "moment";
-import debounce from "lodash/debounce";
 import "moment/locale/fr";
 moment.locale("fr");
 import mooncalc from "./logic/mooncalc";
@@ -110,6 +109,8 @@ class MoonPhase extends Component {
   }
 }
 
+const DAY_HEIGHT = 20;
+
 class CalendarCursor extends PureComponent {
   static defaultProps = {
     fromYear: 2016,
@@ -131,31 +132,25 @@ class CalendarCursor extends PureComponent {
     const { scrollContainer, todayDiv } = this;
     const containerRect = scrollContainer.getBoundingClientRect();
     const todayRect = todayDiv.getBoundingClientRect();
-    const diff = containerRect.height / 2 - todayRect.top;
-    const dayAdd = diff / 20;
+    const diff = (containerRect.height - DAY_HEIGHT) / 2 - todayRect.top;
+    const dayAdd = diff / DAY_HEIGHT;
     onChange(moment(date).add(dayAdd, "day").toDate());
   };
 
-  debouncedSyncScroll = debounce(this.onScroll, 100);
 
   componentDidMount () {
-    this.syncScroll();
-  }
-  componentDidUpdate () {
-    this.debouncedSyncScroll();
-  }
-
-  syncScroll () {
     const { scrollContainer, todayDiv } = this;
     if (todayDiv) {
       const containerRect = scrollContainer.getBoundingClientRect();
       const todayRect = todayDiv.getBoundingClientRect();
-      scrollContainer.scrollTop = todayRect.top - containerRect.top - containerRect.height / 2;
+      scrollContainer.scrollTop = todayRect.top - containerRect.top - (containerRect.height - DAY_HEIGHT) / 2;
     }
   }
+
   render() {
     const { date, fromYear, toYear } = this.props;
     const dateDay = moment(date).startOf("day");
+    const today = moment().startOf("day");
 
     const style = {
       position: "fixed",
@@ -163,10 +158,30 @@ class CalendarCursor extends PureComponent {
       left: 0,
       height: "100%",
       width: 100,
+      background: "#eee",
     };
     const scrollContainerStyle = {
       overflow: "scroll",
-      height: "100%",
+      height: "100vh",
+      padding: "50vh 0",
+    };
+    const cursorStyle = {
+      position: "absolute",
+      top: "50%",
+      width: "100%",
+      border: "1px solid #000",
+    };
+    const headerStyle = {
+      position: "absolute",
+      top: "0",
+      width: "100%",
+      height: "80px",
+      background: "#ccc",
+      textTransform: "uppercase",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
     };
 
     const years = [];
@@ -179,14 +194,18 @@ class CalendarCursor extends PureComponent {
           t.month()===m;
           t = t.add(1, "day")
         ) {
-          const today = t.isSame(dateDay);
+          const isDate = t.isSame(dateDay);
+          const isToday = t.isSame(today);
           const style = {
-            height: "20px",
-            color: today ? "#000" : "#999",
-            fontWeight: today ? "bold" : "normal",
+            lineHeight: DAY_HEIGHT+"px",
+            fontSize: "16px",
+            color: isToday ? "#F00" : "#000",
+            opacity: isDate ? 1 : 0.6,
+            fontWeight: isDate ? "bold" : "normal",
+            verticalAlign: "middle",
           };
           days.push(
-            <div key={t.format("DD")} ref={today ? this.onTodayRef : null} style={style}>
+            <div key={t.format("DD")} ref={isDate ? this.onTodayRef : null} style={style}>
               {t.format("DD")}
             </div>
           );
@@ -212,12 +231,12 @@ class CalendarCursor extends PureComponent {
         onScroll={this.onScroll}>
         {years}
       </div>
-      <div style={{
-        position: "absolute",
-        top: "50%",
-        width: "100%",
-        border: "1px solid #000",
-      }} />
+      <div style={headerStyle}>
+        <div style={{ fontWeight: "bold", fontSize: "32px" }}>{dateDay.format("DD")}</div>
+        <div style={{ fontSize: "11px" }}>{dateDay.format("MMMM")}</div>
+        <div style={{ fontSize: "14px" }}>{dateDay.format("YYYY")}</div>
+      </div>
+      <div style={cursorStyle} />
     </div>;
   }
 }
