@@ -10,6 +10,11 @@ moment.locale("fr");
 import mooncalc from "./logic/mooncalc";
 import consumeEventsForDate from "./logic/consumeEventsForDate";
 
+if (process.env.NODE_ENV==="development") {
+  const Perf = require("react-addons-perf");
+  window.Perf = Perf;
+}
+
 const MONTHS = [
   "Janvier",
   "Février",
@@ -46,14 +51,14 @@ const ACTION_COLORS = {
 };
 
 import icons from "./icons";
-const iconTypeFallback = {
+const iconType = {
   leaf: "generic-leaf",
   fruit: "generic-fruit",
   flower: "generic-flower",
   root: "generic-root",
 };
 const iconForSpecies = species =>
-  icons[species.icon || species.family.icon || iconTypeFallback[species.family.types[0]]];
+  icons[species.icon || species.family.icon || iconType[species.family.types[0]]];
 
 const groupByReducer = (groupFn) => (acc, el) => {
   const group = groupFn(el);
@@ -109,7 +114,7 @@ class MoonPhase extends Component {
   }
 }
 
-const DAY_HEIGHT = 20;
+const DAY_HEIGHT = 40;
 
 class CalendarCursor extends PureComponent {
   static defaultProps = {
@@ -134,7 +139,9 @@ class CalendarCursor extends PureComponent {
     const todayRect = todayDiv.getBoundingClientRect();
     const diff = (containerRect.height - DAY_HEIGHT) / 2 - todayRect.top;
     const dayAdd = diff / DAY_HEIGHT;
-    onChange(moment(date).add(dayAdd, "day").toDate());
+    const newDay = moment(date).add(dayAdd, "day").endOf("day");
+    if (newDay.isSame(moment(date).endOf("day"))) return;
+    onChange(newDay.toDate());
   };
 
 
@@ -157,7 +164,7 @@ class CalendarCursor extends PureComponent {
       top: 0,
       left: 0,
       height: "100%",
-      width: 100,
+      width: 60,
       background: "#eee",
     };
     const scrollContainerStyle = {
@@ -199,10 +206,9 @@ class CalendarCursor extends PureComponent {
           const style = {
             lineHeight: DAY_HEIGHT+"px",
             fontSize: "16px",
+            background: t.date()%2===0 ? "#eee" : "#f3f3f3",
             color: isToday ? "#F00" : "#000",
-            opacity: isDate ? 1 : 0.6,
             fontWeight: isDate ? "bold" : "normal",
-            verticalAlign: "middle",
           };
           days.push(
             <div key={t.format("DD")} ref={isDate ? this.onTodayRef : null} style={style}>
@@ -212,7 +218,7 @@ class CalendarCursor extends PureComponent {
         }
         months.push(
           <div key={m}>
-            <strong>{moment({ day: 1, month: m, year: y }).format("MMMM YYYY")}</strong>
+            <div style={{ borderTop: "1px solid #000", paddingTop: 2, background: "#f3f3f3", fontSize: "0.6em", fontWeight: "bold" }}>{moment({ day: 1, month: m, year: y }).format("MMMM YYYY")}</div>
             {days}
           </div>
         );
@@ -252,17 +258,21 @@ class MoonProgression extends Component {
   }
 }
 
+const typeText = {
+  leaf: "Feuilles",
+  root: "Racines",
+  fruit: "Fruits",
+  flower: "Fleurs"
+};
+
 class MoonVegType extends Component {
   render() {
     const { moon } = this.props;
-    return <span className="moonVegType">Jour {
-      ({
-        leaf: "Feuilles",
-        root: "Racines",
-        fruit: "Fruits",
-        flower: "Fleurs"
-      })[moonVegType(moon)]
-    }</span>;
+    const type = moonVegType(moon);
+    return <span className="moonVegType">
+      Jour {typeText[type]}
+      <img alt="" src={icons[iconType[type]]} style={{ verticalAlign: "middle", marginLeft: 2, height: 10 }} />
+    </span>;
   }
 }
 
@@ -627,6 +637,11 @@ const PlotFillSizePerVegType = {
 };
 
 class SvgPlot extends Component {
+  state = {
+    detailed: false,
+  };
+  onMouseEnter = () => this.setState({ detailed: true });
+  onMouseLeave = () => this.setState({ detailed: false });
   getScale = () => this.props.scale * this.props.plot.scale;
   transformPoint = (p) => {
     const scale = this.getScale();
@@ -654,10 +669,11 @@ class SvgPlot extends Component {
   };
   render() {
     const {date, plot, scale} = this.props;
+    const {detailed} = this.state;
     const cellSize = plot.scale * scale;
     const area = Math.round(shapeArea(plot) * plot.scale * plot.scale / 10000);
     return (
-      <g>
+      <g onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
         <SvgShape object={plot} transform={this} fill="#953" />
       {plot.cells.map((cell, i) => {
         const xi = i % plot.grid[0];
@@ -697,7 +713,7 @@ class SvgPlot extends Component {
             height={cellSize}
             fill={fill}
             stroke="rgba(0,0,0,0.1)"
-            strokeWidth={1}
+            strokeWidth={detailed ? 1 : 0}
           />
           { imageSrc
             ? <image
@@ -712,12 +728,15 @@ class SvgPlot extends Component {
         );
       })}
 
-        <text style={{
+      { detailed
+        ?
+        <text y={-3} style={{
           color: "rgba(0,0,0,0.3)",
           fontSize: "10px",
         }}>
-          {area}m²
+          {plot.id} – {area}m²
         </text>
+        : null }
       </g>
     );
   }
@@ -849,7 +868,7 @@ class Map extends Component {
 
 class App extends Component {
   state = {
-    date: new Date(),
+    date: moment().endOf("day").toDate(),
   };
   onDateChange = date => {
     this.setState({ date });

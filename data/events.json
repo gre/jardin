@@ -27,13 +27,20 @@
         "rectangle": [ 0, 3970, 1200, 1730 ]
       },
       {
-        "type": "grass",
-        "polygon": [
-          [ 0, 3400 ],
-          [ 1200, 3400 ],
-          [ 1200, 3600 ],
-          [ 600, 3500 ]
-        ]
+        "type": "concrete",
+        "rectangle": [ 0, 3970, 1200, 1730 ]
+      },
+      {
+        "type": "concrete",
+        "rectangle": [ 530, 200, 100, 1800 ]
+      },
+      {
+        "type": "concrete",
+        "rectangle": [ 0, 2000, 1200, 10 ]
+      },
+      {
+        "type": "concrete",
+        "rectangle": [ 0, 3600, 200, 400 ]
       }
     ]
   },
@@ -76,6 +83,27 @@
     "position": [ 600, 2500 ]
   },
   {
+    "op": "add-object",
+    "type": "tree",
+    "id": "laurier-sauce",
+    "title": "Laurier sauce",
+    "position": [ 50, 50 ]
+  },
+  {
+    "op": "add-object",
+    "type": "tree",
+    "id": "prunier",
+    "title": "Prunier",
+    "position": [ 900, 1000 ]
+  },
+  {
+    "op": "add-object",
+    "type": "tree",
+    "id": "noisetier",
+    "title": "Noisetier",
+    "position": [ 900, 1500 ]
+  },
+  {
     "op": "add-plot",
     "date": "2016-04-01",
     "id": "droite",
@@ -97,13 +125,6 @@
     "brand": "jardiland",
     "latin": "Fragaria ananassa",
     "desc": "Les fraisiers sont des plantes vivaces herbacées, feuilles vertes à trois folioles, aux bords dentés, situées à l'extrémité d'un pétiole grêle. Les plantes produisent des stolons, sortes de tiges formant en extrémité de jeunes fraisiers qui s'enracinent spontanément. Fleurs en grappes, blanches au coeur jaune. La variété mont everest développe de très longs stolons qui peuvent être palissés, remontante, elle produit de mi-juin à fin septembre, des fruits, moyens, rouges, goûteux et parfumés, ces fruits (fraises) sont consommés frais comme dessert, seuls ou avec d'autres fruits, ils permettent la confection de délicieuses confitures et entrent dans la composition de nombreuses pâtisseries"
-  },
-  {
-    "op": "add-seeds",
-    "species": "fraisiers_mount_everest",
-    "date": "2016-06-14",
-    "year": 2016,
-    "count": 8
   },
   {
     "op": "plant",
@@ -2237,6 +2258,195 @@
     "species": "estragon_russie",
     "at": {
       "box": "eggbox-10"
+    }
+  },
+  {
+    "op": "add-seedling",
+    "id": "tomate-pots-barbaniaka",
+    "date": "2017-03-27",
+    "name": "Pots de tomate Barbaniaka",
+    "group": "pots",
+    "count": 5
+  },
+  {
+    "op": "add-seedling",
+    "id": "tomate-pots-red-centiflor-cherry",
+    "date": "2017-03-27",
+    "name": "Pots de tomate Red Centiflor Cherry",
+    "group": "pots",
+    "count": 3
+  },
+  {
+    "op": "add-seedling",
+    "id": "tomate-pots-black-from-tula",
+    "date": "2017-03-27",
+    "name": "Pots de tomate Black from Tula",
+    "group": "pots",
+    "count": 10
+  },
+  {
+    "op": "add-seedling",
+    "id": "tomate-pots-speckled-roman",
+    "date": "2017-03-27",
+    "name": "Pots de tomate Speckled Roman",
+    "group": "pots",
+    "count": 8
+  },
+  {
+    "op": "add-seedling",
+    "id": "tomate-pots-akers",
+    "date": "2017-03-27",
+    "name": "Pots de tomate Akers",
+    "group": "pots",
+    "count": 10
+  },
+  {
+    "op": "transplant",
+    "date": "2017-03-27",
+    "destructive": true,
+    "from": {
+      "box": "bigbox-1",
+      "section": 0
+    },
+    "to": {
+      "box": "tomate-pots-barbaniaka"
+    }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-03-27",
+    "destructive": true,
+    "from": {
+      "box": "bigbox-1",
+      "section": 1
+    },
+    "to": {
+      "box": "tomate-pots-red-centiflor-cherry"
+    }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-03-27",
+    "destructive": true,
+    "from": {
+      "box": "bigbox-1",
+      "section": 2
+    },
+    "to": {
+      "box": "tomate-pots-black-from-tula"
+    }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-03-27",
+    "destructive": true,
+    "from": {
+      "box": "bigbox-1",
+      "section": 3
+    },
+    "to": {
+      "box": "tomate-pots-speckled-roman"
+    }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-03-27",
+    "destructive": true,
+    "from": {
+      "box": "bigbox-1",
+      "section": 4
+    },
+    "to": {
+      "box": "tomate-pots-akers"
+    }
+  },
+  {
+    "op": "remove-seedling",
+    "id": "bigbox-1",
+    "date": "2017-03-27"
+  },
+  {
+    "op": "add-seedling",
+    "id": "brocoli-pots",
+    "date": "2017-03-27",
+    "name": "Pots de Brocoli",
+    "group": "pots",
+    "count": 18
+  },
+  {
+    "op": "transplant",
+    "date": "2017-03-27",
+    "destructive": true,
+    "from": {
+      "box": "starter-4"
+    },
+    "to": {
+      "box": "brocoli-pots"
+    }
+  },
+  {
+    "op": "remove-seedling",
+    "id": "starter-4",
+    "date": "2017-03-27"
+  },
+  {
+    "op": "remove-plant",
+    "date": "2017-03-27",
+    "species": "red_ball_jets",
+    "count": 1,
+    "at": {
+      "plot": "gauche",
+      "rectangle": [ 12, 19, 1, 1 ]
+    }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-03-27",
+    "species": "red_ball_jets",
+    "count": 1,
+    "from": {
+      "box": "bac-2",
+      "section": 2
+    },
+    "to": {
+      "plot": "gauche",
+      "rectangle": [ 12, 19, 1, 1 ]
+    }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-03-27",
+    "count": 11,
+    "from": {
+      "box": "bac-2",
+      "section": 0
+    },
+    "to": {
+      "plot": "gauche",
+      "rectangle": [ 8, 12, 4, 2 ]
+    }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-03-27",
+    "count": 10,
+    "from": {
+      "box": "bac-2",
+      "section": 3
+    },
+    "to": {
+      "plot": "gauche",
+      "rectangle": [ 12, 12, 4, 2 ]
+    }
+  },
+  {
+    "op": "plant",
+    "date": "2017-03-27",
+    "species": "menthe_chinoise",
+    "count": 1,
+    "at": {
+      "plot": "gauche",
+      "rectangle": [ 15, 3, 1, 1 ]
     }
   }
 ]

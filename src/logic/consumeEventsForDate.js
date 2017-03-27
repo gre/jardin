@@ -62,9 +62,9 @@ function updateSelection (state, cursor, update) {
       seedling.sections[cursor.section] = update(seedling.sections[cursor.section]);
     }
     else {
-      const [ from, length ] = cursor.range || [ 0, seedling.sections.length ];
+      const [ from, to ] = cursor.range || [ 0, seedling.sections.length ];
       seedling.sections = seedling.sections.map((section, i) => {
-        if (i < from || i >= length) return section;
+        if (i < from || i >= to) return section;
         return update(section);
       });
     }
@@ -211,7 +211,6 @@ function reducer (state, event) {
     break;
   }
   case "plant": {
-    state = consumeSeeds(state, event);
     state = updateSelection(state, event.at, cell => ({
       ...cell,
       type: "culture",
