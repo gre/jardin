@@ -66,7 +66,8 @@
     "op": "add-object",
     "type": "house",
     "id": "house",
-    "rectangle": [ 0, 3970, 1000, 1400 ]
+    "rectangle": [ 0, 3970, 1000, 1400 ],
+    "link": "/seedlings"
   },
   {
     "op": "add-object",
@@ -2504,6 +2505,76 @@
     "at": {
       "plot": "gauche",
       "rectangle": [ 15, 3, 1, 1 ]
+    }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-03-28",
+    "destructive": true,
+    "from": {
+      "box": "eggbox-1"
+    },
+    "to": {
+      "plot": "gauche",
+      "rectangle": [ 0, 0, 8, 2 ]
+    }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-03-28",
+    "destructive": true,
+    "from": {
+      "box": "eggbox-2"
+    },
+    "to": {
+      "plot": "gauche",
+      "rectangle": [ 8, 0, 7, 2 ]
+    }
+  },
+  {
+    "op": "remove-seedling",
+    "date": "2017-03-28",
+    "id": "eggbox-1"
+  },
+  {
+    "op": "remove-seedling",
+    "date": "2017-03-28",
+    "id": "eggbox-2"
+  },
+  {
+    "op": "seed",
+    "count": 4,
+    "species": "haricot-major",
+    "at": {
+      "plot": "gauche",
+      "rectangle": [ 0, 2, 15, 2]
+    }
+  },
+  {
+    "op": "seed",
+    "count": 4,
+    "species": "haricot-cupidon",
+    "at": {
+      "plot": "gauche",
+      "rectangle": [ 0, 2, 15, 2]
+    }
+  },
+  {
+    "op": "seed",
+    "count": 4,
+    "species": "haricot-purple-queen",
+    "at": {
+      "plot": "gauche",
+      "rectangle": [ 0, 2, 15, 2]
+    }
+  },
+  {
+    "op": "seed",
+    "count": 4,
+    "species": "haricot_henridorff",
+    "at": {
+      "plot": "gauche",
+      "rectangle": [ 0, 2, 15, 2]
     }
   }
 ]
