@@ -283,9 +283,9 @@ blockquote {
 .time-travel .month .day.selected {
   font-weight: bold;
 }
-.time-travel .month .day:odd {
+.time-travel .month .day:nth-child(odd) {
   background: #eee;
 }
-.time-travel .month .day:even {
-  background: #eee;
+.time-travel .month .day:nth-child(even) {
+  background: #f3f3f3;
 }
