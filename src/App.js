@@ -146,7 +146,16 @@ class TimeTravel extends PureComponent {
     this.scrollOn(e.target);
   };
 
+  jumpToday = () => {
+    this.props.onChange(
+      moment().endOf("day").toDate()
+    );
+  };
+
+  lastUserInteraction = 0;
+
   onScroll = e => {
+    this.lastUserInteraction = Date.now();
     const { date, onChange } = this.props;
     const { scrollContainer, todayDiv } = this;
     const containerRect = scrollContainer.getBoundingClientRect();
@@ -161,6 +170,13 @@ class TimeTravel extends PureComponent {
   componentDidMount () {
     const { todayDiv } = this;
     if (todayDiv) this.scrollOn(todayDiv);
+  }
+
+  componentDidUpdate () {
+    if (Date.now() - this.lastUserInteraction > 500) {
+      const { todayDiv } = this;
+      if (todayDiv) this.scrollOn(todayDiv);
+    }
   }
 
   render() {
@@ -211,16 +227,23 @@ class TimeTravel extends PureComponent {
       );
     }
 
+    const diffDays = dateDay.diff(today, "days");
+
     return <div className="time-travel">
       <header>
-        <div style={{ fontWeight: "bold", fontSize: "32px" }}>{dateDay.format("DD")}</div>
-        <div style={{ fontSize: "11px" }}>{dateDay.format("MMMM")}</div>
-        <div style={{ fontSize: "14px" }}>{dateDay.format("YYYY")}</div>
+        <div className="day">{dateDay.format("DD")}</div>
+        <div className="month">{dateDay.format("MMMM")}</div>
+        <div className="year">{dateDay.format("YYYY")}</div>
       </header>
       <div className="container" ref={this.onScrollRef} onScroll={this.onScroll}>
         {years}
       </div>
       <div className="cursor" />
+      <footer className={diffDays===0?"today":diffDays>0?"future":"past"} onClick={this.jumpToday}>
+        { diffDays===0
+          ? "today"
+          : `${diffDays>0?"+":"-"} ${Math.abs(diffDays)}d` }
+      </footer>
     </div>;
   }
 }
