@@ -1181,8 +1181,8 @@
       {
         "name": "",
         "seedling_indoors_months": [],
-        "seedling_outdoors_or_planting_months": [ 3, 4 ],
-        "harvest_months": [ 9 ]
+        "seedling_outdoors_or_planting_months": [ 4, 5, 6, 7 ],
+        "harvest_months": [ 6, 7, 8, 9, 10 ]
       }
     ],
     "germination_days": 14,

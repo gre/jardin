@@ -2261,6 +2261,63 @@
     }
   },
   {
+    "op": "add-species",
+    "id": "haricot-cupidon",
+    "family": "haricot",
+    "date": "2017-03-26",
+    "bio": true,
+    "brand": "fermedesaintemarthe",
+    "generic": "Haricot",
+    "name": "Cupidon Nain Filet",
+    "latin": "Phaseolus vulgaris",
+    "link": "http://www.fermedesaintemarthe.com/A-3596-haricot-cupidon-nain-filet-ab.aspx",
+    "desc": "Le haricot Nain Cupidon est une variété vigoureuse. Elle offre une production groupée facile à récolter. Gousses fines, longues (15 à 20 cm), vertes qui ne prend pas le fil en grossissant, grains marbrés brun-beige. Gousses à récolter jeunes ou en mangetout."
+  },
+  {
+    "op": "add-species",
+    "id": "haricot-major",
+    "family": "haricot",
+    "date": "2017-03-26",
+    "bio": true,
+    "brand": "fermedesaintemarthe",
+    "generic": "Haricot",
+    "name": "Major Nain Mangetout",
+    "latin": "Phaseolus vulgaris",
+    "link": "http://www.fermedesaintemarthe.com/A-3594-haricot-major-nain-mangetout-ab.aspx",
+    "desc": "Le haricot Nain Beurre Major a une végétation vigoureuse. Cette variété est productive et résistante aux maladies. Gousses fines, charnues, jaunes d'or de 16 à 18 cm de long, grains noirs. A utiliser en frais, conserves et congélation."
+  },
+  {
+    "op": "add-species",
+    "id": "haricot-purple-queen",
+    "family": "haricot",
+    "date": "2017-03-26",
+    "bio": true,
+    "brand": "fermedesaintemarthe",
+    "generic": "Haricot",
+    "name": "Purple Queen Nain Mangetout",
+    "latin": "Phaseolus vulgaris",
+    "link": "http://www.fermedesaintemarthe.com/A-1375-haricot-purple-queen-nain-mangetout-ab.aspx",
+    "desc": "La variété de haricot Purple Queen (Reine des Pourpres) est du type Mangetout nain. Productif, de cueillette facile, gousses longues, sans fil, de couleur violet foncé, tendres et beurrées. Après la cuisson, les gousses sont vertes."
+  },
+  {
+    "op": "add-seeds",
+    "species": "haricot-cupidon",
+    "count": 15,
+    "date": "2017-03-26"
+  },
+  {
+    "op": "add-seeds",
+    "species": "haricot-major",
+    "count": 15,
+    "date": "2017-03-26"
+  },
+  {
+    "op": "add-seeds",
+    "species": "haricot-purple-queen",
+    "count": 15,
+    "date": "2017-03-26"
+  },
+  {
     "op": "add-seedling",
     "id": "tomate-pots-barbaniaka",
     "date": "2017-03-27",
