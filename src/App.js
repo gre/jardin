@@ -116,7 +116,7 @@ class MoonPhase extends Component {
 
 const DAY_HEIGHT = 40;
 
-class CalendarCursor extends PureComponent {
+class TimeTravel extends PureComponent {
   static defaultProps = {
     fromYear: 2016,
     toYear: new Date().getFullYear()+2,
@@ -132,6 +132,20 @@ class CalendarCursor extends PureComponent {
     }
   };
 
+  scrollOn = element => {
+    const { scrollContainer } = this;
+    const viewport = scrollContainer.getBoundingClientRect();
+    const rect = element.getBoundingClientRect();
+    scrollContainer.scrollTop +=
+      rect.top -
+      viewport.top -
+      (viewport.height - DAY_HEIGHT) / 2;
+  };
+
+  onDayClick = e => {
+    this.scrollOn(e.target);
+  };
+
   onScroll = e => {
     const { date, onChange } = this.props;
     const { scrollContainer, todayDiv } = this;
@@ -144,52 +158,15 @@ class CalendarCursor extends PureComponent {
     onChange(newDay.toDate());
   };
 
-
   componentDidMount () {
-    const { scrollContainer, todayDiv } = this;
-    if (todayDiv) {
-      const containerRect = scrollContainer.getBoundingClientRect();
-      const todayRect = todayDiv.getBoundingClientRect();
-      scrollContainer.scrollTop = todayRect.top - containerRect.top - (containerRect.height - DAY_HEIGHT) / 2;
-    }
+    const { todayDiv } = this;
+    if (todayDiv) this.scrollOn(todayDiv);
   }
 
   render() {
     const { date, fromYear, toYear } = this.props;
     const dateDay = moment(date).startOf("day");
     const today = moment().startOf("day");
-
-    const style = {
-      position: "fixed",
-      top: 0,
-      left: 0,
-      height: "100%",
-      width: 60,
-      background: "#eee",
-    };
-    const scrollContainerStyle = {
-      overflow: "scroll",
-      height: "100vh",
-      padding: "50vh 0",
-    };
-    const cursorStyle = {
-      position: "absolute",
-      top: "50%",
-      width: "100%",
-      border: "1px solid #000",
-    };
-    const headerStyle = {
-      position: "absolute",
-      top: "0",
-      width: "100%",
-      height: "80px",
-      background: "#ccc",
-      textTransform: "uppercase",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-    };
 
     const years = [];
     for (let y = fromYear; y < toYear; y++) {
@@ -203,46 +180,47 @@ class CalendarCursor extends PureComponent {
         ) {
           const isDate = t.isSame(dateDay);
           const isToday = t.isSame(today);
-          const style = {
-            lineHeight: DAY_HEIGHT+"px",
-            fontSize: "16px",
-            background: t.date()%2===0 ? "#eee" : "#f3f3f3",
-            color: isToday ? "#F00" : "#000",
-            fontWeight: isDate ? "bold" : "normal",
-          };
+          const day = t.format("DD");
           days.push(
-            <div key={t.format("DD")} ref={isDate ? this.onTodayRef : null} style={style}>
-              {t.format("DD")}
+            <div
+              key={day}
+              className={[
+                "day",
+                isToday ? "today" : "",
+                isDate ? "selected" : "",
+              ].join(" ")}
+              ref={isDate ? this.onTodayRef : null}
+              onClick={this.onDayClick}>
+              {day}
             </div>
           );
         }
         months.push(
-          <div key={m}>
-            <div style={{ borderTop: "1px solid #000", paddingTop: 2, background: "#f3f3f3", fontSize: "0.6em", fontWeight: "bold" }}>{moment({ day: 1, month: m, year: y }).format("MMMM YYYY")}</div>
+          <div className="month" key={m}>
+            <div className="month-header">
+              {moment({ day: 1, month: m, year: y }).format("MMMM YYYY")}
+            </div>
             {days}
           </div>
         );
       }
       years.push(
-        <div key={y}>
+        <div className="year" key={y}>
           {months}
         </div>
       );
     }
 
-    return <div style={style}>
-      <div
-        style={scrollContainerStyle}
-        ref={this.onScrollRef}
-        onScroll={this.onScroll}>
-        {years}
-      </div>
-      <div style={headerStyle}>
+    return <div className="time-travel">
+      <header>
         <div style={{ fontWeight: "bold", fontSize: "32px" }}>{dateDay.format("DD")}</div>
         <div style={{ fontSize: "11px" }}>{dateDay.format("MMMM")}</div>
         <div style={{ fontSize: "14px" }}>{dateDay.format("YYYY")}</div>
+      </header>
+      <div className="container" ref={this.onScrollRef} onScroll={this.onScroll}>
+        {years}
       </div>
-      <div style={cursorStyle} />
+      <div className="cursor" />
     </div>;
   }
 }
@@ -890,7 +868,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <CalendarCursor
+        <TimeTravel
           date={date}
           onChange={this.onDateChange}
         />

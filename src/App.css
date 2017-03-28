@@ -221,3 +221,62 @@ blockquote {
 .associations.hates {
   color: #f66;
 }
+
+
+
+.time-travel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 60;
+  background: #eee;
+}
+.time-travel .container {
+  overflow: scroll;
+  height: 100vh;
+  padding: 50vh 0;
+}
+.time-travel .cursor {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  border: 1px solid #000;
+}
+.time-travel > header {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 80px;
+  background: #ccc;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.time-travel .month-header {
+  border-top: 1px solid #000;
+  padding-top: 2px;
+  background: #f3f3f3;
+  font-size: 0.6em;
+  font-weight: bold;
+}
+
+.time-travel .day {
+  line-height: 40px;
+  font-size: 20px;
+  color: #000;
+}
+.time-travel .day.today {
+  color: #F00;
+}
+.time-travel .day.selected {
+  font-weight: bold;
+}
+.time-travel .day:odd {
+  background: #eee;
+}
+.time-travel .day:even {
+  background: #eee;
+}
