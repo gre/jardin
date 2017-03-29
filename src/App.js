@@ -15,26 +15,38 @@ import TimeTravel from "./ui/TimeTravel";
 
 import "./App.css";
 
+const isSmallWidth = () => window.innerWidth < 540;
+
 export default class App extends Component {
   state = {
     date: moment().endOf("day").toDate(),
+    smallWidth: isSmallWidth(),
   };
+  componentDidMount () {
+    window.addEventListener("resize", this.onWindowResize, false);
+  }
+  componentWillUnmount () {
+    window.removeEventListener("resize", this.onWindowResize);
+  }
+
+  onWindowResize = () => {
+    const smallWidth = isSmallWidth();
+    if (smallWidth !== this.state.smallWidth) {
+      this.setState({ smallWidth });
+    }
+  }
+
   onDateChange = (date: Date) => {
     this.setState({ date });
   };
   render() {
-    const { date } = this.state;
+    const { date, smallWidth } = this.state;
     const data = consumeEventsForDate(date);
     const moon = mooncalc(date);
     const month = date.getMonth();
 
     return (
-      <div className="App">
-
-        <TimeTravel
-          date={date}
-          onChange={this.onDateChange}
-        />
+      <div className={"App "+(smallWidth ? "small" : "")}>
 
         <div className="App-header">
           <div className="App-moon">
@@ -57,12 +69,11 @@ export default class App extends Component {
           </nav>
         </div>
 
-        <a
-          target="_blank"
-          href="https://github.com/gre/jardin"
-          style={{ color: "#9C0", position: "absolute", top: 4, right: 4 }}>
-          Github
-        </a>
+        <TimeTravel
+          date={date}
+          onChange={this.onDateChange}
+          horizontal={false /*smallWidth FIXME unstable*/}
+        />
 
         <div className="App-body">
 
@@ -100,6 +111,12 @@ export default class App extends Component {
           </Switch>
 
         </div>
+
+        <footer>
+          <a target="_blank" href="https://github.com/gre/jardin">
+            Github
+          </a>
+        </footer>
       </div>
     );
   }

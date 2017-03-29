@@ -1,34 +1,64 @@
 
 .time-travel {
+  background: #eee;
+}
+.time-travel.vertical {
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 60px;
-  background: #eee;
+}
+.time-travel.horizontal {
+  width: 100%;
+  height: 60px;
 }
 .time-travel .container {
   overflow: scroll;
+  display: flex;
+}
+
+.time-travel.vertical .container {
   height: 100vh;
   padding: 50vh 0;
+  flex-direction: column;
+}
+.time-travel.horizontal .container {
+  width: 100vh;
+  padding: 0 50vh;
+  flex-direction: row;
 }
 .time-travel .cursor {
   position: absolute;
+  border: 1px solid #000;
+}
+.time-travel.vertical .cursor {
   top: 50%;
   width: 100%;
-  border: 1px solid #000;
+}
+.time-travel.horizontal .cursor {
+  left: 50%;
+  height: 100%;
 }
 .time-travel > header {
   position: absolute;
-  top: 0px;
-  width: 100%;
-  height: 60px;
   background: #ccc;
   text-transform: uppercase;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.time-travel.vertical > header {
+  top: 0px;
+  width: 100%;
+  height: 60px;
+  flex-direction: column;
+}
+.time-travel.horizontal > header {
+  left: 0px;
+  height: 100%;
+  width: 60px;
+  flex-direction: row;
 }
 .time-travel > header .day {
    font-weight: bold;
@@ -42,9 +72,6 @@
 }
 .time-travel > footer {
   position: absolute;
-  bottom: 0px;
-  width: 100%;
-  height: 40px;
   background: #ccc;
   cursor: pointer;
   user-select: none;
@@ -55,12 +82,23 @@
   justify-content: center;
   font-size: 10px;
 }
+.time-travel.vertical > footer {
+  width: 100%;
+  height: 40px;
+  bottom: 0px;
+}
+.time-travel.horizontal > footer {
+  height: 100%;
+  width: 40px;
+  right: 0px;
+}
 .time-travel > footer.future {
   background-color: #F9F;
 }
 .time-travel > footer.past {
   background-color: #FF9;
 }
+
 .time-travel .month-header {
   border-top: 1px solid #000;
   padding-top: 2px;
@@ -68,12 +106,21 @@
   font-size: 0.6em;
   font-weight: bold;
 }
+.time-travel.horizontal .month-header {
+  display: none;
+}
 .time-travel .month .day {
   cursor: pointer;
   user-select: none;
   line-height: 40px;
   font-size: 20px;
   color: #000;
+}
+.time-travel.vertical .month .day {
+  height: 40px;
+}
+.time-travel.horizontal .month .day {
+  width: 40px;
 }
 .time-travel .month .day.today {
   color: #F00;

@@ -12,14 +12,23 @@
   background-color: #222;
   color: white;
 }
+.App.small .App-header {
+  flex-direction: column;
+  height: 120px;
+}
+.App.small .App-header {
+  padding-top: 60px;
+}
 
 .App-moon {
+  width: 240px;
   padding: 10px;
   font-size: 18px;
+  white-space: nowrap;
 }
 
 .App-header nav {
-
+  white-space: nowrap;
 }
 .App-header nav > * {
   padding: 0 10px;

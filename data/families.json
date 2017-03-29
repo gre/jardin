@@ -1379,9 +1379,9 @@
     "calendars": [
       {
         "name": "",
-        "seedling_indoors_months": [ 4 ],
-        "seedling_outdoors_or_planting_months": [ 4, 5, 6 ],
-        "harvest_months": [ 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
+        "seedling_indoors_months": [ 7 ],
+        "seedling_outdoors_or_planting_months": [ 9, 10 ],
+        "harvest_months": [ 4, 5, 6 ]
       }
     ],
     "germination_days": 365,

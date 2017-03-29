@@ -12,10 +12,12 @@ export default class TimeTravel extends PureComponent {
     toYear: number,
     onChange: (d: Date) => void,
     date: Date,
+    horizontal: bool,
   };
   static defaultProps = {
     fromYear: 2016,
     toYear: new Date().getFullYear()+2,
+    horizontal: false,
   };
 
   scrollContainer: ?HTMLDivElement;
@@ -32,14 +34,23 @@ export default class TimeTravel extends PureComponent {
   };
 
   scrollOn = (element: Element) => {
+    const { horizontal } = this.props;
     const { scrollContainer } = this;
     if (!scrollContainer) return;
     const viewport = scrollContainer.getBoundingClientRect();
     const rect = element.getBoundingClientRect();
-    scrollContainer.scrollTop +=
-      rect.top -
-      viewport.top -
-      (viewport.height - DAY_HEIGHT) / 2;
+    if (horizontal) {
+      scrollContainer.scrollLeft +=
+        rect.left -
+        viewport.left -
+        (viewport.width - DAY_HEIGHT) / 2;
+    }
+    else {
+      scrollContainer.scrollTop +=
+        rect.top -
+        viewport.top -
+        (viewport.height - DAY_HEIGHT) / 2;
+    }
   };
 
   onDayClick = (e: Event) => {
@@ -57,12 +68,15 @@ export default class TimeTravel extends PureComponent {
 
   onScroll = (e: Event) => {
     this.lastUserInteraction = Date.now();
-    const { date, onChange } = this.props;
+    const { date, onChange, horizontal } = this.props;
     const { scrollContainer, todayDiv } = this;
     if (!scrollContainer || !todayDiv) return;
     const containerRect = scrollContainer.getBoundingClientRect();
     const todayRect = todayDiv.getBoundingClientRect();
-    const diff = (containerRect.height - DAY_HEIGHT) / 2 - todayRect.top;
+    const diff =
+      horizontal
+      ? (containerRect.width - DAY_HEIGHT) / 2 - todayRect.left
+      : (containerRect.height - DAY_HEIGHT) / 2 - todayRect.top;
     const dayAdd = diff / DAY_HEIGHT;
     const newDay = moment(date).add(dayAdd, "day").endOf("day");
     if (newDay.isSame(moment(date).endOf("day"))) return;
@@ -74,15 +88,15 @@ export default class TimeTravel extends PureComponent {
     if (todayDiv) this.scrollOn(todayDiv);
   }
 
-  componentDidUpdate () {
-    if (Date.now() - this.lastUserInteraction > 500) {
+  componentDidUpdate ({ horizontal }: *) {
+    if (horizontal!==this.props.horizontal && Date.now() - this.lastUserInteraction > 500) {
       const { todayDiv } = this;
       if (todayDiv) this.scrollOn(todayDiv);
     }
   }
 
   render() {
-    const { date, fromYear, toYear } = this.props;
+    const { horizontal, date, fromYear, toYear } = this.props;
     const dateDay = moment(date).startOf("day");
     const today = moment().startOf("day");
 
@@ -131,11 +145,11 @@ export default class TimeTravel extends PureComponent {
 
     const diffDays = dateDay.diff(today, "days");
 
-    return <div className="time-travel">
+    return <div className={"time-travel "+(horizontal ? "horizontal" : "vertical")}>
       <header>
-        <div className="day">{dateDay.format("DD")}</div>
-        <div className="month">{dateDay.format("MMMM")}</div>
-        <div className="year">{dateDay.format("YYYY")}</div>
+        <span className="day">{dateDay.format("DD")}</span>
+        <span className="month">{dateDay.format("MMMM")}</span>
+        <span className="year">{dateDay.format("YYYY")}</span>
       </header>
       <div className="container" ref={this.onScrollRef} onScroll={this.onScroll}>
         {years}
