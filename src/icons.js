@@ -74,7 +74,7 @@ export default {
   'onion': require('./icons/onion.svg'),
   'oregano': require('./icons/oregano.svg'),
   'palm-tree': require('./icons/palm-tree.svg'),
-  'paper-bag with seeds': require('./icons/paper-bag with seeds.svg'),
+  'paper-bag-with-seeds': require('./icons/paper-bag-with-seeds.svg'),
   'paprika': require('./icons/paprika.svg'),
   'parsley': require('./icons/parsley.svg'),
   'parsnip': require('./icons/parsnip.svg'),

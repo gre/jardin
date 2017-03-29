@@ -1,0 +1,9 @@
+
+.seedlings {
+  padding: 20px 0;
+}
+.seedling-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

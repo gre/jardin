@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -10,11 +14,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: #9F3;
+  color: inherit;
   opacity: 0.8;
   text-decoration: none;
 }
 a:hover {
   opacity: 1;
   text-decoration: underline;
+}
+
+blockquote {
+  font-family: serif;
 }

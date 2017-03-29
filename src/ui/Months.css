@@ -1,0 +1,22 @@
+
+.months {
+}
+.months .label {
+  margin-left: 2em;
+  font-size: 0.5em;
+  vertical-align: middle;
+}
+.months .body {
+  font-size: 14px;
+  font-family: monospace;
+}
+.months .month {
+  margin: 0 0.1em;
+}
+.months .month.current {
+  text-decoration: underline;
+}
+.months .month.off {
+  color: #000;
+  opacity: 0.1;
+}

@@ -1,0 +1,15 @@
+
+.species-detail {
+  text-align: left;
+  padding: 8px 0;
+}
+
+.species-detail .associations {
+  font-size: 0.8em;
+}
+.species-detail .associations.likes {
+  color: #0E0;
+}
+.species-detail .associations.hates {
+  color: #f66;
+}
