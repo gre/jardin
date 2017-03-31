@@ -47,8 +47,17 @@ function getActionJobs (species, targetMonth, seedlingPath) {
   return all;
 }
 
-function findSeedlingPathBySectionTest (seedlings, predicate) {
+function findSeedlingPathBySectionTest ({seedlings, plots}, predicate) {
   let path = null;
+  Object.keys(plots).find(k => {
+    const plot = plots[k];
+    return plot.cells.find((cell, i) => {
+      if (cell && predicate(cell)) {
+        path = [ "plots", k, "cells", i ];
+        return true;
+      }
+    });
+  });
   Object.keys(seedlings).find(k => {
     const seedling = seedlings[k];
     return seedling.sections.find((section, i) => {
@@ -76,7 +85,7 @@ export default class SpeciesList extends Component {
         const species = data.species[id];
         const seed = data.seeds[id];
         const seedlingPath = findSeedlingPathBySectionTest(
-          data.seedlings,
+          data,
           section => section.species.id === species.id
         );
         const jobs = !seed ? [] : getActionJobs(
