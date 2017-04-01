@@ -2544,6 +2544,7 @@
   {
     "op": "seed",
     "count": 4,
+    "date": "2017-03-28",
     "species": "haricot-major",
     "at": {
       "plot": "gauche",
@@ -2553,6 +2554,7 @@
   {
     "op": "seed",
     "count": 4,
+    "date": "2017-03-28",
     "species": "haricot-cupidon",
     "at": {
       "plot": "gauche",
@@ -2562,6 +2564,7 @@
   {
     "op": "seed",
     "count": 4,
+    "date": "2017-03-28",
     "species": "haricot-purple-queen",
     "at": {
       "plot": "gauche",
@@ -2571,6 +2574,7 @@
   {
     "op": "seed",
     "count": 4,
+    "date": "2017-03-28",
     "species": "haricot_henridorff",
     "at": {
       "plot": "gauche",
@@ -2586,10 +2590,41 @@
   },
   {
     "op": "seed",
+    "date": "2017-03-29",
     "count": 30,
     "species": "aneth_tetra_gold",
     "at": {
       "box": "starter-9"
+    }
+  },
+  {
+    "op": "seed",
+    "count": 20,
+    "date": "2017-04-01",
+    "species": "coriandre",
+    "at": {
+      "plot": "gauche",
+      "rectangle": [ 15, 6, 1, 1 ]
+    }
+  },
+  {
+    "op": "seed",
+    "count": 50,
+    "date": "2017-04-01",
+    "species": "laitue_reine_de_mai",
+    "at": {
+      "plot": "gauche",
+      "rectangle": [ 0, 8, 16, 4 ]
+    }
+  },
+  {
+    "op": "seed",
+    "count": 50,
+    "date": "2017-04-01",
+    "species": "radis_flamboyant_5",
+    "at": {
+      "plot": "gauche",
+      "rectangle": [ 0, 8, 16, 4 ]
     }
   }
 ]
