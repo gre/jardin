@@ -134,7 +134,7 @@
     "count": 8,
     "at": {
       "plot": "droite",
-      "rectangle": [0, 15, 16, 5]
+      "rectangle": [0, 15, 16, 4]
     }
   },
   {
@@ -1470,6 +1470,12 @@
     "comment": "la ciboulette n'a pas germée..."
   },
   {
+    "op": "remove-seedling",
+    "date": "2017-03-03",
+    "id": "starter-3",
+    "comment": "la ciboulette n'a pas germée..."
+  },
+  {
     "op": "seedling-resize",
     "box": "concombre-pots",
     "date": "2017-03-12",
@@ -1648,6 +1654,22 @@
     "count": 10
   },
 
+  {
+    "op": "add-seedling",
+    "id": "grille-tournesol",
+    "date": "2017-03-17",
+    "name": "Semis de tournesol",
+    "group": "grid",
+    "grid": [3,12]
+  },
+  {
+    "op": "seed",
+    "date": "2017-03-17",
+    "at": {
+      "box": "grille-tournesol"
+    },
+    "species": "tournesol"
+  },
   {
     "op": "add-seedling",
     "id": "piment-pots",
@@ -2626,5 +2648,77 @@
       "plot": "gauche",
       "rectangle": [ 0, 8, 16, 4 ]
     }
+  },
+  {
+    "op": "transplant",
+    "date": "2017-04-02",
+    "species": "laitue_reine_de_mai",
+    "from": {
+      "box": "bac-2",
+      "section": 0
+    },
+    "to": {
+      "plot": "droite",
+      "rectangle": [ 0, 19, 16, 1 ]
+    }
+  },
+  {
+    "op": "add-seedling",
+    "date": "2017-04-02",
+    "id": "pots-courgette",
+    "name": "Pots de Courgette",
+    "group": "pots",
+    "count": 6
+  },
+  {
+    "op": "transplant",
+    "date": "2017-04-02",
+    "destructive": true,
+    "from": {
+      "box": "godet-grid-2",
+      "rectangle": [2, 0, 2, 7]
+    },
+    "to": {
+      "box": "pots-courgette"
+    }
+  },
+  {
+    "op": "add-seedling",
+    "date": "2017-04-02",
+    "id": "starter-10",
+    "name": "MiniSerre 10",
+    "group": "starter"
+  },
+  {
+    "op": "seed",
+    "date": "2017-04-02",
+    "species": "sarriette",
+    "at": {
+      "box": "starter-10"
+    }
+  },
+  {
+    "op": "add-seedling",
+    "date": "2017-04-02",
+    "id": "pots-tournesol",
+    "name": "Pots de Tournesol",
+    "group": "pots",
+    "count": 29
+  },
+  {
+    "op": "transplant",
+    "destructive": true,
+    "date": "2017-04-02",
+    "from": {
+      "box": "grille-tournesol"
+    }
+    ,"to": {
+      "box": "pots-tournesol"
+    }
+  },
+  {
+    "op": "remove-seedling",
+    "date": "2017-03-17",
+    "id": "grille-tournesol"
   }
 ]

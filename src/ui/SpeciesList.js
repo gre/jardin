@@ -1,10 +1,10 @@
 //@flow
 import React, { Component } from "react";
 import get from "lodash/get";
-import moment from "moment";
 import icons from "../icons";
 import JobsInfo from "./JobsInfo";
 import SpeciesDetail from "./SpeciesDetail";
+import DateFromNow from "./DateFromNow";
 
 const CALS = [
   "seedling_indoors",
@@ -49,15 +49,16 @@ function getActionJobs (species, targetMonth, seedlingPath) {
 
 function findSeedlingPathBySectionTest ({seedlings, plots}, predicate) {
   let path = null;
-  Object.keys(plots).find(k => {
+  return Object.keys(plots).find(k => {
     const plot = plots[k];
     return plot.cells.find((cell, i) => {
       if (cell && predicate(cell)) {
         path = [ "plots", k, "cells", i ];
         return true;
       }
+      return false;
     });
-  });
+  }) &&
   Object.keys(seedlings).find(k => {
     const seedling = seedlings[k];
     return seedling.sections.find((section, i) => {
@@ -67,8 +68,8 @@ function findSeedlingPathBySectionTest ({seedlings, plots}, predicate) {
       }
       return false;
     });
-  });
-  return path;
+  }) &&
+  path;
 }
 
 export default class SpeciesList extends Component {
@@ -130,8 +131,9 @@ export default class SpeciesList extends Component {
                 <span style={{ color: "#0c0"}}>
                   {seedling.name}
                 </span>
+                &nbsp;
                 { seedlingSection.seedlingDate
-                  ? " " + moment(seedlingSection.seedlingDate).fromNow()
+                  ? <DateFromNow date={seedlingSection.seedlingDate} />
                   : null }
               </div>
               : null }

@@ -61,6 +61,16 @@ function updateSelection (state, cursor, update) {
       seedling.sections = [...seedling.sections];
       seedling.sections[cursor.section] = update(seedling.sections[cursor.section]);
     }
+    else if ("rectangle" in cursor) {
+      const [ x, y, w, h ] = cursor.rectangle || [ 0, 0, ...seedling.grid ];
+      seedling.sections = seedling.sections.map((cell, i) => {
+        const xi = i % seedling.grid[0];
+        const yi = (i - xi) / seedling.grid[0];
+        if (xi < x || xi >= x + w) return cell;
+        if (yi < y || yi >= y + h) return cell;
+        return update(cell);
+      });
+    }
     else {
       const [ from, to ] = cursor.range || [ 0, seedling.sections.length ];
       seedling.sections = seedling.sections.map((section, i) => {
@@ -150,7 +160,10 @@ function reducer (state, event) {
         sections: Array(
           event.sectionSplitters
           ? event.sectionSplitters.length + 1
-          : event.count || 1
+          : event.grid
+          ? event.grid[0] * event.grid[1]
+          : event.count
+          || 1
         ).fill(null),
       }
     };

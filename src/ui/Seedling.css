@@ -83,7 +83,14 @@
   border-radius: 4px;
 }
 
+.seedling.grid {
+  width: 160px;
+  background: #eee;
+  border-radius: 4px;
+}
+
 .seedling.pots .body,
+.seedling.grid .body,
 .seedling.eggbox .body {
   display: flex;
   flex-direction: row;
@@ -91,6 +98,7 @@
 }
 
 .seedling.pots .body > *,
+.seedling.grid .body > *,
 .seedling.eggbox .body > * {
   display: block;
   border-radius: 10px;
@@ -100,6 +108,7 @@
   color: transparent;
 }
 .seedling.pots .body img,
+.seedling.grid .body img,
 .seedling.eggbox .body img {
   position: absolute;
   top: -4px;
