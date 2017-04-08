@@ -2720,5 +2720,15 @@
     "op": "remove-seedling",
     "date": "2017-03-17",
     "id": "grille-tournesol"
+  },
+  {
+    "op": "seed",
+    "count": 60,
+    "date": "2017-04-08",
+    "species": "radis_n2",
+    "at": {
+      "plot": "gauche",
+      "rectangle": [ 0, 6, 15, 2 ]
+    }
   }
 ]
