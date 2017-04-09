@@ -13,9 +13,9 @@
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "raf": "^3.3.0",
-    "react": "^15.4.2",
+    "react": "^15.5.3",
     "react-addons-perf": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "react-dom": "^15.5.3",
     "react-router": "^4.0.0",
     "react-router-dom": "^4.0.0",
     "smoothstep": "^1.0.1"
