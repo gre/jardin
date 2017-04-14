@@ -1,5 +1,5 @@
 - gre: log the events from last year to have more history
-- a screen to visualize the events
+- a screen to visualize the events – also render the "comment" field
 - allow planning what to do, where. I think there should be a "planned":true added on each event and it's removed when it's actually implemented in the garden.
 - try to fix the moon phases. it seems not correct. some offset?
 - simplify the 'box' idea. drop the need to "add-seedlings". we don't need it, we just need to track an array of {species,count} – however, 'count' is a bit obscure concept for when you do "à la volée" seedling... i might allow to not use count in that case?
@@ -11,3 +11,11 @@
 - List of seeds VS List of families
 - Suggestion screen (this is home screen? or maybe some nice dashboard?)
 - improve suggestion. they currently don't discard if the plant is already planted somewhere.
+
+
+
+
+# idea for refactoring
+
+- 2 kind of 'seedling places' : plot (where the location is important) VS collection (where we just care about adding/removing from, not localized – no longer track the pots etc..)
+- house: inside / outside / outside greenhouse. make it less important in the whole system.
