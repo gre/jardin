@@ -108,7 +108,7 @@ export default class SvgPlot extends Component {
         );
       })}
 
-      <g style={{ opacity: 0.8 }}>
+      <g>
       { (plot.frontDecoratingShapes||[]).map((shape, i) =>
         <SvgShape
           key={i}

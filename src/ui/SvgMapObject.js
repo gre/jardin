@@ -2,9 +2,11 @@
 import React, { Component } from "react";
 import SvgShape from "./SvgShape";
 import SvgTree from "./SvgTree";
+import SvgComposter from "./SvgComposter";
 
 const objectTypeComponents = {
   tree: SvgTree,
+  composter: SvgComposter,
 };
 
 const objectTypeColors = {

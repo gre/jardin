@@ -127,7 +127,17 @@
     "scale": 25,
     "angle": 0,
     "grid": [ 14, 20 ],
-    "rectangle": [ 0, 0, 14, 20 ]
+    "rectangle": [ 0, 0, 14, 20 ],
+    "frontDecoratingShapes": [
+      {
+        "stroke": "#bbb",
+        "fill": "transparent",
+        "strokeWidth": 0.2,
+        "object": {
+          "rectangle": [ -0.1, -0.1, 14.2, 20.2 ]
+        }
+      }
+    ]
   },
   {
     "op": "add-species",
@@ -167,6 +177,23 @@
       [ 8, 24 ],
       [ 8, 12 ],
       [ 0, 12 ]
+    ],
+    "frontDecoratingShapes": [
+      {
+        "stroke": "#bbb",
+        "fill": "transparent",
+        "strokeWidth": 0.2,
+        "object": {
+          "polygon": [
+            [ -0.1, -0.1 ],
+            [ 16.1, -0.1 ],
+            [ 16.1, 24.1 ],
+            [ 8, 24.1 ],
+            [ 8, 12.1 ],
+            [ -0.1, 12.1 ]
+          ]
+        }
+      }
     ]
   },
   {
@@ -1476,6 +1503,13 @@
     "at": {
       "box": "starter-6"
     }
+  },
+  {
+    "op": "add-object",
+    "date": "2017-02-25",
+    "type": "composter",
+    "id": "composter1",
+    "rectangle": [ 227, 505, 70, 70 ]
   },
   {
     "op": "remove-seedling",
@@ -2918,6 +2952,16 @@
     "at": {
       "plot": "droite",
       "rectangle": [0, 16, 14, 2]
+    }
+  },
+  {
+    "op": "seed",
+    "count": 60,
+    "date": "2017-04-19",
+    "species": "carotte_nantaise3",
+    "at": {
+      "plot": "droite",
+      "rectangle": [ 6, 8, 8, 2 ]
     }
   }
 ]
